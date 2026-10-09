@@ -21,6 +21,7 @@ export default function Navbar({ onOpenConsultation, onOpenSearch, onOpenDisclai
     { label: "Partners", href: "#partners" },
     { label: "Case Estimator", href: "#estimator" },
     { label: "Legal Insights", href: "#insights" },
+    { label: "WP Theme (LexVanguard)", href: "/wp-theme-legal-insights/home.html", isExternal: true },
     { label: "Chambers", href: "#chambers" },
   ];
 
@@ -80,6 +81,8 @@ export default function Navbar({ onOpenConsultation, onOpenSearch, onOpenDisclai
               <a
                 key={item.label}
                 href={item.href}
+                target={item.isExternal ? "_blank" : undefined}
+                rel={item.isExternal ? "noopener noreferrer" : undefined}
                 className={`nav-link-item ${activeHover === index ? "active" : ""}`}
                 onMouseEnter={() => setActiveHover(index)}
                 onMouseLeave={() => setActiveHover(null)}

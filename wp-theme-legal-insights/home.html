@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>LexVanguard Advocates | Supreme Court Advocates &amp; Commercial Counsel</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="https://aglaw.in/wp-content/uploads/favicon.ico?v=2">
+    <style>
+        /* Clean Luxury Header Styling */
+        .clean-nav-btn {
+            background: linear-gradient(135deg, #c5a059, #b38b42);
+            color: #0e172a !important;
+            font-size: 0.82rem !important;
+            font-weight: 700 !important;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 9px 20px !important;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px rgba(197, 160, 89, 0.25);
+        }
+        .clean-nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(197, 160, 89, 0.4);
+            color: #000000 !important;
+        }
+
+        /* Hero Banner */
+        .hme_bnr__area {
+            background: #14171f;
+            position: relative;
+            padding: 85px 0 95px 0;
+            overflow: hidden;
+            color: #ffffff;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+        }
+        .bnr_sml_cntnt {
+            font-size: 0.85rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: #c5a059;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .hdng_bnr {
+            font-family: var(--font-serif);
+            font-size: clamp(2.6rem, 4.8vw, 4.2rem);
+            color: #ffffff;
+            line-height: 1.15;
+            margin-bottom: 22px;
+            font-weight: 400;
+        }
+        .hdng_bnr span {
+            color: #c5a059;
+            font-style: italic;
+        }
+        .para_bnr {
+            font-size: 1.08rem;
+            line-height: 1.75;
+            color: #cbd5e1;
+            max-width: 560px;
+            margin-bottom: 34px;
+        }
+        .hm_bnr_visual_frame {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hm_bnr_arch_img {
+            width: 100%;
+            max-width: 440px;
+            height: 450px;
+            border-radius: 200px 200px 20px 20px;
+            overflow: hidden;
+            border: 2px solid rgba(197, 160, 89, 0.4);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.55);
+            position: relative;
+        }
+        .hm_bnr_arch_img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .floating-badge-circle {
+            position: absolute;
+            width: 74px;
+            height: 74px;
+            border-radius: 50%;
+            background: rgba(20, 23, 31, 0.92);
+            border: 1.5px solid var(--color-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-gold);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(8px);
+        }
+        .fb-top-left { top: 15px; left: 15px; }
+        .fb-bottom-right { bottom: 25px; right: 25px; }
+
+        /* Welcome Section */
+        .welcome-sec {
+            background: #fbf9f5;
+            padding: 85px 0;
+            border-bottom: 1px solid #eee5dc;
+        }
+        .welcm-hdng {
+            font-family: var(--font-serif);
+            font-size: 2.3rem;
+            color: #1e293b;
+            margin-bottom: 18px;
+            line-height: 1.25;
+        }
+        .welcm-txt {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #475569;
+            margin-bottom: 28px;
+        }
+        .counter-pill-box {
+            display: flex;
+            gap: 20px;
+            margin-top: 32px;
+            flex-wrap: wrap;
+        }
+        .counter-pill {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px 0 28px 0;
+            padding: 18px 26px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+            min-width: 135px;
+        }
+        .counter-pill .c-num {
+            font-family: var(--font-serif);
+            font-size: 2.1rem;
+            color: #c5a059;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+        .counter-pill .c-lbl {
+            font-size: 0.76rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #64748b;
+            font-weight: 600;
+        }
+
+        /* 3 Service Cards Section */
+        .our-serv-sec {
+            background: #0f172a;
+            padding: 95px 0;
+            color: #ffffff;
+        }
+        .serv-card {
+            border-radius: 16px 0 45px 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.35s ease;
+            height: 100%;
+        }
+        .serv-card-dark {
+            background: #1e293b;
+            border: 1px solid rgba(197, 160, 89, 0.25);
+        }
+        .serv-card-cream {
+            background: #fbf9f5;
+            border: 1px solid rgba(197, 160, 89, 0.5);
+            color: #1e293b;
+        }
+        .serv-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 36px rgba(0,0,0,0.3);
+            border-color: #c5a059;
+        }
+        .serv-card-img {
+            height: 210px;
+            overflow: hidden;
+        }
+        .serv-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .serv-card:hover .serv-card-img img {
+            transform: scale(1.06);
+        }
+        .serv-card-body {
+            padding: 26px 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex: 1;
+        }
+        .serv-card-title {
+            font-family: var(--font-serif);
+            font-size: 1.35rem;
+            line-height: 1.3;
+            margin-bottom: 18px;
+        }
+        .serv-card-dark .serv-card-title { color: #ffffff; }
+        .serv-card-dark .serv-card-title span { color: #c5a059; }
+        .serv-card-cream .serv-card-title { color: #1e293b; }
+        .serv-card-cream .serv-card-title span { color: #8c6a2d; }
+        .serv-btn-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+        .serv-card-dark .serv-btn-link { color: #c5a059; }
+        .serv-card-cream .serv-btn-link { color: #1e293b; }
+
+        /* Practice Areas Showcase Section */
+        .practice-showcase-sec {
+            background: #ffffff;
+            padding: 90px 0;
+        }
+        .pract-row-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 13px 20px;
+            border-radius: 8px 0 22px 0;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            color: #1e293b;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+        .pract-row-item:hover {
+            background: #0f172a;
+            color: #ffffff;
+            border-color: #c5a059;
+            transform: translateX(6px);
+        }
+        .pract-row-item:hover .pract-row-arrw {
+            color: #c5a059;
+            transform: translateX(4px);
+        }
+        .pract-row-arrw {
+            color: #94a3b8;
+            transition: all 0.3s ease;
+            font-size: 1.05rem;
+        }
+
+        /* Leaders Showcase */
+        .leaders-sec {
+            background: #fbf9f5;
+            padding: 90px 0;
+            border-top: 1px solid #eee5dc;
+        }
+        .leader-card-agl {
+            background: #ffffff;
+            border-radius: 16px 0 45px 0;
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+            transition: all 0.35s ease;
+            text-align: center;
+            padding-bottom: 22px;
+        }
+        .leader-card-agl:hover {
+            transform: translateY(-6px);
+            border-color: #c5a059;
+            box-shadow: 0 16px 36px rgba(197, 160, 89, 0.16);
+        }
+        .leader-img-wrap {
+            height: 290px;
+            overflow: hidden;
+            background: #f1f5f9;
+            border-radius: 16px 0 0 0;
+            margin-bottom: 18px;
+        }
+        .leader-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+        }
+        .leader-name {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            color: #1e293b;
+            margin-bottom: 4px;
+            letter-spacing: 0.03em;
+        }
+        .leader-role {
+            font-size: 0.82rem;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 14px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Clean Luxury Sticky Navigation Bar (No Clutter!) -->
+<header class="header-main sticky_top">
+    <div class="container-custom">
+        <div class="top_hdr_area" style="padding: 14px 0;">
+            
+            <!-- Brand Logo Area -->
+            <div class="logo_area">
+                <a href="home.html" class="logo_mn">
+                    <div style="width: 42px; height: 42px; background: rgba(197, 160, 89, 0.15); border: 1px solid var(--color-gold); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c5a059" stroke-width="1.8"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg>
+                    </div>
+                    <div class="logo-text-wrap">
+                        <div class="logo-brand" style="font-size: 1.45rem;">LEX<span>VANGUARD</span></div>
+                        <div class="logo-tagline" style="font-size: 0.68rem;">Advocates &amp; Supreme Court Counsel</div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Clean, Uncluttered Menu -->
+            <div class="menu_area" style="gap: 24px;">
+                <ul class="navinr">
+                    <li class="active"><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="people.html">Our People</a></li>
+                    <li style="position: relative;">
+                        <a href="expertise.html">Practice Areas ▾</a>
+                        <ul class="sub_menuinr">
+                            <li><a href="practice-detail.html">Arbitration &amp; ADR</a></li>
+                            <li><a href="expertise.html#commercial-litigation">Commercial Litigation</a></li>
+                            <li><a href="expertise.html#competition-law">Competition Law</a></li>
+                            <li><a href="expertise.html#corporate-insolvency">Corporate &amp; Insolvency Laws</a></li>
+                            <li><a href="expertise.html#constitutional-law">Constitutional Law</a></li>
+                            <li><a href="expertise.html#criminal-law">Criminal Law - White Collar</a></li>
+                            <li><a href="expertise.html#environmental-law">Environmental Law</a></li>
+                            <li><a href="expertise.html#regulatory-litigation">Regulatory Litigation</a></li>
+                            <li><a href="expertise.html#mediation">Mediation</a></li>
+                            <li><a href="expertise.html#securities-law">Securities Law</a></li>
+                            <li><a href="expertise.html#tax">Tax - Direct &amp; Indirect</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="awards.html">Our Awards</a></li>
+                    <li><a href="preview.html">Insights</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+
+                <!-- Consultation CTA Button -->
+                <a href="contact.html" class="clean-nav-btn">Consultation</a>
+            </div>
+
+        </div>
+    </div>
+</header>
+
+<!-- SECTION 1: HERO BANNER -->
+<section class="hme_bnr__area">
+    <div class="container-custom">
+        <div class="row align-items-center">
+            
+            <div class="col-lg-6" data-aos="fade-right">
+                <div class="bnr_sml_cntnt">
+                    LEXVANGUARD ADVOCATES &amp; PARTNERS
+                </div>
+                <h1 class="hdng_bnr">
+                    With You In Every <span>Challenge</span>
+                </h1>
+                <p class="para_bnr">
+                    At LexVanguard, we deliver dedicated, personalized legal counsel and appellate advocacy across the Supreme Court of India, High Courts, and International Arbitration Tribunals.
+                </p>
+                <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+                    <a href="contact.html" class="sub_filter_btn active" style="padding: 13px 28px; font-size: 0.95rem;">
+                        Schedule Consultation
+                    </a>
+                    <a href="expertise.html" class="sub_filter_btn" style="padding: 13px 28px; font-size: 0.95rem;">
+                        Our Practice Areas &rarr;
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-6 text-center mt-5 mt-lg-0" data-aos="fade-left">
+                <div class="hm_bnr_visual_frame">
+                    <div class="hm_bnr_arch_img">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80" alt="Supreme Court Legal Excellence">
+                    </div>
+                    <div class="floating-badge-circle fb-top-left" title="Supreme Court Practice">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg>
+                    </div>
+                    <div class="floating-badge-circle fb-bottom-right" title="Decades of Heritage">
+                        <div style="text-align: center; line-height: 1.1;">
+                            <span style="font-size: 1.3rem; font-weight: 800; color: #ffffff;">60+</span>
+                            <span style="font-size: 0.58rem; text-transform: uppercase; display: block; color: #c5a059;">Years</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 2: WELCOME TO LEXVANGUARD -->
+<section class="welcome-sec">
+    <div class="container-custom">
+        <div class="row align-items-center">
+            
+            <div class="col-lg-7" data-aos="fade-right">
+                <div style="color: #c5a059; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 10px;">
+                    Heritage &bull; Excellence &bull; Integrity
+                </div>
+                <h2 class="welcm-hdng">
+                    Welcome to LexVanguard Legal
+                </h2>
+                <p class="welcm-txt">
+                    Established with a storied tradition of courtroom excellence, LexVanguard has grown into a leading full-service law firm serving major corporations, financial institutions, and high-net-worth clients across India. Today, we are proud to be one of the most trusted legal institutions handling high-stakes constitutional and commercial disputes.
+                </p>
+                <div class="counter-pill-box">
+                    <div class="counter-pill">
+                        <div class="c-num">1964</div>
+                        <div class="c-lbl">Established</div>
+                    </div>
+                    <div class="counter-pill">
+                        <div class="c-num">11</div>
+                        <div class="c-lbl">Practice Areas</div>
+                    </div>
+                    <div class="counter-pill">
+                        <div class="c-num">500+</div>
+                        <div class="c-lbl">Landmark Cases</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-5 text-center mt-5 mt-lg-0" data-aos="fade-left">
+                <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px 0 45px 0; padding: 36px 28px; box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);">
+                    <div style="width: 64px; height: 64px; border-radius: 50%; background: rgba(197, 160, 89, 0.15); border: 2px solid #c5a059; display: flex; align-items: center; justify-content: center; margin: 0 auto 18px; color: #c5a059; font-size: 1.5rem;">
+                        ⚖️
+                    </div>
+                    <h3 style="font-family: var(--font-serif); font-size: 1.35rem; color: #1e293b; margin-bottom: 10px;">Our Strategic Approach</h3>
+                    <p style="font-size: 0.92rem; color: #64748b; line-height: 1.6; margin-bottom: 22px;">
+                        "Combining forensic factual scrutiny with generational appellate advocacy to deliver exceptional legal outcomes."
+                    </p>
+                    <a href="about.html" class="sub_filter_btn" style="padding: 10px 22px; font-size: 0.85rem; display: inline-block;">
+                        Read Our Full Story &rarr;
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 3: OUR EXPERTISE (The 3 Signature Pillars) -->
+<section class="our-serv-sec">
+    <div class="container-custom">
+        
+        <div class="row text-center mb-5" data-aos="fade-up">
+            <div class="col-12">
+                <h2 style="font-family: var(--font-serif); font-size: 2.5rem; color: #ffffff; margin-bottom: 10px;">
+                    Our Expertise
+                </h2>
+                <p style="color: #cbd5e1; font-size: 1.02rem; max-width: 580px; margin: 0 auto;">
+                    We offer complete solutions for all your legal needs across forums.
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            
+            <!-- Pillar 1 -->
+            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="50">
+                <div class="serv-card serv-card-dark">
+                    <div class="serv-card-img">
+                        <img src="https://aglaw.in/wp-content/uploads/2024/07/our-srv-img2.jpg" alt="Litigation" onerror="this.src='https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&q=80';">
+                    </div>
+                    <div class="serv-card-body">
+                        <div>
+                            <h3 class="serv-card-title">
+                                <span>Litigation</span> Across Courts &amp; Tribunals
+                            </h3>
+                            <p style="font-size: 0.88rem; color: #94a3b8; line-height: 1.6; margin-bottom: 22px;">
+                                Proven appellate representation before the Supreme Court of India, High Courts, NCLAT, and specialized regulatory bodies.
+                            </p>
+                        </div>
+                        <a href="expertise.html#litigation" class="serv-btn-link">Learn More &rarr;</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pillar 2 (Cream accent card) -->
+            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="serv-card serv-card-cream">
+                    <div class="serv-card-img">
+                        <img src="https://aglaw.in/wp-content/uploads/2024/07/our-srv-img3-1.jpg" alt="Alternate Dispute Resolution" onerror="this.src='https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=600&q=80';">
+                    </div>
+                    <div class="serv-card-body">
+                        <div>
+                            <h3 class="serv-card-title">
+                                <span>Alternate</span> Dispute Resolution
+                            </h3>
+                            <p style="font-size: 0.88rem; color: #475569; line-height: 1.6; margin-bottom: 22px;">
+                                High-stakes commercial arbitration under SIAC, LCIA, ICC, and Indian Arbitration Act, alongside enforcement proceedings.
+                            </p>
+                        </div>
+                        <a href="practice-detail.html" class="serv-btn-link">Learn More &rarr;</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pillar 3 -->
+            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="150">
+                <div class="serv-card serv-card-dark">
+                    <div class="serv-card-img">
+                        <img src="https://aglaw.in/wp-content/uploads/2024/07/our-srv-img1.jpg" alt="Corporate Practice" onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80';">
+                    </div>
+                    <div class="serv-card-body">
+                        <div>
+                            <h3 class="serv-card-title">
+                                <span>Corporate</span> &amp; Commercial Practice
+                            </h3>
+                            <p style="font-size: 0.88rem; color: #94a3b8; line-height: 1.6; margin-bottom: 22px;">
+                                Advising leading enterprises in mergers, corporate restructuring, insolvency resolution (IBC), and antitrust disputes.
+                            </p>
+                        </div>
+                        <a href="expertise.html#corporate" class="serv-btn-link">Learn More &rarr;</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- SECTION 4: PRACTICE AREAS SHOWCASE -->
+<section class="practice-showcase-sec">
+    <div class="container-custom">
+        
+        <div class="row align-items-center">
+            
+            <div class="col-lg-5 mb-5 mb-lg-0" data-aos="fade-right">
+                <div style="background: #0f172a; border-radius: 16px 0 45px 0; padding: 36px 30px; color: #ffffff; box-shadow: 0 12px 30px rgba(0,0,0,0.1);">
+                    <span style="color: #c5a059; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; display: block; margin-bottom: 10px;">Practice Portfolio</span>
+                    <h2 style="font-family: var(--font-serif); font-size: 2.1rem; color: #ffffff; margin-bottom: 16px; line-height: 1.25;">
+                        Specialized Legal Verticals
+                    </h2>
+                    <p style="color: #cbd5e1; font-size: 0.92rem; line-height: 1.7; margin-bottom: 24px;">
+                        Our multidisciplinary team navigates complex disputes across sector-specific tribunals, High Courts, and the Supreme Court with seasoned strategic foresight.
+                    </p>
+                    <div style="border-top: 1px solid rgba(197, 160, 89, 0.3); padding-top: 20px;">
+                        <div style="font-size: 0.82rem; color: #c5a059; font-weight: 600; margin-bottom: 4px;">Managing Partner:</div>
+                        <div style="font-family: var(--font-serif); font-size: 1.25rem; color: #ffffff;">Mr. Vikramaditya Shroff</div>
+                        <div style="font-size: 0.8rem; color: #94a3b8;">Senior Advocate &bull; Supreme Court of India</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-7" data-aos="fade-left">
+                <div style="display: flex; flex-direction: column; gap: 8px;">
+                    <a href="practice-detail.html" class="pract-row-item">
+                        <span>⚖️ Arbitration (Domestic &amp; International)</span>
+                        <span class="pract-row-arrw">&rarr;</span>
+                    </a>
+                    <a href="expertise.html#commercial-litigation" class="pract-row-item">
+                        <span>🏛️ Commercial Litigation &amp; Civil Law</span>
+                        <span class="pract-row-arrw">&rarr;</span>
+                    </a>
+                    <a href="expertise.html#competition-law" class="pract-row-item">
+                        <span>📊 Competition &amp; Antitrust Law (CCI)</span>
+                        <span class="pract-row-arrw">&rarr;</span>
+                    </a>
+                    <a href="expertise.html#corporate-insolvency" class="pract-row-item">
+                        <span>🏢 Corporate and Insolvency Laws (IBC)</span>
+                        <span class="pract-row-arrw">&rarr;</span>
+                    </a>
+                    <a href="expertise.html#constitutional-law" class="pract-row-item">
+                        <span>📜 Constitutional Law &amp; Writ Petitions</span>
+                        <span class="pract-row-arrw">&rarr;</span>
+                    </a>
+                    <a href="expertise.html#criminal-law" class="pract-row-item">
+                        <span>🛡️ Criminal Law - White Collar, PMLA</span>
+                        <span class="pract-row-arrw">&rarr;</span>
+                    </a>
+                    <a href="expertise.html#environmental-law" class="pract-row-item">
+                        <span>🌿 Environmental Laws (NGT)</span>
+                        <span class="pract-row-arrw">&rarr;</span>
+                    </a>
+                    <a href="expertise.html#regulatory-litigation" class="pract-row-item">
+                        <span>⚡ Regulatory Litigation - Telecom, Electricity, Mining</span>
+                        <span class="pract-row-arrw">&rarr;</span>
+                    </a>
+                    <a href="expertise.html#mediation" class="pract-row-item">
+                        <span>🤝 Mediation &amp; Settlement Proceedings</span>
+                        <span class="pract-row-arrw">&rarr;</span>
+                    </a>
+                    <a href="expertise.html#securities-law" class="pract-row-item">
+                        <span>📈 Securities Law (SEBI &amp; SAT)</span>
+                        <span class="pract-row-arrw">&rarr;</span>
+                    </a>
+                    <a href="expertise.html#tax" class="pract-row-item">
+                        <span>💰 Tax – Direct Tax, Indirect Tax</span>
+                        <span class="pract-row-arrw">&rarr;</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- SECTION 5: AWARDS & RECOGNITIONS -->
+<section style="background: #0f172a; padding: 85px 0; color: #ffffff;">
+    <div class="container-custom">
+        <div class="row text-center mb-5" data-aos="fade-up">
+            <div class="col-12">
+                <span style="color: #c5a059; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; display: block; margin-bottom: 8px;">Distinction</span>
+                <h2 style="font-family: var(--font-serif); font-size: 2.4rem; color: #ffffff; margin-bottom: 10px;">
+                    Awards &amp; Recognitions
+                </h2>
+                <p style="color: #cbd5e1; font-size: 0.98rem; max-width: 580px; margin: 0 auto;">
+                    We have been nationally and globally recognized for consistently providing top-notch legal representation.
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="50">
+                <div style="background: #1e293b; border: 1px solid rgba(197, 160, 89, 0.25); border-radius: 14px 0 35px 0; padding: 26px 18px; text-align: center;">
+                    <div style="font-size: 1.8rem; margin-bottom: 10px;">🏆</div>
+                    <div style="color: #c5a059; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; margin-bottom: 6px;">2024</div>
+                    <h4 style="font-family: var(--font-serif); font-size: 1.12rem; color: #ffffff; margin-bottom: 6px;">India Business Law Journal</h4>
+                    <p style="font-size: 0.8rem; color: #94a3b8; margin: 0;">Top-tier Dispute Resolution Firm</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                <div style="background: #1e293b; border: 1px solid rgba(197, 160, 89, 0.25); border-radius: 14px 0 35px 0; padding: 26px 18px; text-align: center;">
+                    <div style="font-size: 1.8rem; margin-bottom: 10px;">⚖️</div>
+                    <div style="color: #c5a059; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; margin-bottom: 6px;">2023 - 2024</div>
+                    <h4 style="font-family: var(--font-serif); font-size: 1.12rem; color: #ffffff; margin-bottom: 6px;">The Lawyer Network</h4>
+                    <p style="font-size: 0.8rem; color: #94a3b8; margin: 0;">Annual Commercial Litigation Award</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="150">
+                <div style="background: #1e293b; border: 1px solid rgba(197, 160, 89, 0.25); border-radius: 14px 0 35px 0; padding: 26px 18px; text-align: center;">
+                    <div style="font-size: 1.8rem; margin-bottom: 10px;">🌐</div>
+                    <div style="color: #c5a059; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; margin-bottom: 6px;">Ranked</div>
+                    <h4 style="font-family: var(--font-serif); font-size: 1.12rem; color: #ffffff; margin-bottom: 6px;">Chambers Asia-Pacific</h4>
+                    <p style="font-size: 0.8rem; color: #94a3b8; margin: 0;">Solid Supreme Court Practice</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                <div style="background: #1e293b; border: 1px solid rgba(197, 160, 89, 0.25); border-radius: 14px 0 35px 0; padding: 26px 18px; text-align: center;">
+                    <div style="font-size: 1.8rem; margin-bottom: 10px;">⭐</div>
+                    <div style="color: #c5a059; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; margin-bottom: 6px;">2024</div>
+                    <h4 style="font-family: var(--font-serif); font-size: 1.12rem; color: #ffffff; margin-bottom: 6px;">A-List Recommended</h4>
+                    <p style="font-size: 0.8rem; color: #94a3b8; margin: 0;">Most Recommended Counsel</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-3">
+            <a href="awards.html" class="sub_filter_btn active" style="padding: 10px 24px; font-size: 0.88rem;">
+                View All Awards &rarr;
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 6: OUR LEADERS -->
+<section class="leaders-sec">
+    <div class="container-custom">
+        <div class="row text-center mb-5" data-aos="fade-up">
+            <div class="col-12">
+                <span style="color: #c5a059; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; display: block; margin-bottom: 8px;">Chambers Leadership</span>
+                <h2 style="font-family: var(--font-serif); font-size: 2.4rem; color: #1e293b; margin-bottom: 8px;">
+                    Our Leaders
+                </h2>
+                <p style="color: #64748b; font-size: 1rem;">
+                    Leading with Purpose &bull; Decades of Courtroom Stewardship
+                </p>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            
+            <!-- Leader 1 -->
+            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="50">
+                <div class="leader-card-agl">
+                    <div class="leader-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=600&q=80" alt="Vikramaditya Shroff">
+                    </div>
+                    <h3 class="leader-name">VIKRAMADITYA SHROFF</h3>
+                    <div class="leader-role">Managing Partner, LexVanguard Legal</div>
+                    <div style="display: flex; justify-content: center; gap: 12px;">
+                        <a href="people.html" style="color: #c5a059; font-weight: 600; font-size: 0.85rem;">View Profile &rarr;</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Leader 2 -->
+            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="leader-card-agl">
+                    <div class="leader-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" alt="Arundhati Sengupta">
+                    </div>
+                    <h3 class="leader-name">ARUNDHATI SENGUPTA</h3>
+                    <div class="leader-role">Senior Partner, Commercial &amp; Arbitration</div>
+                    <div style="display: flex; justify-content: center; gap: 12px;">
+                        <a href="people.html" style="color: #c5a059; font-weight: 600; font-size: 0.85rem;">View Profile &rarr;</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Leader 3 -->
+            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="150">
+                <div class="leader-card-agl">
+                    <div class="leader-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80" alt="Rajeev Singhania">
+                    </div>
+                    <h3 class="leader-name">RAJEEV SINGHANIA</h3>
+                    <div class="leader-role">Partner, Appellate Dispute Resolution</div>
+                    <div style="display: flex; justify-content: center; gap: 12px;">
+                        <a href="people.html" style="color: #c5a059; font-weight: 600; font-size: 0.85rem;">View Profile &rarr;</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="text-center mt-2">
+            <a href="people.html" class="sub_filter_btn" style="padding: 10px 24px; font-size: 0.88rem;">
+                Meet Our Entire Team &rarr;
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 7: LATEST INSIGHTS (Refined Proportions) -->
+<section style="background: #ffffff; padding: 90px 0;">
+    <div class="container-custom">
+        <div class="row align-items-center mb-5" data-aos="fade-up">
+            <div class="col-md-8">
+                <span style="color: #c5a059; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; display: block; margin-bottom: 6px;">Legal Publications</span>
+                <h2 style="font-family: var(--font-serif); font-size: 2.3rem; color: #1e293b; margin-bottom: 0;">
+                    Latest Insights &amp; Digests
+                </h2>
+            </div>
+            <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                <a href="preview.html" class="sub_filter_btn active" style="padding: 10px 22px; font-size: 0.88rem;">
+                    All Publications &rarr;
+                </a>
+            </div>
+        </div>
+
+        <ul class="evnt_lstng_inr">
+            <li data-aos="fade-up" data-aos-delay="50">
+                <div class="evnt_img__bx">
+                    <span class="category-badge">Corporate Law</span>
+                    <a href="preview.html"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80" alt="Mergers & Restructuring"></a>
+                    <div class="bggrdnt"></div>
+                </div>
+                <div class="evnt_txtbx">
+                    <div class="evnt_txt__top">
+                        <div style="font-size: 0.78rem; color: #94a3b8; margin-bottom: 8px;">Oct 2026 &bull; 6 min read</div>
+                        <h3 class="mn_hgt_blg"><a href="preview.html">Mergers, Demergers, Capital Reduction &amp; Restructuring</a></h3>
+                        <p>End-to-end legal analysis of mergers, capital reductions under Companies Act 2013 and NCLT jurisprudence.</p>
+                    </div>
+                    <a href="preview.html" class="practice-link-arrw">Read Insight &rarr;</a>
+                </div>
+            </li>
+
+            <li data-aos="fade-up" data-aos-delay="100">
+                <div class="evnt_img__bx">
+                    <span class="category-badge">Data & Tech</span>
+                    <a href="preview.html"><img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80" alt="Data Protection"></a>
+                    <div class="bggrdnt"></div>
+                </div>
+                <div class="evnt_txtbx">
+                    <div class="evnt_txt__top">
+                        <div style="font-size: 0.78rem; color: #94a3b8; margin-bottom: 8px;">Sep 2026 &bull; 5 min read</div>
+                        <h3 class="mn_hgt_blg"><a href="preview.html">The Evolution Of Data Protection: DPDPA 2023 Analysis</a></h3>
+                        <p>Exhaustive review of cross-border transfers, processing compliance, and fiduciary obligations under the Digital Personal Data Protection Act.</p>
+                    </div>
+                    <a href="preview.html" class="practice-link-arrw">Read Insight &rarr;</a>
+                </div>
+            </li>
+
+            <li data-aos="fade-up" data-aos-delay="150">
+                <div class="evnt_img__bx">
+                    <span class="category-badge">Supreme Court</span>
+                    <a href="preview.html"><img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&q=80" alt="Supreme Court Digest"></a>
+                    <div class="bggrdnt"></div>
+                </div>
+                <div class="evnt_txtbx">
+                    <div class="evnt_txt__top">
+                        <div style="font-size: 0.78rem; color: #94a3b8; margin-bottom: 8px;">Aug 2026 &bull; 7 min read</div>
+                        <h3 class="mn_hgt_blg"><a href="preview.html">Curative Petitions &amp; Arbitral Finality in India</a></h3>
+                        <p>Critical scrutiny of recent open-court curative rulings and their implications for commercial arbitration finality.</p>
+                    </div>
+                    <a href="preview.html" class="practice-link-arrw">Read Insight &rarr;</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer-mn paddingTop paddingBottom">
+    <div class="container-custom">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="footer-lft">
+                    <a href="home.html">
+                        <div class="logo-brand" style="font-size: 1.7rem; margin-bottom: 8px;">LEX<span>VANGUARD</span></div>
+                    </a>
+                    <p style="color: #94a3b8; max-width: 440px; margin-top: 12px; font-size: 0.92rem; line-height: 1.7;">
+                        Premier full-service legal institution renowned for strategic dispute resolution before the Hon'ble Supreme Court of India, High Courts, and international arbitral seats.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-6">
+                <div class="footer-mid">
+                    <h2>Quick Links</h2>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="people.html">Our People</a></li>
+                        <li><a href="awards.html">Our Awards</a></li>
+                        <li><a href="expertise.html">Our Expertise</a></li>
+                        <li><a href="preview.html">Insights Hub</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-6">
+                <div class="footer-mid">
+                    <h2>Practice Areas</h2>
+                    <ul>
+                        <li><a href="practice-detail.html">Arbitration</a></li>
+                        <li><a href="expertise.html">Commercial Litigation</a></li>
+                        <li><a href="expertise.html">Competition Law</a></li>
+                        <li><a href="expertise.html">Corporate &amp; Insolvency</a></li>
+                        <li><a href="expertise.html">Constitutional Law</a></li>
+                        <li><a href="expertise.html">Criminal Law - PMLA</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<section class="footer-bot-mn">
+    <div class="container-custom">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="footer-bot-lft">&copy; 2026 LexVanguard Legal Associates. All Rights Reserved.</div>
+            </div>
+            <div class="col-md-8">
+                <div class="footer-bot-rght">
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="privacy.html">Regulatory Disclaimer</a></li>
+                        <li><a href="privacy.html">Terms of Use</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="assets/js/theme.js"></script>
+</body>
+</html>

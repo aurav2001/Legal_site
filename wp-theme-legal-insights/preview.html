@@ -1,0 +1,911 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Insights - Vanguard &amp; Partners | Legal Knowledge Hub (AGL Style)</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Article Modal Preview styling for standalone preview */
+        .article-modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(8, 13, 24, 0.88);
+            backdrop-filter: blur(8px);
+            z-index: 9999;
+            overflow-y: auto;
+            padding: 40px 20px;
+        }
+        .article-modal-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: var(--card-radius-curve);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.45);
+            overflow: hidden;
+            position: relative;
+            animation: modalFadeIn 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(30px) scale(0.98); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .modal-close-btn {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            background: #0e172a;
+            color: #ffffff;
+            border: none;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            font-size: 1.3rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 20;
+            transition: all 0.2s ease;
+        }
+        .modal-close-btn:hover {
+            background: var(--color-gold);
+            color: #0e172a;
+            transform: rotate(90deg);
+        }
+        .preview-badge-ribbon {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: #0e172a;
+            color: #ffffff;
+            border: 1px solid var(--color-gold);
+            padding: 12px 20px;
+            border-radius: 30px;
+            font-size: 0.84rem;
+            font-weight: 600;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+            z-index: 9998;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Bar Council of India (BCI) Regulatory Disclaimer Modal -->
+    <div id="bciDisclaimerModal" class="dsclaimer_popup">
+        <div class="disclaimer_popup_inr">
+            <h2 class="dsclmr_hdng">DISCLAIMER</h2>
+            <p style="font-size: 0.9rem; color: #475569; margin-bottom: 18px; line-height: 1.6;">
+                The Bar Council of India restricts advocates and law firms from advertising or soliciting work in any form. By accessing this website, the user acknowledges and confirms that:
+            </p>
+            <div class="scrl__dv">
+                <ul class="dsclmr_txt">
+                    <li>The user is accessing this portal voluntarily for their own information and knowledge, and there has been no solicitation, invitation, or inducement of any sort by the Firm or its members.</li>
+                    <li>The content on this website is intended solely for general informational and educational purposes and does not constitute formal legal opinion or legal advice.</li>
+                    <li>Accessing or downloading materials from this website does not create or establish an advocate-client relationship between the Firm and the user.</li>
+                    <li>The Firm expressly disclaims all liability for any actions taken or decisions made in reliance on any content available on this website.</li>
+                    <li>All intellectual property and publication rights in the legal digests, commentaries, and research bulletins are reserved.</li>
+                </ul>
+            </div>
+            <div style="text-align: center;">
+                <button type="button" id="proceedBtn" class="prcd_btn">I Accept &amp; Proceed</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Clean Luxury Sticky Navigation Bar (Uncluttered) -->
+    <header class="header-main sticky_top">
+        <div class="container-custom">
+            <div class="top_hdr_area" style="padding: 14px 0;">
+                
+                <!-- Brand Logo Area -->
+                <div class="logo_area">
+                    <a href="home.html" class="logo_mn">
+                        <div style="width: 42px; height: 42px; background: rgba(197, 160, 89, 0.15); border: 1px solid var(--color-gold); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c5a059" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/>
+                                <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/>
+                                <path d="M7 21h10"/>
+                                <path d="M12 3v18"/>
+                                <path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/>
+                            </svg>
+                        </div>
+                        <div class="logo-text-wrap">
+                            <div class="logo-brand" style="font-size: 1.45rem;">LEX<span>VANGUARD</span></div>
+                            <div class="logo-tagline" style="font-size: 0.68rem;">Advocates &amp; Supreme Court Counsel</div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Navigation Menu Area -->
+                <div class="menu_area" style="gap: 24px;">
+                    <ul class="navinr">
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="people.html">Our People</a></li>
+                        <li style="position: relative;">
+                            <a href="expertise.html">Practice Areas ▾</a>
+                            <ul class="sub_menuinr">
+                                <li><a href="practice-detail.html">Arbitration &amp; ADR</a></li>
+                                <li><a href="expertise.html#commercial-litigation">Commercial Litigation</a></li>
+                                <li><a href="expertise.html#competition-law">Competition Law</a></li>
+                                <li><a href="expertise.html#corporate-insolvency">Corporate &amp; Insolvency Laws</a></li>
+                                <li><a href="expertise.html#constitutional-law">Constitutional Law</a></li>
+                                <li><a href="expertise.html#criminal-law">Criminal Law - White Collar</a></li>
+                                <li><a href="expertise.html#environmental-law">Environmental Law</a></li>
+                                <li><a href="expertise.html#regulatory-litigation">Regulatory Litigation</a></li>
+                                <li><a href="expertise.html#mediation">Mediation</a></li>
+                                <li><a href="expertise.html#securities-law">Securities Law</a></li>
+                                <li><a href="expertise.html#tax">Tax - Direct &amp; Indirect</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="awards.html">Our Awards</a></li>
+                        <li class="active"><a href="preview.html">Insights</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+
+                    <a href="contact.html" class="clean-nav-btn">Consultation</a>
+
+                    <!-- Mobile Hamburger -->
+                    <div class="header__humburgermenu" id="mobileMenuToggle">
+                        <div class="header__humburgerblock">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- Banner Section (with AOS fade-right like aglaw.in) -->
+    <section class="about-mn">
+        <div class="container-custom">
+            <div class="about-banner">
+                <div class="about_banner_txt" data-aos="fade-right">
+                    <div class="bnr_tag">Thought Leadership &amp; Jurisprudence</div>
+                    <h1 class="bnr_heading">Insights</h1>
+                    <p class="bnr_subtitle">
+                        In-depth legal commentaries, Supreme Court digests, statutory amendments, and cross-border commercial briefings authored by our senior advocates and partners.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Insights Main Hub (.insights-mn) -->
+    <section class="insights-mn">
+        <div class="container-custom">
+
+            <!-- Search Bar on Top Right (like aglaw.in) -->
+            <div class="row insight_srch_lst_cont">
+                <div class="col-6" data-aos="fade-right"></div>
+                <div class="col-6" data-aos="fade-left">
+                    <div class="searchbar_bt">
+                        <div class="srch_bx">
+                            <input type="search" id="liveSearchInput" placeholder="Search by name or topic" class="srchbxinpt">
+                            <button type="button" class="search-submit srchbtn" aria-label="Search">
+                                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category Tabs (like aglaw.in .insight_menu_slider with animated top line) -->
+            <div class="insight_menu_slider" data-aos="fade-up">
+                <div class="insight_menu_itm active" id="tab-all">
+                    <a href="javascript:void(0);" onclick="filterCategory('all')">
+                        All Publications
+                    </a>
+                </div>
+                <div class="insight_menu_itm" id="tab-blogs-and-articles">
+                    <a href="javascript:void(0);" onclick="filterCategory('blogs-and-articles')">
+                        Blogs &amp; Articles
+                    </a>
+                </div>
+                <div class="insight_menu_itm" id="tab-media-and-events">
+                    <a href="javascript:void(0);" onclick="filterCategory('media-and-events')">
+                        Media &amp; Events
+                    </a>
+                </div>
+                <div class="insight_menu_itm" id="tab-supreme-court-digest">
+                    <a href="javascript:void(0);" onclick="filterCategory('supreme-court-digest')">
+                        Supreme Court Digest
+                    </a>
+                </div>
+            </div>
+
+            <!-- Filter Status Banner (Dynamic) -->
+            <div id="filterStatusBanner" style="display: none; margin-bottom: 24px; align-items: center; justify-content: space-between; background: #f4eee4; padding: 12px 20px; border-radius: 8px;">
+                <div id="filterStatusText" style="font-size: 0.88rem; color: #332720;"></div>
+                <a href="javascript:void(0);" onclick="resetFilters()" style="font-size: 0.82rem; color: var(--color-gold); font-weight: 700;">Clear Filters &times;</a>
+            </div>
+
+            <!-- Articles Grid (.evnt_lstng_inr) with Signature Curve Shape (16px 0 45px 0) -->
+            <ul class="evnt_lstng_inr" id="insightsCardGrid">
+                
+                <!-- Card 1 -->
+                <li data-category="blogs-and-articles" data-id="1" data-aos="fade-up" data-aos-delay="100">
+                    <div class="evnt_img__bx">
+                        <span class="category-badge">Blogs &amp; Articles</span>
+                        <a href="javascript:void(0);" onclick="openArticleModal(1)">
+                            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" alt="Corporate Restructuring" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="evnt_txtbx despara">
+                        <div class="evnt_txt__top">
+                            <h2 class="mn_hgt_blg">
+                                <a href="javascript:void(0);" onclick="openArticleModal(1)">
+                                    Mergers, Demergers, Capital Reduction and Restructuring
+                                </a>
+                            </h2>
+                            <p>
+                                <a href="javascript:void(0);" onclick="openArticleModal(1)">
+                                    End-to-end legal expertise in mergers, demergers, corporate restructurings, and capital reductions under the Companies Act 2013 and NCLT jurisprudence.
+                                </a>
+                            </p>
+                        </div>
+                        <div class="evnt__btm">
+                            <div class="evnt__btm__lft">
+                                <div class="edtr__bx">
+                                    <span>
+                                        <span class="greytxt">
+                                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                            31st January 2026
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="evnt__btm__rht">
+                                <a href="javascript:void(0);" onclick="openArticleModal(1)" class="btnstyle inline">
+                                    <span>Read more</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bggrdnt"></div>
+                </li>
+
+                <!-- Card 2 -->
+                <li data-category="blogs-and-articles" data-id="2" data-aos="fade-up" data-aos-delay="250">
+                    <div class="evnt_img__bx">
+                        <span class="category-badge">Blogs &amp; Articles</span>
+                        <a href="javascript:void(0);" onclick="openArticleModal(2)">
+                            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80" alt="Data Protection" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="evnt_txtbx despara">
+                        <div class="evnt_txt__top">
+                            <h2 class="mn_hgt_blg">
+                                <a href="javascript:void(0);" onclick="openArticleModal(2)">
+                                    The Evolution Of Data Protection: Analyzing India’s Legal Framework And Global Implications
+                                </a>
+                            </h2>
+                            <p>
+                                <a href="javascript:void(0);" onclick="openArticleModal(2)">
+                                    Data privacy and data protection under the Digital Personal Data Protection Act (DPDPA), 2023: An exhaustive review of cross-border transfers and compliance.
+                                </a>
+                            </p>
+                        </div>
+                        <div class="evnt__btm">
+                            <div class="evnt__btm__lft">
+                                <div class="edtr__bx">
+                                    <span>
+                                        <span class="greytxt">
+                                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                            13th September 2025
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="evnt__btm__rht">
+                                <a href="javascript:void(0);" onclick="openArticleModal(2)" class="btnstyle inline">
+                                    <span>Read more</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bggrdnt"></div>
+                </li>
+
+                <!-- Card 3 -->
+                <li data-category="supreme-court-digest" data-id="3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="evnt_img__bx">
+                        <span class="category-badge">Supreme Court Digest</span>
+                        <a href="javascript:void(0);" onclick="openArticleModal(3)">
+                            <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=80" alt="Supreme Court Mineral Royalties" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="evnt_txtbx despara">
+                        <div class="evnt_txt__top">
+                            <h2 class="mn_hgt_blg">
+                                <a href="javascript:void(0);" onclick="openArticleModal(3)">
+                                    Mineral Area Development Authority vs Steel Authority of India
+                                </a>
+                            </h2>
+                            <p>
+                                <a href="javascript:void(0);" onclick="openArticleModal(3)">
+                                    On 25th July 2024, the Supreme Court of India delivered a historic 9-judge bench judgment resolving decades-old constitutional battles over States’ power to tax mineral rights.
+                                </a>
+                            </p>
+                        </div>
+                        <div class="evnt__btm">
+                            <div class="evnt__btm__lft">
+                                <div class="edtr__bx">
+                                    <span>
+                                        <span class="greytxt">
+                                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                            13th September 2024
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="evnt__btm__rht">
+                                <a href="javascript:void(0);" onclick="openArticleModal(3)" class="btnstyle inline">
+                                    <span>Read more</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bggrdnt"></div>
+                </li>
+
+                <!-- Card 4 -->
+                <li data-category="supreme-court-digest" data-id="4" data-aos="fade-up" data-aos-delay="250">
+                    <div class="evnt_img__bx">
+                        <span class="category-badge">Supreme Court Digest</span>
+                        <a href="javascript:void(0);" onclick="openArticleModal(4)">
+                            <img src="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=800&q=80" alt="Arbitral Awards Section 34" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="evnt_txtbx despara">
+                        <div class="evnt_txt__top">
+                            <h2 class="mn_hgt_blg">
+                                <a href="javascript:void(0);" onclick="openArticleModal(4)">
+                                    Supreme Court Clarifies Limits of Judicial Intervention in Arbitral Awards (Section 34)
+                                </a>
+                            </h2>
+                            <p>
+                                <a href="javascript:void(0);" onclick="openArticleModal(4)">
+                                    Reinforcing the doctrine of minimal judicial interference and defining the exact statutory thresholds of patent illegality under Indian arbitration law.
+                                </a>
+                            </p>
+                        </div>
+                        <div class="evnt__btm">
+                            <div class="evnt__btm__lft">
+                                <div class="edtr__bx">
+                                    <span>
+                                        <span class="greytxt">
+                                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                            24th August 2024
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="evnt__btm__rht">
+                                <a href="javascript:void(0);" onclick="openArticleModal(4)" class="btnstyle inline">
+                                    <span>Read more</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bggrdnt"></div>
+                </li>
+
+                <!-- Card 5 -->
+                <li data-category="media-and-events" data-id="5" data-aos="fade-up" data-aos-delay="100">
+                    <div class="evnt_img__bx">
+                        <span class="category-badge">Media &amp; Events</span>
+                        <a href="javascript:void(0);" onclick="openArticleModal(5)">
+                            <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80" alt="International Arbitration Summit" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="evnt_txtbx despara">
+                        <div class="evnt_txt__top">
+                            <h2 class="mn_hgt_blg">
+                                <a href="javascript:void(0);" onclick="openArticleModal(5)">
+                                    Annual Global Arbitration Symposium: Cross-Border Commercial Enforcement
+                                </a>
+                            </h2>
+                            <p>
+                                <a href="javascript:void(0);" onclick="openArticleModal(5)">
+                                    Partners and Senior Counsel address the 2026 International Arbitration Summit on enforcement of foreign awards under the New York Convention and bilateral treaties.
+                                </a>
+                            </p>
+                        </div>
+                        <div class="evnt__btm">
+                            <div class="evnt__btm__lft">
+                                <div class="edtr__bx">
+                                    <span>
+                                        <span class="greytxt">
+                                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                            10th July 2024
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="evnt__btm__rht">
+                                <a href="javascript:void(0);" onclick="openArticleModal(5)" class="btnstyle inline">
+                                    <span>Read more</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bggrdnt"></div>
+                </li>
+
+                <!-- Card 6 -->
+                <li data-category="blogs-and-articles" data-id="6" data-aos="fade-up" data-aos-delay="250">
+                    <div class="evnt_img__bx">
+                        <span class="category-badge">Blogs &amp; Articles</span>
+                        <a href="javascript:void(0);" onclick="openArticleModal(6)">
+                            <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80" alt="IBC Pre-pack Insolvency" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="evnt_txtbx despara">
+                        <div class="evnt_txt__top">
+                            <h2 class="mn_hgt_blg">
+                                <a href="javascript:void(0);" onclick="openArticleModal(6)">
+                                    IBC Amendments: Navigating Pre-Packaged Insolvency for Large Corporate Debtors
+                                </a>
+                            </h2>
+                            <p>
+                                <a href="javascript:void(0);" onclick="openArticleModal(6)">
+                                    Evaluating the expansion of the pre-pack framework beyond MSMEs and its potential to avert rapid enterprise value erosion in manufacturing insolvencies.
+                                </a>
+                            </p>
+                        </div>
+                        <div class="evnt__btm">
+                            <div class="evnt__btm__lft">
+                                <div class="edtr__bx">
+                                    <span>
+                                        <span class="greytxt">
+                                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                            28th June 2024
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="evnt__btm__rht">
+                                <a href="javascript:void(0);" onclick="openArticleModal(6)" class="btnstyle inline">
+                                    <span>Read more</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bggrdnt"></div>
+                </li>
+
+            </ul>
+
+            <!-- Empty State Placeholder (hidden by default) -->
+            <div id="noResultsState" class="insights-empty-state" style="display: none;">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="1.5" style="margin: 0 auto 16px auto;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <h3>No Insights Found</h3>
+                <p>There are no legal articles or media briefs matching your current filter criteria.</p>
+                <a href="javascript:void(0);" onclick="resetFilters()" class="btn-reset">Reset All Filters</a>
+            </div>
+
+            <!-- Pagination -->
+            <div class="insights-pagination" data-aos="fade-up">
+                <span class="page-numbers current">1</span>
+                <a href="javascript:void(0);" class="page-numbers">2</a>
+                <a href="javascript:void(0);" class="page-numbers">3</a>
+                <a href="javascript:void(0);" class="page-numbers">Next &rarr;</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Single Article Modal Reading View -->
+    <div id="articleModal" class="article-modal">
+        <div class="article-modal-inner">
+            <button class="modal-close-btn" onclick="closeArticleModal()" aria-label="Close">&times;</button>
+            
+            <section class="intr_mn blg_mn" style="padding: 44px 36px; background: #ffffff;">
+                <div class="container-custom" style="padding: 0;">
+                    <div class="row">
+                        
+                        <!-- Left Content Area -->
+                        <div class="col-8 blg_lft" style="box-shadow: none; border: none; padding: 0 24px 0 0;">
+                            <div class="breadcrumbs-trail">
+                                <span>Home</span>
+                                <span class="separator">/</span>
+                                <span>Insights</span>
+                                <span class="separator">/</span>
+                                <span id="modalBreadcrumbCat" style="color: var(--color-gold);">Blogs &amp; Articles</span>
+                            </div>
+
+                            <h1 class="blgs_hd" id="modalArticleTitle">Mergers, Demergers, Capital Reduction and Restructuring</h1>
+
+                            <div class="single-post-meta">
+                                <span class="meta-category" id="modalCategoryBadge">Blogs &amp; Articles</span>
+                                <div style="display: flex; align-items: center; gap: 6px;">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                    <span id="modalDate">31st January 2026</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 6px;">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                                    <span id="modalReadTime">6 min read</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 6px;">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                                    <span id="modalAuthor">By Senior Counsel</span>
+                                </div>
+                            </div>
+
+                            <div class="insights_imgbx">
+                                <img id="modalFeaturedImg" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80" alt="Article Banner">
+                            </div>
+
+                            <div class="key-takeaway-box" id="modalKeyTakeawayBox">
+                                <h4>Key Regulatory Takeaway</h4>
+                                <p id="modalKeyTakeawayText">End-to-end legal compliance in restructuring demands rigorous alignment between regional directors, official liquidators, and the statutory requirements under Sections 230-232 of the Companies Act 2013.</p>
+                            </div>
+
+                            <div class="intr_cnt" id="modalArticleBody">
+                                <p>Our corporate practice advises leading conglomerates, financial institutions, and multinational corporations on structuring, negotiating, and executing high-value mergers, demergers, and capital reductions.</p>
+                                <blockquote>
+                                    "The jurisdiction of the NCLT under Section 230-232 is supervisory rather than appellate. The Tribunal verifies that statutory compliance is satisfied and the scheme is fair and reasonable to all classes of shareholders and creditors."
+                                </blockquote>
+                                <h3>Key Procedural Aspects before NCLT</h3>
+                                <p>Handling large scale restructuring involves forensic scrutiny of shareholder and creditor meetings, accounting treatment confirmations under Indian Accounting Standards (Ind AS), and timely compliance before the National Company Law Tribunal (NCLT).</p>
+                            </div>
+                        </div>
+
+                        <!-- Right Related Posts Area -->
+                        <div class="col-4 blg_rgt" style="border-left: 1px solid #eee8e2; padding-left: 28px;">
+                            <h2 class="intr_hdg2 headingFontBlk blgs_hd">Related Posts</h2>
+                            <div class="rltd_post_lst_outr">
+                                <ul class="rltd_post_lst">
+                                    <li>
+                                        <a href="javascript:void(0);" onclick="openArticleModal(2)">
+                                            <div class="rltd__post_img">
+                                                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80" alt="Data Protection">
+                                            </div>
+                                            <div class="rltd_post_content">
+                                                <h4 class="intr_hdng6">The Evolution Of Data Protection in India</h4>
+                                                <p class="main_prg" style="font-size: 0.84rem; color: #64748b; line-height: 1.5; margin-bottom: 8px;">Exhaustive review of cross-border transfers and compliance under DPDPA 2023.</p>
+                                                <div class="rltd_meta" style="font-size: 0.76rem; color: #9d9894;">13th Sept 2025</div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" onclick="openArticleModal(3)">
+                                            <div class="rltd__post_img">
+                                                <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&q=80" alt="Supreme Court Mining Verdict">
+                                            </div>
+                                            <div class="rltd_post_content">
+                                                <h4 class="intr_hdng6">Mineral Area Development Authority vs SAIL</h4>
+                                                <p class="main_prg" style="font-size: 0.84rem; color: #64748b; line-height: 1.5; margin-bottom: 8px;">Historic 9-Judge Supreme Court verdict on States’ power to tax mineral rights.</p>
+                                                <div class="rltd_meta" style="font-size: 0.76rem; color: #9d9894;">13th Sept 2024</div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Footer Main Section -->
+    <footer class="footer-mn">
+        <div class="container-custom">
+            <div class="row">
+                
+                <div class="col-4" data-aos="fade-right">
+                    <div class="footer-lft">
+                        <div class="logo-brand" style="font-size: 1.45rem; color: #ffffff; margin-bottom: 12px;">
+                            Vanguard &amp; Partners
+                        </div>
+                        <p class="footer-desc">
+                            Premier Tier-1 full-service legal institution with nationwide courtroom advocacy before the Supreme Court of India, High Courts, and international arbitral seats.
+                        </p>
+                        <ul class="scl-icn">
+                            <li>
+                                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://x.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-4" data-aos="fade-up" data-aos-delay="150">
+                    <div class="footer-mid">
+                        <h2>Firm &amp; Knowledge</h2>
+                        <ul>
+                            <li><a href="about.html">About Our Chambers</a></li>
+                            <li><a href="people.html">Senior Advocates &amp; Partners</a></li>
+                            <li><a href="expertise.html">Our Expertise</a></li>
+                            <li><a href="preview.html">Insights &amp; Research Hub</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-4" data-aos="fade-left" data-aos-delay="250">
+                    <div class="footer-mid">
+                        <h2>Practice Jurisdictions</h2>
+                        <ul>
+                            <li><a href="#">Commercial Litigation &amp; Supreme Court</a></li>
+                            <li><a href="#">International &amp; Domestic Arbitration</a></li>
+                            <li><a href="#">Corporate Restructuring &amp; M&amp;A</a></li>
+                            <li><a href="#">Insolvency &amp; Bankruptcy Code (IBC)</a></li>
+                            <li><a href="#">Competition &amp; Antitrust Law</a></li>
+                            <li><a href="#">White-Collar Defense &amp; PMLA</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <!-- Footer Bottom Bar -->
+    <section class="footer-bot-mn">
+        <div class="container-custom">
+            <div class="row" style="align-items: center;">
+                <div class="col-6">
+                    <div>&copy; 2026 Vanguard &amp; Partners. All Rights Reserved.</div>
+                </div>
+                <div class="col-6">
+                    <div class="footer-bot-rght">
+                        <ul>
+                            <li><a href="#">Terms of Access</a></li>
+                            <li><a href="javascript:void(0);" onclick="openDisclaimerModal()">BCI Disclaimer</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Client Script with Native IntersectionObserver AOS Engine -->
+    <script>
+        // 1. High Performance Native IntersectionObserver AOS Engine
+        function initAOS() {
+            const aosElements = document.querySelectorAll('[data-aos]');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('aos-animate');
+                    }
+                });
+            }, {
+                root: null,
+                rootMargin: '0px 0px -40px 0px',
+                threshold: 0.1
+            });
+
+            aosElements.forEach(el => observer.observe(el));
+        }
+
+        // Initialize AOS immediately
+        document.addEventListener('DOMContentLoaded', initAOS);
+        // Also trigger on window load to ensure everything animates properly
+        window.addEventListener('load', initAOS);
+
+        // Article mock database
+        const mockArticles = {
+            1: {
+                title: "Mergers, Demergers, Capital Reduction and Restructuring",
+                category: "Blogs & Articles",
+                date: "31st January 2026",
+                readTime: "6 min read",
+                author: "Vikramaditya Shroff",
+                img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80",
+                keyTakeaway: "End-to-end legal compliance in restructuring demands rigorous alignment between regional directors, official liquidators, and the statutory requirements under Sections 230-232 of the Companies Act 2013.",
+                content: `<p>Our corporate practice advises leading conglomerates, financial institutions, and multinational corporations on structuring, negotiating, and executing high-value mergers, demergers, and capital reductions.</p>
+                <blockquote>"The sanctioning of schemes of arrangement under Sections 230-232 requires strict compliance with statutory notices, creditor approvals, and regulatory clearances from Regional Directors, ROC, and the Competition Commission of India."</blockquote>
+                <h3>Key Procedural Aspects before NCLT</h3>
+                <p>Handling large scale restructuring involves forensic scrutiny of shareholder and creditor meetings, accounting treatment confirmations under Indian Accounting Standards (Ind AS), and timely compliance before the National Company Law Tribunal (NCLT).</p>`
+            },
+            2: {
+                title: "The Evolution Of Data Protection: Analyzing India’s Legal Framework And Global Implications",
+                category: "Blogs & Articles",
+                date: "13th September 2025",
+                readTime: "8 min read",
+                author: "Kavita Nambiar",
+                img: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80",
+                keyTakeaway: "Unlike the EU GDPR, the Indian DPDPA establishes distinct consent architectures and mandatory Data Protection Officer (DPO) mechanisms for Significant Data Fiduciaries.",
+                content: `<p>Data privacy and data protection, though often used interchangeably, represent fundamentally distinct regulatory paradigms in Indian commercial jurisprudence.</p>
+                <blockquote>"Enterprises handling personal consumer data in India must implement verifiable consent management, automated erasure workflows upon withdrawal, and robust notice disclosures in 22 scheduled Indian languages."</blockquote>
+                <h3>Cross-Border Data Transfers</h3>
+                <p>The Central Government retains discretionary negative-list power regarding data exports. Global enterprises must prepare transfer risk assessments and standard contractual clauses.</p>`
+            },
+            3: {
+                title: "Mineral Area Development Authority vs Steel Authority of India",
+                category: "Supreme Court Digest",
+                date: "13th September 2024",
+                readTime: "10 min read",
+                author: "Rajeev Singhania (Senior Advocate)",
+                img: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1200&q=80",
+                keyTakeaway: "Royalties paid under the MMDR Act do not constitute taxes; States possess constitutional legislative competence under Entry 50, List II to tax mineral-bearing lands.",
+                content: `<p>On 25th July 2024, the Supreme Court of India delivered a landmark 9-judge constitution bench judgment in the Mineral Area Development Authority matter, ending decades of constitutional controversy.</p>
+                <blockquote>"By an 8:1 majority, the Constitution Bench held that royalty is not tax. Rather, royalty represents the consideration paid by the lessee to the mineral owner for extracting minerals."</blockquote>
+                <h3>Commercial & Fiscal Implications</h3>
+                <p>This decision validates state legislation imposing cesses and fees on mining operations, requiring mining enterprises and public sector units to re-assess retroactive liability and long-term supply contract escalation clauses.</p>`
+            },
+            4: {
+                title: "Supreme Court Clarifies Limits of Judicial Intervention in Arbitral Awards (Section 34)",
+                category: "Supreme Court Digest",
+                date: "24th August 2024",
+                readTime: "5 min read",
+                author: "Arundhati Sengupta",
+                img: "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=1200&q=80",
+                keyTakeaway: "Courts cannot re-appreciate factual evidence or substitute their view for that of an arbitral tribunal merely because an alternate interpretation is plausible.",
+                content: `<p>In a decisive ruling, the Supreme Court reiterated that Section 34 of the Arbitration and Conciliation Act 1996 does not permit appellate re-hearing of evidentiary findings.</p>
+                <blockquote>"Patent illegality must go to the very root of the matter and cannot include an erroneous application of law or mere disagreement with the arbitral tribunal's contract interpretation."</blockquote>`
+            },
+            5: {
+                title: "Annual Global Arbitration Symposium: Cross-Border Commercial Enforcement",
+                category: "Media & Events",
+                date: "10th July 2024",
+                readTime: "4 min read",
+                author: "Senior Partners Delegation",
+                img: "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1200&q=80",
+                keyTakeaway: "International arbitral enforcement in India has accelerated significantly following Commercial Courts Act mandates and emergency arbitrator recognition.",
+                content: `<p>Senior advocates and arbitration specialists discussed recent pro-arbitration trends across Singapore, London, and New Delhi seats, addressing emergency arbitrator relief and interim preservation of assets.</p>`
+            },
+            6: {
+                title: "IBC Amendments: Navigating Pre-Packaged Insolvency for Large Corporate Debtors",
+                category: "Blogs & Articles",
+                date: "28th June 2024",
+                readTime: "7 min read",
+                author: "Meenakshi Sundaram",
+                img: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=80",
+                keyTakeaway: "Pre-packs provide debtor-in-possession with creditor-in-control, allowing operational continuity while restructuring debt within a swift 120-day statutory timeline.",
+                content: `<p>Evaluating the expansion of the pre-pack framework beyond MSMEs and its potential to avert rapid enterprise value erosion in manufacturing and infrastructure insolvencies.</p>`
+            }
+        };
+
+        // BCI Disclaimer Logic
+        const disclaimerKey = 'bci_preview_accepted';
+        const disclaimerModal = document.getElementById('bciDisclaimerModal');
+        const proceedBtn = document.getElementById('proceedBtn');
+
+        if (!sessionStorage.getItem(disclaimerKey)) {
+            disclaimerModal.style.display = 'flex';
+        } else {
+            disclaimerModal.style.display = 'none';
+        }
+
+        proceedBtn.addEventListener('click', function() {
+            sessionStorage.setItem(disclaimerKey, 'true');
+            disclaimerModal.style.display = 'none';
+        });
+
+        function openDisclaimerModal() {
+            disclaimerModal.style.display = 'flex';
+        }
+
+        // Category Filtering
+        let activeCategory = 'all';
+        let searchQuery = '';
+
+        function filterCategory(cat) {
+            activeCategory = cat;
+            document.querySelectorAll('.insight_menu_itm').forEach(tab => tab.classList.remove('active'));
+            const activeTab = document.getElementById('tab-' + cat);
+            if (activeTab) activeTab.classList.add('active');
+            applyFilters();
+        }
+
+        // Live Search Input
+        const liveSearchInput = document.getElementById('liveSearchInput');
+
+        liveSearchInput.addEventListener('input', function(e) {
+            searchQuery = e.target.value.toLowerCase().trim();
+            applyFilters();
+        });
+
+        function resetFilters() {
+            activeCategory = 'all';
+            searchQuery = '';
+            liveSearchInput.value = '';
+            document.querySelectorAll('.insight_menu_itm').forEach(tab => tab.classList.remove('active'));
+            document.getElementById('tab-all').classList.add('active');
+            applyFilters();
+        }
+
+        function applyFilters() {
+            const cards = document.querySelectorAll('#insightsCardGrid li');
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const cardCat = card.getAttribute('data-category');
+                const cardText = card.innerText.toLowerCase();
+
+                const matchCat = (activeCategory === 'all' || cardCat === activeCategory);
+                const matchSearch = (!searchQuery || cardText.includes(searchQuery));
+
+                if (matchCat && matchSearch) {
+                    card.style.display = 'flex';
+                    // Re-trigger AOS animate class so card appears smoothly
+                    card.classList.add('aos-animate');
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Update banner & empty state
+            const banner = document.getElementById('filterStatusBanner');
+            const statusText = document.getElementById('filterStatusText');
+            const noResults = document.getElementById('noResultsState');
+
+            if (activeCategory !== 'all' || searchQuery !== '') {
+                banner.style.display = 'flex';
+                statusText.innerHTML = `Showing <strong>${visibleCount}</strong> results ${searchQuery ? `for "${searchQuery}"` : ''} in <strong>${activeCategory.replace(/-/g, ' ').toUpperCase()}</strong>`;
+            } else {
+                banner.style.display = 'none';
+            }
+
+            if (visibleCount === 0) {
+                noResults.style.display = 'block';
+            } else {
+                noResults.style.display = 'none';
+            }
+        }
+
+        // Single Article Modal Viewer
+        function openArticleModal(id) {
+            const data = mockArticles[id];
+            if (!data) return;
+
+            document.getElementById('modalBreadcrumbCat').textContent = data.category;
+            document.getElementById('modalCategoryBadge').textContent = data.category;
+            document.getElementById('modalArticleTitle').textContent = data.title;
+            document.getElementById('modalDate').textContent = data.date;
+            document.getElementById('modalReadTime').textContent = data.readTime;
+            document.getElementById('modalAuthor').textContent = 'By ' + data.author;
+            document.getElementById('modalFeaturedImg').src = data.img;
+            document.getElementById('modalKeyTakeawayText').textContent = data.keyTakeaway;
+            document.getElementById('modalArticleBody').innerHTML = data.content;
+
+            document.getElementById('articleModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeArticleModal() {
+            document.getElementById('articleModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        document.getElementById('articleModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeArticleModal();
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeArticleModal();
+            }
+        });
+    </script>
+</body>
+</html>
