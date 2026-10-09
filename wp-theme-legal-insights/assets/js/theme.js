@@ -7,33 +7,54 @@
 (function() {
     'use strict';
 
-    // 1. High Performance Scroll Reveal Engine
+    // 1. High Performance Scroll Reveal Engine (IntersectionObserver)
     function initAOSEngine() {
         var aosElements = document.querySelectorAll('[data-aos]');
         if (!aosElements.length) return;
 
-        function revealVisible() {
-            var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+        if ('IntersectionObserver' in window) {
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('aos-animate');
+                    }
+                });
+            }, {
+                threshold: 0.12,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
             aosElements.forEach(function(el) {
                 var rect = el.getBoundingClientRect();
-                // If element is in viewport or close to it, animate
-                if (rect.top <= windowHeight * 1.1) {
-                    el.classList.add('aos-animate');
+                // Hero elements visible on initial view
+                if (rect.top < window.innerHeight * 0.85 && rect.bottom > 0) {
+                    setTimeout(function() {
+                        el.classList.add('aos-animate');
+                    }, 120);
+                } else {
+                    observer.observe(el);
                 }
             });
+        } else {
+            function checkScroll() {
+                var windowHeight = window.innerHeight;
+                aosElements.forEach(function(el) {
+                    var rect = el.getBoundingClientRect();
+                    if (rect.top <= windowHeight - 50) {
+                        el.classList.add('aos-animate');
+                    }
+                });
+            }
+            window.addEventListener('scroll', checkScroll, { passive: true });
+            checkScroll();
         }
 
-        // Run immediately
-        revealVisible();
-
-        // Run on scroll and resize
-        window.addEventListener('scroll', revealVisible, { passive: true });
-        window.addEventListener('resize', revealVisible, { passive: true });
-
-        // Backup timer to guarantee all elements appear even if not scrolled
-        setTimeout(revealVisible, 150);
-        setTimeout(revealVisible, 500);
-        setTimeout(revealVisible, 1200);
+        // Safety net: ensure everything becomes visible after 4 seconds
+        setTimeout(function() {
+            aosElements.forEach(function(el) {
+                el.classList.add('aos-animate');
+            });
+        }, 4000);
     }
 
     // Execute immediately if DOM already loaded, or on DOMContentLoaded

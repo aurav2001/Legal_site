@@ -83,28 +83,30 @@ ul {
 }
 
 /* ==========================================================================
-   ANIMATE ON SCROLL (AOS) ENGINE (SAFE - NEVER HIDES CONTENT)
+   ANIMATE ON SCROLL (AOS) ENGINE (INSPIRED BY AGLAW.IN)
    ========================================================================== */
 [data-aos] {
-  opacity: 1;
-  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease;
+  opacity: 0;
+  transition-property: transform, opacity;
+  transition-duration: 0.9s;
+  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  will-change: transform, opacity;
 }
 
-/* Enhanced smooth reveal for supported browsers */
-html.has-aos [data-aos]:not(.aos-animate) {
-  opacity: 0.85;
+[data-aos="fade-up"] {
+  transform: translate3d(0, 48px, 0);
 }
-html.has-aos [data-aos="fade-up"]:not(.aos-animate) {
-  transform: translate3d(0, 16px, 0);
+[data-aos="fade-down"] {
+  transform: translate3d(0, -48px, 0);
 }
-html.has-aos [data-aos="fade-down"]:not(.aos-animate) {
-  transform: translate3d(0, -16px, 0);
+[data-aos="fade-right"] {
+  transform: translate3d(-48px, 0, 0);
 }
-html.has-aos [data-aos="fade-right"]:not(.aos-animate) {
-  transform: translate3d(-16px, 0, 0);
+[data-aos="fade-left"] {
+  transform: translate3d(48px, 0, 0);
 }
-html.has-aos [data-aos="fade-left"]:not(.aos-animate) {
-  transform: translate3d(16px, 0, 0);
+[data-aos="zoom-in"] {
+  transform: scale(0.9);
 }
 
 [data-aos].aos-animate {
@@ -112,12 +114,50 @@ html.has-aos [data-aos="fade-left"]:not(.aos-animate) {
   transform: translate3d(0, 0, 0) scale(1) !important;
 }
 
-/* Delays */
-[data-aos-delay="100"] { transition-delay: 0.08s; }
-[data-aos-delay="150"] { transition-delay: 0.12s; }
-[data-aos-delay="200"] { transition-delay: 0.16s; }
-[data-aos-delay="250"] { transition-delay: 0.2s; }
-[data-aos-delay="300"] { transition-delay: 0.25s; }
+/* Animation Durations */
+[data-aos-duration="600"] { transition-duration: 0.6s; }
+[data-aos-duration="800"] { transition-duration: 0.8s; }
+[data-aos-duration="1000"] { transition-duration: 1.0s; }
+[data-aos-duration="1200"] { transition-duration: 1.2s; }
+
+/* Stagger Delays for Cards & Sequential Text */
+[data-aos-delay="50"] { transition-delay: 0.05s; }
+[data-aos-delay="100"] { transition-delay: 0.1s; }
+[data-aos-delay="150"] { transition-delay: 0.15s; }
+[data-aos-delay="200"] { transition-delay: 0.2s; }
+[data-aos-delay="250"] { transition-delay: 0.25s; }
+[data-aos-delay="300"] { transition-delay: 0.3s; }
+[data-aos-delay="350"] { transition-delay: 0.35s; }
+[data-aos-delay="400"] { transition-delay: 0.4s; }
+[data-aos-delay="500"] { transition-delay: 0.5s; }
+
+@media (prefers-reduced-motion: reduce) {
+  [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* Continuous Rotating Circular Badge on Hero */
+@keyframes spinBadge {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.floating-badge-circle {
+  animation: spinBadge 18s linear infinite;
+}
+.floating-badge-circle > * {
+  animation: spinBadge 18s linear infinite reverse;
+}
+
+/* Card Hover Micro-Animations */
+.serv-card, .leader-card-agl, .award-card, .evnt_lstng_inr li {
+  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease, border-color 0.4s ease !important;
+}
+.serv-card:hover, .leader-card-agl:hover, .award-card:hover, .evnt_lstng_inr li:hover {
+  transform: translateY(-8px) !important;
+}
 
 /* ==========================================================================
    CONTAINER & GRID UTILITIES
