@@ -4,7 +4,7 @@ Theme URI: https://lexvanguard.legal/
 Author: Gulshan Kumar
 Author URI: https://lexvanguard.legal/
 Description: Luxury Law Firm & Knowledge Hub WordPress Theme. Inspired by premium appellate chambers design with signature architectural curved cards (border-radius: 16px 0 45px 0), smooth native animations, responsive practice showcase, category tabs, and uncluttered luxury navigation.
-Version: 1.2.2
+Version: 1.2.3
 Requires at least: 6.0
 Tested up to: 6.7
 Requires PHP: 7.4
@@ -373,6 +373,98 @@ body.admin-bar .header-main {
 .navinr > li.active > a::after {
   width: 100%;
 }
+
+/* Luxury Consultation Navbar CTA Button */
+.clean-nav-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: linear-gradient(135deg, #c5a059 0%, #dfba73 50%, #b38b42 100%) !important;
+  color: #0b111e !important;
+  font-family: var(--font-sans);
+  font-size: 0.82rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  padding: 10px 22px !important;
+  border-radius: 6px !important;
+  border: 1px solid #dfba73 !important;
+  text-decoration: none !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  box-shadow: 0 4px 15px rgba(197, 160, 89, 0.35) !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+  cursor: pointer !important;
+  line-height: 1 !important;
+}
+
+.clean-nav-btn:hover {
+  background: linear-gradient(135deg, #dfba73 0%, #e8ca8a 50%, #c5a059 100%) !important;
+  color: #000000 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 24px rgba(197, 160, 89, 0.5) !important;
+}
+
+/* Universal Sub Filter / CTA Buttons */
+.sub_filter_btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff !important;
+  border: 1.5px solid rgba(197, 160, 89, 0.6) !important;
+  border-radius: 6px !important;
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  font-weight: 600;
+  text-decoration: none !important;
+  padding: 12px 28px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+.sub_filter_btn:hover {
+  background: rgba(197, 160, 89, 0.16);
+  border-color: #c5a059 !important;
+  color: #c5a059 !important;
+  transform: translateY(-2px);
+}
+
+.sub_filter_btn.active {
+  background: linear-gradient(135deg, #c5a059 0%, #dfba73 50%, #b38b42 100%) !important;
+  color: #0b111e !important;
+  border-color: #dfba73 !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 18px rgba(197, 160, 89, 0.35) !important;
+}
+
+.sub_filter_btn.active:hover {
+  background: linear-gradient(135deg, #dfba73 0%, #e8ca8a 50%, #c5a059 100%) !important;
+  color: #000000 !important;
+  box-shadow: 0 8px 25px rgba(197, 160, 89, 0.5) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Service Card Learn More Link */
+.serv-btn-link {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px;
+  font-size: 0.88rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  transition: all 0.3s ease;
+}
+
+.serv-btn-link:hover {
+  transform: translateX(4px);
+  color: var(--color-gold) !important;
+}
+
 
 /* Dropdown */
 .navinr li .sub_menuinr {

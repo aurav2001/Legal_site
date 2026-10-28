@@ -139,10 +139,10 @@ get_header(); ?>
             Discover how six decades of apex court experience can safeguard your commercial interests.
         </p>
         <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
-            <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="sub_filter_btn active" style="padding: 12px 28px; font-size: 0.95rem;">
+            <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="sub_filter_btn active" style="padding: 12px 28px; font-size: 0.95rem; background: linear-gradient(135deg, #c5a059 0%, #dfba73 50%, #b38b42 100%); color: #0b111e !important; font-weight: 700; border-radius: 6px; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 4px 18px rgba(197, 160, 89, 0.35); border: 1px solid #dfba73;">
                 Schedule Confidential Consultation
             </a>
-            <a href="<?php echo esc_url(home_url('/insights/')); ?>" class="sub_filter_btn" style="padding: 12px 28px; font-size: 0.95rem;">
+            <a href="<?php echo esc_url(home_url('/insights/')); ?>" class="sub_filter_btn" style="padding: 12px 28px; font-size: 0.95rem; background: rgba(255, 255, 255, 0.08); color: #ffffff !important; border: 1.5px solid rgba(197, 160, 89, 0.6); border-radius: 6px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; justify-content: center;">
                 Explore Case Studies
             </a>
         </div>

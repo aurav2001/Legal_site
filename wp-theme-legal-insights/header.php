@@ -109,7 +109,7 @@
                 <?php endif; ?>
 
                 <!-- Sleek Consultation CTA Button -->
-                <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="clean-nav-btn">Consultation</a>
+                <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="clean-nav-btn" style="background: linear-gradient(135deg, #c5a059 0%, #dfba73 50%, #b38b42 100%); color: #0b111e !important; font-size: 0.82rem !important; font-weight: 700 !important; letter-spacing: 0.08em; text-transform: uppercase; padding: 10px 22px !important; border-radius: 6px; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(197, 160, 89, 0.35); text-decoration: none !important; white-space: nowrap; flex-shrink: 0; border: 1px solid #dfba73;">Consultation</a>
 
                 <!-- Mobile Hamburger Icon -->
                 <div class="header__humburgermenu" id="mobileMenuToggle" aria-label="Toggle Navigation">

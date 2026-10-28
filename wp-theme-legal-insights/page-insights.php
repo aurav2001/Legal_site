@@ -198,7 +198,7 @@ if (!$insights_query->have_posts() && $current_type !== 'all' && empty($search_q
                     <a href="<?php echo esc_url(get_permalink()); ?>" class="btn-reset">Reset All Filters</a>
                     <?php if (current_user_can('manage_options')) : ?>
                         <div style="margin-top: 18px;">
-                            <a href="<?php echo esc_url(admin_url('?seed_insights=1')); ?>" class="clean-nav-btn" style="display: inline-block; padding: 10px 22px; font-size: 0.88rem;">Publish Sample Legal Articles</a>
+                            <a href="<?php echo esc_url(admin_url('?seed_insights=1')); ?>" class="clean-nav-btn" style="display: inline-flex; align-items: center; justify-content: center; padding: 10px 22px; font-size: 0.88rem; background: linear-gradient(135deg, #c5a059 0%, #dfba73 50%, #b38b42 100%); color: #0b111e !important; font-weight: 700; border-radius: 6px; text-decoration: none; box-shadow: 0 4px 15px rgba(197, 160, 89, 0.35); border: 1px solid #dfba73;">Publish Sample Legal Articles</a>
                         </div>
                     <?php endif; ?>
                 </div>

@@ -26,10 +26,10 @@ get_header(); ?>
                     At LexVanguard, we deliver dedicated, personalized legal counsel and appellate advocacy across the Supreme Court of India, High Courts, and International Arbitration Tribunals.
                 </p>
                 <div style="display: flex; gap: 16px; flex-wrap: wrap;">
-                    <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="sub_filter_btn active" style="padding: 14px 32px; font-size: 0.95rem;">
+                    <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="sub_filter_btn active" style="padding: 14px 32px; font-size: 0.95rem; background: linear-gradient(135deg, #c5a059 0%, #dfba73 50%, #b38b42 100%); color: #0b111e !important; font-weight: 700; border-radius: 6px; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 4px 18px rgba(197, 160, 89, 0.35); border: 1px solid #dfba73;">
                         Schedule Consultation
                     </a>
-                    <a href="<?php echo esc_url(home_url('/our-expertise/')); ?>" class="sub_filter_btn" style="padding: 14px 32px; font-size: 0.95rem;">
+                    <a href="<?php echo esc_url(home_url('/our-expertise/')); ?>" class="sub_filter_btn" style="padding: 14px 32px; font-size: 0.95rem; background: rgba(255, 255, 255, 0.08); color: #ffffff !important; border: 1.5px solid rgba(197, 160, 89, 0.6); border-radius: 6px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; justify-content: center;">
                         Our Practice Areas &rarr;
                     </a>
                 </div>
@@ -96,7 +96,7 @@ get_header(); ?>
                     <p style="font-size: 0.92rem; color: #64748b; line-height: 1.6; margin-bottom: 24px;">
                         "Combining forensic factual scrutiny with generational appellate advocacy to deliver exceptional legal outcomes."
                     </p>
-                    <a href="<?php echo esc_url(home_url('/about-us/')); ?>" class="sub_filter_btn" style="padding: 10px 24px; font-size: 0.88rem; display: inline-block;">
+                    <a href="<?php echo esc_url(home_url('/about-us/')); ?>" class="sub_filter_btn" style="padding: 12px 28px; font-size: 0.88rem; display: inline-flex; align-items: center; justify-content: center; background: #0e172a; color: #c5a059 !important; border: 1.5px solid #c5a059; border-radius: 6px; font-weight: 600; text-decoration: none; box-shadow: 0 4px 14px rgba(14, 23, 42, 0.15);">
                         Read Our Full Story &rarr;
                     </a>
                 </div>
@@ -347,7 +347,7 @@ get_header(); ?>
                 </h2>
             </div>
             <div class="col-md-4 text-md-end mt-3 mt-md-0">
-                <a href="<?php echo esc_url(home_url('/insights/')); ?>" class="sub_filter_btn active" style="padding: 10px 24px; font-size: 0.88rem;">
+                <a href="<?php echo esc_url(home_url('/insights/')); ?>" class="sub_filter_btn active" style="padding: 10px 24px; font-size: 0.88rem; background: linear-gradient(135deg, #c5a059 0%, #dfba73 50%, #b38b42 100%); color: #0b111e !important; font-weight: 700; border-radius: 6px; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(197, 160, 89, 0.35); border: 1px solid #dfba73;">
                     All Publications &rarr;
                 </a>
             </div>
