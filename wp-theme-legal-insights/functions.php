@@ -17,6 +17,10 @@ function legal_insights_setup() {
     // Make theme available for translation
     load_theme_textdomain('legal-insights', get_template_directory() . '/languages');
 
+    // Explicitly declare theme support for Navigation Menus & Widgets
+    add_theme_support('menus');
+    add_theme_support('widgets');
+
     // Add default posts and comments RSS feed links to head.
     add_theme_support('automatic-feed-links');
 
@@ -294,4 +298,97 @@ function legal_insights_auto_setup_content() {
 }
 add_action('admin_init', 'legal_insights_auto_setup_content');
 add_action('after_switch_theme', 'legal_insights_auto_setup_content');
+
+/**
+ * Auto-create Primary Navigation Menu if none exists and assign to 'primary' location
+ */
+function legal_insights_auto_create_nav_menu() {
+    $locations = get_theme_mod('nav_menu_locations');
+    
+    // Check if primary location is already assigned to a valid menu
+    if (!empty($locations['primary'])) {
+        $term = get_term($locations['primary'], 'nav_menu');
+        if ($term && !is_wp_error($term)) {
+            return;
+        }
+    }
+
+    $menu_name = 'Primary Navigation Menu';
+    $menu_exists = wp_get_nav_menu_object($menu_name);
+
+    if (!$menu_exists) {
+        $menu_id = wp_create_nav_menu($menu_name);
+        if (is_wp_error($menu_id)) {
+            return;
+        }
+
+        // Add Home custom link
+        wp_update_nav_menu_item($menu_id, 0, array(
+            'menu-item-title'   => __('Home', 'legal-insights'),
+            'menu-item-url'     => home_url('/'),
+            'menu-item-status'  => 'publish',
+            'menu-item-type'    => 'custom',
+        ));
+
+        // Add key pages to menu
+        $menu_slugs = array(
+            'about-us'      => __('About Us', 'legal-insights'),
+            'our-people'    => __('Our People', 'legal-insights'),
+            'our-expertise' => __('Practice Areas', 'legal-insights'),
+            'our-awards'    => __('Our Awards', 'legal-insights'),
+            'insights'      => __('Insights', 'legal-insights'),
+            'contact-us'    => __('Contact Us', 'legal-insights'),
+        );
+
+        foreach ($menu_slugs as $slug => $title) {
+            $page = get_page_by_path($slug);
+            if ($page) {
+                wp_update_nav_menu_item($menu_id, 0, array(
+                    'menu-item-title'     => $title,
+                    'menu-item-object'    => 'page',
+                    'menu-item-object-id' => $page->ID,
+                    'menu-item-type'      => 'post_type',
+                    'menu-item-status'    => 'publish',
+                ));
+            }
+        }
+    } else {
+        $menu_id = $menu_exists->term_id;
+    }
+
+    // Assign menu to primary location
+    if (!is_array($locations)) {
+        $locations = array();
+    }
+    $locations['primary'] = $menu_id;
+    set_theme_mod('nav_menu_locations', $locations);
+}
+add_action('admin_init', 'legal_insights_auto_create_nav_menu');
+add_action('after_switch_theme', 'legal_insights_auto_create_nav_menu');
+
+/**
+ * Ensure 'Menus' is ALWAYS visible in Appearance menu (nav-menus.php)
+ */
+function legal_insights_ensure_menu_admin() {
+    global $submenu;
+    if (isset($submenu['themes.php'])) {
+        $has_menus = false;
+        foreach ($submenu['themes.php'] as $item) {
+            if (isset($item[2]) && $item[2] === 'nav-menus.php') {
+                $has_menus = true;
+                break;
+            }
+        }
+        if (!$has_menus) {
+            add_theme_page(
+                __('Menus', 'legal-insights'),
+                __('Menus', 'legal-insights'),
+                'edit_theme_options',
+                'nav-menus.php'
+            );
+        }
+    }
+}
+add_action('admin_menu', 'legal_insights_ensure_menu_admin', 999);
+
 
