@@ -4,7 +4,7 @@ Theme URI: https://lexvanguard.legal/
 Author: Gulshan Kumar
 Author URI: https://lexvanguard.legal/
 Description: Luxury Law Firm & Knowledge Hub WordPress Theme. Inspired by premium appellate chambers design with signature architectural curved cards (border-radius: 16px 0 45px 0), smooth native animations, responsive practice showcase, category tabs, and uncluttered luxury navigation.
-Version: 1.2.1
+Version: 1.2.2
 Requires at least: 6.0
 Tested up to: 6.7
 Requires PHP: 7.4
@@ -1508,23 +1508,34 @@ body.admin-bar .header-main {
 }
 
 .pract-row-icon {
-  width: 36px;
-  height: 36px;
+  width: 36px !important;
+  height: 36px !important;
+  min-width: 36px !important;
+  min-height: 36px !important;
+  max-width: 36px !important;
+  max-height: 36px !important;
   border-radius: 8px 0 12px 0;
   background: rgba(197, 160, 89, 0.12);
   border: 1px solid rgba(197, 160, 89, 0.3);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   color: #c5a059;
-  flex-shrink: 0;
+  flex-shrink: 0 !important;
   transition: all 0.3s ease;
+  overflow: hidden;
 }
 
 .pract-row-icon svg {
-  width: 18px;
-  height: 18px;
+  width: 18px !important;
+  height: 18px !important;
+  min-width: 18px !important;
+  min-height: 18px !important;
+  max-width: 18px !important;
+  max-height: 18px !important;
   stroke: #c5a059;
+  display: block !important;
+  flex-shrink: 0 !important;
   transition: all 0.3s ease;
 }
 
@@ -1537,15 +1548,22 @@ body.admin-bar .header-main {
 
 .pract-row-arrw {
   color: #94a3b8;
-  display: inline-flex;
-  align-items: center;
+  display: inline-flex !important;
+  align-items: center !important;
+  flex-shrink: 0 !important;
   transition: all 0.3s ease;
 }
 
 .pract-row-arrw svg {
-  width: 17px;
-  height: 17px;
+  width: 17px !important;
+  height: 17px !important;
+  min-width: 17px !important;
+  min-height: 17px !important;
+  max-width: 17px !important;
+  max-height: 17px !important;
   stroke: #94a3b8;
+  display: block !important;
+  flex-shrink: 0 !important;
   transition: all 0.3s ease;
 }
 
@@ -1591,21 +1609,32 @@ body.admin-bar .header-main {
 }
 
 .practice-sidebar-link .pract-sidebar-icon {
-  width: 30px;
-  height: 30px;
+  width: 30px !important;
+  height: 30px !important;
+  min-width: 30px !important;
+  min-height: 30px !important;
+  max-width: 30px !important;
+  max-height: 30px !important;
   border-radius: 6px;
   background: rgba(197, 160, 89, 0.1);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   color: #c5a059;
-  flex-shrink: 0;
+  flex-shrink: 0 !important;
+  overflow: hidden;
 }
 
 .practice-sidebar-link .pract-sidebar-icon svg {
-  width: 16px;
-  height: 16px;
+  width: 16px !important;
+  height: 16px !important;
+  min-width: 16px !important;
+  min-height: 16px !important;
+  max-width: 16px !important;
+  max-height: 16px !important;
   stroke: #c5a059;
+  display: block !important;
+  flex-shrink: 0 !important;
 }
 
 .practice-sidebar-link:hover,
@@ -1624,5 +1653,19 @@ body.admin-bar .header-main {
 .practice-sidebar-link.active .pract-sidebar-icon svg {
   stroke: #0f172a;
 }
+
+/* Global SVG Safety Clamps - Prevent any SVG from exceeding its parent container */
+svg {
+  max-width: 100%;
+}
+.pract-row-icon svg,
+.pract-sidebar-icon svg {
+  width: 18px !important;
+  height: 18px !important;
+  max-width: 18px !important;
+  max-height: 18px !important;
+  display: block !important;
+}
+
 
 

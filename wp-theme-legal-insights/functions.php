@@ -74,8 +74,9 @@ function legal_insights_scripts() {
         null
     );
 
-    // Theme main stylesheet
-    wp_enqueue_style('legal-insights-style', get_stylesheet_uri(), array(), '1.0.0');
+    // Theme main stylesheet (cache busted with filemtime)
+    $style_ver = file_exists(get_stylesheet_directory() . '/style.css') ? filemtime(get_stylesheet_directory() . '/style.css') : '1.2.5';
+    wp_enqueue_style('legal-insights-style', get_stylesheet_uri(), array(), $style_ver);
 
     // Theme JavaScript
     wp_enqueue_script(
