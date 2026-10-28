@@ -63,14 +63,23 @@
                         </div>
                         <div class="logo-text-wrap">
                             <div class="logo-brand" style="font-size: 1.45rem;">LEX<span>VANGUARD</span></div>
-                            <div class="logo-tagline" style="font-size: 0.68rem;"><?php bloginfo('description') ? bloginfo('description') : 'Advocates &amp; Supreme Court Counsel'; ?></div>
+                            <div class="logo-tagline" style="font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: #94a3b8; white-space: nowrap;">
+                                <?php 
+                                $site_desc = get_bloginfo('description');
+                                if (empty($site_desc) || stripos($site_desc, 'just another') !== false || stripos($site_desc, 'tastewp') !== false) {
+                                    echo 'Advocates &amp; Supreme Court Counsel';
+                                } else {
+                                    echo esc_html($site_desc);
+                                }
+                                ?>
+                            </div>
                         </div>
                     <?php endif; ?>
                 </a>
             </div>
 
             <!-- Clean Navigation Menu Area -->
-            <div class="menu_area" style="gap: 24px;">
+            <div class="menu_area" style="gap: 20px;">
                 <?php
                 if (has_nav_menu('primary')) :
                     wp_nav_menu(array(
@@ -108,8 +117,11 @@
                     </ul>
                 <?php endif; ?>
 
-                <!-- Sleek Consultation CTA Button -->
-                <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="clean-nav-btn" style="background: linear-gradient(135deg, #c5a059 0%, #dfba73 50%, #b38b42 100%); color: #0b111e !important; font-size: 0.82rem !important; font-weight: 700 !important; letter-spacing: 0.08em; text-transform: uppercase; padding: 10px 22px !important; border-radius: 6px; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(197, 160, 89, 0.35); text-decoration: none !important; white-space: nowrap; flex-shrink: 0; border: 1px solid #dfba73;">Consultation</a>
+                <!-- Sleek Luxury Consultation CTA Button -->
+                <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="clean-nav-btn" style="background: linear-gradient(135deg, #c5a059 0%, #b89146 100%); color: #0b111e !important; font-size: 0.82rem !important; font-weight: 600 !important; letter-spacing: 0.04em; padding: 8px 18px !important; border-radius: 9999px; display: inline-flex; align-items: center; justify-content: center; gap: 5px; box-shadow: 0 3px 12px rgba(197, 160, 89, 0.28); text-decoration: none !important; white-space: nowrap; flex-shrink: 0; border: 1px solid rgba(255, 245, 210, 0.3);">
+                    <span>Consultation</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle; transition: transform 0.2s ease;"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                </a>
 
                 <!-- Mobile Hamburger Icon -->
                 <div class="header__humburgermenu" id="mobileMenuToggle" aria-label="Toggle Navigation">
