@@ -72,7 +72,7 @@ get_header(); ?>
 
             <div class="award-card" data-aos="fade-up" data-aos-delay="150">
                 <div class="award-badge-img">
-                    <img src="https://aglaw.in/wp-content/uploads/2024/09/AGL-Resize-12.jpg" alt="The Lawyer Network" onerror="this.parentElement.innerHTML='<span style=\'font-size:2.5rem;\'>⚖️</span>';">
+                    <img src="https://aglaw.in/wp-content/uploads/2024/09/AGL-Resize-12.jpg" alt="The Lawyer Network" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:60px;\'><svg width=\'36\' height=\'36\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'#c5a059\' stroke-width=\'1.8\'><path d=\'m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z\'/><path d=\'m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z\'/><path d=\'M7 21h10\'/><path d=\'M12 3v18\'/><path d=\'M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2\'/></svg></div>';">
                 </div>
                 <div class="award-year">2023 - 2024</div>
                 <h3 class="award-title">The Lawyer Network</h3>
@@ -81,7 +81,7 @@ get_header(); ?>
 
             <div class="award-card" data-aos="fade-up" data-aos-delay="200">
                 <div class="award-badge-img">
-                    <img src="https://aglaw.in/wp-content/uploads/2024/09/AGL-Resize-16.jpg" alt="Award Winning Law Firm" onerror="this.parentElement.innerHTML='<span style=\'font-size:2.5rem;\'>🎖️</span>';">
+                    <img src="https://aglaw.in/wp-content/uploads/2024/09/AGL-Resize-16.jpg" alt="Award Winning Law Firm" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:60px;\'><svg width=\'36\' height=\'36\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'#c5a059\' stroke-width=\'1.8\'><circle cx=\'12\' cy=\'8\' r=\'6\'/><path d=\'M15.477 12.89 17 22l-5-3-5 3 1.523-9.11\'/></svg></div>';">
                 </div>
                 <div class="award-year">2023</div>
                 <h3 class="award-title">Award Winning Firm</h3>

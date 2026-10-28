@@ -1482,3 +1482,147 @@ body.admin-bar .header-main {
   font-style: italic;
 }
 
+/* ==========================================================================
+   PRACTICE AREA SHOWCASE - MODERN LUXURY ICONS
+   ========================================================================== */
+.pract-row-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 20px;
+  border-radius: 8px 0 22px 0;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  color: #1e293b;
+  font-weight: 500;
+  font-size: 0.95rem;
+  text-decoration: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+.pract-row-content {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.pract-row-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px 0 12px 0;
+  background: rgba(197, 160, 89, 0.12);
+  border: 1px solid rgba(197, 160, 89, 0.3);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #c5a059;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.pract-row-icon svg {
+  width: 18px;
+  height: 18px;
+  stroke: #c5a059;
+  transition: all 0.3s ease;
+}
+
+.pract-row-title {
+  color: #1e293b;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.pract-row-arrw {
+  color: #94a3b8;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.pract-row-arrw svg {
+  width: 17px;
+  height: 17px;
+  stroke: #94a3b8;
+  transition: all 0.3s ease;
+}
+
+.pract-row-item:hover {
+  background: #0f172a;
+  color: #ffffff;
+  border-color: #c5a059;
+  transform: translateX(6px);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.15);
+}
+
+.pract-row-item:hover .pract-row-title {
+  color: #ffffff;
+}
+
+.pract-row-item:hover .pract-row-icon {
+  background: #c5a059;
+  border-color: #c5a059;
+}
+
+.pract-row-item:hover .pract-row-icon svg {
+  stroke: #0f172a;
+}
+
+.pract-row-item:hover .pract-row-arrw svg {
+  stroke: #c5a059;
+  transform: translateX(4px);
+}
+
+/* Practice Sidebar (practice-detail) */
+.practice-sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 18px;
+  border-radius: 8px 0 16px 0;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  color: #334155;
+  font-size: 0.92rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.practice-sidebar-link .pract-sidebar-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  background: rgba(197, 160, 89, 0.1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #c5a059;
+  flex-shrink: 0;
+}
+
+.practice-sidebar-link .pract-sidebar-icon svg {
+  width: 16px;
+  height: 16px;
+  stroke: #c5a059;
+}
+
+.practice-sidebar-link:hover,
+.practice-sidebar-link.active {
+  background: #0f172a;
+  color: #ffffff;
+  border-color: #c5a059;
+}
+
+.practice-sidebar-link:hover .pract-sidebar-icon,
+.practice-sidebar-link.active .pract-sidebar-icon {
+  background: #c5a059;
+}
+
+.practice-sidebar-link:hover .pract-sidebar-icon svg,
+.practice-sidebar-link.active .pract-sidebar-icon svg {
+  stroke: #0f172a;
+}
+
+
