@@ -310,7 +310,7 @@ get_header(); ?>
                             <h3 class="mn_hgt_blg">
                                 <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                             </h3>
-                            <p><?php echo legal_insights_custom_excerpt(16); ?></p>
+                            <p><?php echo function_exists('legal_insights_custom_excerpt') ? legal_insights_custom_excerpt(16) : wp_trim_words(get_the_excerpt(), 16, '...'); ?></p>
                         </div>
                         <a href="<?php the_permalink(); ?>" class="practice-link-arrw">Read Insight &rarr;</a>
                     </div>

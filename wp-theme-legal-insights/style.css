@@ -1,10 +1,10 @@
 /*
 Theme Name: LexVanguard - Luxury Law Firm & Insights Theme
 Theme URI: https://lexvanguard.legal/
-Author: Antigravity
+Author: Gulshan Kumar
 Author URI: https://lexvanguard.legal/
 Description: Luxury Law Firm & Knowledge Hub WordPress Theme. Inspired by premium appellate chambers design with signature architectural curved cards (border-radius: 16px 0 45px 0), smooth native animations, responsive practice showcase, category tabs, and uncluttered luxury navigation.
-Version: 1.2.0
+Version: 1.2.1
 Requires at least: 6.0
 Tested up to: 6.7
 Requires PHP: 7.4
@@ -59,11 +59,15 @@ html {
 }
 
 body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
   font-family: var(--font-sans);
   color: var(--color-dark);
   background-color: var(--bg-light);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 img {
@@ -278,6 +282,15 @@ ul {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
   border-bottom: 1px solid rgba(197, 160, 89, 0.2);
   transition: var(--transition);
+}
+
+body.admin-bar .header-main {
+  top: 32px;
+}
+@media screen and (max-width: 782px) {
+  body.admin-bar .header-main {
+    top: 46px;
+  }
 }
 
 .top_hdr_area {

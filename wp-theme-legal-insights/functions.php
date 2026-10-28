@@ -125,6 +125,21 @@ function legal_insights_excerpt_more($more) {
 add_filter('excerpt_more', 'legal_insights_excerpt_more');
 
 /**
+ * Custom Excerpt Helper
+ */
+function legal_insights_custom_excerpt($limit = 20, $post_id = null) {
+    if (!$post_id) {
+        $post_id = get_the_ID();
+    }
+    $excerpt = get_the_excerpt($post_id);
+    if (empty($excerpt)) {
+        $content = get_post_field('post_content', $post_id);
+        $excerpt = strip_tags($content);
+    }
+    return wp_trim_words($excerpt, $limit, '...');
+}
+
+/**
  * Estimated Reading Time Helper
  */
 function legal_insights_reading_time($post_id = null) {
