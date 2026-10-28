@@ -81,7 +81,18 @@
             <!-- Clean Navigation Menu Area -->
             <div class="menu_area" style="gap: 20px;">
                 <?php
-                if (has_nav_menu('primary')) :
+                $has_custom_menu = false;
+                if (has_nav_menu('primary')) {
+                    $locations = get_nav_menu_locations();
+                    if (!empty($locations['primary'])) {
+                        $menu_items = wp_get_nav_menu_items($locations['primary']);
+                        if (!empty($menu_items)) {
+                            $has_custom_menu = true;
+                        }
+                    }
+                }
+
+                if ($has_custom_menu) :
                     wp_nav_menu(array(
                         'theme_location' => 'primary',
                         'menu_class'     => 'navinr',

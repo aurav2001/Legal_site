@@ -300,71 +300,224 @@ add_action('admin_init', 'legal_insights_auto_setup_content');
 add_action('after_switch_theme', 'legal_insights_auto_setup_content');
 
 /**
- * Auto-create Primary Navigation Menu if none exists and assign to 'primary' location
+ * Automatically ensure all theme pages exist in WordPress database
+ */
+function legal_insights_ensure_all_pages() {
+    $pages = array(
+        'About Us' => array(
+            'slug'     => 'about-us',
+            'template' => 'page-about-us.php',
+            'content'  => 'About LexVanguard Legal Chambers.',
+        ),
+        'Our Team' => array(
+            'slug'     => 'our-people',
+            'template' => 'page-our-people.php',
+            'content'  => 'Distinguished Advocates and Senior Counsel.',
+        ),
+        'Practice Areas' => array(
+            'slug'     => 'our-expertise',
+            'template' => 'page-our-expertise.php',
+            'content'  => 'Practice Verticals and Courtroom Advocacy.',
+        ),
+        'Our Awards' => array(
+            'slug'     => 'our-awards',
+            'template' => 'page-our-awards.php',
+            'content'  => 'Institutional Honors and Benchmark Distinctions.',
+        ),
+        'Insights' => array(
+            'slug'     => 'insights',
+            'template' => 'page-insights.php',
+            'content'  => 'Supreme Court Digests, Research Briefs, and Commentary.',
+        ),
+        'Contact Us' => array(
+            'slug'     => 'contact-us',
+            'template' => 'page-contact-us.php',
+            'content'  => 'Consultation Directory and Chambers Contact.',
+        ),
+        'Terms of Access' => array(
+            'slug'     => 'terms',
+            'template' => 'page.php',
+            'content'  => 'Terms of access and legal compliance standards.',
+        ),
+    );
+
+    foreach ($pages as $title => $pdata) {
+        $existing = get_page_by_path($pdata['slug']);
+        if (!$existing) {
+            $page_id = wp_insert_post(array(
+                'post_title'   => $title,
+                'post_name'    => $pdata['slug'],
+                'post_content' => $pdata['content'],
+                'post_status'  => 'publish',
+                'post_type'    => 'page',
+                'post_author'  => 1,
+            ));
+            if ($page_id && !is_wp_error($page_id) && !empty($pdata['template'])) {
+                update_post_meta($page_id, '_wp_page_template', $pdata['template']);
+            }
+        }
+    }
+}
+add_action('init', 'legal_insights_ensure_all_pages', 5);
+
+/**
+ * Auto-create or Auto-populate Primary Navigation Menu if empty
  */
 function legal_insights_auto_create_nav_menu() {
     $locations = get_theme_mod('nav_menu_locations');
-    
-    // Check if primary location is already assigned to a valid menu
+    if (!is_array($locations)) {
+        $locations = array();
+    }
+
+    $target_menu_id = 0;
+
+    // Check if primary location is assigned to an existing menu
     if (!empty($locations['primary'])) {
         $term = get_term($locations['primary'], 'nav_menu');
         if ($term && !is_wp_error($term)) {
-            return;
+            $target_menu_id = $term->term_id;
         }
     }
 
-    $menu_name = 'Primary Navigation Menu';
-    $menu_exists = wp_get_nav_menu_object($menu_name);
-
-    if (!$menu_exists) {
-        $menu_id = wp_create_nav_menu($menu_name);
-        if (is_wp_error($menu_id)) {
-            return;
+    // If no menu assigned, find or create 'Primary Navigation Menu'
+    if (!$target_menu_id) {
+        $menu_name = 'Primary Navigation Menu';
+        $menu_exists = wp_get_nav_menu_object($menu_name);
+        if (!$menu_exists) {
+            $target_menu_id = wp_create_nav_menu($menu_name);
+        } else {
+            $target_menu_id = $menu_exists->term_id;
         }
 
-        // Add Home custom link
-        wp_update_nav_menu_item($menu_id, 0, array(
-            'menu-item-title'   => __('Home', 'legal-insights'),
-            'menu-item-url'     => home_url('/'),
-            'menu-item-status'  => 'publish',
-            'menu-item-type'    => 'custom',
-        ));
+        if ($target_menu_id && !is_wp_error($target_menu_id)) {
+            $locations['primary'] = $target_menu_id;
+            set_theme_mod('nav_menu_locations', $locations);
+        }
+    }
 
-        // Add key pages to menu
-        $menu_slugs = array(
-            'about-us'      => __('About Us', 'legal-insights'),
-            'our-people'    => __('Our People', 'legal-insights'),
-            'our-expertise' => __('Practice Areas', 'legal-insights'),
-            'our-awards'    => __('Our Awards', 'legal-insights'),
-            'insights'      => __('Insights', 'legal-insights'),
-            'contact-us'    => __('Contact Us', 'legal-insights'),
-        );
+    // If the target menu exists and has 0 items, auto-populate all pages and dropdown practices!
+    if ($target_menu_id && !is_wp_error($target_menu_id)) {
+        $menu_items = wp_get_nav_menu_items($target_menu_id);
+        if (empty($menu_items)) {
+            // 1. Home
+            wp_update_nav_menu_item($target_menu_id, 0, array(
+                'menu-item-title'   => __('Home', 'legal-insights'),
+                'menu-item-url'     => home_url('/'),
+                'menu-item-status'  => 'publish',
+                'menu-item-type'    => 'custom',
+            ));
 
-        foreach ($menu_slugs as $slug => $title) {
-            $page = get_page_by_path($slug);
-            if ($page) {
-                wp_update_nav_menu_item($menu_id, 0, array(
-                    'menu-item-title'     => $title,
+            // 2. About Us
+            $about_p = get_page_by_path('about-us');
+            if ($about_p) {
+                wp_update_nav_menu_item($target_menu_id, 0, array(
+                    'menu-item-title'     => __('About Us', 'legal-insights'),
                     'menu-item-object'    => 'page',
-                    'menu-item-object-id' => $page->ID,
+                    'menu-item-object-id' => $about_p->ID,
+                    'menu-item-type'      => 'post_type',
+                    'menu-item-status'    => 'publish',
+                ));
+            }
+
+            // 3. Our Team
+            $team_p = get_page_by_path('our-people');
+            if ($team_p) {
+                wp_update_nav_menu_item($target_menu_id, 0, array(
+                    'menu-item-title'     => __('Our Team', 'legal-insights'),
+                    'menu-item-object'    => 'page',
+                    'menu-item-object-id' => $team_p->ID,
+                    'menu-item-type'      => 'post_type',
+                    'menu-item-status'    => 'publish',
+                ));
+            }
+
+            // 4. Practice Areas (Parent)
+            $practice_p = get_page_by_path('our-expertise');
+            $practice_parent_id = 0;
+            if ($practice_p) {
+                $practice_parent_id = wp_update_nav_menu_item($target_menu_id, 0, array(
+                    'menu-item-title'     => __('Practice Areas', 'legal-insights'),
+                    'menu-item-object'    => 'page',
+                    'menu-item-object-id' => $practice_p->ID,
+                    'menu-item-type'      => 'post_type',
+                    'menu-item-status'    => 'publish',
+                ));
+            } else {
+                $practice_parent_id = wp_update_nav_menu_item($target_menu_id, 0, array(
+                    'menu-item-title'   => __('Practice Areas', 'legal-insights'),
+                    'menu-item-url'     => home_url('/our-expertise/'),
+                    'menu-item-status'  => 'publish',
+                    'menu-item-type'    => 'custom',
+                ));
+            }
+
+            // 5. Practice Areas Sub-Items (Dropdown)
+            if ($practice_parent_id && !is_wp_error($practice_parent_id)) {
+                $sub_practices = array(
+                    'Arbitration & ADR'             => home_url('/our-expertise/arbitration/'),
+                    'Commercial Litigation'        => home_url('/our-expertise/commercial-litigation/'),
+                    'Competition Law'              => home_url('/our-expertise/competition-law/'),
+                    'Corporate & Insolvency Laws'  => home_url('/our-expertise/corporate-insolvency/'),
+                    'Constitutional Law'           => home_url('/our-expertise/constitutional-law/'),
+                    'Criminal Law - White Collar'  => home_url('/our-expertise/criminal-law/'),
+                    'Environmental Law'            => home_url('/our-expertise/environmental-law/'),
+                    'Regulatory Litigation'        => home_url('/our-expertise/regulatory-litigation/'),
+                    'Mediation'                    => home_url('/our-expertise/mediation/'),
+                    'Securities Law'               => home_url('/our-expertise/securities-law/'),
+                    'Tax - Direct & Indirect'      => home_url('/our-expertise/tax/'),
+                );
+
+                foreach ($sub_practices as $sub_title => $sub_url) {
+                    wp_update_nav_menu_item($target_menu_id, 0, array(
+                        'menu-item-title'     => $sub_title,
+                        'menu-item-url'       => $sub_url,
+                        'menu-item-status'    => 'publish',
+                        'menu-item-type'      => 'custom',
+                        'menu-item-parent-id' => $practice_parent_id,
+                    ));
+                }
+            }
+
+            // 6. Our Awards
+            $awards_p = get_page_by_path('our-awards');
+            if ($awards_p) {
+                wp_update_nav_menu_item($target_menu_id, 0, array(
+                    'menu-item-title'     => __('Our Awards', 'legal-insights'),
+                    'menu-item-object'    => 'page',
+                    'menu-item-object-id' => $awards_p->ID,
+                    'menu-item-type'      => 'post_type',
+                    'menu-item-status'    => 'publish',
+                ));
+            }
+
+            // 7. Insights
+            $insights_p = get_page_by_path('insights');
+            if ($insights_p) {
+                wp_update_nav_menu_item($target_menu_id, 0, array(
+                    'menu-item-title'     => __('Insights', 'legal-insights'),
+                    'menu-item-object'    => 'page',
+                    'menu-item-object-id' => $insights_p->ID,
+                    'menu-item-type'      => 'post_type',
+                    'menu-item-status'    => 'publish',
+                ));
+            }
+
+            // 8. Contact Us
+            $contact_p = get_page_by_path('contact-us');
+            if ($contact_p) {
+                wp_update_nav_menu_item($target_menu_id, 0, array(
+                    'menu-item-title'     => __('Contact Us', 'legal-insights'),
+                    'menu-item-object'    => 'page',
+                    'menu-item-object-id' => $contact_p->ID,
                     'menu-item-type'      => 'post_type',
                     'menu-item-status'    => 'publish',
                 ));
             }
         }
-    } else {
-        $menu_id = $menu_exists->term_id;
     }
-
-    // Assign menu to primary location
-    if (!is_array($locations)) {
-        $locations = array();
-    }
-    $locations['primary'] = $menu_id;
-    set_theme_mod('nav_menu_locations', $locations);
 }
-add_action('admin_init', 'legal_insights_auto_create_nav_menu');
-add_action('after_switch_theme', 'legal_insights_auto_create_nav_menu');
+add_action('admin_init', 'legal_insights_auto_create_nav_menu', 10);
+add_action('after_switch_theme', 'legal_insights_auto_create_nav_menu', 10);
 
 /**
  * Ensure 'Menus' is ALWAYS visible in Appearance menu (nav-menus.php)
