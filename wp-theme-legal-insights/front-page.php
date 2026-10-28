@@ -17,13 +17,13 @@ get_header(); ?>
             
             <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000">
                 <div class="bnr_sml_cntnt" style="font-size: 0.88rem; letter-spacing: 0.22em; text-transform: uppercase; color: #c5a059; margin-bottom: 24px; font-weight: 500;">
-                    LEXVANGUARD ADVOCATES &amp; PARTNERS
+                    MALHOTRA &amp; CO. ADVOCATES &amp; PARTNERS
                 </div>
                 <h1 class="hdng_bnr" style="font-family: var(--font-serif); font-size: clamp(2.8rem, 5.2vw, 4.4rem); color: #ffffff; line-height: 1.12; margin-bottom: 24px; font-weight: 400;">
                     With You In Every <span style="color: #c5a059; font-style: italic;">Challenge</span>
                 </h1>
                 <p class="para_bnr" style="font-size: 1.1rem; line-height: 1.75; color: #cbd5e1; max-width: 540px; margin-bottom: 38px;">
-                    At LexVanguard, we deliver dedicated, personalized legal counsel and appellate advocacy across the Supreme Court of India, High Courts, and International Arbitration Tribunals.
+                    At Malhotra &amp; Co., we deliver dedicated, personalized legal counsel and appellate advocacy across the Supreme Court of India, High Courts, and International Arbitration Tribunals.
                 </p>
                 <div style="display: flex; gap: 16px; flex-wrap: wrap;">
                     <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="sub_filter_btn active" style="padding: 14px 32px; font-size: 0.95rem; background: linear-gradient(135deg, #c5a059 0%, #dfba73 50%, #b38b42 100%); color: #0b111e !important; font-weight: 700; border-radius: 6px; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 4px 18px rgba(197, 160, 89, 0.35); border: 1px solid #dfba73;">
@@ -56,7 +56,7 @@ get_header(); ?>
     </div>
 </section>
 
-<!-- SECTION 2: WELCOME TO LEXVANGUARD LEGAL -->
+<!-- SECTION 2: WELCOME TO MALHOTRA & CO. -->
 <section style="background: #fbf9f5; padding: 90px 0; position: relative;">
     <div class="container-custom">
         <div class="row align-items-center">
@@ -66,12 +66,12 @@ get_header(); ?>
                     Heritage &bull; Excellence &bull; Integrity
                 </div>
                 <h2 style="font-family: var(--font-serif); font-size: 2.4rem; color: #1e293b; margin-bottom: 20px; line-height: 1.25;">
-                    Welcome to LexVanguard Legal
+                    Welcome to Malhotra &amp; Co.
                 </h2>
                 <p style="font-size: 1.05rem; line-height: 1.8; color: #475569; margin-bottom: 30px;">
-                    Established with a storied tradition of courtroom excellence, LexVanguard has grown into a leading full-service law firm serving major corporations, financial institutions, and high-net-worth clients across India. Today, we are proud to be one of the most trusted legal institutions handling high-stakes constitutional and commercial disputes.
+                    Established with a storied tradition of courtroom excellence, Malhotra &amp; Co. has grown into a leading full-service law firm serving major corporations, financial institutions, and high-net-worth clients across India. Today, we are proud to be one of the most trusted legal institutions handling high-stakes constitutional and commercial disputes.
                 </p>
-                <div style="display: flex; gap: 24px; margin-top: 36px;">
+                <div class="welcome-stats-row" style="display: flex; gap: 24px; margin-top: 36px; flex-wrap: wrap;">
                     <div style="background: #ffffff; border: 1px solid #e5ded6; border-radius: 12px 0 28px 0; padding: 20px 28px; box-shadow: 0 6px 18px rgba(0,0,0,0.04); min-width: 140px;">
                         <div style="font-family: var(--font-serif); font-size: 2.2rem; color: #c5a059; font-weight: 700; line-height: 1; margin-bottom: 6px;">1964</div>
                         <div style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: #64748b; font-weight: 600;">Established</div>

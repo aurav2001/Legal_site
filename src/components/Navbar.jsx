@@ -21,7 +21,7 @@ export default function Navbar({ onOpenConsultation, onOpenSearch, onOpenDisclai
     { label: "Partners", href: "#partners" },
     { label: "Case Estimator", href: "#estimator" },
     { label: "Legal Insights", href: "#insights" },
-    { label: "WP Theme (LexVanguard)", href: "/wp-theme-legal-insights/home.html", isExternal: true },
+    { label: "WP Theme (Malhotra & Co)", href: "/wp-theme-legal-insights/home.html", isExternal: true },
     { label: "Chambers", href: "#chambers" },
   ];
 
@@ -67,10 +67,10 @@ export default function Navbar({ onOpenConsultation, onOpenSearch, onOpenDisclai
             </div>
             <div className="brand-text-block">
               <div className="brand-name">
-                VANGUARD <span className="brand-ampersand">&</span> SHROFF
+                MALHOTRA <span className="brand-ampersand">&</span> CO.
               </div>
               <div className="brand-subtext">
-                Advocates · Solicitors · Est. 1994
+                Advocates · Solicitors · Est. 1964
               </div>
             </div>
           </a>

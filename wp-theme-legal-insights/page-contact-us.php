@@ -29,7 +29,7 @@ get_header();
 <section style="padding: 70px 0 90px 0; background: #fbfbfd;">
     <div class="container-custom">
         
-        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; margin-bottom: 60px;">
+        <div class="contact-offices-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; margin-bottom: 60px;">
             
             <!-- Office Card -->
             <div style="background: #ffffff; border: 1px solid var(--border-card); border-radius: var(--card-radius-curve); padding: 38px; box-shadow: 0 6px 20px rgba(51, 39, 32, 0.06); position: relative; overflow: hidden;" data-aos="fade-right">
@@ -82,7 +82,7 @@ get_header();
                 </p>
             </div>
 
-            <form action="" method="post" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <form action="" method="post" class="contact-form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
                 <div>
                     <label style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--color-dark); margin-bottom: 8px;">Your Full Name *</label>
                     <input type="text" required placeholder="e.g. Alok Sharma" style="width: 100%; padding: 12px 16px; border: 1px solid #deddda; border-radius: 8px; font-family: var(--font-sans); outline: none;">

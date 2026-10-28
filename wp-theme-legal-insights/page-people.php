@@ -105,7 +105,7 @@ $leaders = array(
 <section style="padding: 70px 0 100px 0; background: #fbfbfd;">
     <div class="container-custom">
 
-        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px;">
+        <div class="people-directory-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px;">
             <?php 
             $p_idx = 0;
             foreach ($leaders as $leader) : 
@@ -114,7 +114,7 @@ $leaders = array(
             ?>
                 <div style="background: #ffffff; border: 1px solid var(--border-card); border-radius: var(--card-radius-curve); overflow: hidden; box-shadow: 0 6px 20px rgba(51, 39, 32, 0.06); display: flex; flex-direction: column; position: relative;" data-aos="fade-up" data-aos-delay="<?php echo esc_attr($p_delay); ?>">
                     
-                    <div style="display: flex; gap: 24px; padding: 30px; border-bottom: 1px solid #f1f5f9;">
+                    <div class="leader-card-header" style="display: flex; gap: 24px; padding: 30px; border-bottom: 1px solid #f1f5f9;">
                         <!-- Lawyer Photo -->
                         <div style="width: 130px; height: 160px; border-radius: var(--card-image-radius); overflow: hidden; flex-shrink: 0; background: #0e172a;">
                             <img src="<?php echo esc_url($leader['image']); ?>" alt="<?php echo esc_attr($leader['name']); ?>" style="width: 100%; height: 100%; object-fit: cover;">

@@ -16,7 +16,14 @@
                 <div class="footer-lft">
                     <a href="<?php echo esc_url(home_url('/')); ?>" class="logo_mn">
                         <div class="logo-brand" style="font-size: 1.4rem; color: #ffffff;">
-                            <?php bloginfo('name'); ?>
+                            <?php 
+                            $site_title = get_bloginfo('name');
+                            if (empty($site_title) || stripos($site_title, 'just another') !== false || stripos($site_title, 'tastewp') !== false || stripos($site_title, 'wordpress') !== false) {
+                                echo 'MALHOTRA <span style="color: var(--color-gold);">&amp; CO.</span>';
+                            } else {
+                                echo esc_html($site_title);
+                            }
+                            ?>
                         </div>
                     </a>
                     <p class="footer-desc">
@@ -82,7 +89,14 @@
         <div class="row" style="align-items: center;">
             <div class="col-6">
                 <div>
-                    &copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>. All Rights Reserved.
+                    &copy; <?php echo date('Y'); ?> <?php 
+                    $site_title = get_bloginfo('name');
+                    if (empty($site_title) || stripos($site_title, 'tastewp') !== false || stripos($site_title, 'wordpress') !== false || stripos($site_title, 'just another') !== false) {
+                        echo 'Malhotra &amp; Co. Advocates &amp; Partners';
+                    } else {
+                        echo esc_html($site_title);
+                    }
+                    ?>. All Rights Reserved.
                 </div>
             </div>
             <div class="col-6">

@@ -732,4 +732,10 @@ h1, h2, h3, h4, .font-serif {
   .brand-subtext {
     font-size: 0.6rem;
   }
+  .legal-container {
+    padding: 0 16px;
+  }
+  .navbar-container {
+    padding: 0 16px;
+  }
 }

@@ -103,13 +103,71 @@
             });
         }
 
-        // 3. Mobile Menu Toggle
+        // 3. Mobile Menu Toggle & Mobile Drawer Engine
         var menuToggle = document.getElementById('mobileMenuToggle');
         var headerMain = document.querySelector('.header-main');
         if (menuToggle && headerMain) {
-            menuToggle.addEventListener('click', function() {
-                headerMain.classList.toggle('mobile-menu-active');
-                menuToggle.classList.toggle('open');
+            menuToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                var isActive = headerMain.classList.toggle('mobile-menu-active');
+                menuToggle.classList.toggle('open', isActive);
+                if (isActive) {
+                    document.body.classList.add('mobile-nav-lock');
+                } else {
+                    document.body.classList.remove('mobile-nav-lock');
+                }
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (headerMain.classList.contains('mobile-menu-active') && !headerMain.contains(e.target)) {
+                    headerMain.classList.remove('mobile-menu-active');
+                    menuToggle.classList.remove('open');
+                    document.body.classList.remove('mobile-nav-lock');
+                }
+            });
+
+            // Close on ESC key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && headerMain.classList.contains('mobile-menu-active')) {
+                    headerMain.classList.remove('mobile-menu-active');
+                    menuToggle.classList.remove('open');
+                    document.body.classList.remove('mobile-nav-lock');
+                }
+            });
+
+            // Close menu when a navigation item is clicked (for in-page anchors or clean transition)
+            var navLinks = headerMain.querySelectorAll('.navinr a:not(.has-dropdown-toggle)');
+            navLinks.forEach(function(link) {
+                link.addEventListener('click', function() {
+                    // Only close if it's a direct link (not a parent opening submenu)
+                    if (!link.parentElement.classList.contains('menu-item-has-children') && 
+                        !link.parentElement.querySelector('.sub_menuinr') &&
+                        !link.parentElement.querySelector('.sub-menu')) {
+                        headerMain.classList.remove('mobile-menu-active');
+                        menuToggle.classList.remove('open');
+                        document.body.classList.remove('mobile-nav-lock');
+                    }
+                });
+            });
+
+            // 3b. Mobile Dropdown Accordion Toggle (Practice Areas)
+            var parentItems = headerMain.querySelectorAll('.navinr > li');
+            parentItems.forEach(function(li) {
+                var subMenu = li.querySelector('.sub_menuinr, .sub-menu, .children');
+                if (subMenu) {
+                    var parentLink = li.querySelector('a');
+                    if (parentLink) {
+                        parentLink.classList.add('has-dropdown-toggle');
+                        parentLink.addEventListener('click', function(e) {
+                            if (window.innerWidth <= 991) {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                li.classList.toggle('submenu-open');
+                            }
+                        });
+                    }
+                }
             });
         }
 

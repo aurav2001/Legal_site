@@ -4,7 +4,7 @@ Theme URI: https://lexvanguard.legal/
 Author: Gulshan Kumar
 Author URI: https://lexvanguard.legal/
 Description: Luxury Law Firm & Knowledge Hub WordPress Theme. Inspired by premium appellate chambers design with signature architectural curved cards (border-radius: 16px 0 45px 0), smooth native animations, responsive practice showcase, category tabs, and uncluttered luxury navigation.
-Version: 1.2.4
+Version: 1.2.6
 Requires at least: 6.0
 Tested up to: 6.7
 Requires PHP: 7.4
@@ -548,18 +548,65 @@ body.admin-bar .header-main {
   padding-left: 24px;
 }
 
+/* Body lock when mobile drawer is open */
+body.mobile-nav-lock {
+  overflow: hidden !important;
+}
+
 .header__humburgermenu {
   display: none;
   cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid rgba(197, 160, 89, 0.45);
+  background: rgba(255, 255, 255, 0.05);
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  flex-shrink: 0;
+  padding: 6px;
+  box-sizing: border-box;
+}
+
+.header__humburgermenu:hover {
+  background: rgba(197, 160, 89, 0.15);
+  border-color: var(--color-gold);
+}
+
+.header__humburgerblock {
+  width: 22px;
+  height: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
 }
 
 .header__humburgerblock span {
   display: block;
-  width: 24px;
+  width: 22px;
   height: 2px;
+  background: var(--color-gold);
+  border-radius: 2px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease, background-color 0.2s ease;
+  transform-origin: center;
+}
+
+.header__humburgermenu.open .header__humburgerblock span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
   background: #ffffff;
-  margin: 5px 0;
-  transition: var(--transition);
+}
+
+.header__humburgermenu.open .header__humburgerblock span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.header__humburgermenu.open .header__humburgerblock span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+  background: #ffffff;
 }
 
 /* ==========================================================================
@@ -1337,54 +1384,612 @@ body.admin-bar .header-main {
 }
 
 /* ==========================================================================
-   RESPONSIVE QUERIES
+   RESPONSIVE QUERIES & MOBILE NAVIGATION SYSTEM
    ========================================================================== */
-@media (max-width: 1100px) {
-  .evnt_lstng_inr {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+
+@keyframes mobileMenuSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
+@keyframes mobileSubMenuFade {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Tablet & Smaller Desktop Adjustments (Max Width: 1200px) */
+@media (max-width: 1200px) {
+  .navinr {
+    gap: 12px;
+  }
+  .navinr > li > a {
+    font-size: 0.84rem;
+  }
+  .evnt_lstng_inr {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+}
+
+/* Tablet & Mobile Breakpoint (Max Width: 991px) */
 @media (max-width: 991px) {
-  .col-8, .col-4 {
-    flex: 0 0 100%;
-    max-width: 100%;
+  /* Layout Grid Columns */
+  .col-12, .col-8, .col-7, .col-6, .col-5, .col-4, .col-3,
+  .col-lg-8, .col-lg-7, .col-lg-6, .col-lg-5, .col-lg-4, .col-lg-3,
+  .col-md-6, .col-md-4, .col-md-3 {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
   }
-  .blg_rgt {
-    padding-left: 0;
-    margin-top: 48px;
+
+  /* Header & Navigation Bar */
+  .header__humburgermenu {
+    display: inline-flex !important;
   }
+
   .navinr {
     display: none;
   }
-  .header__humburgermenu {
-    display: block;
+
+  /* Full Luxury Mobile Menu Drawer */
+  .header-main.mobile-menu-active .navinr {
+    display: flex !important;
+    flex-direction: column !important;
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    background: rgba(11, 17, 30, 0.98) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border-top: 1px solid rgba(197, 160, 89, 0.35) !important;
+    border-bottom: 2px solid var(--color-gold) !important;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8) !important;
+    max-height: calc(100vh - 75px) !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+    padding: 18px 20px 28px 20px !important;
+    gap: 6px !important;
+    z-index: 9999 !important;
+    animation: mobileMenuSlideDown 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
   }
-  .insight_menu_itm a {
-    font-size: 1.25rem;
-    padding: 12px 10px 18px 10px;
+
+  .header-main.mobile-menu-active .navinr > li {
+    width: 100% !important;
+    white-space: normal !important;
+    position: relative !important;
+  }
+
+  .header-main.mobile-menu-active .navinr > li > a {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 13px 18px !important;
+    font-size: 0.98rem !important;
+    font-weight: 500 !important;
+    color: #e2e8f0 !important;
+    border-radius: 8px !important;
+    background: rgba(255, 255, 255, 0.02) !important;
+    border: 1px solid rgba(255, 255, 255, 0.04) !important;
+    transition: all 0.2s ease !important;
+    word-break: normal !important;
+  }
+
+  .header-main.mobile-menu-active .navinr > li > a::after {
+    display: none !important;
+  }
+
+  .header-main.mobile-menu-active .navinr > li:hover > a,
+  .header-main.mobile-menu-active .navinr > li.active > a,
+  .header-main.mobile-menu-active .navinr > li.current-menu-item > a {
+    background: rgba(197, 160, 89, 0.15) !important;
+    color: var(--color-gold) !important;
+    border-color: rgba(197, 160, 89, 0.35) !important;
+  }
+
+  /* Mobile Dropdown (Practice Areas Submenu) */
+  .header-main.mobile-menu-active .navinr li .sub_menuinr,
+  .header-main.mobile-menu-active .navinr li .sub-menu,
+  .header-main.mobile-menu-active .navinr li .children {
+    position: static !important;
+    width: 100% !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    box-shadow: none !important;
+    border: 1px solid rgba(197, 160, 89, 0.22) !important;
+    background: rgba(6, 11, 21, 0.85) !important;
+    border-radius: 8px !important;
+    margin-top: 6px !important;
+    margin-bottom: 6px !important;
+    padding: 6px 0 !important;
+    display: none;
+    z-index: 1000;
+  }
+
+  .header-main.mobile-menu-active .navinr li.submenu-open .sub_menuinr,
+  .header-main.mobile-menu-active .navinr li.submenu-open .sub-menu,
+  .header-main.mobile-menu-active .navinr li.submenu-open .children {
+    display: block !important;
+    animation: mobileSubMenuFade 0.25s ease-out !important;
+  }
+
+  .header-main.mobile-menu-active .navinr li .sub_menuinr li a,
+  .header-main.mobile-menu-active .navinr li .sub-menu li a,
+  .header-main.mobile-menu-active .navinr li .children li a {
+    padding: 10px 20px !important;
+    font-size: 0.88rem !important;
+    color: #cbd5e1 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03) !important;
+  }
+
+  .header-main.mobile-menu-active .navinr li .sub_menuinr li a::before,
+  .header-main.mobile-menu-active .navinr li .sub-menu li a::before {
+    content: '›';
+    color: var(--color-gold);
+    font-weight: 700;
+    font-size: 1.1rem;
+    line-height: 1;
+  }
+
+  .header-main.mobile-menu-active .navinr li .sub_menuinr li a:hover,
+  .header-main.mobile-menu-active .navinr li .sub-menu li a:hover {
+    background: rgba(197, 160, 89, 0.12) !important;
+    color: var(--color-gold) !important;
+    padding-left: 24px !important;
+  }
+
+  /* Single Post Sidebar */
+  .blg_rgt {
+    padding-left: 0 !important;
+    margin-top: 48px !important;
+  }
+
+  /* Front Page Hero */
+  .hme_bnr__area {
+    padding: 60px 0 70px 0 !important;
+  }
+
+  .hm_bnr_visual_frame {
+    margin-top: 40px !important;
+  }
+
+  /* Practice Showcase */
+  .practice-showcase-sec {
+    padding: 65px 0 !important;
+  }
+
+  /* People Directory */
+  .people-directory-grid,
+  div[style*="grid-template-columns: repeat(2, 1fr)"] {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  /* Contact Page */
+  .contact-offices-grid,
+  div[style*="grid-template-columns: repeat(2, 1fr); gap: 40px"] {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
   }
 }
 
+/* Smartphone & Small Tablet Breakpoint (Max Width: 767px) */
 @media (max-width: 767px) {
-  .evnt_lstng_inr {
-    grid-template-columns: 1fr;
-    gap: 24px;
+  /* Container Padding */
+  .container-custom {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
   }
+
+  .row {
+    margin-left: -10px !important;
+    margin-right: -10px !important;
+  }
+
+  .row > [class*="col-"] {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+
+  /* Hero Banner & Typography */
+  .hme_bnr__area {
+    padding: 45px 0 55px 0 !important;
+  }
+
+  .hdng_bnr {
+    font-size: clamp(2rem, 6.8vw, 2.7rem) !important;
+    line-height: 1.18 !important;
+    margin-bottom: 18px !important;
+  }
+
+  .bnr_sml_cntnt {
+    font-size: 0.76rem !important;
+    letter-spacing: 0.14em !important;
+    margin-bottom: 16px !important;
+  }
+
+  .para_bnr {
+    font-size: 0.98rem !important;
+    line-height: 1.65 !important;
+    margin-bottom: 28px !important;
+  }
+
+  /* Arch Visual Frame */
+  .hm_bnr_arch_img {
+    max-width: 320px !important;
+    height: 340px !important;
+    border-radius: 160px 160px 20px 20px !important;
+  }
+
+  .floating-badge-circle {
+    width: 60px !important;
+    height: 60px !important;
+  }
+
+  .fb-top-left {
+    top: 10px !important;
+    left: 10px !important;
+  }
+
+  .fb-bottom-right {
+    bottom: 15px !important;
+    right: 15px !important;
+  }
+
+  /* Inner Pages Hero Banner (.about-mn) */
+  .about-banner {
+    min-height: 200px !important;
+  }
+
+  .about_banner_txt {
+    padding: 40px 0 !important;
+  }
+
   .bnr_heading {
-    font-size: 2.4rem;
+    font-size: clamp(2rem, 6.5vw, 2.8rem) !important;
+    line-height: 1.2 !important;
   }
+
+  .bnr_subtitle {
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+  }
+
+  /* Welcome Section & Stat Cards */
+  .welcome-sec,
+  section[style*="background: #fbf9f5"] {
+    padding: 60px 0 !important;
+  }
+
+  .welcome-stats-row,
+  .welcm-stats-grid,
+  .counter-pill-box,
+  div[style*="display: flex; gap: 24px; margin-top: 36px;"] {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 8px !important;
+    margin-top: 24px !important;
+  }
+
+  .welcome-stats-row > div,
+  .welcm-stats-grid > div,
+  .counter-pill,
+  div[style*="display: flex; gap: 24px; margin-top: 36px;"] > div {
+    min-width: 0 !important;
+    padding: 14px 8px !important;
+    text-align: center !important;
+  }
+
+  .welcome-stats-row div[style*="font-size: 2.2rem"],
+  .counter-pill .c-num,
+  div[style*="display: flex; gap: 24px; margin-top: 36px;"] div[style*="font-size: 2.2rem"] {
+    font-size: 1.6rem !important;
+  }
+
+  .welcome-stats-row div[style*="font-size: 0.78rem"],
+  .counter-pill .c-lbl,
+  div[style*="display: flex; gap: 24px; margin-top: 36px;"] div[style*="font-size: 0.78rem"] {
+    font-size: 0.68rem !important;
+    letter-spacing: 0.05em !important;
+  }
+
+  /* 3 Pillars Section */
+  section[style*="background: #231F20"] {
+    padding: 65px 0 !important;
+  }
+
+  /* Practice Showcase (11 Practices) */
+  .pract-row-item {
+    padding: 11px 14px !important;
+  }
+
+  .pract-row-content {
+    gap: 10px !important;
+  }
+
+  .pract-row-icon {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    min-height: 32px !important;
+    border-radius: 6px !important;
+  }
+
+  .pract-row-icon svg {
+    width: 16px !important;
+    height: 16px !important;
+    min-width: 16px !important;
+    min-height: 16px !important;
+  }
+
+  .pract-row-title {
+    font-size: 0.88rem !important;
+    line-height: 1.35 !important;
+  }
+
+  /* Event / Insights 3-Card Listing Grid */
+  .evnt_lstng_inr {
+    grid-template-columns: 1fr !important;
+    gap: 22px !important;
+    margin-top: 20px !important;
+  }
+
+  .evnt_img__bx {
+    height: 185px !important;
+  }
+
+  .evnt_txtbx {
+    padding: 18px 18px 16px 18px !important;
+  }
+
+  .mn_hgt_blg {
+    min-height: auto !important;
+    font-size: 1.12rem !important;
+    margin-bottom: 8px !important;
+  }
+
+  /* Category Filter Slider on Insights Page */
   .insight_menu_slider {
-    flex-direction: column;
+    display: flex !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    white-space: nowrap !important;
+    gap: 10px !important;
+    border-bottom: 1px solid #dcd7d2 !important;
+    padding-bottom: 8px !important;
   }
-  .col-6 {
-    flex: 0 0 100%;
-    max-width: 100%;
+
+  .insight_menu_itm {
+    flex: 0 0 auto !important;
   }
+
+  .insight_menu_itm a {
+    font-size: 1.1rem !important;
+    padding: 10px 14px !important;
+    white-space: nowrap !important;
+  }
+
+  /* Single Post Page */
+  .blg_lft {
+    padding: 24px 18px !important;
+  }
+
+  .blgs_hd {
+    font-size: 1.85rem !important;
+    line-height: 1.3 !important;
+  }
+
+  .intr_cnt {
+    font-size: 0.98rem !important;
+    line-height: 1.75 !important;
+  }
+
+  /* Contact Form Grid */
+  .contact-form-grid,
+  form[style*="grid-template-columns: 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  div[style*="padding: 50px 40px"] {
+    padding: 30px 20px !important;
+  }
+
+  /* Awards Gallery */
+  .awards-gallery-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  .award-card {
+    padding: 26px 20px !important;
+  }
+
+  /* Practice Detail Page */
+  .case-milestone-card {
+    padding: 20px 18px !important;
+  }
+
+  .case-title {
+    font-size: 1.2rem !important;
+  }
+
+  /* Testimonials */
+  .testimonial-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .testimonial-box {
+    padding: 26px 22px !important;
+  }
+
+  /* BCI Regulatory Modal */
+  .dsclaimer_popup {
+    padding: 12px !important;
+  }
+
+  .disclaimer_popup_inr {
+    padding: 24px 18px !important;
+    max-height: 88vh !important;
+    overflow-y: auto !important;
+    border-radius: 8px 0 24px 0 !important;
+  }
+
+  .dsclmr_hdng {
+    font-size: 1.6rem !important;
+  }
+
+  .dsclmr_subtitle {
+    font-size: 0.86rem !important;
+  }
+
+  .scrl__dv {
+    max-height: 170px !important;
+    padding: 12px 14px !important;
+  }
+
+  .prcd_btn {
+    width: 100% !important;
+    padding: 12px 20px !important;
+    text-align: center !important;
+    border-radius: 9999px !important;
+  }
+
+  /* Footer */
+  .footer-mn {
+    padding: 48px 0 32px 0 !important;
+  }
+
+  .footer-lft, .footer-mid {
+    margin-bottom: 26px !important;
+  }
+
+  .footer-bot-mn .row {
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 12px !important;
+  }
+
   .footer-bot-rght ul {
-    justify-content: flex-start;
-    margin-top: 12px;
+    justify-content: center !important;
+    gap: 16px !important;
+    flex-wrap: wrap !important;
+  }
+}
+
+/* Phones & Compact Mobile Breakpoint (Max Width: 480px) */
+@media (max-width: 480px) {
+  /* Header Area */
+  .top_hdr_area {
+    padding: 10px 0 !important;
+    gap: 8px !important;
+  }
+
+  .menu_area {
+    gap: 8px !important;
+  }
+
+  .logo-brand {
+    font-size: 1.22rem !important;
+  }
+
+  .logo-tagline {
+    font-size: 0.58rem !important;
+    letter-spacing: 0.06em !important;
+  }
+
+  .clean-nav-btn {
+    padding: 6px 12px !important;
+    font-size: 0.75rem !important;
+    gap: 4px !important;
+  }
+
+  /* Buttons & CTAs full width on phone */
+  .sub_filter_btn {
+    width: 100% !important;
+    text-align: center !important;
+    padding: 12px 20px !important;
+  }
+
+  div[style*="display: flex; gap: 16px; flex-wrap: wrap;"] {
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 10px !important;
+  }
+
+  /* Welcome Stats: wrap into 1 column on narrow screens */
+  .welcome-stats-row,
+  .welcm-stats-grid,
+  .counter-pill-box,
+  div[style*="display: flex; gap: 24px; margin-top: 36px;"] {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  /* Arch Visual Frame */
+  .hm_bnr_arch_img {
+    max-width: 270px !important;
+    height: 290px !important;
+    border-radius: 135px 135px 16px 16px !important;
+  }
+
+  /* People Lawyer Cards Header */
+  .leader-card-header,
+  div[style*="display: flex; gap: 24px; padding: 30px"] {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    padding: 22px 16px !important;
+    gap: 14px !important;
+  }
+
+  .leader-contact-links,
+  div[style*="display: flex; gap: 10px; margin-top: 14px"] {
+    justify-content: center !important;
+  }
+
+  div[style*="padding: 24px 30px 28px 30px"] {
+    padding: 16px 16px 20px 16px !important;
+  }
+
+  /* Form Elements Touch Targets */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  select,
+  textarea {
+    font-size: 16px !important; /* Prevents auto-zoom on iOS Safari */
+    min-height: 46px !important;
+  }
+}
+
+/* Extra Small Phones (Max Width: 360px) */
+@media (max-width: 360px) {
+  .logo-tagline {
+    display: none !important;
+  }
+  .clean-nav-btn {
+    padding: 6px 9px !important;
+    font-size: 0.7rem !important;
+  }
+  .clean-nav-btn svg {
+    display: none !important;
   }
 }
 

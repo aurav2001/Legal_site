@@ -62,7 +62,7 @@
                             </svg>
                         </div>
                         <div class="logo-text-wrap">
-                            <div class="logo-brand" style="font-size: 1.45rem;">LEX<span>VANGUARD</span></div>
+                            <div class="logo-brand" style="font-size: 1.45rem;">MALHOTRA <span>&amp; CO.</span></div>
                             <div class="logo-tagline" style="font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: #94a3b8; white-space: nowrap;">
                                 <?php 
                                 $site_desc = get_bloginfo('description');

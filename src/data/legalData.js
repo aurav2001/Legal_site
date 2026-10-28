@@ -1,9 +1,9 @@
 export const firmProfile = {
-  name: "Vanguard & Partners",
-  legalTag: "Advocates, Solicitors & International Arbitrators",
+  name: "Malhotra & Co.",
+  legalTag: "Advocates, Solicitors & Supreme Court Counsel",
   motto: "Decisive Counsel. Formidable Representation. Excellence Without Compromise.",
-  foundedYear: "1988",
-  overview: "Vanguard & Partners is one of India's premier Tier-1 full-service legal institutions. With over three decades of formidable courtroom presence, the firm advises Fortune 500 multinationals, sovereign entities, major Indian business conglomerates, and high-growth technology enterprises on high-stakes commercial disputes, cross-border M&A, regulatory investigations, and global arbitrations.",
+  foundedYear: "1964",
+  overview: "Malhotra & Co. is one of India's premier Tier-1 full-service legal institutions. With over six decades of formidable courtroom presence, the firm advises Fortune 500 multinationals, sovereign entities, major Indian business conglomerates, and high-growth technology enterprises on high-stakes commercial disputes, cross-border M&A, regulatory investigations, and global arbitrations.",
   keyStats: [
     { value: "₹185,000+ Cr", label: "Transactional & Dispute Portfolio", icon: "Briefcase" },
     { value: "48+", label: "Partners & Senior Counsel", icon: "Users" },
