@@ -36,6 +36,13 @@ if ($current_type !== 'all' && !empty($current_type)) {
 }
 
 $insights_query = new WP_Query($query_args);
+
+// Fallback: If filtered category has 0 posts, show all published posts so the page is never dead empty
+if (!$insights_query->have_posts() && $current_type !== 'all' && empty($search_query)) {
+    $fallback_args = $query_args;
+    unset($fallback_args['category_name']);
+    $insights_query = new WP_Query($fallback_args);
+}
 ?>
 
 <!-- Banner Section (matching aglaw.in .about-mn with AOS) -->
@@ -188,8 +195,12 @@ $insights_query = new WP_Query($query_args);
                 <div class="insights-empty-state" data-aos="fade-up">
                     <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="1.5" style="margin: 0 auto 16px auto;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
                     <h3>No Insights Found</h3>
-                    <p>There are no legal articles or media briefs matching your current filter criteria.</p>
                     <a href="<?php echo esc_url(get_permalink()); ?>" class="btn-reset">Reset All Filters</a>
+                    <?php if (current_user_can('manage_options')) : ?>
+                        <div style="margin-top: 18px;">
+                            <a href="<?php echo esc_url(admin_url('?seed_insights=1')); ?>" class="clean-nav-btn" style="display: inline-block; padding: 10px 22px; font-size: 0.88rem;">Publish Sample Legal Articles</a>
+                        </div>
+                    <?php endif; ?>
                 </div>
             <?php endif; ?>
         </ul>
