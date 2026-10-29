@@ -341,24 +341,187 @@ function legal_insights_ensure_all_pages() {
         ),
     );
 
-    foreach ($pages as $title => $pdata) {
-        $existing = get_page_by_path($pdata['slug']);
-        if (!$existing) {
-            $page_id = wp_insert_post(array(
-                'post_title'   => $title,
-                'post_name'    => $pdata['slug'],
-                'post_content' => $pdata['content'],
-                'post_status'  => 'publish',
-                'post_type'    => 'page',
-                'post_author'  => 1,
+    // 1. If page 10 exists, restore and publish it with our-people slug
+    $p10 = get_post(10);
+    if ($p10) {
+        if ($p10->post_status !== 'publish' || $p10->post_name !== 'our-people') {
+            wp_update_post(array(
+                'ID'          => 10,
+                'post_status' => 'publish',
+                'post_name'   => 'our-people',
+                'post_title'  => 'Our People',
             ));
-            if ($page_id && !is_wp_error($page_id) && !empty($pdata['template'])) {
-                update_post_meta($page_id, '_wp_page_template', $pdata['template']);
+        }
+        update_post_meta(10, '_wp_page_template', 'page-our-people.php');
+    }
+
+    // 2. If page 11 exists, restore and publish it with our-expertise slug
+    $p11 = get_post(11);
+    if ($p11) {
+        if ($p11->post_status !== 'publish' || $p11->post_name !== 'our-expertise') {
+            wp_update_post(array(
+                'ID'          => 11,
+                'post_status' => 'publish',
+                'post_name'   => 'our-expertise',
+                'post_title'  => 'Our Expertise',
+            ));
+        }
+        update_post_meta(11, '_wp_page_template', 'page-our-expertise.php');
+    }
+
+    foreach ($pages as $title => $pdata) {
+        $existing = get_page_by_path($pdata['slug'], OBJECT, 'page');
+        if ($existing) {
+            if ($existing->post_status !== 'publish') {
+                wp_update_post(array(
+                    'ID'          => $existing->ID,
+                    'post_status' => 'publish',
+                ));
+            }
+            update_post_meta($existing->ID, '_wp_page_template', $pdata['template']);
+        } else {
+            $by_title = get_page_by_title($title, OBJECT, 'page');
+            if ($by_title) {
+                wp_update_post(array(
+                    'ID'          => $by_title->ID,
+                    'post_name'   => $pdata['slug'],
+                    'post_status' => 'publish',
+                ));
+                update_post_meta($by_title->ID, '_wp_page_template', $pdata['template']);
+            } else {
+                $page_id = wp_insert_post(array(
+                    'post_title'   => $title,
+                    'post_name'    => $pdata['slug'],
+                    'post_content' => $pdata['content'],
+                    'post_status'  => 'publish',
+                    'post_type'    => 'page',
+                    'post_author'  => 1,
+                ));
+                if ($page_id && !is_wp_error($page_id) && !empty($pdata['template'])) {
+                    update_post_meta($page_id, '_wp_page_template', $pdata['template']);
+                }
             }
         }
     }
 }
 add_action('init', 'legal_insights_ensure_all_pages', 5);
+
+/**
+ * Auto-correct any menu items that point to legacy page_ids or broken links
+ */
+function legal_insights_fix_menu_item_urls($items) {
+    if (!is_array($items)) {
+        return $items;
+    }
+    foreach ($items as $item) {
+        $title = trim(strtolower($item->title ?? ''));
+        $obj_id = (int)($item->object_id ?? 0);
+        $url = $item->url ?? '';
+
+        if ($title === 'our team' || $title === 'our people' || $obj_id === 10 || strpos($url, 'page_id=10') !== false) {
+            $item->url = home_url('/our-people/');
+        } elseif ($title === 'practice areas' || $title === 'our expertise' || $obj_id === 11 || strpos($url, 'page_id=11') !== false) {
+            $item->url = home_url('/our-expertise/');
+        } elseif ($title === 'about us') {
+            $item->url = home_url('/about-us/');
+        } elseif ($title === 'our awards' || $title === 'awards') {
+            $item->url = home_url('/our-awards/');
+        } elseif ($title === 'insights' || $title === 'blog') {
+            $item->url = home_url('/insights/');
+        } elseif ($title === 'contact us' || $title === 'contact') {
+            $item->url = home_url('/contact-us/');
+        }
+    }
+    return $items;
+}
+add_filter('wp_nav_menu_objects', 'legal_insights_fix_menu_item_urls', 99);
+
+/**
+ * Fallback Template Router: Automatically serves theme templates for core paths & 301 redirects legacy page_ids
+ */
+function legal_insights_fallback_template_router() {
+    // 1. Direct 301 redirect if someone hits ?page_id=10 or ?page_id=11
+    if (isset($_GET['page_id'])) {
+        $pid = (int)$_GET['page_id'];
+        if ($pid === 10) {
+            wp_safe_redirect(home_url('/our-people/'), 301);
+            exit;
+        }
+        if ($pid === 11) {
+            wp_safe_redirect(home_url('/our-expertise/'), 301);
+            exit;
+        }
+    }
+
+    // 2. Intercept 404s for core theme routes
+    if (is_404()) {
+        $raw_uri = parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH);
+        $path = trim($raw_uri, '/');
+
+        // Strip subfolder if WP installed in subdirectory
+        $home_path = trim(parse_url(home_url(), PHP_URL_PATH), '/');
+        if (!empty($home_path) && strpos($path, $home_path) === 0) {
+            $path = trim(substr($path, strlen($home_path)), '/');
+        }
+
+        if ($path === 'our-people' || $path === 'people' || $path === 'our-team') {
+            status_header(200);
+            $GLOBALS['wp_query']->is_404 = false;
+            include get_template_directory() . '/page-our-people.php';
+            exit;
+        }
+
+        if ($path === 'our-expertise' || $path === 'expertise' || $path === 'practice-areas') {
+            status_header(200);
+            $GLOBALS['wp_query']->is_404 = false;
+            include get_template_directory() . '/page-our-expertise.php';
+            exit;
+        }
+
+        if (strpos($path, 'our-expertise/') === 0 || strpos($path, 'expertise/') === 0 || strpos($path, 'practice/') === 0) {
+            status_header(200);
+            $GLOBALS['wp_query']->is_404 = false;
+            include get_template_directory() . '/page-practice-detail.php';
+            exit;
+        }
+
+        if ($path === 'about-us' || $path === 'about') {
+            status_header(200);
+            $GLOBALS['wp_query']->is_404 = false;
+            include get_template_directory() . '/page-about-us.php';
+            exit;
+        }
+
+        if ($path === 'our-awards' || $path === 'awards') {
+            status_header(200);
+            $GLOBALS['wp_query']->is_404 = false;
+            include get_template_directory() . '/page-our-awards.php';
+            exit;
+        }
+
+        if ($path === 'insights' || $path === 'blog' || $path === 'publications') {
+            status_header(200);
+            $GLOBALS['wp_query']->is_404 = false;
+            include get_template_directory() . '/page-insights.php';
+            exit;
+        }
+
+        if ($path === 'contact-us' || $path === 'contact') {
+            status_header(200);
+            $GLOBALS['wp_query']->is_404 = false;
+            include get_template_directory() . '/page-contact-us.php';
+            exit;
+        }
+
+        if ($path === 'terms' || $path === 'terms-of-access') {
+            status_header(200);
+            $GLOBALS['wp_query']->is_404 = false;
+            include get_template_directory() . '/page.php';
+            exit;
+        }
+    }
+}
+add_action('template_redirect', 'legal_insights_fallback_template_router', 1);
 
 /**
  * Auto-create or Auto-populate Primary Navigation Menu if empty
