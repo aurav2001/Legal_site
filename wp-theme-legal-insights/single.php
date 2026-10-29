@@ -18,7 +18,7 @@ $reading_time = function_exists('legal_insights_reading_time') ? legal_insights_
         <div class="row">
 
             <!-- Main Content Area (8 Columns) -->
-            <div class="col-8 blg_lft" data-aos="fade-up">
+            <div class="col-lg-8 col-12 blg_lft" data-aos="fade-up">
                 <?php while (have_posts()) : the_post(); ?>
                     
                     <!-- Breadcrumbs -->
@@ -106,7 +106,7 @@ $reading_time = function_exists('legal_insights_reading_time') ? legal_insights_
             </div>
 
             <!-- Related Posts Sidebar (4 Columns like aglaw.in .blg_rgt) -->
-            <div class="col-4 blg_rgt" data-aos="fade-left" data-aos-delay="200">
+            <div class="col-lg-4 col-12 blg_rgt" data-aos="fade-left" data-aos-delay="200">
                 <div class="sidebar-inner">
                     <h2 class="intr_hdg2 headingFontBlk blgs_hd">Related Posts</h2>
                     

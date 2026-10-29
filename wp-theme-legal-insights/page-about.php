@@ -53,7 +53,7 @@ get_header();
             <h2 style="font-family: var(--font-serif); font-size: 2.6rem; color: var(--color-dark);">Our Core Values</h2>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+        <div class="values-grid">
             
             <!-- Value 1 -->
             <div style="background: #ffffff; border: 1px solid var(--border-card); border-radius: var(--card-radius-curve); padding: 34px 28px; box-shadow: 0 4px 18px rgba(51, 39, 32, 0.06); position: relative; overflow: hidden;" data-aos="fade-up" data-aos-delay="100">
@@ -110,33 +110,33 @@ get_header();
 <!-- Vision & Mission (.our-vsn-msn) -->
 <section style="padding: 80px 0; background: #0e172a; color: #ffffff;">
     <div class="container-custom">
-        <div class="row" style="align-items: center; margin-bottom: 60px;">
-            <div class="col-6" data-aos="fade-right">
-                <div style="border-radius: var(--card-radius-curve); overflow: hidden; height: 340px; border: 1px solid rgba(197, 160, 89, 0.3);">
+        <div class="row align-items-center mb-5">
+            <div class="col-lg-6 col-12 mb-4 mb-lg-0" data-aos="fade-right">
+                <div style="border-radius: var(--card-radius-curve); overflow: hidden; height: 320px; border: 1px solid rgba(197, 160, 89, 0.3);">
                     <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80" alt="Our Vision" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
             </div>
-            <div class="col-6" data-aos="fade-left" style="padding-left: 36px;">
+            <div class="col-lg-6 col-12" data-aos="fade-left">
                 <div class="bnr_tag">Long-Term Orientation</div>
-                <h2 style="font-family: var(--font-serif); font-size: 2.6rem; color: #ffffff; margin-bottom: 16px;">Our Vision</h2>
-                <p style="font-size: 1.1rem; color: #cbd5e1; line-height: 1.8;">
+                <h2 style="font-family: var(--font-serif); font-size: 2.4rem; color: #ffffff; margin-bottom: 16px;">Our Vision</h2>
+                <p style="font-size: 1.05rem; color: #cbd5e1; line-height: 1.8;">
                     To remain India’s premier courtroom advocacy institution and the most trusted counsel of choice, forging generational attorney-client relationships founded upon unflinching legal acumen, judicial rigor, and ethical excellence.
                 </p>
             </div>
         </div>
 
-        <div class="row" style="align-items: center; flex-direction: row-reverse;">
-            <div class="col-6" data-aos="fade-left">
-                <div style="border-radius: var(--card-radius-curve); overflow: hidden; height: 340px; border: 1px solid rgba(197, 160, 89, 0.3);">
-                    <img src="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=1000&q=80" alt="Our Mission" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-            </div>
-            <div class="col-6" data-aos="fade-right" style="padding-right: 36px;">
+        <div class="row align-items-center flex-column-reverse flex-lg-row">
+            <div class="col-lg-6 col-12 mt-4 mt-lg-0" data-aos="fade-right">
                 <div class="bnr_tag">Strategic Purpose</div>
-                <h2 style="font-family: var(--font-serif); font-size: 2.6rem; color: #ffffff; margin-bottom: 16px;">Our Mission</h2>
-                <p style="font-size: 1.1rem; color: #cbd5e1; line-height: 1.8;">
+                <h2 style="font-family: var(--font-serif); font-size: 2.4rem; color: #ffffff; margin-bottom: 16px;">Our Mission</h2>
+                <p style="font-size: 1.05rem; color: #cbd5e1; line-height: 1.8;">
                     To deliver decisive dispute resolution strategies and innovative corporate solutions, defending constitutional liberties and corporate assets across the Supreme Court of India, appellate tribunals, and international arbitral forums.
                 </p>
+            </div>
+            <div class="col-lg-6 col-12" data-aos="fade-left">
+                <div style="border-radius: var(--card-radius-curve); overflow: hidden; height: 320px; border: 1px solid rgba(197, 160, 89, 0.3);">
+                    <img src="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=1000&q=80" alt="Our Mission" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
             </div>
         </div>
     </div>

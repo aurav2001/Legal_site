@@ -38,7 +38,7 @@ get_header(); ?>
         <div class="row">
             
             <!-- Left 8 Columns: Detail & Landmark Cases -->
-            <div class="col-8">
+            <div class="col-lg-8 col-12">
                 
                 <div class="mb-5" data-aos="fade-up">
                     <div class="sub-badge" style="display:inline-block; margin-bottom: 12px; background: rgba(197, 160, 89, 0.12); color: var(--color-gold); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 16px; border-radius: 20px;">
@@ -117,7 +117,7 @@ get_header(); ?>
             </div>
 
             <!-- Right 4 Columns: Practice Area Directory Sidebar -->
-            <div class="col-4">
+            <div class="col-lg-4 col-12 mt-5 mt-lg-0">
                 <div class="blg_rgt" data-aos="fade-left">
                     
                     <div class="rlt-pst-hdr mb-4">

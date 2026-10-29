@@ -12,7 +12,7 @@
         <div class="row">
             
             <!-- Column 1: Firm Overview & Social Presence -->
-            <div class="col-4">
+            <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
                 <div class="footer-lft">
                     <a href="<?php echo esc_url(home_url('/')); ?>" class="logo_mn">
                         <div class="logo-brand" style="font-size: 1.4rem; color: #ffffff;">
@@ -50,7 +50,7 @@
             </div>
 
             <!-- Column 2: Navigation & Insights -->
-            <div class="col-4">
+            <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
                 <div class="footer-mid">
                     <h2>Firm &amp; Knowledge</h2>
                     <ul>
@@ -65,16 +65,15 @@
             </div>
 
             <!-- Column 3: Core Practice Areas -->
-            <div class="col-4">
+            <div class="col-lg-4 col-md-12 col-12">
                 <div class="footer-mid">
                     <h2>Practice Jurisdictions</h2>
                     <ul>
-                        <li><a href="#">Commercial Litigation &amp; Supreme Court</a></li>
-                        <li><a href="#">International &amp; Domestic Arbitration</a></li>
-                        <li><a href="#">Corporate Restructuring &amp; M&amp;A</a></li>
-                        <li><a href="#">Insolvency &amp; Bankruptcy Code (IBC)</a></li>
-                        <li><a href="#">Competition &amp; Antitrust Law</a></li>
-                        <li><a href="#">White-Collar Defense &amp; PMLA</a></li>
+                        <li><a href="<?php echo esc_url(home_url('/our-expertise/commercial-litigation/')); ?>">Commercial Litigation &amp; Supreme Court</a></li>
+                        <li><a href="<?php echo esc_url(home_url('/our-expertise/arbitration/')); ?>">International &amp; Domestic Arbitration</a></li>
+                        <li><a href="<?php echo esc_url(home_url('/our-expertise/corporate-insolvency/')); ?>">Corporate Restructuring &amp; IBC</a></li>
+                        <li><a href="<?php echo esc_url(home_url('/our-expertise/competition-law/')); ?>">Competition &amp; Antitrust Law (CCI)</a></li>
+                        <li><a href="<?php echo esc_url(home_url('/our-expertise/criminal-law/')); ?>">White-Collar Defense &amp; PMLA</a></li>
                     </ul>
                 </div>
             </div>

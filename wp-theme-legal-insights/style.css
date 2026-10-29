@@ -4,7 +4,7 @@ Theme URI: https://lexvanguard.legal/
 Author: Gulshan Kumar
 Author URI: https://lexvanguard.legal/
 Description: Luxury Law Firm & Knowledge Hub WordPress Theme. Inspired by premium appellate chambers design with signature architectural curved cards (border-radius: 16px 0 45px 0), smooth native animations, responsive practice showcase, category tabs, and uncluttered luxury navigation.
-Version: 1.2.6
+Version: 1.3.0
 Requires at least: 6.0
 Tested up to: 6.7
 Requires PHP: 7.4
@@ -56,10 +56,14 @@ Tags: law-firm, legal, insights, blog, clean, responsive, custom-colors, custom-
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  overflow-x: hidden !important;
+  width: 100% !important;
+  max-width: 100vw !important;
 }
 
 body {
-  width: 100%;
+  width: 100% !important;
+  max-width: 100vw !important;
   margin: 0;
   padding: 0;
   font-family: var(--font-sans);
@@ -67,7 +71,8 @@ body {
   background-color: var(--bg-light);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
+  position: relative;
 }
 
 img {
@@ -111,6 +116,14 @@ ul {
 }
 [data-aos="zoom-in"] {
   transform: scale(0.9);
+}
+
+/* Safety: Prevent horizontal AOS translations from causing layout horizontal overflow on mobile screens */
+@media (max-width: 767px) {
+  [data-aos="fade-right"],
+  [data-aos="fade-left"] {
+    transform: translate3d(0, 24px, 0) !important;
+  }
 }
 
 [data-aos].aos-animate {
@@ -1893,8 +1906,8 @@ body.mobile-nav-lock {
   }
 }
 
-/* Phones & Compact Mobile Breakpoint (Max Width: 480px) */
-@media (max-width: 480px) {
+/* Phones & Compact Mobile Breakpoint (Max Width: 520px) */
+@media (max-width: 520px) {
   /* Header Area */
   .top_hdr_area {
     padding: 10px 0 !important;
@@ -1905,28 +1918,61 @@ body.mobile-nav-lock {
     gap: 8px !important;
   }
 
-  .logo-brand {
-    font-size: 1.22rem !important;
+  .logo-crest {
+    width: 34px !important;
+    height: 34px !important;
+    border-radius: 6px !important;
   }
 
+  .logo-crest svg {
+    width: 17px !important;
+    height: 17px !important;
+  }
+
+  .logo-brand {
+    font-size: 1.12rem !important;
+    letter-spacing: 0.02em !important;
+  }
+
+  /* Hide long tagline on compact phones so header NEVER exceeds viewport */
   .logo-tagline {
-    font-size: 0.58rem !important;
-    letter-spacing: 0.06em !important;
+    display: none !important;
   }
 
   .clean-nav-btn {
-    padding: 6px 12px !important;
-    font-size: 0.75rem !important;
+    padding: 6px 11px !important;
+    font-size: 0.74rem !important;
     gap: 4px !important;
+  }
+
+  .clean-nav-btn svg {
+    display: none !important;
+  }
+
+  .header__humburgermenu {
+    width: 36px !important;
+    height: 36px !important;
+    padding: 5px !important;
+  }
+
+  .header__humburgerblock {
+    width: 18px !important;
+    height: 15px !important;
+  }
+
+  .header__humburgerblock span {
+    width: 18px !important;
   }
 
   /* Buttons & CTAs full width on phone */
   .sub_filter_btn {
     width: 100% !important;
     text-align: center !important;
+    justify-content: center !important;
     padding: 12px 20px !important;
   }
 
+  .hero-btns-wrap,
   div[style*="display: flex; gap: 16px; flex-wrap: wrap;"] {
     flex-direction: column !important;
     width: 100% !important;
@@ -1938,15 +1984,48 @@ body.mobile-nav-lock {
   .welcm-stats-grid,
   .counter-pill-box,
   div[style*="display: flex; gap: 24px; margin-top: 36px;"] {
+    display: grid !important;
     grid-template-columns: 1fr !important;
     gap: 10px !important;
   }
 
+  .stat-pill-card,
+  .welcome-stats-row > div {
+    min-width: 0 !important;
+    width: 100% !important;
+    padding: 16px 14px !important;
+    text-align: center !important;
+    border-radius: 10px 0 22px 0 !important;
+  }
+
   /* Arch Visual Frame */
   .hm_bnr_arch_img {
-    max-width: 270px !important;
-    height: 290px !important;
-    border-radius: 135px 135px 16px 16px !important;
+    max-width: 260px !important;
+    height: 280px !important;
+    border-radius: 130px 130px 16px 16px !important;
+  }
+
+  .floating-badge-circle {
+    width: 54px !important;
+    height: 54px !important;
+  }
+
+  .fb-top-left {
+    top: 6px !important;
+    left: 6px !important;
+  }
+
+  .fb-bottom-right {
+    bottom: 8px !important;
+    right: 8px !important;
+  }
+
+  .fb-num {
+    font-size: 1.05rem !important;
+  }
+
+  .fb-lbl {
+    font-size: 0.5rem !important;
   }
 
   /* People Lawyer Cards Header */
@@ -1959,6 +2038,10 @@ body.mobile-nav-lock {
     gap: 14px !important;
   }
 
+  .leader-card-header > div:first-child {
+    margin: 0 auto !important;
+  }
+
   .leader-contact-links,
   div[style*="display: flex; gap: 10px; margin-top: 14px"] {
     justify-content: center !important;
@@ -1966,6 +2049,17 @@ body.mobile-nav-lock {
 
   div[style*="padding: 24px 30px 28px 30px"] {
     padding: 16px 16px 20px 16px !important;
+  }
+
+  /* Practice row items */
+  .pract-row-item {
+    padding: 10px 12px !important;
+    border-radius: 6px 0 16px 0 !important;
+  }
+
+  .pract-row-title {
+    font-size: 0.84rem !important;
+    line-height: 1.3 !important;
   }
 
   /* Form Elements Touch Targets */
@@ -1979,16 +2073,28 @@ body.mobile-nav-lock {
   }
 }
 
-/* Extra Small Phones (Max Width: 360px) */
-@media (max-width: 360px) {
-  .logo-tagline {
-    display: none !important;
+/* Extra Small Phones (Max Width: 375px) */
+@media (max-width: 375px) {
+  .logo-crest {
+    width: 30px !important;
+    height: 30px !important;
+  }
+  .logo-crest svg {
+    width: 15px !important;
+    height: 15px !important;
+  }
+  .logo-brand {
+    font-size: 1.0rem !important;
   }
   .clean-nav-btn {
-    padding: 6px 9px !important;
+    padding: 5px 8px !important;
     font-size: 0.7rem !important;
   }
-  .clean-nav-btn svg {
+}
+
+/* Super Small Devices (Max Width: 330px) */
+@media (max-width: 330px) {
+  .clean-nav-btn {
     display: none !important;
   }
 }
@@ -2408,6 +2514,615 @@ svg {
   max-height: 18px !important;
   display: block !important;
 }
+
+/* ==========================================================================
+   HOMEPAGE & INNER PAGES RESPONSIVE COMPONENT SUITE
+   ========================================================================== */
+
+/* Logo Crest */
+.logo-crest {
+  width: 42px;
+  height: 42px;
+  background: rgba(197, 160, 89, 0.15);
+  border: 1px solid var(--color-gold);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Hero Section */
+.hme_bnr__area {
+  background: #14171f;
+  position: relative;
+  padding: 85px 0 95px 0;
+  overflow: hidden;
+  color: #ffffff;
+}
+.bnr_sml_cntnt {
+  font-size: 0.88rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #c5a059;
+  margin-bottom: 22px;
+  font-weight: 500;
+}
+.hdng_bnr {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 5.2vw, 4.2rem);
+  color: #ffffff;
+  line-height: 1.14;
+  margin-bottom: 24px;
+  font-weight: 400;
+  word-break: break-word;
+}
+.hdng_bnr span {
+  color: #c5a059;
+  font-style: italic;
+}
+.para_bnr {
+  font-size: 1.08rem;
+  line-height: 1.75;
+  color: #cbd5e1;
+  max-width: 540px;
+  margin-bottom: 36px;
+}
+.hero-btns-wrap {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Arch Visual Frame */
+.hm_bnr_visual_frame {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hm_bnr_arch_img {
+  width: 100%;
+  max-width: 460px;
+  height: 480px;
+  border-radius: 220px 220px 24px 24px;
+  overflow: hidden;
+  border: 2px solid rgba(197, 160, 89, 0.4);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.55);
+}
+.hm_bnr_arch_img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.floating-badge-circle {
+  position: absolute;
+  width: 78px;
+  height: 78px;
+  border-radius: 50%;
+  background: rgba(20, 23, 31, 0.92);
+  border: 1.5px solid var(--color-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-gold);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+}
+.fb-top-left {
+  top: 20px;
+  left: 10px;
+}
+.fb-bottom-right {
+  bottom: 30px;
+  right: 20px;
+  text-align: center;
+  line-height: 1.1;
+}
+.fb-num {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #ffffff;
+  display: block;
+}
+.fb-lbl {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  display: block;
+  color: #c5a059;
+}
+
+/* Welcome Section & Stat Cards */
+.welcome-sec {
+  background: #fbf9f5;
+  padding: 90px 0;
+  position: relative;
+}
+.welcome-subtag {
+  color: #c5a059;
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.welcome-title {
+  font-family: var(--font-serif);
+  font-size: 2.4rem;
+  color: #1e293b;
+  margin-bottom: 20px;
+  line-height: 1.25;
+}
+.welcome-para {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #475569;
+  margin-bottom: 30px;
+}
+.welcome-stats-row {
+  display: flex;
+  gap: 20px;
+  margin-top: 36px;
+  flex-wrap: wrap;
+}
+.stat-pill-card {
+  background: #ffffff;
+  border: 1px solid #e5ded6;
+  border-radius: 12px 0 28px 0;
+  padding: 20px 28px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+  flex: 1 1 140px;
+  min-width: 130px;
+}
+.stat-num {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  color: #c5a059;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.stat-lbl {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #64748b;
+  font-weight: 600;
+}
+.strategic-counsel-card {
+  background: #ffffff;
+  border: 1px solid #e5ded6;
+  border-radius: 16px 0 45px 0;
+  padding: 36px 30px;
+  box-shadow: 0 15px 35px rgba(51, 39, 32, 0.08);
+}
+.sc-play-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(197, 160, 89, 0.15);
+  border: 2px solid #c5a059;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  color: #c5a059;
+  font-size: 1.8rem;
+}
+.sc-title {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  color: #332720;
+  margin-bottom: 12px;
+}
+.sc-quote {
+  font-size: 0.92rem;
+  color: #64748b;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+.sc-link-btn {
+  padding: 12px 28px;
+  font-size: 0.88rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #0e172a;
+  color: #c5a059 !important;
+  border: 1.5px solid #c5a059;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(14, 23, 42, 0.15);
+  transition: all 0.3s ease;
+}
+.sc-link-btn:hover {
+  background: #c5a059;
+  color: #0e172a !important;
+}
+
+/* Pillars Section */
+.pillars-section {
+  background: #231F20;
+  padding: 95px 0;
+  color: #ffffff;
+}
+.pillars-main-title {
+  font-family: var(--font-serif);
+  font-size: 2.6rem;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+.pillars-main-sub {
+  color: #cbd5e1;
+  font-size: 1.05rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.pillar-card {
+  background: #2e2826;
+  border: 1px solid rgba(197, 160, 89, 0.25);
+  border-radius: 16px 0 45px 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+.pillar-card.pillar-card-accent {
+  background: #f7f3ee;
+  border: 1px solid rgba(197, 160, 89, 0.5);
+  color: #332720;
+}
+.pillar-card-img-wrap {
+  height: 230px;
+  overflow: hidden;
+  width: 100%;
+}
+.pillar-card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.pillar-card:hover .pillar-card-img-wrap img {
+  transform: scale(1.05);
+}
+.pillar-card-content {
+  padding: 30px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+}
+.pillar-card-title {
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  line-height: 1.3;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+.pillar-card-accent .pillar-card-title {
+  color: #332720;
+}
+.pillar-card-title span {
+  color: #c5a059;
+}
+.pillar-card-accent .pillar-card-title span {
+  color: #8c6a2d;
+}
+.pillar-card-desc {
+  font-size: 0.92rem;
+  color: #a1968e;
+  line-height: 1.65;
+  margin-bottom: 24px;
+}
+.pillar-card-accent .pillar-card-desc {
+  color: #5d534c;
+}
+
+/* Practice Showcase */
+.practice-showcase-sec {
+  background: #ffffff;
+  padding: 90px 0;
+}
+.practice-portfolio-card {
+  background: #231F20;
+  border-radius: 16px 0 45px 0;
+  padding: 40px 32px;
+  color: #ffffff;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+}
+.portfolio-tag {
+  color: #c5a059;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 12px;
+}
+.portfolio-title {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  color: #ffffff;
+  margin-bottom: 18px;
+  line-height: 1.25;
+}
+.portfolio-desc {
+  color: #cbd5e1;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+.portfolio-lead-box {
+  border-top: 1px solid rgba(197, 160, 89, 0.3);
+  padding-top: 24px;
+}
+.portfolio-lead-role {
+  font-size: 0.85rem;
+  color: #c5a059;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.portfolio-lead-name {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  color: #ffffff;
+}
+.portfolio-lead-bar {
+  font-size: 0.82rem;
+  color: #94a3b8;
+}
+
+/* About Us Core Values Grid */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+  width: 100%;
+}
+@media (max-width: 767px) {
+  .values-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+}
+
+/* People / Leadership Directory Grid & Cards */
+.people-directory-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 36px;
+  width: 100%;
+}
+
+.leader-card-wrap {
+  background: #ffffff;
+  border: 1px solid var(--border-card);
+  border-radius: var(--card-radius-curve);
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(51, 39, 32, 0.06);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.leader-card-wrap:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 32px rgba(51, 39, 32, 0.12);
+}
+
+.leader-card-header {
+  display: flex;
+  gap: 24px;
+  padding: 30px;
+  border-bottom: 1px solid #f1f5f9;
+  align-items: flex-start;
+}
+
+.leader-card-img {
+  width: 130px;
+  height: 160px;
+  border-radius: var(--card-image-radius);
+  overflow: hidden;
+  flex-shrink: 0;
+  background: #0e172a;
+}
+
+.leader-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.leader-card-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.leader-exp-badge {
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  letter-spacing: 0.08em;
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+.leader-name {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  color: var(--color-dark);
+  margin-bottom: 6px;
+  line-height: 1.25;
+}
+
+.leader-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #64748b;
+  margin-bottom: 10px;
+}
+
+.leader-chambers {
+  font-size: 0.82rem;
+  color: #94a3b8;
+}
+
+.leader-socials {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.leader-socials a {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #475569;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.leader-socials a:hover {
+  background: var(--color-gold);
+  color: #ffffff;
+}
+
+.leader-bio-body {
+  padding: 24px 30px 28px 30px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.leader-bio-text {
+  font-size: 0.92rem;
+  color: #554a43;
+  line-height: 1.65;
+  margin-bottom: 16px;
+}
+
+.leader-practice-tag {
+  background: rgba(197, 160, 89, 0.08);
+  border-left: 3px solid var(--color-gold);
+  padding: 10px 14px;
+  border-radius: 0 4px 4px 0;
+  font-size: 0.82rem;
+  color: #332720;
+  margin-bottom: 14px;
+}
+
+.leader-education-tag {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 14px;
+}
+
+@media (max-width: 991px) {
+  .people-directory-grid {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+}
+
+@media (max-width: 575px) {
+  .leader-card-header {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    padding: 22px 18px !important;
+    gap: 16px !important;
+  }
+  .leader-card-img {
+    width: 120px !important;
+    height: 145px !important;
+  }
+  .leader-socials {
+    justify-content: center !important;
+  }
+  .leader-name {
+    font-size: 1.35rem !important;
+  }
+  .leader-bio-body {
+    padding: 20px 18px !important;
+  }
+}
+
+/* Expertise Pillar Showcase Sections */
+.pillar-visual-box {
+  border-radius: var(--card-radius-curve);
+  overflow: hidden;
+  height: 380px;
+  border: 1px solid var(--border-card);
+  box-shadow: 0 8px 24px rgba(51, 39, 32, 0.08);
+  width: 100%;
+}
+
+.pillar-visual-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.pillar-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  color: var(--color-dark);
+  margin-bottom: 16px;
+  line-height: 1.25;
+}
+
+.pillar-text {
+  font-size: 1.02rem;
+  color: #554a43;
+  line-height: 1.75;
+  margin-bottom: 24px;
+}
+
+.pillar-points-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pillar-points-list li {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-dark);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+@media (max-width: 767px) {
+  .pillar-visual-box {
+    height: 240px !important;
+  }
+  .pillar-desc-col {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .pillar-text {
+    font-size: 0.95rem !important;
+  }
+}
+
 
 
 

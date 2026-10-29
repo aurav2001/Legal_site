@@ -66,10 +66,10 @@ if (!$insights_query->have_posts() && $current_type !== 'all' && empty($search_q
 
         <!-- Search Bar on Top Right (like aglaw.in) -->
         <div class="row insight_srch_lst_cont">
-            <div class="col-6" data-aos="fade-right">
+            <div class="col-md-6 d-none d-md-block" data-aos="fade-right">
                 <!-- Optional Left Breadcrumbs or Firm Indicator -->
             </div>
-            <div class="col-6" data-aos="fade-left">
+            <div class="col-md-6 col-12" data-aos="fade-left">
                 <div class="searchbar_bt">
                     <div class="srch_bx">
                         <form action="<?php echo esc_url(get_permalink()); ?>" method="get">

@@ -105,42 +105,42 @@ $leaders = array(
 <section style="padding: 70px 0 100px 0; background: #fbfbfd;">
     <div class="container-custom">
 
-        <div class="people-directory-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px;">
+        <div class="people-directory-grid">
             <?php 
             $p_idx = 0;
             foreach ($leaders as $leader) : 
                 $p_idx++;
                 $p_delay = ($p_idx % 2 == 1) ? 100 : 250;
             ?>
-                <div style="background: #ffffff; border: 1px solid var(--border-card); border-radius: var(--card-radius-curve); overflow: hidden; box-shadow: 0 6px 20px rgba(51, 39, 32, 0.06); display: flex; flex-direction: column; position: relative;" data-aos="fade-up" data-aos-delay="<?php echo esc_attr($p_delay); ?>">
+                <div class="leader-card-wrap" data-aos="fade-up" data-aos-delay="<?php echo esc_attr($p_delay); ?>">
                     
-                    <div class="leader-card-header" style="display: flex; gap: 24px; padding: 30px; border-bottom: 1px solid #f1f5f9;">
+                    <div class="leader-card-header">
                         <!-- Lawyer Photo -->
-                        <div style="width: 130px; height: 160px; border-radius: var(--card-image-radius); overflow: hidden; flex-shrink: 0; background: #0e172a;">
-                            <img src="<?php echo esc_url($leader['image']); ?>" alt="<?php echo esc_attr($leader['name']); ?>" style="width: 100%; height: 100%; object-fit: cover;">
+                        <div class="leader-card-img">
+                            <img src="<?php echo esc_url($leader['image']); ?>" alt="<?php echo esc_attr($leader['name']); ?>">
                         </div>
 
                         <!-- Header Info -->
-                        <div style="flex: 1;">
-                            <span style="font-size: 0.74rem; font-weight: 700; text-transform: uppercase; color: var(--color-gold); letter-spacing: 0.08em; display: inline-block; margin-bottom: 4px;">
+                        <div class="leader-card-info">
+                            <span class="leader-exp-badge">
                                 <?php echo esc_html($leader['experience']); ?>
                             </span>
-                            <h2 style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--color-dark); margin-bottom: 6px; line-height: 1.25;">
+                            <h2 class="leader-name">
                                 <?php echo esc_html($leader['name']); ?>
                             </h2>
-                            <div style="font-size: 0.9rem; font-weight: 600; color: #64748b; margin-bottom: 10px;">
+                            <div class="leader-title">
                                 <?php echo esc_html($leader['title']); ?>
                             </div>
-                            <div style="font-size: 0.82rem; color: #94a3b8;">
+                            <div class="leader-chambers">
                                 📍 <?php echo esc_html($leader['chambers']); ?>
                             </div>
 
                             <!-- Social / Email Contact -->
-                            <div style="display: flex; gap: 10px; margin-top: 14px;">
-                                <a href="<?php echo esc_url($leader['linkedin']); ?>" target="_blank" rel="noopener noreferrer" style="width: 32px; height: 32px; border-radius: 50%; background: #f1f5f9; display: flex; align-items: center; justify-content: center; color: #475569;" title="LinkedIn">
+                            <div class="leader-socials">
+                                <a href="<?php echo esc_url($leader['linkedin']); ?>" target="_blank" rel="noopener noreferrer" title="LinkedIn">
                                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
                                 </a>
-                                <a href="mailto:<?php echo esc_attr($leader['email']); ?>" style="width: 32px; height: 32px; border-radius: 50%; background: #f1f5f9; display: flex; align-items: center; justify-content: center; color: #475569;" title="Email">
+                                <a href="mailto:<?php echo esc_attr($leader['email']); ?>" title="Email">
                                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                                 </a>
                             </div>
@@ -148,16 +148,16 @@ $leaders = array(
                     </div>
 
                     <!-- Bio & Expertise -->
-                    <div style="padding: 24px 30px 28px 30px; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div class="leader-bio-body">
                         <div>
-                            <p style="font-size: 0.92rem; color: #554a43; line-height: 1.65; margin-bottom: 16px;">
+                            <p class="leader-bio-text">
                                 <?php echo esc_html($leader['bio']); ?>
                             </p>
-                            <div style="background: rgba(197, 160, 89, 0.08); border-left: 3px solid var(--color-gold); padding: 10px 14px; border-radius: 0 4px 4px 0; font-size: 0.82rem; color: #332720; margin-bottom: 14px;">
+                            <div class="leader-practice-tag">
                                 <strong>Practice Areas: </strong><?php echo esc_html($leader['expertise']); ?>
                             </div>
                         </div>
-                        <div style="font-size: 0.8rem; color: #94a3b8; border-top: 1px solid #f1f5f9; padding-top: 14px;">
+                        <div class="leader-education-tag">
                             <strong>Education: </strong><?php echo esc_html($leader['education']); ?>
                         </div>
                     </div>

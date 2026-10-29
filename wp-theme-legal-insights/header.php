@@ -43,7 +43,7 @@
 <!-- Clean Luxury Sticky Navigation Bar (Uncluttered) -->
 <header class="header-main sticky_top">
     <div class="container-custom">
-        <div class="top_hdr_area" style="padding: 14px 0;">
+        <div class="top_hdr_area">
             
             <!-- Brand Logo Area -->
             <div class="logo_area">
@@ -52,7 +52,7 @@
                         <?php the_custom_logo(); ?>
                     <?php else : ?>
                         <!-- Luxury SVG Scales Crest & Legal Typography -->
-                        <div style="width: 42px; height: 42px; background: rgba(197, 160, 89, 0.15); border: 1px solid var(--color-gold); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                        <div class="logo-crest">
                             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c5a059" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/>
                                 <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/>
@@ -62,8 +62,8 @@
                             </svg>
                         </div>
                         <div class="logo-text-wrap">
-                            <div class="logo-brand" style="font-size: 1.45rem;">MALHOTRA <span>&amp; CO.</span></div>
-                            <div class="logo-tagline" style="font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: #94a3b8; white-space: nowrap;">
+                            <div class="logo-brand">MALHOTRA <span>&amp; CO.</span></div>
+                            <div class="logo-tagline">
                                 <?php 
                                 $site_desc = get_bloginfo('description');
                                 if (empty($site_desc) || stripos($site_desc, 'just another') !== false || stripos($site_desc, 'tastewp') !== false) {
@@ -79,7 +79,7 @@
             </div>
 
             <!-- Clean Navigation Menu Area -->
-            <div class="menu_area" style="gap: 20px;">
+            <div class="menu_area">
                 <?php
                 $has_custom_menu = false;
                 if (has_nav_menu('primary')) {
@@ -129,9 +129,9 @@
                 <?php endif; ?>
 
                 <!-- Sleek Luxury Consultation CTA Button -->
-                <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="clean-nav-btn" style="background: linear-gradient(135deg, #c5a059 0%, #b89146 100%); color: #0b111e !important; font-size: 0.82rem !important; font-weight: 600 !important; letter-spacing: 0.04em; padding: 8px 18px !important; border-radius: 9999px; display: inline-flex; align-items: center; justify-content: center; gap: 5px; box-shadow: 0 3px 12px rgba(197, 160, 89, 0.28); text-decoration: none !important; white-space: nowrap; flex-shrink: 0; border: 1px solid rgba(255, 245, 210, 0.3);">
+                <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="clean-nav-btn">
                     <span>Consultation</span>
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle; transition: transform 0.2s ease;"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
                 </a>
 
                 <!-- Mobile Hamburger Icon -->

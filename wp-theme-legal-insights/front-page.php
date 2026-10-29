@@ -11,42 +11,42 @@
 get_header(); ?>
 
 <!-- SECTION 1: HERO BANNER (LexVanguard Legal) -->
-<section class="hme_bnr__area" style="background: #14171f; position: relative; padding: 90px 0 100px 0; overflow: hidden; color: #ffffff;">
+<section class="hme_bnr__area">
     <div class="container-custom">
         <div class="row align-items-center">
             
             <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000">
-                <div class="bnr_sml_cntnt" style="font-size: 0.88rem; letter-spacing: 0.22em; text-transform: uppercase; color: #c5a059; margin-bottom: 24px; font-weight: 500;">
+                <div class="bnr_sml_cntnt">
                     MALHOTRA &amp; CO. ADVOCATES &amp; PARTNERS
                 </div>
-                <h1 class="hdng_bnr" style="font-family: var(--font-serif); font-size: clamp(2.8rem, 5.2vw, 4.4rem); color: #ffffff; line-height: 1.12; margin-bottom: 24px; font-weight: 400;">
-                    With You In Every <span style="color: #c5a059; font-style: italic;">Challenge</span>
+                <h1 class="hdng_bnr">
+                    With You In Every <span>Challenge</span>
                 </h1>
-                <p class="para_bnr" style="font-size: 1.1rem; line-height: 1.75; color: #cbd5e1; max-width: 540px; margin-bottom: 38px;">
+                <p class="para_bnr">
                     At Malhotra &amp; Co., we deliver dedicated, personalized legal counsel and appellate advocacy across the Supreme Court of India, High Courts, and International Arbitration Tribunals.
                 </p>
-                <div style="display: flex; gap: 16px; flex-wrap: wrap;">
-                    <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="sub_filter_btn active" style="padding: 14px 32px; font-size: 0.95rem; background: linear-gradient(135deg, #c5a059 0%, #dfba73 50%, #b38b42 100%); color: #0b111e !important; font-weight: 700; border-radius: 6px; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 4px 18px rgba(197, 160, 89, 0.35); border: 1px solid #dfba73;">
+                <div class="hero-btns-wrap">
+                    <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="sub_filter_btn active">
                         Schedule Consultation
                     </a>
-                    <a href="<?php echo esc_url(home_url('/our-expertise/')); ?>" class="sub_filter_btn" style="padding: 14px 32px; font-size: 0.95rem; background: rgba(255, 255, 255, 0.08); color: #ffffff !important; border: 1.5px solid rgba(197, 160, 89, 0.6); border-radius: 6px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; justify-content: center;">
+                    <a href="<?php echo esc_url(home_url('/our-expertise/')); ?>" class="sub_filter_btn">
                         Our Practice Areas &rarr;
                     </a>
                 </div>
             </div>
 
-            <div class="col-lg-6 text-center mt-5 mt-lg-0" data-aos="fade-left" data-aos-duration="1000">
-                <div style="position: relative; display: flex; align-items: center; justify-content: center;">
-                    <div style="width: 100%; max-width: 460px; height: 480px; border-radius: 220px 220px 24px 24px; overflow: hidden; border: 2px solid rgba(197, 160, 89, 0.4); box-shadow: 0 25px 60px rgba(0, 0, 0, 0.55);">
-                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80" alt="Supreme Court Legal Excellence" style="width: 100%; height: 100%; object-fit: cover;">
+            <div class="col-lg-6 text-center mt-4 mt-lg-0" data-aos="fade-left" data-aos-duration="1000">
+                <div class="hm_bnr_visual_frame">
+                    <div class="hm_bnr_arch_img">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80" alt="Supreme Court Legal Excellence">
                     </div>
-                    <div style="position: absolute; top: 20px; left: 10px; width: 78px; height: 78px; border-radius: 50%; background: rgba(20, 23, 31, 0.92); border: 1.5px solid var(--color-gold); display: flex; align-items: center; justify-content: center; color: var(--color-gold); box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4); backdrop-filter: blur(8px);">
-                        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg>
+                    <div class="floating-badge-circle fb-top-left">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg>
                     </div>
-                    <div style="position: absolute; bottom: 30px; right: 20px; width: 78px; height: 78px; border-radius: 50%; background: rgba(20, 23, 31, 0.92); border: 1.5px solid var(--color-gold); display: flex; align-items: center; justify-content: center; box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4); backdrop-filter: blur(8px); text-align: center; line-height: 1.1;">
+                    <div class="floating-badge-circle fb-bottom-right">
                         <div>
-                            <span style="font-size: 1.35rem; font-weight: 800; color: #ffffff;">60+</span>
-                            <span style="font-size: 0.6rem; text-transform: uppercase; display: block; color: #c5a059;">Years</span>
+                            <span class="fb-num">60+</span>
+                            <span class="fb-lbl">Years</span>
                         </div>
                     </div>
                 </div>
@@ -57,46 +57,46 @@ get_header(); ?>
 </section>
 
 <!-- SECTION 2: WELCOME TO MALHOTRA & CO. -->
-<section style="background: #fbf9f5; padding: 90px 0; position: relative;">
+<section class="welcome-sec">
     <div class="container-custom">
         <div class="row align-items-center">
             
             <div class="col-lg-7" data-aos="fade-right">
-                <div style="color: #c5a059; font-size: 0.84rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 12px;">
+                <div class="welcome-subtag">
                     Heritage &bull; Excellence &bull; Integrity
                 </div>
-                <h2 style="font-family: var(--font-serif); font-size: 2.4rem; color: #1e293b; margin-bottom: 20px; line-height: 1.25;">
+                <h2 class="welcome-title">
                     Welcome to Malhotra &amp; Co.
                 </h2>
-                <p style="font-size: 1.05rem; line-height: 1.8; color: #475569; margin-bottom: 30px;">
+                <p class="welcome-para">
                     Established with a storied tradition of courtroom excellence, Malhotra &amp; Co. has grown into a leading full-service law firm serving major corporations, financial institutions, and high-net-worth clients across India. Today, we are proud to be one of the most trusted legal institutions handling high-stakes constitutional and commercial disputes.
                 </p>
-                <div class="welcome-stats-row" style="display: flex; gap: 24px; margin-top: 36px; flex-wrap: wrap;">
-                    <div style="background: #ffffff; border: 1px solid #e5ded6; border-radius: 12px 0 28px 0; padding: 20px 28px; box-shadow: 0 6px 18px rgba(0,0,0,0.04); min-width: 140px;">
-                        <div style="font-family: var(--font-serif); font-size: 2.2rem; color: #c5a059; font-weight: 700; line-height: 1; margin-bottom: 6px;">1964</div>
-                        <div style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: #64748b; font-weight: 600;">Established</div>
+                <div class="welcome-stats-row">
+                    <div class="stat-pill-card">
+                        <div class="stat-num">1964</div>
+                        <div class="stat-lbl">Established</div>
                     </div>
-                    <div style="background: #ffffff; border: 1px solid #e5ded6; border-radius: 12px 0 28px 0; padding: 20px 28px; box-shadow: 0 6px 18px rgba(0,0,0,0.04); min-width: 140px;">
-                        <div style="font-family: var(--font-serif); font-size: 2.2rem; color: #c5a059; font-weight: 700; line-height: 1; margin-bottom: 6px;">11</div>
-                        <div style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: #64748b; font-weight: 600;">Practice Areas</div>
+                    <div class="stat-pill-card">
+                        <div class="stat-num">11</div>
+                        <div class="stat-lbl">Practice Areas</div>
                     </div>
-                    <div style="background: #ffffff; border: 1px solid #e5ded6; border-radius: 12px 0 28px 0; padding: 20px 28px; box-shadow: 0 6px 18px rgba(0,0,0,0.04); min-width: 140px;">
-                        <div style="font-family: var(--font-serif); font-size: 2.2rem; color: #c5a059; font-weight: 700; line-height: 1; margin-bottom: 6px;">500+</div>
-                        <div style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: #64748b; font-weight: 600;">Landmark Cases</div>
+                    <div class="stat-pill-card">
+                        <div class="stat-num">500+</div>
+                        <div class="stat-lbl">Landmark Cases</div>
                     </div>
                 </div>
             </div>
 
             <div class="col-lg-5 text-center mt-5 mt-lg-0" data-aos="fade-left">
-                <div style="background: #ffffff; border: 1px solid #e5ded6; border-radius: 16px 0 45px 0; padding: 36px 30px; box-shadow: 0 15px 35px rgba(51, 39, 32, 0.08);">
-                    <div style="width: 72px; height: 72px; border-radius: 50%; background: rgba(197, 160, 89, 0.15); border: 2px solid #c5a059; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: #c5a059; font-size: 1.8rem;">
+                <div class="strategic-counsel-card">
+                    <div class="sc-play-icon">
                         ▶
                     </div>
-                    <h3 style="font-family: var(--font-serif); font-size: 1.4rem; color: #332720; margin-bottom: 12px;">Our Strategic Counsel</h3>
-                    <p style="font-size: 0.92rem; color: #64748b; line-height: 1.6; margin-bottom: 24px;">
+                    <h3 class="sc-title">Our Strategic Counsel</h3>
+                    <p class="sc-quote">
                         "Combining forensic factual scrutiny with generational appellate advocacy to deliver exceptional legal outcomes."
                     </p>
-                    <a href="<?php echo esc_url(home_url('/about-us/')); ?>" class="sub_filter_btn" style="padding: 12px 28px; font-size: 0.88rem; display: inline-flex; align-items: center; justify-content: center; background: #0e172a; color: #c5a059 !important; border: 1.5px solid #c5a059; border-radius: 6px; font-weight: 600; text-decoration: none; box-shadow: 0 4px 14px rgba(14, 23, 42, 0.15);">
+                    <a href="<?php echo esc_url(home_url('/about-us/')); ?>" class="sc-link-btn">
                         Read Our Full Story &rarr;
                     </a>
                 </div>
@@ -107,14 +107,14 @@ get_header(); ?>
 </section>
 
 <!-- SECTION 3: OUR EXPERTISE (The 3 Signature Pillars) -->
-<section style="background: #231F20; padding: 100px 0; color: #ffffff;">
+<section class="pillars-section">
     <div class="container-custom">
         <div class="row text-center mb-5" data-aos="fade-up">
             <div class="col-12">
-                <h2 style="font-family: var(--font-serif); font-size: 2.6rem; color: #ffffff; margin-bottom: 12px;">
+                <h2 class="pillars-main-title">
                     Our Expertise
                 </h2>
-                <p style="color: #cbd5e1; font-size: 1.05rem; max-width: 600px; margin: 0 auto;">
+                <p class="pillars-main-sub">
                     We offer complete solutions for all your legal needs across forums.
                 </p>
             </div>
@@ -123,60 +123,60 @@ get_header(); ?>
         <div class="row">
             <!-- Pillar 1 -->
             <div class="col-lg-4 col-md-6 mb-4" data-aos="slide-up" data-aos-duration="900">
-                <div style="background: #2e2826; border: 1px solid rgba(197, 160, 89, 0.25); border-radius: 16px 0 45px 0; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
-                    <div style="height: 230px; overflow: hidden;">
-                        <img src="https://aglaw.in/wp-content/uploads/2024/07/our-srv-img2.jpg" alt="Litigation" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&q=80';">
+                <div class="pillar-card">
+                    <div class="pillar-card-img-wrap">
+                        <img src="https://aglaw.in/wp-content/uploads/2024/07/our-srv-img2.jpg" alt="Litigation" onerror="this.src='https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&q=80';">
                     </div>
-                    <div style="padding: 30px 28px; display: flex; flex-direction: column; justify-content: space-between; flex: 1;">
+                    <div class="pillar-card-content">
                         <div>
-                            <h3 style="font-family: var(--font-serif); font-size: 1.45rem; line-height: 1.3; margin-bottom: 24px; color: #ffffff;">
-                                <span style="color: #c5a059;">Litigation</span> Across Courts &amp; Tribunals
+                            <h3 class="pillar-card-title">
+                                <span>Litigation</span> Across Courts &amp; Tribunals
                             </h3>
-                            <p style="font-size: 0.9rem; color: #a1968e; line-height: 1.6; margin-bottom: 24px;">
+                            <p class="pillar-card-desc">
                                 Proven appellate representation before the Supreme Court of India, High Courts, NCLAT, and specialized regulatory bodies.
                             </p>
                         </div>
-                        <a href="<?php echo esc_url(home_url('/our-expertise/')); ?>" class="serv-btn-link" style="color: #c5a059; font-weight: 700; text-transform: uppercase;">Learn More &rarr;</a>
+                        <a href="<?php echo esc_url(home_url('/our-expertise/')); ?>" class="serv-btn-link">Learn More &rarr;</a>
                     </div>
                 </div>
             </div>
 
             <!-- Pillar 2 (Cream accent card) -->
             <div class="col-lg-4 col-md-6 mb-4" data-aos="slide-up" data-aos-duration="1100">
-                <div style="background: #f7f3ee; border: 1px solid rgba(197, 160, 89, 0.5); border-radius: 16px 0 45px 0; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; height: 100%; color: #332720;">
-                    <div style="height: 230px; overflow: hidden;">
-                        <img src="https://aglaw.in/wp-content/uploads/2024/07/our-srv-img3-1.jpg" alt="Alternate Dispute Resolution" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=600&q=80';">
+                <div class="pillar-card pillar-card-accent">
+                    <div class="pillar-card-img-wrap">
+                        <img src="https://aglaw.in/wp-content/uploads/2024/07/our-srv-img3-1.jpg" alt="Alternate Dispute Resolution" onerror="this.src='https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=600&q=80';">
                     </div>
-                    <div style="padding: 30px 28px; display: flex; flex-direction: column; justify-content: space-between; flex: 1;">
+                    <div class="pillar-card-content">
                         <div>
-                            <h3 style="font-family: var(--font-serif); font-size: 1.45rem; line-height: 1.3; margin-bottom: 24px; color: #332720;">
-                                <span style="color: #8c6a2d;">Alternate</span> Dispute Resolution
+                            <h3 class="pillar-card-title">
+                                <span>Alternate</span> Dispute Resolution
                             </h3>
-                            <p style="font-size: 0.9rem; color: #5d534c; line-height: 1.6; margin-bottom: 24px;">
+                            <p class="pillar-card-desc">
                                 High-stakes commercial arbitration under SIAC, LCIA, ICC, and Indian Arbitration Act, alongside enforcement proceedings.
                             </p>
                         </div>
-                        <a href="<?php echo esc_url(home_url('/our-expertise/arbitration/')); ?>" class="serv-btn-link" style="color: #332720; font-weight: 700; text-transform: uppercase;">Learn More &rarr;</a>
+                        <a href="<?php echo esc_url(home_url('/our-expertise/arbitration/')); ?>" class="serv-btn-link">Learn More &rarr;</a>
                     </div>
                 </div>
             </div>
 
             <!-- Pillar 3 -->
             <div class="col-lg-4 col-md-6 mb-4" data-aos="slide-up" data-aos-duration="1300">
-                <div style="background: #2e2826; border: 1px solid rgba(197, 160, 89, 0.25); border-radius: 16px 0 45px 0; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
-                    <div style="height: 230px; overflow: hidden;">
-                        <img src="https://aglaw.in/wp-content/uploads/2024/07/our-srv-img1.jpg" alt="Corporate Practice" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80';">
+                <div class="pillar-card">
+                    <div class="pillar-card-img-wrap">
+                        <img src="https://aglaw.in/wp-content/uploads/2024/07/our-srv-img1.jpg" alt="Corporate Practice" onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80';">
                     </div>
-                    <div style="padding: 30px 28px; display: flex; flex-direction: column; justify-content: space-between; flex: 1;">
+                    <div class="pillar-card-content">
                         <div>
-                            <h3 style="font-family: var(--font-serif); font-size: 1.45rem; line-height: 1.3; margin-bottom: 24px; color: #ffffff;">
-                                <span style="color: #c5a059;">Corporate</span> &amp; Commercial Practice
+                            <h3 class="pillar-card-title">
+                                <span>Corporate</span> &amp; Commercial Practice
                             </h3>
-                            <p style="font-size: 0.9rem; color: #a1968e; line-height: 1.6; margin-bottom: 24px;">
+                            <p class="pillar-card-desc">
                                 Advising leading enterprises in mergers, corporate restructuring, insolvency resolution (IBC), and antitrust disputes.
                             </p>
                         </div>
-                        <a href="<?php echo esc_url(home_url('/our-expertise/')); ?>" class="serv-btn-link" style="color: #c5a059; font-weight: 700; text-transform: uppercase;">Learn More &rarr;</a>
+                        <a href="<?php echo esc_url(home_url('/our-expertise/')); ?>" class="serv-btn-link">Learn More &rarr;</a>
                     </div>
                 </div>
             </div>
@@ -185,23 +185,23 @@ get_header(); ?>
 </section>
 
 <!-- SECTION 4: PRACTICE AREAS INTERACTIVE SHOWCASE -->
-<section style="background: #ffffff; padding: 95px 0;">
+<section class="practice-showcase-sec">
     <div class="container-custom">
         <div class="row align-items-center">
             
-            <div class="col-lg-5 mb-5 mb-lg-0" data-aos="fade-right">
-                <div style="background: #231F20; border-radius: 16px 0 45px 0; padding: 40px 32px; color: #ffffff; box-shadow: 0 16px 40px rgba(0,0,0,0.12);">
-                    <span style="color: #c5a059; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; display: block; margin-bottom: 12px;">Practice Portfolio</span>
-                    <h2 style="font-family: var(--font-serif); font-size: 2.2rem; color: #ffffff; margin-bottom: 18px; line-height: 1.25;">
+            <div class="col-lg-5 mb-4 mb-lg-0" data-aos="fade-right">
+                <div class="practice-portfolio-card">
+                    <span class="portfolio-tag">Practice Portfolio</span>
+                    <h2 class="portfolio-title">
                         Specialized Legal Verticals
                     </h2>
-                    <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.7; margin-bottom: 28px;">
+                    <p class="portfolio-desc">
                         Our multidisciplinary team navigates complex disputes across sector-specific tribunals, High Courts, and the Supreme Court with seasoned strategic foresight.
                     </p>
-                    <div style="border-top: 1px solid rgba(197, 160, 89, 0.3); padding-top: 24px;">
-                        <div style="font-size: 0.85rem; color: #c5a059; font-weight: 600; margin-bottom: 6px;">Managing Partner:</div>
-                        <div style="font-family: var(--font-serif); font-size: 1.3rem; color: #ffffff;">Mr. Vikramaditya Shroff</div>
-                        <div style="font-size: 0.82rem; color: #94a3b8;">Senior Advocate &bull; Supreme Court of India</div>
+                    <div class="portfolio-lead-box">
+                        <div class="portfolio-lead-role">Managing Partner:</div>
+                        <div class="portfolio-lead-name">Mr. Vikramaditya Shroff</div>
+                        <div class="portfolio-lead-bar">Senior Advocate &bull; Supreme Court of India</div>
                     </div>
                 </div>
             </div>

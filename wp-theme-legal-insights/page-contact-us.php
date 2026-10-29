@@ -74,7 +74,7 @@ get_header();
         </div>
 
         <!-- Confidential Inquiry Form -->
-        <div style="background: #ffffff; border: 1px solid var(--border-card-subtle); border-radius: var(--card-radius-curve); padding: 50px 40px; box-shadow: 0 8px 30px rgba(51, 39, 32, 0.05); max-width: 860px; margin: 0 auto;" data-aos="fade-up">
+        <div class="contact-form-box" style="background: #ffffff; border: 1px solid var(--border-card-subtle); border-radius: var(--card-radius-curve); box-shadow: 0 8px 30px rgba(51, 39, 32, 0.05); max-width: 860px; margin: 0 auto;" data-aos="fade-up">
             <div style="text-align: center; margin-bottom: 36px;">
                 <h2 style="font-family: var(--font-serif); font-size: 2.2rem; color: var(--color-dark); margin-bottom: 10px;">Confidential Inquiries</h2>
                 <p style="font-size: 0.95rem; color: #64748b;">
@@ -82,7 +82,7 @@ get_header();
                 </p>
             </div>
 
-            <form action="" method="post" class="contact-form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <form action="" method="post" class="contact-form-grid">
                 <div>
                     <label style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--color-dark); margin-bottom: 8px;">Your Full Name *</label>
                     <input type="text" required placeholder="e.g. Alok Sharma" style="width: 100%; padding: 12px 16px; border: 1px solid #deddda; border-radius: 8px; font-family: var(--font-sans); outline: none;">
