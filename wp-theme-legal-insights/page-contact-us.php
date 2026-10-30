@@ -133,49 +133,80 @@ if (function_exists('legal_insights_render_page_content')) {
         </div>
 
         <!-- Confidential Inquiry Form -->
-        <div class="contact-form-box" style="background: #ffffff; border: 1px solid var(--border-card-subtle); border-radius: var(--card-radius-curve); box-shadow: 0 8px 30px rgba(51, 39, 32, 0.05); max-width: 860px; margin: 0 auto;" data-aos="fade-up">
+        <div class="contact-form-box" style="background: #ffffff; border: 1px solid var(--border-card-subtle); border-radius: var(--card-radius-curve); box-shadow: 0 8px 30px rgba(51, 39, 32, 0.05); max-width: 900px; margin: 0 auto; padding: 50px 48px;" data-aos="fade-up">
             <div style="text-align: center; margin-bottom: 36px;">
+                <span style="font-size: 0.8rem; font-weight: 700; color: var(--color-gold); letter-spacing: 0.15em; text-transform: uppercase; display: block; margin-bottom: 6px;">
+                    Advocate-Client Intake Protocol
+                </span>
                 <h2 style="font-family: var(--font-serif); font-size: 2.2rem; color: var(--color-dark); margin-bottom: 10px;">
                     <?php echo esc_html($form_title); ?>
                 </h2>
-                <p style="font-size: 0.95rem; color: #64748b;">
+                <p style="font-size: 0.95rem; color: #64748b; max-width: 600px; margin: 0 auto;">
                     <?php echo esc_html($form_sub); ?>
                 </p>
             </div>
 
-            <form action="" method="post" class="contact-form-grid">
+            <!-- Dynamic AJAX Alert Container -->
+            <div id="inquiryAlert" style="display: none; margin-bottom: 28px; border-radius: 8px; padding: 18px 24px; font-size: 0.95rem; line-height: 1.6;"></div>
+
+            <form id="legalInquiryForm" class="contact-form-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px;">
                 <div>
-                    <label style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--color-dark); margin-bottom: 8px;">Your Full Name *</label>
-                    <input type="text" required placeholder="e.g. Alok Sharma" style="width: 100%; padding: 12px 16px; border: 1px solid #deddda; border-radius: 8px; font-family: var(--font-sans); outline: none;">
+                    <label for="client_name" style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--color-dark); margin-bottom: 8px;">Your Full Name *</label>
+                    <input type="text" name="client_name" id="client_name" required placeholder="e.g. Alok Sharma" style="width: 100%; padding: 12px 16px; border: 1px solid #deddda; border-radius: 8px; font-family: var(--font-sans); outline: none; font-size: 0.95rem;">
                 </div>
                 <div>
-                    <label style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--color-dark); margin-bottom: 8px;">Official Email *</label>
-                    <input type="email" required placeholder="name@company.com" style="width: 100%; padding: 12px 16px; border: 1px solid #deddda; border-radius: 8px; font-family: var(--font-sans); outline: none;">
+                    <label for="client_email" style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--color-dark); margin-bottom: 8px;">Official Email *</label>
+                    <input type="email" name="client_email" id="client_email" required placeholder="name@company.com" style="width: 100%; padding: 12px 16px; border: 1px solid #deddda; border-radius: 8px; font-family: var(--font-sans); outline: none; font-size: 0.95rem;">
                 </div>
                 <div>
-                    <label style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--color-dark); margin-bottom: 8px;">Contact Number *</label>
-                    <input type="tel" required placeholder="+91 98110 00000" style="width: 100%; padding: 12px 16px; border: 1px solid #deddda; border-radius: 8px; font-family: var(--font-sans); outline: none;">
+                    <label for="client_phone" style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--color-dark); margin-bottom: 8px;">Contact Number *</label>
+                    <input type="tel" name="client_phone" id="client_phone" required placeholder="+91 98110 00000" style="width: 100%; padding: 12px 16px; border: 1px solid #deddda; border-radius: 8px; font-family: var(--font-sans); outline: none; font-size: 0.95rem;">
                 </div>
                 <div>
-                    <label style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--color-dark); margin-bottom: 8px;">Practice Jurisdiction</label>
-                    <select style="width: 100%; padding: 12px 16px; border: 1px solid #deddda; border-radius: 8px; font-family: var(--font-sans); outline: none; background: #ffffff;">
+                    <label for="practice_jurisdiction" style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--color-dark); margin-bottom: 8px;">Practice Area / Jurisdiction</label>
+                    <select name="practice_jurisdiction" id="practice_jurisdiction" style="width: 100%; padding: 12px 16px; border: 1px solid #deddda; border-radius: 8px; font-family: var(--font-sans); outline: none; background: #ffffff; font-size: 0.95rem;">
                         <option value="Arbitration & ADR">Arbitration &amp; ADR</option>
                         <option value="Commercial Litigation">Commercial Litigation</option>
                         <option value="Corporate & Insolvency Laws">Corporate &amp; Insolvency Laws (IBC)</option>
                         <option value="Competition Law">Competition Law (CCI)</option>
                         <option value="Constitutional Law">Constitutional Law</option>
-                        <option value="White-Collar Crime">White-Collar Crime (PMLA)</option>
-                        <option value="Other High Court / SC Mandate">Other High Court / SC Mandate</option>
+                        <option value="White-Collar Crime">White-Collar Crime (PMLA / ED)</option>
+                        <option value="Taxation & Regulatory Affairs">Taxation &amp; Regulatory Affairs</option>
+                        <option value="Other High Court / SC Mandate">Other High Court / Supreme Court Mandate</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="court_forum" style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--color-dark); margin-bottom: 8px;">Target Judicial Forum</label>
+                    <select name="court_forum" id="court_forum" style="width: 100%; padding: 12px 16px; border: 1px solid #deddda; border-radius: 8px; font-family: var(--font-sans); outline: none; background: #ffffff; font-size: 0.95rem;">
+                        <option value="Supreme Court of India">Supreme Court of India (Apex Court)</option>
+                        <option value="Delhi High Court">Delhi High Court (Appellate / Original)</option>
+                        <option value="Other State High Court">Other State High Court</option>
+                        <option value="NCLAT / NCLT">NCLT / NCLAT (Corporate & Insolvency)</option>
+                        <option value="CCI / Appellate Tribunal">CCI (Competition Commission)</option>
+                        <option value="Arbitration Tribunal">Domestic / International Arbitral Tribunal</option>
+                        <option value="Trial / Special Sessions Court">Special Sessions Court (PMLA / CBI)</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="urgency_level" style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--color-dark); margin-bottom: 8px;">Matter Urgency</label>
+                    <select name="urgency_level" id="urgency_level" style="width: 100%; padding: 12px 16px; border: 1px solid #deddda; border-radius: 8px; font-family: var(--font-sans); outline: none; background: #ffffff; font-size: 0.95rem;">
+                        <option value="Normal">Normal (Standard Review &amp; Consultation)</option>
+                        <option value="High">⚡ High (Upcoming Hearing / Impending Order)</option>
+                        <option value="Emergency (24-48 Hours)">🚨 Emergency (Urgent Mentioning / Stay / Bail)</option>
                     </select>
                 </div>
                 <div style="grid-column: 1 / -1;">
-                    <label style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--color-dark); margin-bottom: 8px;">Nature of Legal Mandate *</label>
-                    <textarea rows="4" required placeholder="Please outline the nature of legal assistance, relevant court forum, and urgency level..." style="width: 100%; padding: 12px 16px; border: 1px solid #deddda; border-radius: 8px; font-family: var(--font-sans); outline: none;"></textarea>
+                    <label for="legal_mandate" style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--color-dark); margin-bottom: 8px;">Brief Outline of Legal Mandate *</label>
+                    <textarea name="legal_mandate" id="legal_mandate" rows="4" required placeholder="Please summarize the key factual dispute, ongoing legal proceedings (if any), and specific reliefs sought..." style="width: 100%; padding: 14px 16px; border: 1px solid #deddda; border-radius: 8px; font-family: var(--font-sans); outline: none; font-size: 0.95rem;"></textarea>
                 </div>
                 <div style="grid-column: 1 / -1; text-align: center; margin-top: 10px;">
-                    <button type="submit" style="background: linear-gradient(135deg, #c5a059 0%, #dfba73 50%, #b38b42 100%); color: #0b111e; font-weight: 700; font-size: 1rem; padding: 14px 44px; border: none; border-radius: 8px; cursor: pointer; box-shadow: 0 4px 18px rgba(197, 160, 89, 0.4);">
-                        Submit Confidential Inquiry &rarr;
+                    <button type="submit" id="inquirySubmitBtn" style="background: linear-gradient(135deg, #c5a059 0%, #dfba73 50%, #b38b42 100%); color: #0b111e; font-weight: 700; font-size: 1rem; padding: 15px 44px; border: none; border-radius: 8px; cursor: pointer; box-shadow: 0 4px 18px rgba(197, 160, 89, 0.4); display: inline-flex; align-items: center; justify-content: center; gap: 10px; transition: all 0.25s ease;">
+                        <span class="btn-text">Transmit Privileged Mandate &rarr;</span>
+                        <span class="btn-spinner" style="display: none;">⏳ Transmitting Privileged Mandate...</span>
                     </button>
+                    <p style="font-size: 0.82rem; color: #94a3b8; margin-top: 16px; margin-bottom: 0;">
+                        🔒 <em>Strict Professional Secrecy: Transmissions are covered under Section 126 of the Indian Evidence Act.</em>
+                    </p>
                 </div>
             </form>
         </div>

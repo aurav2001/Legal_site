@@ -129,6 +129,10 @@ function legal_insights_render_theme_options_page() {
         'chambers_email'          => 'chambers@vanguardpartners.law',
         'chambers_maps_url'       => 'https://maps.google.com',
 
+        // Emergency Hotline & Inquiries
+        'enable_whatsapp_hotline' => 'yes',
+        'inquiry_notification_email' => '',
+
         // Footer & Socials
         'footer_desc'             => 'Premier Tier-1 full-service legal institution with nationwide courtroom advocacy before the Supreme Court of India, High Courts, and international arbitral seats.',
         'social_linkedin'         => 'https://linkedin.com',
@@ -428,6 +432,27 @@ function legal_insights_render_theme_options_page() {
                         <th scope="row"><label for="chambers_maps_url"><?php _e('Google Maps URL', 'legal-insights'); ?></label></th>
                         <td>
                             <input type="url" id="chambers_maps_url" class="large-text" data-sync="chambers_maps_url" value="<?php echo esc_url($options['chambers_maps_url']); ?>">
+                        </td>
+                    </tr>
+                </table>
+
+                <h4 style="color: #c5a059; margin-top: 30px;">💬 3. Emergency Legal Hotline &amp; Lead Notifications</h4>
+                <table class="form-table">
+                    <tr>
+                        <th scope="row"><label for="enable_whatsapp_hotline"><?php _e('Floating WhatsApp Hotline', 'legal-insights'); ?></label></th>
+                        <td>
+                            <select id="enable_whatsapp_hotline" data-sync="enable_whatsapp_hotline">
+                                <option value="yes" <?php selected($options['enable_whatsapp_hotline'] ?? 'yes', 'yes'); ?>><?php _e('Enabled (Show Floating Hotline Pill)', 'legal-insights'); ?></option>
+                                <option value="no" <?php selected($options['enable_whatsapp_hotline'] ?? 'yes', 'no'); ?>><?php _e('Disabled (Hide)', 'legal-insights'); ?></option>
+                            </select>
+                            <p class="description"><?php _e('Displays a luxury floating direct WhatsApp / Hotline button across all pages.', 'legal-insights'); ?></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><label for="inquiry_notification_email"><?php _e('Inquiry Intake Notification Email', 'legal-insights'); ?></label></th>
+                        <td>
+                            <input type="email" id="inquiry_notification_email" class="regular-text" data-sync="inquiry_notification_email" value="<?php echo esc_attr($options['inquiry_notification_email'] ?? ''); ?>" placeholder="Defaults to Office Email">
+                            <p class="description"><?php _e('Where instant notifications of confidential client inquiries are transmitted (leave blank to use Main Office Email).', 'legal-insights'); ?></p>
                         </td>
                     </tr>
                 </table>

@@ -179,6 +179,105 @@
                 if (headerMain) headerMain.classList.remove('header-scrolled');
             }
         }, { passive: true });
+
+        // 5. Confidential Legal Inquiry AJAX Submission Engine
+        var inquiryForm = document.getElementById('legalInquiryForm');
+        if (inquiryForm) {
+            inquiryForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                var alertBox = document.getElementById('inquiryAlert');
+                var submitBtn = document.getElementById('inquirySubmitBtn');
+                var btnText = submitBtn ? submitBtn.querySelector('.btn-text') : null;
+                var btnSpinner = submitBtn ? submitBtn.querySelector('.btn-spinner') : null;
+
+                if (alertBox) {
+                    alertBox.style.display = 'none';
+                    alertBox.innerHTML = '';
+                }
+
+                if (submitBtn) {
+                    submitBtn.disabled = true;
+                    submitBtn.style.opacity = '0.75';
+                    submitBtn.style.cursor = 'not-allowed';
+                    if (btnText) btnText.style.display = 'none';
+                    if (btnSpinner) btnSpinner.style.display = 'inline-block';
+                }
+
+                var formData = new FormData(inquiryForm);
+                formData.append('action', 'legal_submit_inquiry');
+                if (typeof legalInsightsData !== 'undefined' && legalInsightsData.inquiryNonce) {
+                    formData.append('nonce', legalInsightsData.inquiryNonce);
+                }
+
+                var ajaxUrl = (typeof legalInsightsData !== 'undefined' && legalInsightsData.ajaxurl)
+                    ? legalInsightsData.ajaxurl
+                    : '/wp-admin/admin-ajax.php';
+
+                fetch(ajaxUrl, {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(function(res) {
+                    return res.json();
+                })
+                .then(function(res) {
+                    if (submitBtn) {
+                        submitBtn.disabled = false;
+                        submitBtn.style.opacity = '1';
+                        submitBtn.style.cursor = 'pointer';
+                        if (btnText) btnText.style.display = 'inline-block';
+                        if (btnSpinner) btnSpinner.style.display = 'none';
+                    }
+
+                    if (res && res.success) {
+                        if (alertBox) {
+                            alertBox.style.display = 'block';
+                            alertBox.style.background = '#f0fdf4';
+                            alertBox.style.border = '1.5px solid #86efac';
+                            alertBox.style.color = '#15803d';
+                            var msg = (res.data && res.data.message) ? res.data.message : 'Your confidential inquiry has been privileged and transmitted to our Senior Registry.';
+                            alertBox.innerHTML = '<div style="display:flex; align-items:flex-start; gap:12px;">' +
+                                '<span style="font-size:1.6rem; line-height:1;">⚖️</span>' +
+                                '<div>' +
+                                    '<strong style="font-size:1.05rem; display:block; margin-bottom:4px; color:#14532d;">Inquiry Privileged &amp; Successfully Dispatched</strong>' +
+                                    '<span style="font-size:0.92rem; color:#166534;">' + msg + '</span>' +
+                                '</div>' +
+                            '</div>';
+                            alertBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }
+                        inquiryForm.reset();
+                    } else {
+                        var err = (res && res.data && res.data.message) ? res.data.message : 'An unexpected error occurred. Please contact our chambers directly.';
+                        if (alertBox) {
+                            alertBox.style.display = 'block';
+                            alertBox.style.background = '#fef2f2';
+                            alertBox.style.border = '1.5px solid #fca5a5';
+                            alertBox.style.color = '#991b1b';
+                            alertBox.innerHTML = '<strong>Submission Error:</strong> ' + err;
+                            alertBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }
+                    }
+                })
+                .catch(function() {
+                    if (submitBtn) {
+                        submitBtn.disabled = false;
+                        submitBtn.style.opacity = '1';
+                        submitBtn.style.cursor = 'pointer';
+                        if (btnText) btnText.style.display = 'inline-block';
+                        if (btnSpinner) btnSpinner.style.display = 'none';
+                    }
+                    if (alertBox) {
+                        alertBox.style.display = 'block';
+                        alertBox.style.background = '#fef2f2';
+                        alertBox.style.border = '1.5px solid #fca5a5';
+                        alertBox.style.color = '#991b1b';
+                        alertBox.innerHTML = '<strong>Connection Error:</strong> Unable to connect to chambers server. Please reach out directly by telephone.';
+                        alertBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                });
+            });
+        }
     }
 
     // Also run on full window load

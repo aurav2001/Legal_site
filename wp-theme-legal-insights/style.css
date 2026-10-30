@@ -3123,6 +3123,59 @@ svg {
   }
 }
 
+/* ==========================================================================
+   Client Intake Form & Floating Emergency Legal Desk Enhancements
+   ========================================================================== */
+#legalInquiryForm input:focus,
+#legalInquiryForm select:focus,
+#legalInquiryForm textarea:focus {
+  border-color: #c5a059 !important;
+  box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.2) !important;
+  outline: none !important;
+}
+
+#inquirySubmitBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(197, 160, 89, 0.5) !important;
+}
+
+#inquirySubmitBtn:active {
+  transform: translateY(0);
+}
+
+.floating-legal-hotline a:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.4) !important;
+  border-color: #dfba73 !important;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+  #legalInquiryForm {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  .contact-form-box {
+    padding: 30px 20px !important;
+  }
+  .floating-legal-hotline {
+    bottom: 18px !important;
+    right: 18px !important;
+  }
+  .floating-legal-hotline a span:last-child {
+    display: none;
+  }
+  .floating-legal-hotline a {
+    padding: 10px !important;
+    border-radius: 50% !important;
+  }
+}
+
+
 
 
 

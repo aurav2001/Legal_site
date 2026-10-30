@@ -18,6 +18,7 @@ require_once get_template_directory() . '/inc/theme-options.php';
 require_once get_template_directory() . '/inc/custom-post-types.php';
 require_once get_template_directory() . '/inc/page-meta-boxes.php';
 require_once get_template_directory() . '/inc/elementor-support.php';
+require_once get_template_directory() . '/inc/contact-inquiries.php';
 
 /**
  * Sets up theme defaults and registers support for various WordPress features.
@@ -102,9 +103,10 @@ function legal_insights_scripts() {
 
     // Pass data to script
     wp_localize_script('legal-insights-theme-js', 'legalInsightsData', array(
-        'ajaxurl'   => admin_url('admin-ajax.php'),
-        'homeUrl'   => home_url('/'),
-        'searchUrl' => home_url('/insights/'),
+        'ajaxurl'      => admin_url('admin-ajax.php'),
+        'homeUrl'      => home_url('/'),
+        'searchUrl'    => home_url('/insights/'),
+        'inquiryNonce' => wp_create_nonce('legal_inquiry_nonce_action'),
     ));
 }
 add_action('wp_enqueue_scripts', 'legal_insights_scripts');

@@ -337,3 +337,4 @@ function legal_insights_register_elementor_widgets($widgets_manager) {
     $widgets_manager->register(new LexVanguard_Advocate_Card_Widget());
 }
 add_action('elementor/widgets/register', 'legal_insights_register_elementor_widgets');
+
