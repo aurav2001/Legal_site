@@ -14,14 +14,25 @@ if (!defined('ABSPATH')) {
 
 /**
  * Register Meta Boxes for Pages
+ *
+ * @param string $post_type Current post type screen
+ * @param WP_Post|null $post Current post object
  */
-function legal_insights_register_page_meta_boxes($post) {
-    if (!$post || $post->post_type !== 'page') {
+function legal_insights_register_page_meta_boxes($post_type, $post = null) {
+    if ($post_type !== 'page') {
+        return;
+    }
+
+    if (!($post instanceof WP_Post)) {
+        global $post;
+    }
+
+    if (!($post instanceof WP_Post) || empty($post->ID)) {
         return;
     }
 
     $template = get_post_meta($post->ID, '_wp_page_template', true);
-    $slug     = $post->post_name;
+    $slug     = isset($post->post_name) ? $post->post_name : '';
 
     // About Us Page Meta Box
     if ($template === 'page-about-us.php' || $template === 'page-about.php' || $slug === 'about-us' || $slug === 'about') {
@@ -59,7 +70,8 @@ function legal_insights_register_page_meta_boxes($post) {
         );
     }
 }
-add_action('add_meta_boxes', 'legal_insights_register_page_meta_boxes');
+add_action('add_meta_boxes', 'legal_insights_register_page_meta_boxes', 10, 2);
+
 
 /**
  * Render About Page Meta Box
