@@ -4,15 +4,34 @@
  *
  * Detailed single practice area layout (e.g., Arbitration, Commercial Litigation).
  * Displays practice overview, landmark cases timeline/cards, and sidebar links.
+ * Fully editable via WordPress Admin (Page Editor + Page Meta Box).
+ *
+ * @package Legal_Insights
  */
 
-get_header(); ?>
+get_header();
+
+$firm_name  = function_exists('legal_insights_get_firm_name') ? legal_insights_get_firm_name(false) : 'Malhotra & Co.';
+$page_id    = get_the_ID();
+$badge      = get_post_meta($page_id, '_practice_badge', true);
+$subheading = get_post_meta($page_id, '_practice_subheading', true);
+$landmark   = get_post_meta($page_id, '_practice_landmark_cases', true);
+
+if (empty($badge)) {
+    $badge = 'Domain Expertise';
+}
+if (empty($subheading)) {
+    $subheading = 'Overview & Strategic Approach';
+}
+
+$page_content = get_post_field('post_content', $page_id);
+?>
 
 <!-- Sub-Page Banner -->
 <section class="about-mn">
     <div class="about-banner">
         <div class="bnrbx">
-            <img class="img-fluid desktop-view" src="https://aglaw.in/wp-content/uploads/2024/07/Arbitration-.png" alt="Arbitration Practice" onerror="this.src='https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1600&q=80';">
+            <img class="img-fluid desktop-view" src="https://aglaw.in/wp-content/uploads/2024/07/Arbitration-.png" alt="<?php the_title_attribute(); ?>" onerror="this.src='https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1600&q=80';">
         </div>
         <div class="bnr__cntnt">
             <div class="vrtclcntr_bx">
@@ -21,7 +40,7 @@ get_header(); ?>
                         <div class="about_banner_txt" data-aos="fade-up" data-aos-duration="1000">
                             <h2 class="bnr_heading"><?php the_title(); ?></h2>
                             <p class="bnr_para">
-                                <strong>Practice Areas</strong> &bull; Agarwal Law Associates<br>
+                                <strong>Practice Areas</strong> &bull; <?php echo esc_html($firm_name); ?><br>
                                 High-stakes dispute resolution, emergency relief, and appellate advocacy before domestic and international tribunals.
                             </p>
                         </div>
@@ -42,15 +61,29 @@ get_header(); ?>
                 
                 <div class="mb-5" data-aos="fade-up">
                     <div class="sub-badge" style="display:inline-block; margin-bottom: 12px; background: rgba(197, 160, 89, 0.12); color: var(--color-gold); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 16px; border-radius: 20px;">
-                        Domain Expertise
+                        <?php echo esc_html($badge); ?>
                     </div>
-                    <h2 class="headingFontBlk" style="margin-bottom: 18px;">Overview &amp; Strategic Approach</h2>
-                    <p style="font-size: 1.05rem; line-height: 1.8; color: var(--color-body-txt); margin-bottom: 24px;">
-                        From pioneering decisions on the impact of arbitration on non-signatories to influencing the grounds for setting aside arbitral awards, our Firm is at the forefront of navigating complex and high-stakes arbitration disputes across energy, infrastructure, telecom, and corporate sectors.
-                    </p>
-                    <p style="font-size: 1.02rem; line-height: 1.75; color: var(--color-body-txt);">
-                        We represent prominent domestic conglomerates, multinational enterprises, and public entities in both ad-hoc arbitrations and institutional proceedings governed by LCIA, SIAC, ICC, and ICA rules, as well as Section 9, 11, 34, and 37 proceedings across Indian High Courts and the Supreme Court.
-                    </p>
+                    <h2 class="headingFontBlk" style="margin-bottom: 18px;">
+                        <?php echo esc_html($subheading); ?>
+                    </h2>
+                    
+                    <?php if (!empty(trim($page_content))) : ?>
+                        <div class="entry-content" style="font-size: 1.05rem; line-height: 1.8; color: var(--color-body-txt); margin-bottom: 24px;">
+                            <?php 
+                            while (have_posts()) : the_post();
+                                the_content();
+                            endwhile;
+                            rewind_posts();
+                            ?>
+                        </div>
+                    <?php else : ?>
+                        <p style="font-size: 1.05rem; line-height: 1.8; color: var(--color-body-txt); margin-bottom: 24px;">
+                            From pioneering decisions on the impact of arbitration on non-signatories to influencing the grounds for setting aside arbitral awards, our Firm is at the forefront of navigating complex and high-stakes arbitration disputes across energy, infrastructure, telecom, and corporate sectors.
+                        </p>
+                        <p style="font-size: 1.02rem; line-height: 1.75; color: var(--color-body-txt);">
+                            We represent prominent domestic conglomerates, multinational enterprises, and public entities in both ad-hoc arbitrations and institutional proceedings governed by LCIA, SIAC, ICC, and ICA rules, as well as Section 9, 11, 34, and 37 proceedings across Indian High Courts and the Supreme Court.
+                        </p>
+                    <?php endif; ?>
                 </div>
 
                 <div class="landmark-cases-wrapper" style="margin-top: 48px;">
@@ -58,59 +91,47 @@ get_header(); ?>
                         Landmark Precedents &amp; Representative Matters
                     </h3>
 
-                    <!-- Case 1 -->
-                    <div class="case-milestone-card" data-aos="fade-up" data-aos-delay="50">
-                        <span class="case-forum-badge">Supreme Court of India Landmark</span>
-                        <h4 class="case-title">Sukanya Holdings vs Jayesh H Pandya</h4>
-                        <p class="case-summary">
-                            The Supreme Court of India's seminal ruling addressing the effect of arbitration on non-signatories. The Court established that where a dispute involves multiple parties, some of whom are non-signatories, Section 8 of the Arbitration Act does not permit splitting causes of action to refer only select parties to arbitration.
-                        </p>
-                    </div>
+                    <?php if (!empty($landmark)) : ?>
+                        <div class="case-milestone-card" data-aos="fade-up">
+                            <span class="case-forum-badge">Chambers Benchmark Cases</span>
+                            <div class="case-summary" style="white-space: pre-line; margin-top: 10px;">
+                                <?php echo esc_html($landmark); ?>
+                            </div>
+                        </div>
+                    <?php else : ?>
+                        <!-- Default Landmark Cases -->
+                        <div class="case-milestone-card" data-aos="fade-up" data-aos-delay="50">
+                            <span class="case-forum-badge">Supreme Court of India Landmark</span>
+                            <h4 class="case-title">Sukanya Holdings vs Jayesh H Pandya</h4>
+                            <p class="case-summary">
+                                The Supreme Court of India's seminal ruling addressing the effect of arbitration on non-signatories. The Court established that where a dispute involves multiple parties, some of whom are non-signatories, Section 8 of the Arbitration Act does not permit splitting causes of action to refer only select parties to arbitration.
+                            </p>
+                        </div>
 
-                    <!-- Case 2 -->
-                    <div class="case-milestone-card" data-aos="fade-up" data-aos-delay="100">
-                        <span class="case-forum-badge">Apex Court Jurisprudence</span>
-                        <h4 class="case-title">ONGC vs Saw Pipes Ltd</h4>
-                        <p class="case-summary">
-                            Landmark judgment defining the ambit of 'public policy' as a vital ground for setting aside arbitral awards under Section 34, reshaping commercial enforcement across India for decades.
-                        </p>
-                    </div>
+                        <div class="case-milestone-card" data-aos="fade-up" data-aos-delay="100">
+                            <span class="case-forum-badge">Apex Court Jurisprudence</span>
+                            <h4 class="case-title">ONGC vs Saw Pipes Ltd</h4>
+                            <p class="case-summary">
+                                Landmark judgment defining the ambit of 'public policy' as a vital ground for setting aside arbitral awards under Section 34, reshaping commercial enforcement across India for decades.
+                            </p>
+                        </div>
 
-                    <!-- Case 3 -->
-                    <div class="case-milestone-card" data-aos="fade-up" data-aos-delay="150">
-                        <span class="case-forum-badge">Supreme Court Curative Bench</span>
-                        <h4 class="case-title">DMRC Curative Petition (Airport Express Line)</h4>
-                        <p class="case-summary">
-                            Represented Delhi Airport Metro Express Pvt. Ltd. (DAMEPL) through intricate Section 34, 37, and unprecedented open-court Curative Petition proceedings arising from the concession agreement termination on the Airport Metro Express Line.
-                        </p>
-                    </div>
+                        <div class="case-milestone-card" data-aos="fade-up" data-aos-delay="150">
+                            <span class="case-forum-badge">Supreme Court Curative Bench</span>
+                            <h4 class="case-title">DMRC Curative Petition (Airport Express Line)</h4>
+                            <p class="case-summary">
+                                Represented Delhi Airport Metro Express Pvt. Ltd. (DAMEPL) through intricate Section 34, 37, and unprecedented open-court Curative Petition proceedings arising from the concession agreement termination on the Airport Metro Express Line.
+                            </p>
+                        </div>
 
-                    <!-- Case 4 -->
-                    <div class="case-milestone-card" data-aos="fade-up" data-aos-delay="200">
-                        <span class="case-forum-badge">SIAC Institutional Arbitration</span>
-                        <h4 class="case-title">Manipal Emergency Arbitration (SIAC)</h4>
-                        <p class="case-summary">
-                            Successfully represented Manipal Education &amp; Medical Group (MEMG) in emergency arbitration proceedings under SIAC rules, securing emergency interim injunctions restraining the transfer of educational equity assets.
-                        </p>
-                    </div>
-
-                    <!-- Case 5 -->
-                    <div class="case-milestone-card" data-aos="fade-up" data-aos-delay="250">
-                        <span class="case-forum-badge">Delhi High Court Jurisprudence</span>
-                        <h4 class="case-title">Fermina Developers vs Indiabulls Housing Finance</h4>
-                        <p class="case-summary">
-                            Established precedent regarding SARFAESI Act supremacy: once a lender issues notice under Section 13(2), mortgage-related disputes fall under the Debt Recovery Tribunal's exclusive realm and cannot be referred to arbitration.
-                        </p>
-                    </div>
-
-                    <!-- Case 6 -->
-                    <div class="case-milestone-card" data-aos="fade-up" data-aos-delay="300">
-                        <span class="case-forum-badge">Venue vs. Seat Precedent</span>
-                        <h4 class="case-title">Vasudev Garg vs Embassy Commercial Projects</h4>
-                        <p class="case-summary">
-                            Delhi High Court ruled that contractually designated arbitration venues operate as the legal seat unless expressly negated, clarifying forum selection and jurisdictional thresholds in Section 9 petitions.
-                        </p>
-                    </div>
+                        <div class="case-milestone-card" data-aos="fade-up" data-aos-delay="200">
+                            <span class="case-forum-badge">SIAC Institutional Arbitration</span>
+                            <h4 class="case-title">Manipal Emergency Arbitration (SIAC)</h4>
+                            <p class="case-summary">
+                                Successfully represented Manipal Education &amp; Medical Group (MEMG) in emergency arbitration proceedings under SIAC rules, securing emergency interim injunctions restraining the transfer of educational equity assets.
+                            </p>
+                        </div>
+                    <?php endif; ?>
 
                 </div>
 
@@ -163,54 +184,6 @@ get_header(); ?>
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;min-width:16px;min-height:16px;max-width:16px;max-height:16px;display:block;"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
                                 </span>
                                 <span>Constitutional Law</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="<?php echo esc_url(home_url('/our-expertise/criminal-law/')); ?>" class="practice-sidebar-link">
-                                <span class="pract-sidebar-icon" style="width:30px;height:30px;min-width:30px;min-height:30px;max-width:30px;max-height:30px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;min-width:16px;min-height:16px;max-width:16px;max-height:16px;display:block;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>
-                                </span>
-                                <span>Criminal Law - White Collar / PMLA</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="<?php echo esc_url(home_url('/our-expertise/environmental-law/')); ?>" class="practice-sidebar-link">
-                                <span class="pract-sidebar-icon" style="width:30px;height:30px;min-width:30px;min-height:30px;max-width:30px;max-height:30px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;min-width:16px;min-height:16px;max-width:16px;max-height:16px;display:block;"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
-                                </span>
-                                <span>Environmental Law (NGT)</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="<?php echo esc_url(home_url('/our-expertise/regulatory-litigation/')); ?>" class="practice-sidebar-link">
-                                <span class="pract-sidebar-icon" style="width:30px;height:30px;min-width:30px;min-height:30px;max-width:30px;max-height:30px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;min-width:16px;min-height:16px;max-width:16px;max-height:16px;display:block;"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                                </span>
-                                <span>Regulatory (Telecom, Electricity, Mining)</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="<?php echo esc_url(home_url('/our-expertise/mediation/')); ?>" class="practice-sidebar-link">
-                                <span class="pract-sidebar-icon" style="width:30px;height:30px;min-width:30px;min-height:30px;max-width:30px;max-height:30px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;min-width:16px;min-height:16px;max-width:16px;max-height:16px;display:block;"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                                </span>
-                                <span>Mediation &amp; Settlement</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="<?php echo esc_url(home_url('/our-expertise/securities-law/')); ?>" class="practice-sidebar-link">
-                                <span class="pract-sidebar-icon" style="width:30px;height:30px;min-width:30px;min-height:30px;max-width:30px;max-height:30px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;min-width:16px;min-height:16px;max-width:16px;max-height:16px;display:block;"><path d="m3 3 7 7 4-4 7 7"/><path d="M14 7h7v7"/><path d="M3 21h18"/></svg>
-                                </span>
-                                <span>Securities Law (SEBI / SAT)</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="<?php echo esc_url(home_url('/our-expertise/tax/')); ?>" class="practice-sidebar-link">
-                                <span class="pract-sidebar-icon" style="width:30px;height:30px;min-width:30px;min-height:30px;max-width:30px;max-height:30px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;min-width:16px;min-height:16px;max-width:16px;max-height:16px;display:block;"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><circle cx="12" cy="14" r="2"/></svg>
-                                </span>
-                                <span>Tax - Direct &amp; Indirect</span>
                             </a>
                         </li>
                     </ul>

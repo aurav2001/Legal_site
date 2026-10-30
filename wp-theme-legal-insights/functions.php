@@ -11,6 +11,14 @@ if (!defined('ABSPATH')) {
 }
 
 /**
+ * Load Theme Modules (Helpers, Theme Options, Custom Post Types, Page Meta Boxes)
+ */
+require_once get_template_directory() . '/inc/helpers.php';
+require_once get_template_directory() . '/inc/theme-options.php';
+require_once get_template_directory() . '/inc/custom-post-types.php';
+require_once get_template_directory() . '/inc/page-meta-boxes.php';
+
+/**
  * Sets up theme defaults and registers support for various WordPress features.
  */
 function legal_insights_setup() {

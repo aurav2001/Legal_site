@@ -2,12 +2,15 @@
 /**
  * Template Name: Our Expertise (AGL Style)
  *
- * Description: Practice areas overview covering Litigation, Arbitration, and Corporate law
+ * Description: Practice areas overview covering Litigation, Arbitration, and Corporate law.
+ * Fully editable via WordPress Admin (Practice Areas CPT + Page Editor).
  *
  * @package Legal_Insights
  */
 
 get_header();
+
+$firm_name = function_exists('legal_insights_get_firm_name') ? legal_insights_get_firm_name(false) : 'Malhotra & Co.';
 ?>
 
 <!-- Banner Section -->
@@ -16,7 +19,7 @@ get_header();
         <div class="about-banner">
             <div class="about_banner_txt" data-aos="fade-right">
                 <div class="bnr_tag">Practice Jurisdictions</div>
-                <h1 class="bnr_heading">Our Expertise</h1>
+                <h1 class="bnr_heading"><?php the_title(); ?></h1>
                 <p class="bnr_subtitle">
                     Comprehensive legal solutions tailored to high-stakes corporate disputes, Supreme Court appellate matters, cross-border transactions, and global arbitrations.
                 </p>
@@ -32,7 +35,7 @@ get_header();
             <div class="col-12" data-aos="fade-up">
                 <div style="max-width: 980px; margin: 0 auto; text-align: center;">
                     <p style="font-size: 1.15rem; color: #554a43; line-height: 1.8;">
-                        At Vanguard &amp; Partners, we offer strategic legal counsel across three core pillars: Courtroom Litigation before Supreme Court &amp; High Courts, Alternate Dispute Resolution (Arbitration &amp; Mediation), and Corporate Restructuring &amp; Regulatory Practice.
+                        At <?php echo esc_html($firm_name); ?>, we offer strategic legal counsel across three core pillars: Courtroom Litigation before Supreme Court &amp; High Courts, Alternate Dispute Resolution (Arbitration &amp; Mediation), and Corporate Restructuring &amp; Regulatory Practice.
                     </p>
                 </div>
             </div>
@@ -40,7 +43,13 @@ get_header();
     </div>
 </section>
 
-<!-- Pillar 1: Litigation Across Courts & Tribunals -->
+<?php
+// Render Content from WordPress Page Editor if present
+if (function_exists('legal_insights_render_page_content')) {
+    legal_insights_render_page_content();
+}
+?>
+
 <!-- Pillar 1: Litigation Across Courts & Tribunals -->
 <section class="expertise-pillar-sec" style="padding: 70px 0; background: #fbfbfd; border-bottom: 1px solid #f1f5f9;">
     <div class="container-custom">
@@ -127,5 +136,4 @@ get_header();
     </div>
 </section>
 
-<?php
-get_footer();
+<?php get_footer(); ?>

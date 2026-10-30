@@ -3,6 +3,40 @@
 
 ---
 
+## 🛠️ WordPress Admin se Edit Kaise Karein? (100% Fully Editable)
+
+Theme ab poori tarah se WordPress Dashboard se editable hai — bina kisi PHP file ko hath lagaye:
+
+### 1. Appearance &rarr; Theme Options (Master Control Panel)
+WordPress Admin me **Appearance &rarr; Theme Options** me jayein:
+- 🏛️ **General & Branding:** Law firm name (e.g. `Malhotra & Co.`), Tagline, Logo image upload, Header button text & URL.
+- 🚀 **Homepage Hero:** Main heading, gold highlight word, description paragraph, buttons text/links, hero image upload, circular floating badge ("60+ Years").
+- 📊 **Welcome & Stats:** Welcome heading, description, 3 stats pills (1964, 11 Practice Areas, 500+ Landmark Cases), Strategic Counsel quote card & link.
+- 📞 **Chambers & Contact:** Corporate HQ & Supreme Court Chambers ka address, phone numbers, email addresses, aur Google Maps links.
+- 🌐 **Footer & Socials:** Footer description text, LinkedIn, YouTube, Twitter/X, Instagram URLs, aur dynamic Copyright notice.
+- ⚖️ **BCI Disclaimer:** Bar Council of India disclaimer popup ko enable/disable karein, disclaimer points aur accept button text customize karein.
+
+*(Note: Sabhi settings native **Appearance &rarr; Customize** me bhi available hain!)*
+
+### 2. Our Team / Lawyers (Dedicated Admin Menu)
+WordPress sidebar me **Our Team / Lawyers** par click karein:
+- **Add New Member** par click karke naye advocates/partners add karein ya existing ko edit karein.
+- Fields: Name, Designation/Title, Experience, Chambers/Bar, Education, Practice Expertise, Email, LinkedIn, aur Photo (Featured Image).
+
+### 3. Practice Areas (Dedicated Admin Menu)
+WordPress sidebar me **Practice Areas** par click karein:
+- Nayi practice verticals add karein, content aur landmark court precedents edit karein.
+
+### 4. Awards & Honors (Dedicated Admin Menu)
+WordPress sidebar me **Awards & Honors** par click karein:
+- National & Global legal awards add/edit karein with Year, Ranking body (Legal 500, Chambers Global), description aur badge image.
+
+### 5. WordPress Page Editor (Pages &rarr; Edit)
+- Kisi bhi page (Home, About Us, Contact Us, Our People, Practice Areas) ko WordPress editor me open karke custom content type karein — wo directly frontend par render hoga!
+- Page ke niche diye gaye **Custom Meta Box** se page-specific headings aur override values bhi set kar sakte hain.
+
+---
+
 ## 🌟 Site Pages Included (Theme me konse-konse Pages hain?)
 
 Is WordPress theme me `aglaw.in` ke sabhi main pages aur sub-pages complete templates aur static HTML preview ke saath ready hain:

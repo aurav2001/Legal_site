@@ -26,4 +26,12 @@ function Create-Zip($zipName, $folderPrefix) {
 Create-Zip "lexvanguard.zip" "lexvanguard"
 Create-Zip "wp-theme-legal-insights.zip" "wp-theme-legal-insights"
 
+# Also update releases folder
+$releasesDir = Join-Path $cwd "releases"
+if (Test-Path $releasesDir) {
+    Copy-Item (Join-Path $cwd "lexvanguard.zip") (Join-Path $releasesDir "lexvanguard.zip") -Force
+    Copy-Item (Join-Path $cwd "lexvanguard.zip") (Join-Path $releasesDir "lexvanguard-v1.4.0.zip") -Force
+    Write-Host "Updated releases/lexvanguard.zip and releases/lexvanguard-v1.4.0.zip"
+}
+
 

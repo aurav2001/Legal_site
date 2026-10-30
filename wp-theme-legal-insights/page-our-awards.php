@@ -5,9 +5,20 @@
  * Replicates the https://aglaw.in/our-awards/ page layout
  * Displays all prestigious national & international recognitions
  * with AOS scroll reveals and luxury architectural cards.
+ *
+ * Fully editable via WordPress Admin (Awards & Honors CPT + Page Editor).
  */
 
-get_header(); ?>
+get_header();
+
+// Query dynamic awards
+$awards_query = new WP_Query(array(
+    'post_type'      => 'award',
+    'posts_per_page' => -1,
+    'orderby'        => 'menu_order',
+    'order'          => 'ASC'
+));
+?>
 
 <!-- Sub-Page Banner -->
 <section class="about-mn">
@@ -20,7 +31,7 @@ get_header(); ?>
                 <div class="vrtclcntr_bxinr">
                     <div class="container-custom">
                         <div class="about_banner_txt" data-aos="fade-up" data-aos-duration="1000">
-                            <h2 class="bnr_heading">Our Awards</h2>
+                            <h2 class="bnr_heading"><?php the_title(); ?></h2>
                             <p class="bnr_para">
                                 <strong>Celebrating Distinction</strong><br>
                                 We have been nationally and internationally recognized for consistently providing top-notch legal representation.
@@ -32,6 +43,13 @@ get_header(); ?>
         </div>
     </div>
 </section>
+
+<?php
+// Render Content from WordPress Page Editor if present
+if (function_exists('legal_insights_render_page_content')) {
+    legal_insights_render_page_content();
+}
+?>
 
 <!-- Awards Gallery Grid Section -->
 <section class="paddingTop paddingBottom" style="background: var(--bg-light);">
@@ -51,79 +69,72 @@ get_header(); ?>
 
         <!-- Awards Grid -->
         <div class="awards-gallery-grid">
-            
-            <div class="award-card" data-aos="fade-up" data-aos-delay="50">
-                <div class="award-badge-img">
-                    <img src="https://aglaw.in/wp-content/uploads/2024/09/AGL-Resize-11.jpg" alt="India Business Law Journal" onerror="this.parentElement.innerHTML='<span style=\'font-size:2.5rem;\'>🏆</span>';">
+            <?php
+            $a_idx = 0;
+            if ($awards_query->have_posts()) :
+                while ($awards_query->have_posts()) : $awards_query->the_post();
+                    $a_idx++;
+                    $a_id   = get_the_ID();
+                    $a_year = get_post_meta($a_id, '_award_year', true);
+                    $a_org  = get_post_meta($a_id, '_award_org', true);
+                    $a_cat  = get_post_meta($a_id, '_award_cat', true);
+                    $a_img  = has_post_thumbnail() ? get_the_post_thumbnail_url($a_id, 'medium') : get_post_meta($a_id, '_award_image_url', true);
+            ?>
+                <div class="award-card" data-aos="fade-up" data-aos-delay="<?php echo esc_attr($a_idx * 50); ?>">
+                    <div class="award-badge-img">
+                        <?php if (!empty($a_img)) : ?>
+                            <img src="<?php echo esc_url($a_img); ?>" alt="<?php the_title_attribute(); ?>" onerror="this.parentElement.innerHTML='<span style=\'font-size:2.5rem;\'>🏆</span>';">
+                        <?php else : ?>
+                            <span style="font-size: 2.5rem;">🏆</span>
+                        <?php endif; ?>
+                    </div>
+                    <?php if (!empty($a_year)) : ?>
+                        <div class="award-year"><?php echo esc_html($a_year); ?></div>
+                    <?php endif; ?>
+                    <h3 class="award-title"><?php the_title(); ?></h3>
+                    <p class="award-desc"><?php echo get_the_content(); ?></p>
                 </div>
-                <div class="award-year">2024</div>
-                <h3 class="award-title">India Business Law Journal</h3>
-                <p class="award-desc">Recognized as Top Tier Dispute Resolution Firm and Leading Supreme Court Practitioners.</p>
-            </div>
-
-            <div class="award-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="award-badge-img">
-                    <img src="https://aglaw.in/wp-content/uploads/2024/09/AGL-Resize-15.jpg" alt="A-List Indian's Most Recommended Lawyers" onerror="this.parentElement.innerHTML='<span style=\'font-size:2.5rem;\'>⭐</span>';">
+            <?php
+                endwhile;
+                wp_reset_postdata();
+            else :
+            ?>
+                <div class="award-card" data-aos="fade-up" data-aos-delay="50">
+                    <div class="award-badge-img">
+                        <img src="https://aglaw.in/wp-content/uploads/2024/09/AGL-Resize-11.jpg" alt="India Business Law Journal" onerror="this.parentElement.innerHTML='<span style=\'font-size:2.5rem;\'>🏆</span>';">
+                    </div>
+                    <div class="award-year">2024</div>
+                    <h3 class="award-title">India Business Law Journal</h3>
+                    <p class="award-desc">Recognized as Top Tier Dispute Resolution Firm and Leading Supreme Court Practitioners.</p>
                 </div>
-                <div class="award-year">2024</div>
-                <h3 class="award-title">A-List Indian Lawyers</h3>
-                <p class="award-desc">Mahesh Agarwal featured among India's Most Recommended Legal Minds.</p>
-            </div>
 
-            <div class="award-card" data-aos="fade-up" data-aos-delay="150">
-                <div class="award-badge-img">
-                    <img src="https://aglaw.in/wp-content/uploads/2024/09/AGL-Resize-12.jpg" alt="The Lawyer Network" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:60px;\'><svg width=\'36\' height=\'36\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'#c5a059\' stroke-width=\'1.8\'><path d=\'m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z\'/><path d=\'m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z\'/><path d=\'M7 21h10\'/><path d=\'M12 3v18\'/><path d=\'M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2\'/></svg></div>';">
+                <div class="award-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="award-badge-img">
+                        <img src="https://aglaw.in/wp-content/uploads/2024/09/AGL-Resize-15.jpg" alt="A-List Indian's Most Recommended Lawyers" onerror="this.parentElement.innerHTML='<span style=\'font-size:2.5rem;\'>⭐</span>';">
+                    </div>
+                    <div class="award-year">2024</div>
+                    <h3 class="award-title">A-List Indian Lawyers</h3>
+                    <p class="award-desc">Featured among India's Most Recommended Legal Minds.</p>
                 </div>
-                <div class="award-year">2023 - 2024</div>
-                <h3 class="award-title">The Lawyer Network</h3>
-                <p class="award-desc">Annual Law Firm Awards winner for Commercial Litigation &amp; High-Stakes Arbitration.</p>
-            </div>
 
-            <div class="award-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="award-badge-img">
-                    <img src="https://aglaw.in/wp-content/uploads/2024/09/AGL-Resize-16.jpg" alt="Award Winning Law Firm" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:60px;\'><svg width=\'36\' height=\'36\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'#c5a059\' stroke-width=\'1.8\'><circle cx=\'12\' cy=\'8\' r=\'6\'/><path d=\'M15.477 12.89 17 22l-5-3-5 3 1.523-9.11\'/></svg></div>';">
+                <div class="award-card" data-aos="fade-up" data-aos-delay="150">
+                    <div class="award-badge-img">
+                        <img src="https://aglaw.in/wp-content/uploads/2024/09/AGL-Resize-12.jpg" alt="The Lawyer Network">
+                    </div>
+                    <div class="award-year">2023 - 2024</div>
+                    <h3 class="award-title">The Lawyer Network</h3>
+                    <p class="award-desc">Annual Law Firm Awards winner for Commercial Litigation &amp; High-Stakes Arbitration.</p>
                 </div>
-                <div class="award-year">2023</div>
-                <h3 class="award-title">Award Winning Firm</h3>
-                <p class="award-desc">Excellence in Appellate Advocacy &amp; Insolvency Litigation across Indian Tribunals.</p>
-            </div>
 
-            <div class="award-card" data-aos="fade-up" data-aos-delay="250">
-                <div class="award-badge-img">
-                    <img src="https://aglaw.in/wp-content/uploads/2024/09/AGL-Resize-13.jpg" alt="Chambers Asia Pacific" onerror="this.parentElement.innerHTML='<span style=\'font-size:2.5rem;\'>🌐</span>';">
+                <div class="award-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="award-badge-img">
+                        <img src="https://aglaw.in/wp-content/uploads/2024/09/AGL-Resize-16.jpg" alt="Award Winning Law Firm">
+                    </div>
+                    <div class="award-year">2023</div>
+                    <h3 class="award-title">Award Winning Firm</h3>
+                    <p class="award-desc">Excellence in Appellate Advocacy &amp; Insolvency Litigation across Indian Tribunals.</p>
                 </div>
-                <div class="award-year">Ranked Firm</div>
-                <h3 class="award-title">Chambers Asia-Pacific</h3>
-                <p class="award-desc">Consistently ranked among the top litigation practices handling apex court mandates.</p>
-            </div>
-
-            <div class="award-card" data-aos="fade-up" data-aos-delay="300">
-                <div class="award-badge-img">
-                    <img src="https://aglaw.in/wp-content/uploads/2024/09/AGL-Resize-18.jpg" alt="Asia Pacific Leading Firm" onerror="this.parentElement.innerHTML='<span style=\'font-size:2.5rem;\'>🏛️</span>';">
-                </div>
-                <div class="award-year">2022 - 2023</div>
-                <h3 class="award-title">Chambers Global</h3>
-                <p class="award-desc">Top tier ranking for International Arbitration and Cross-Border Commercial Disputes.</p>
-            </div>
-
-            <div class="award-card" data-aos="fade-up" data-aos-delay="350">
-                <div class="award-badge-img">
-                    <img src="https://aglaw.in/wp-content/uploads/2024/09/AGL-Resize-17.jpg" alt="Award Winning Law Firm 2022" onerror="this.parentElement.innerHTML='<span style=\'font-size:2.5rem;\'>📜</span>';">
-                </div>
-                <div class="award-year">2022</div>
-                <h3 class="award-title">Apex Litigation Honors</h3>
-                <p class="award-desc">Commended for pioneering jurisprudence in Telecom, Mining, and Infrastructure sectors.</p>
-            </div>
-
-            <div class="award-card" data-aos="fade-up" data-aos-delay="400">
-                <div class="award-badge-img">
-                    <img src="https://aglaw.in/wp-content/uploads/2024/09/AGL-Resize-19.jpg" alt="Asia Pacific 2023" onerror="this.parentElement.innerHTML='<span style=\'font-size:2.5rem;\'>🌟</span>';">
-                </div>
-                <div class="award-year">2023</div>
-                <h3 class="award-title">Asia Pacific Excellence</h3>
-                <p class="award-desc">Recognized for rapid resolution in institutional arbitration and enforcement proceedings.</p>
-            </div>
-
+            <?php endif; ?>
         </div>
 
     </div>

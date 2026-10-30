@@ -6,47 +6,94 @@
  * Featuring hero banner with arch visual, welcome section with counter pills,
  * 3 pillars of expertise, interactive 11 practice areas showcase,
  * awards gallery, leadership profiles, in the news, and latest insights.
+ *
+ * Fully editable via WordPress Admin (Appearance > Theme Options).
  */
 
-get_header(); ?>
+get_header();
 
-<!-- SECTION 1: HERO BANNER (LexVanguard Legal) -->
+// Hero Settings
+$hero_tagline   = function_exists('legal_insights_get_option') ? legal_insights_get_option('hero_tagline', 'MALHOTRA & CO. ADVOCATES & PARTNERS') : 'MALHOTRA & CO. ADVOCATES & PARTNERS';
+$hero_title     = function_exists('legal_insights_get_option') ? legal_insights_get_option('hero_title', 'With You In Every') : 'With You In Every';
+$hero_highlight = function_exists('legal_insights_get_option') ? legal_insights_get_option('hero_title_highlight', 'Challenge') : 'Challenge';
+$hero_desc      = function_exists('legal_insights_get_option') ? legal_insights_get_option('hero_description', 'At Malhotra & Co., we deliver dedicated, personalized legal counsel and appellate advocacy across the Supreme Court of India, High Courts, and International Arbitration Tribunals.') : 'At Malhotra & Co., we deliver dedicated, personalized legal counsel and appellate advocacy across the Supreme Court of India, High Courts, and International Arbitration Tribunals.';
+$hero_btn1_txt  = function_exists('legal_insights_get_option') ? legal_insights_get_option('hero_btn1_text', 'Schedule Consultation') : 'Schedule Consultation';
+$hero_btn1_url  = function_exists('legal_insights_get_option') ? legal_insights_get_option('hero_btn1_url', '/contact-us/') : '/contact-us/';
+$hero_btn2_txt  = function_exists('legal_insights_get_option') ? legal_insights_get_option('hero_btn2_text', 'Our Practice Areas →') : 'Our Practice Areas →';
+$hero_btn2_url  = function_exists('legal_insights_get_option') ? legal_insights_get_option('hero_btn2_url', '/our-expertise/') : '/our-expertise/';
+$hero_image     = function_exists('legal_insights_get_option') ? legal_insights_get_option('hero_image', 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80') : 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80';
+$badge_num      = function_exists('legal_insights_get_option') ? legal_insights_get_option('hero_badge_num', '60+') : '60+';
+$badge_lbl      = function_exists('legal_insights_get_option') ? legal_insights_get_option('hero_badge_lbl', 'Years') : 'Years';
+
+if (!empty($hero_btn1_url) && strpos($hero_btn1_url, 'http') === false && strpos($hero_btn1_url, '/') === 0) {
+    $hero_btn1_url = home_url($hero_btn1_url);
+}
+if (!empty($hero_btn2_url) && strpos($hero_btn2_url, 'http') === false && strpos($hero_btn2_url, '/') === 0) {
+    $hero_btn2_url = home_url($hero_btn2_url);
+}
+
+// Welcome & Stats
+$welcome_subtag = function_exists('legal_insights_get_option') ? legal_insights_get_option('welcome_subtag', 'Heritage • Excellence • Integrity') : 'Heritage • Excellence • Integrity';
+$welcome_title  = function_exists('legal_insights_get_option') ? legal_insights_get_option('welcome_title', 'Welcome to Malhotra & Co.') : 'Welcome to Malhotra & Co.';
+$welcome_desc   = function_exists('legal_insights_get_option') ? legal_insights_get_option('welcome_description', 'Established with a storied tradition of courtroom excellence, Malhotra & Co. has grown into a leading full-service law firm serving major corporations, financial institutions, and high-net-worth clients across India. Today, we are proud to be one of the most trusted legal institutions handling high-stakes constitutional and commercial disputes.') : 'Established with a storied tradition of courtroom excellence, Malhotra & Co. has grown into a leading full-service law firm serving major corporations, financial institutions, and high-net-worth clients across India. Today, we are proud to be one of the most trusted legal institutions handling high-stakes constitutional and commercial disputes.';
+
+$stat1_num      = function_exists('legal_insights_get_option') ? legal_insights_get_option('stat1_num', '1964') : '1964';
+$stat1_lbl      = function_exists('legal_insights_get_option') ? legal_insights_get_option('stat1_lbl', 'Established') : 'Established';
+$stat2_num      = function_exists('legal_insights_get_option') ? legal_insights_get_option('stat2_num', '11') : '11';
+$stat2_lbl      = function_exists('legal_insights_get_option') ? legal_insights_get_option('stat2_lbl', 'Practice Areas') : 'Practice Areas';
+$stat3_num      = function_exists('legal_insights_get_option') ? legal_insights_get_option('stat3_num', '500+') : '500+';
+$stat3_lbl      = function_exists('legal_insights_get_option') ? legal_insights_get_option('stat3_lbl', 'Landmark Cases') : 'Landmark Cases';
+
+$strategic_title = function_exists('legal_insights_get_option') ? legal_insights_get_option('strategic_title', 'Our Strategic Counsel') : 'Our Strategic Counsel';
+$strategic_quote = function_exists('legal_insights_get_option') ? legal_insights_get_option('strategic_quote', '"Combining forensic factual scrutiny with generational appellate advocacy to deliver exceptional legal outcomes."') : '"Combining forensic factual scrutiny with generational appellate advocacy to deliver exceptional legal outcomes."';
+$strategic_txt   = function_exists('legal_insights_get_option') ? legal_insights_get_option('strategic_link_text', 'Read Our Full Story →') : 'Read Our Full Story →';
+$strategic_url   = function_exists('legal_insights_get_option') ? legal_insights_get_option('strategic_link_url', '/about-us/') : '/about-us/';
+if (!empty($strategic_url) && strpos($strategic_url, 'http') === false && strpos($strategic_url, '/') === 0) {
+    $strategic_url = home_url($strategic_url);
+}
+?>
+
+<!-- SECTION 1: HERO BANNER -->
 <section class="hme_bnr__area">
     <div class="container-custom">
         <div class="row align-items-center">
             
             <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000">
                 <div class="bnr_sml_cntnt">
-                    MALHOTRA &amp; CO. ADVOCATES &amp; PARTNERS
+                    <?php echo esc_html($hero_tagline); ?>
                 </div>
                 <h1 class="hdng_bnr">
-                    With You In Every <span>Challenge</span>
+                    <?php echo esc_html($hero_title); ?> <?php if (!empty($hero_highlight)) : ?><span><?php echo esc_html($hero_highlight); ?></span><?php endif; ?>
                 </h1>
                 <p class="para_bnr">
-                    At Malhotra &amp; Co., we deliver dedicated, personalized legal counsel and appellate advocacy across the Supreme Court of India, High Courts, and International Arbitration Tribunals.
+                    <?php echo esc_html($hero_desc); ?>
                 </p>
                 <div class="hero-btns-wrap">
-                    <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="sub_filter_btn active">
-                        Schedule Consultation
+                    <?php if (!empty($hero_btn1_txt)) : ?>
+                    <a href="<?php echo esc_url($hero_btn1_url); ?>" class="sub_filter_btn active">
+                        <?php echo esc_html($hero_btn1_txt); ?>
                     </a>
-                    <a href="<?php echo esc_url(home_url('/our-expertise/')); ?>" class="sub_filter_btn">
-                        Our Practice Areas &rarr;
+                    <?php endif; ?>
+                    <?php if (!empty($hero_btn2_txt)) : ?>
+                    <a href="<?php echo esc_url($hero_btn2_url); ?>" class="sub_filter_btn">
+                        <?php echo esc_html($hero_btn2_txt); ?>
                     </a>
+                    <?php endif; ?>
                 </div>
             </div>
 
             <div class="col-lg-6 text-center mt-4 mt-lg-0" data-aos="fade-left" data-aos-duration="1000">
                 <div class="hm_bnr_visual_frame">
                     <div class="hm_bnr_arch_img">
-                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80" alt="Supreme Court Legal Excellence">
+                        <img src="<?php echo esc_url($hero_image); ?>" alt="<?php echo esc_attr($hero_title); ?>">
                     </div>
                     <div class="floating-badge-circle fb-top-left">
                         <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg>
                     </div>
                     <div class="floating-badge-circle fb-bottom-right">
                         <div>
-                            <span class="fb-num">60+</span>
-                            <span class="fb-lbl">Years</span>
+                            <span class="fb-num"><?php echo esc_html($badge_num); ?></span>
+                            <span class="fb-lbl"><?php echo esc_html($badge_lbl); ?></span>
                         </div>
                     </div>
                 </div>
@@ -56,33 +103,33 @@ get_header(); ?>
     </div>
 </section>
 
-<!-- SECTION 2: WELCOME TO MALHOTRA & CO. -->
+<!-- SECTION 2: WELCOME TO LAW FIRM -->
 <section class="welcome-sec">
     <div class="container-custom">
         <div class="row align-items-center">
             
             <div class="col-lg-7" data-aos="fade-right">
                 <div class="welcome-subtag">
-                    Heritage &bull; Excellence &bull; Integrity
+                    <?php echo esc_html($welcome_subtag); ?>
                 </div>
                 <h2 class="welcome-title">
-                    Welcome to Malhotra &amp; Co.
+                    <?php echo esc_html($welcome_title); ?>
                 </h2>
                 <p class="welcome-para">
-                    Established with a storied tradition of courtroom excellence, Malhotra &amp; Co. has grown into a leading full-service law firm serving major corporations, financial institutions, and high-net-worth clients across India. Today, we are proud to be one of the most trusted legal institutions handling high-stakes constitutional and commercial disputes.
+                    <?php echo esc_html($welcome_desc); ?>
                 </p>
                 <div class="welcome-stats-row">
                     <div class="stat-pill-card">
-                        <div class="stat-num">1964</div>
-                        <div class="stat-lbl">Established</div>
+                        <div class="stat-num"><?php echo esc_html($stat1_num); ?></div>
+                        <div class="stat-lbl"><?php echo esc_html($stat1_lbl); ?></div>
                     </div>
                     <div class="stat-pill-card">
-                        <div class="stat-num">11</div>
-                        <div class="stat-lbl">Practice Areas</div>
+                        <div class="stat-num"><?php echo esc_html($stat2_num); ?></div>
+                        <div class="stat-lbl"><?php echo esc_html($stat2_lbl); ?></div>
                     </div>
                     <div class="stat-pill-card">
-                        <div class="stat-num">500+</div>
-                        <div class="stat-lbl">Landmark Cases</div>
+                        <div class="stat-num"><?php echo esc_html($stat3_num); ?></div>
+                        <div class="stat-lbl"><?php echo esc_html($stat3_lbl); ?></div>
                     </div>
                 </div>
             </div>
@@ -92,12 +139,12 @@ get_header(); ?>
                     <div class="sc-play-icon">
                         ▶
                     </div>
-                    <h3 class="sc-title">Our Strategic Counsel</h3>
+                    <h3 class="sc-title"><?php echo esc_html($strategic_title); ?></h3>
                     <p class="sc-quote">
-                        "Combining forensic factual scrutiny with generational appellate advocacy to deliver exceptional legal outcomes."
+                        <?php echo esc_html($strategic_quote); ?>
                     </p>
-                    <a href="<?php echo esc_url(home_url('/about-us/')); ?>" class="sc-link-btn">
-                        Read Our Full Story &rarr;
+                    <a href="<?php echo esc_url($strategic_url); ?>" class="sc-link-btn">
+                        <?php echo esc_html($strategic_txt); ?>
                     </a>
                 </div>
             </div>
@@ -105,6 +152,13 @@ get_header(); ?>
         </div>
     </div>
 </section>
+
+<?php
+// Display Page Content if user typed content in WordPress editor for Home page
+if (function_exists('legal_insights_render_page_content')) {
+    legal_insights_render_page_content();
+}
+?>
 
 <!-- SECTION 3: OUR EXPERTISE (The 3 Signature Pillars) -->
 <section class="pillars-section">
@@ -198,10 +252,22 @@ get_header(); ?>
                     <p class="portfolio-desc">
                         Our multidisciplinary team navigates complex disputes across sector-specific tribunals, High Courts, and the Supreme Court with seasoned strategic foresight.
                     </p>
+                    
+                    <?php
+                    // Retrieve lead partner from Team Member CPT
+                    $lead_partner = get_posts(array(
+                        'post_type'      => 'team_member',
+                        'posts_per_page' => 1,
+                        'orderby'        => 'menu_order',
+                        'order'          => 'ASC'
+                    ));
+                    $lead_name = !empty($lead_partner) ? $lead_partner[0]->post_title : 'Mr. Vikramaditya Shroff';
+                    $lead_role = !empty($lead_partner) ? get_post_meta($lead_partner[0]->ID, '_team_designation', true) : 'Senior Advocate • Supreme Court of India';
+                    ?>
                     <div class="portfolio-lead-box">
-                        <div class="portfolio-lead-role">Managing Partner:</div>
-                        <div class="portfolio-lead-name">Mr. Vikramaditya Shroff</div>
-                        <div class="portfolio-lead-bar">Senior Advocate &bull; Supreme Court of India</div>
+                        <div class="portfolio-lead-role">Senior Leadership:</div>
+                        <div class="portfolio-lead-name"><?php echo esc_html($lead_name); ?></div>
+                        <div class="portfolio-lead-bar"><?php echo esc_html($lead_role); ?></div>
                     </div>
                 </div>
             </div>
@@ -274,61 +340,6 @@ get_header(); ?>
                             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:17px;height:17px;min-width:17px;min-height:17px;max-width:17px;max-height:17px;display:block;"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                         </span>
                     </a>
-                    <a href="<?php echo esc_url(home_url('/our-expertise/environmental-law/')); ?>" class="pract-row-item">
-                        <div class="pract-row-content">
-                            <span class="pract-row-icon" style="width:36px;height:36px;min-width:36px;min-height:36px;max-width:36px;max-height:36px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;min-width:18px;min-height:18px;max-width:18px;max-height:18px;display:block;"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
-                            </span>
-                            <span class="pract-row-title">Environmental Laws (NGT)</span>
-                        </div>
-                        <span class="pract-row-arrw" style="display:inline-flex;align-items:center;flex-shrink:0;">
-                            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:17px;height:17px;min-width:17px;min-height:17px;max-width:17px;max-height:17px;display:block;"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                        </span>
-                    </a>
-                    <a href="<?php echo esc_url(home_url('/our-expertise/regulatory-litigation/')); ?>" class="pract-row-item">
-                        <div class="pract-row-content">
-                            <span class="pract-row-icon" style="width:36px;height:36px;min-width:36px;min-height:36px;max-width:36px;max-height:36px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;min-width:18px;min-height:18px;max-width:18px;max-height:18px;display:block;"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                            </span>
-                            <span class="pract-row-title">Regulatory Litigation - Telecom, Electricity, Mining</span>
-                        </div>
-                        <span class="pract-row-arrw" style="display:inline-flex;align-items:center;flex-shrink:0;">
-                            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:17px;height:17px;min-width:17px;min-height:17px;max-width:17px;max-height:17px;display:block;"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                        </span>
-                    </a>
-                    <a href="<?php echo esc_url(home_url('/our-expertise/mediation/')); ?>" class="pract-row-item">
-                        <div class="pract-row-content">
-                            <span class="pract-row-icon" style="width:36px;height:36px;min-width:36px;min-height:36px;max-width:36px;max-height:36px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;min-width:18px;min-height:18px;max-width:18px;max-height:18px;display:block;"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                            </span>
-                            <span class="pract-row-title">Mediation &amp; Settlement Proceedings</span>
-                        </div>
-                        <span class="pract-row-arrw" style="display:inline-flex;align-items:center;flex-shrink:0;">
-                            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:17px;height:17px;min-width:17px;min-height:17px;max-width:17px;max-height:17px;display:block;"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                        </span>
-                    </a>
-                    <a href="<?php echo esc_url(home_url('/our-expertise/securities-law/')); ?>" class="pract-row-item">
-                        <div class="pract-row-content">
-                            <span class="pract-row-icon" style="width:36px;height:36px;min-width:36px;min-height:36px;max-width:36px;max-height:36px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;min-width:18px;min-height:18px;max-width:18px;max-height:18px;display:block;"><path d="m3 3 7 7 4-4 7 7"/><path d="M14 7h7v7"/><path d="M3 21h18"/></svg>
-                            </span>
-                            <span class="pract-row-title">Securities Law (SEBI &amp; SAT)</span>
-                        </div>
-                        <span class="pract-row-arrw" style="display:inline-flex;align-items:center;flex-shrink:0;">
-                            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:17px;height:17px;min-width:17px;min-height:17px;max-width:17px;max-height:17px;display:block;"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                        </span>
-                    </a>
-                    <a href="<?php echo esc_url(home_url('/our-expertise/tax/')); ?>" class="pract-row-item">
-                        <div class="pract-row-content">
-                            <span class="pract-row-icon" style="width:36px;height:36px;min-width:36px;min-height:36px;max-width:36px;max-height:36px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;min-width:18px;min-height:18px;max-width:18px;max-height:18px;display:block;"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><circle cx="12" cy="14" r="2"/></svg>
-                            </span>
-                            <span class="pract-row-title">Tax – Direct Tax, Indirect Tax</span>
-                        </div>
-                        <span class="pract-row-arrw" style="display:inline-flex;align-items:center;flex-shrink:0;">
-                            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:17px;height:17px;min-width:17px;min-height:17px;max-width:17px;max-height:17px;display:block;"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                        </span>
-                    </a>
                 </div>
             </div>
 
@@ -336,7 +347,7 @@ get_header(); ?>
     </div>
 </section>
 
-<!-- SECTION 5: LATEST INSIGHTS (Refined Proportions) -->
+<!-- SECTION 5: LATEST INSIGHTS -->
 <section style="background: var(--bg-light); padding: 95px 0;">
     <div class="container-custom">
         <div class="row align-items-center mb-5" data-aos="fade-up">
