@@ -11,6 +11,18 @@
 
 get_header();
 
+// If page is edited with Elementor, render full-width content directly
+if (function_exists('legal_insights_is_elementor_page') && legal_insights_is_elementor_page()) {
+    echo '<main id="primary" class="site-main elementor-practice-content" style="width: 100%;">';
+    while (have_posts()) :
+        the_post();
+        the_content();
+    endwhile;
+    echo '</main>';
+    get_footer();
+    return;
+}
+
 $firm_name  = function_exists('legal_insights_get_firm_name') ? legal_insights_get_firm_name(false) : 'Malhotra & Co.';
 $page_id    = get_the_ID();
 $badge      = get_post_meta($page_id, '_practice_badge', true);

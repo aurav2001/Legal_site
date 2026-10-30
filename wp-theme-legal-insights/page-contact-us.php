@@ -10,6 +10,18 @@
 
 get_header();
 
+// If page is edited with Elementor, render full-width content directly
+if (function_exists('legal_insights_is_elementor_page') && legal_insights_is_elementor_page()) {
+    echo '<main id="primary" class="site-main elementor-contact-content" style="width: 100%;">';
+    while (have_posts()) :
+        the_post();
+        the_content();
+    endwhile;
+    echo '</main>';
+    get_footer();
+    return;
+}
+
 $page_id = get_the_ID();
 $tagline    = get_post_meta($page_id, '_contact_tagline', true);
 $form_title = get_post_meta($page_id, '_contact_form_title', true);

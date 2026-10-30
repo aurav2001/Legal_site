@@ -35,6 +35,18 @@ WordPress sidebar me **Awards & Honors** par click karein:
 - Kisi bhi page (Home, About Us, Contact Us, Our People, Practice Areas) ko WordPress editor me open karke custom content type karein — wo directly frontend par render hoga!
 - Page ke niche diye gaye **Custom Meta Box** se page-specific headings aur override values bhi set kar sakte hain.
 
+### 6. 🎨 Elementor Page Builder Support (100% Visual Drag-and-Drop)
+- **Edit With Elementor Support on ALL Pages:** Kisi bhi page (Home, About Us, Contact Us, Our People) par **"Edit with Elementor"** button dabayein — Elementor bina kisi template error ke open hoga aur jo design aap banayenge wo frontend par live render hoga.
+- **Dedicated Page Templates:**
+  - `Elementor Full Width (LexVanguard)`: Theme ka sticky header + footer retain karte hue edge-to-edge full width layout deta hai.
+  - `Elementor Canvas (LexVanguard)`: 100% blank page custom landing pages ke liye.
+- **Custom Legal Drag-and-Drop Widgets:**
+  Elementor panel me **"LexVanguard Legal Elements"** category ke under ready-made drag-and-drop widgets diye gaye hain:
+  - ⚖️ *Law Firm Hero Banner* (Heading, gold highlight, badges, arch visual)
+  - 📊 *Law Firm Counter Stats* (1964 Established, 11 Practice Areas, 500+ Cases)
+  - 🏛️ *Curved Practice Card* (Architectural curve shape with gold glow)
+  - 👤 *Advocate Profile Card* (Photo, title, experience badge, bio, email, socials)
+
 ---
 
 ## 🌟 Site Pages Included (Theme me konse-konse Pages hain?)

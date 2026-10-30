@@ -11,6 +11,18 @@
 
 get_header();
 
+// If page is edited with Elementor, render full-width content directly
+if (function_exists('legal_insights_is_elementor_page') && legal_insights_is_elementor_page()) {
+    echo '<main id="primary" class="site-main elementor-awards-content" style="width: 100%;">';
+    while (have_posts()) :
+        the_post();
+        the_content();
+    endwhile;
+    echo '</main>';
+    get_footer();
+    return;
+}
+
 // Query dynamic awards
 $awards_query = new WP_Query(array(
     'post_type'      => 'award',

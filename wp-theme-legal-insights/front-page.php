@@ -12,6 +12,18 @@
 
 get_header();
 
+// If page is edited with or built with Elementor, let Elementor take full control
+if (function_exists('legal_insights_is_elementor_page') && legal_insights_is_elementor_page()) {
+    echo '<main id="primary" class="site-main elementor-homepage-content">';
+    while (have_posts()) :
+        the_post();
+        the_content();
+    endwhile;
+    echo '</main>';
+    get_footer();
+    return;
+}
+
 // Hero Settings
 $hero_tagline   = function_exists('legal_insights_get_option') ? legal_insights_get_option('hero_tagline', 'MALHOTRA & CO. ADVOCATES & PARTNERS') : 'MALHOTRA & CO. ADVOCATES & PARTNERS';
 $hero_title     = function_exists('legal_insights_get_option') ? legal_insights_get_option('hero_title', 'With You In Every') : 'With You In Every';

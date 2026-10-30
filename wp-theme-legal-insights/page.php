@@ -6,7 +6,19 @@
  */
 
 get_header();
+
+// If page is edited with Elementor, render full-width content directly
+if (function_exists('legal_insights_is_elementor_page') && legal_insights_is_elementor_page()) :
 ?>
+<main id="primary" class="site-main elementor-page-content" style="width: 100%;">
+    <?php
+    while (have_posts()) :
+        the_post();
+        the_content();
+    endwhile;
+    ?>
+</main>
+<?php else : ?>
 
 <!-- Banner Section -->
 <section class="about-mn">
@@ -34,4 +46,7 @@ get_header();
     </div>
 </section>
 
+<?php endif; ?>
+
 <?php get_footer(); ?>
+

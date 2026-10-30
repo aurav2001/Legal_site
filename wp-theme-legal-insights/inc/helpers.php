@@ -109,3 +109,32 @@ function legal_insights_render_page_content($wrapper_class = 'page-wp-content-se
     }
 }
 
+/**
+ * Check if the current page is being edited with or built with Elementor
+ *
+ * @param int|null $post_id Post ID
+ * @return bool
+ */
+function legal_insights_is_elementor_page($post_id = null) {
+    if (!$post_id) {
+        $post_id = get_the_ID();
+    }
+    if (!$post_id) {
+        return false;
+    }
+    if (did_action('elementor/loaded') && class_exists('\Elementor\Plugin')) {
+        // Elementor Editor preview mode
+        if (isset(\Elementor\Plugin::$instance->preview) && \Elementor\Plugin::$instance->preview->is_preview_mode($post_id)) {
+            return true;
+        }
+        // Page built with Elementor
+        if (isset(\Elementor\Plugin::$instance->db) && \Elementor\Plugin::$instance->db->is_built_with_elementor($post_id)) {
+            return true;
+        }
+    }
+    // Direct meta check fallback
+    $edit_mode = get_post_meta($post_id, '_elementor_edit_mode', true);
+    return ($edit_mode === 'builder');
+}
+
+
