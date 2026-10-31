@@ -278,6 +278,111 @@
                 });
             });
         }
+
+        // 6. Secret Easter Egg: "gpgp" Keyword Trigger for GP Luxury Watermark
+        (function() {
+            var secretCode = 'gpgp';
+            var inputBuffer = '';
+            var lastKeyTime = Date.now();
+
+            function createOrShowGPWatermark() {
+                var existingBadge = document.getElementById('gpWatermarkBadge');
+                if (!existingBadge) {
+                    existingBadge = document.createElement('div');
+                    existingBadge.id = 'gpWatermarkBadge';
+                    existingBadge.className = 'gp-luxury-watermark';
+
+                    // Check if floating hotline is present on page
+                    var hotline = document.querySelector('.floating-legal-hotline');
+                    var bottomPos = (hotline && hotline.offsetHeight > 0) ? '84px' : '25px';
+
+                    existingBadge.setAttribute('style',
+                        'position: fixed; ' +
+                        'bottom: ' + bottomPos + '; ' +
+                        'right: 25px; ' +
+                        'z-index: 99998; ' +
+                        'opacity: 0; ' +
+                        'transform: translateY(14px) scale(0.92); ' +
+                        'transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); ' +
+                        'pointer-events: auto;'
+                    );
+
+                    existingBadge.innerHTML =
+                        '<div style="background: linear-gradient(135deg, rgba(11, 17, 30, 0.96) 0%, rgba(20, 29, 47, 0.96) 100%); ' +
+                            'backdrop-filter: blur(10px); ' +
+                            '-webkit-backdrop-filter: blur(10px); ' +
+                            'border: 1.5px solid #c5a059; ' +
+                            'border-radius: 50px; ' +
+                            'padding: 7px 16px 7px 10px; ' +
+                            'display: inline-flex; ' +
+                            'align-items: center; ' +
+                            'gap: 10px; ' +
+                            'box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 16px rgba(197,160,89,0.3); ' +
+                            'user-select: none;">' +
+                            '<span style="display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; ' +
+                                'background: linear-gradient(135deg, #c5a059 0%, #dfba73 50%, #b38b42 100%); ' +
+                                'color: #0b111e; font-family: \'Cardo\', Georgia, serif; font-weight: 700; font-size: 11px; ' +
+                                'border-radius: 50%; box-shadow: 0 2px 6px rgba(0,0,0,0.4); letter-spacing: 0.5px;">GP</span>' +
+                            '<span style="font-family: \'Inter\', sans-serif; font-size: 11px; font-weight: 600; color: #f1f5f9; letter-spacing: 0.08em; text-transform: uppercase;">' +
+                                'Signature <strong style="color: #c5a059; font-weight: 700;">GP</strong>' +
+                            '</span>' +
+                            '<button type="button" id="gpWatermarkCloseBtn" aria-label="Dismiss watermark" style="background: transparent; border: none; color: #94a3b8; font-size: 16px; cursor: pointer; padding: 0 0 0 4px; line-height: 1; transition: color 0.2s;" onmouseover="this.style.color=\'#ffffff\'" onmouseout="this.style.color=\'#94a3b8\'">&times;</button>' +
+                        '</div>';
+
+                    document.body.appendChild(existingBadge);
+
+                    var closeBtn = document.getElementById('gpWatermarkCloseBtn');
+                    if (closeBtn) {
+                        closeBtn.addEventListener('click', function(e) {
+                            e.stopPropagation();
+                            existingBadge.style.opacity = '0';
+                            existingBadge.style.transform = 'translateY(14px) scale(0.92)';
+                            setTimeout(function() {
+                                existingBadge.style.display = 'none';
+                            }, 400);
+                        });
+                    }
+                }
+
+                existingBadge.style.display = 'block';
+                setTimeout(function() {
+                    existingBadge.style.opacity = '1';
+                    existingBadge.style.transform = 'translateY(0) scale(1)';
+                }, 30);
+            }
+
+            // Global Keydown Listener
+            window.addEventListener('keydown', function(e) {
+                var now = Date.now();
+                // If more than 3 seconds elapsed between keystrokes, restart buffer
+                if (now - lastKeyTime > 3000) {
+                    inputBuffer = '';
+                }
+                lastKeyTime = now;
+
+                var key = e.key ? e.key.toLowerCase() : '';
+                if (key === 'g' || key === 'p') {
+                    inputBuffer += key;
+                } else if (key === 'enter') {
+                    if (inputBuffer.indexOf(secretCode) !== -1) {
+                        createOrShowGPWatermark();
+                        inputBuffer = '';
+                        return;
+                    }
+                } else {
+                    inputBuffer += key;
+                }
+
+                if (inputBuffer.length > 8) {
+                    inputBuffer = inputBuffer.slice(-8);
+                }
+
+                if (inputBuffer.indexOf(secretCode) !== -1) {
+                    createOrShowGPWatermark();
+                    inputBuffer = '';
+                }
+            });
+        })();
     }
 
     // Also run on full window load

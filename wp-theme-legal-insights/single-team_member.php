@@ -6,3 +6,4 @@
  */
 
 require get_template_directory() . '/page-our-people.php';
+

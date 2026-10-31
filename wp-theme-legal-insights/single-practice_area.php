@@ -8,3 +8,4 @@
  */
 
 require get_template_directory() . '/page-practice-detail.php';
+
