@@ -9,7 +9,6 @@
  * 4. Brute Force Cloaking (Generic authentication error messages to prevent username harvesting)
  * 5. XML-RPC & Pingback DDoS Amplification Defense
  * 6. Malicious Request URI & Query String Exploit Sanitizer (LFI, RFI, SQLi patterns)
- * 7. In-Dashboard Theme File Editor Lockdown
  *
  * @package Legal_Insights
  */
@@ -161,13 +160,3 @@ function legal_insights_block_malicious_requests() {
 }
 add_action('init', 'legal_insights_block_malicious_requests');
 
-/**
- * 8. Prevent In-Dashboard File Editing
- * Removes the built-in theme/plugin code editor so compromised credentials cannot write PHP shells.
- */
-function legal_insights_disable_theme_editor() {
-    if (!defined('DISALLOW_FILE_EDIT')) {
-        define('DISALLOW_FILE_EDIT', true);
-    }
-}
-add_action('init', 'legal_insights_disable_theme_editor');
