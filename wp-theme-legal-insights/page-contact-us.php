@@ -150,6 +150,10 @@ if (function_exists('legal_insights_render_page_content')) {
             <div id="inquiryAlert" style="display: none; margin-bottom: 28px; border-radius: 8px; padding: 18px 24px; font-size: 0.95rem; line-height: 1.6;"></div>
 
             <form id="legalInquiryForm" class="contact-form-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px;">
+                <!-- Security Honeypot to Trap Automated Spam Bots -->
+                <div style="display:none !important; position:absolute; left:-9999px;" aria-hidden="true">
+                    <input type="text" name="legal_fax_verify" tabindex="-1" autocomplete="off">
+                </div>
                 <div>
                     <label for="client_name" style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--color-dark); margin-bottom: 8px;">Your Full Name *</label>
                     <input type="text" name="client_name" id="client_name" required placeholder="e.g. Alok Sharma" style="width: 100%; padding: 12px 16px; border: 1px solid #deddda; border-radius: 8px; font-family: var(--font-sans); outline: none; font-size: 0.95rem;">

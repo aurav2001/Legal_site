@@ -259,15 +259,32 @@ function legal_insights_handle_ajax_inquiry() {
         return;
     }
 
-    // 2. Sanitize Inputs
-    $name    = isset($_POST['client_name']) ? sanitize_text_field($_POST['client_name']) : '';
-    $email   = isset($_POST['client_email']) ? sanitize_email($_POST['client_email']) : '';
-    $phone   = isset($_POST['client_phone']) ? sanitize_text_field($_POST['client_phone']) : '';
-    $jur     = isset($_POST['practice_jurisdiction']) ? sanitize_text_field($_POST['practice_jurisdiction']) : 'General Commercial Dispute';
-    $forum   = isset($_POST['court_forum']) ? sanitize_text_field($_POST['court_forum']) : 'Supreme Court of India';
-    $urgency = isset($_POST['urgency_level']) ? sanitize_text_field($_POST['urgency_level']) : 'Normal';
-    $mandate = isset($_POST['legal_mandate']) ? sanitize_textarea_field($_POST['legal_mandate']) : '';
-    $ip      = isset($_SERVER['REMOTE_ADDR']) ? sanitize_text_field($_SERVER['REMOTE_ADDR']) : '';
+    // 2. Anti-Bot Honeypot Defense
+    if (!empty($_POST['legal_fax_verify'])) {
+        // Silent rejection for automated bot scrapers
+        wp_send_json_success(array('message' => __('Inquiry received.', 'legal-insights')));
+        return;
+    }
+
+    // 3. IP Flood & Rate-Limiting Protection (Max 4 submissions per 10 minutes per IP)
+    $ip = isset($_SERVER['REMOTE_ADDR']) ? sanitize_text_field($_SERVER['REMOTE_ADDR']) : '0.0.0.0';
+    $rate_transient = 'legal_inq_rate_' . md5($ip);
+    $attempts = (int) get_transient($rate_transient);
+
+    if ($attempts >= 4) {
+        wp_send_json_error(array('message' => __('High submission volume detected from your network. Please wait a few minutes before submitting again or call our chambers directly.', 'legal-insights')));
+        return;
+    }
+    set_transient($rate_transient, $attempts + 1, 10 * MINUTE_IN_SECONDS);
+
+    // 4. Sanitize Inputs & Boundary Checks
+    $name    = isset($_POST['client_name']) ? sanitize_text_field(substr($_POST['client_name'], 0, 100)) : '';
+    $email   = isset($_POST['client_email']) ? sanitize_email(substr($_POST['client_email'], 0, 100)) : '';
+    $phone   = isset($_POST['client_phone']) ? sanitize_text_field(substr($_POST['client_phone'], 0, 30)) : '';
+    $jur     = isset($_POST['practice_jurisdiction']) ? sanitize_text_field(substr($_POST['practice_jurisdiction'], 0, 100)) : 'General Commercial Dispute';
+    $forum   = isset($_POST['court_forum']) ? sanitize_text_field(substr($_POST['court_forum'], 0, 100)) : 'Supreme Court of India';
+    $urgency = isset($_POST['urgency_level']) ? sanitize_text_field(substr($_POST['urgency_level'], 0, 50)) : 'Normal';
+    $mandate = isset($_POST['legal_mandate']) ? sanitize_textarea_field(substr($_POST['legal_mandate'], 0, 5000)) : '';
 
     // Validate Required Fields
     if (empty($name) || empty($email) || empty($phone) || empty($mandate)) {
@@ -280,7 +297,7 @@ function legal_insights_handle_ajax_inquiry() {
         return;
     }
 
-    // 3. Save to Database as `client_inquiry` post
+    // 5. Save to Database as `client_inquiry` post
     $post_title = $name . ' — ' . $jur;
     $inquiry_id = wp_insert_post(array(
         'post_title'   => $post_title,
