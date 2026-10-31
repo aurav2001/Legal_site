@@ -30,22 +30,12 @@ $content = get_post_field('post_content', get_the_ID());
 <section class="about-mn">
     <div class="container-custom">
         <div class="about-banner">
-            <div class="bnrbx">
-                <img class="img-fluid desktop-view" src="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=1600&q=80" alt="Privacy Policy Banner">
-            </div>
-            <div class="bnr__cntnt">
-                <div class="vrtclcntr_bx">
-                    <div class="vrtclcntr_bxinr">
-                        <div class="container-custom">
-                            <div class="about_banner_txt" data-aos="fade-up" data-aos-duration="1000">
-                                <h2 class="bnr_heading"><?php the_title(); ?></h2>
-                                <p class="bnr_para">
-                                    <strong><?php echo esc_html($firm_name); ?></strong> &bull; Compliance with Bar Council of India Regulations
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="about_banner_txt" data-aos="fade-right">
+                <div class="bnr_tag">Regulatory Compliance &amp; Client Privilege</div>
+                <h1 class="bnr_heading"><?php echo !empty(get_the_title()) ? get_the_title() : 'Privacy Policy'; ?></h1>
+                <p class="bnr_subtitle">
+                    <strong><?php echo esc_html($firm_name); ?></strong> &bull; Compliance with Bar Council of India Regulations and statutory advocate-client confidentiality.
+                </p>
             </div>
         </div>
     </div>

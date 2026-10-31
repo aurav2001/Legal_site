@@ -34,23 +34,14 @@ $awards_query = new WP_Query(array(
 
 <!-- Sub-Page Banner -->
 <section class="about-mn">
-    <div class="about-banner">
-        <div class="bnrbx">
-            <img class="img-fluid desktop-view" src="https://aglaw.in/wp-content/uploads/2024/09/Our-Awards.jpg" alt="Our Awards" onerror="this.src='https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1600&q=80';">
-        </div>
-        <div class="bnr__cntnt">
-            <div class="vrtclcntr_bx">
-                <div class="vrtclcntr_bxinr">
-                    <div class="container-custom">
-                        <div class="about_banner_txt" data-aos="fade-up" data-aos-duration="1000">
-                            <h2 class="bnr_heading"><?php the_title(); ?></h2>
-                            <p class="bnr_para">
-                                <strong>Celebrating Distinction</strong><br>
-                                We have been nationally and internationally recognized for consistently providing top-notch legal representation.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+    <div class="container-custom">
+        <div class="about-banner">
+            <div class="about_banner_txt" data-aos="fade-right">
+                <div class="bnr_tag">Benchmarked Honors &amp; Global Accolades</div>
+                <h1 class="bnr_heading"><?php echo !empty(get_the_title()) ? get_the_title() : 'Our Awards &amp; Honors'; ?></h1>
+                <p class="bnr_subtitle">
+                    Celebrating six decades of distinction. Nationally and internationally recognized by Chambers Global, The Legal 500, and India Business Law Journal for top-notch legal representation.
+                </p>
             </div>
         </div>
     </div>
