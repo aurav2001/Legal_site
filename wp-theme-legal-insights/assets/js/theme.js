@@ -279,11 +279,21 @@
             });
         }
 
-        // 6. Secret Easter Egg: "gpgp" Keyword Trigger for GP Luxury Watermark
+        // 6. Secret Easter Egg: "gpgp" Keyword Trigger for GP Luxury Watermark (Auto-disappears after 5 seconds)
         (function() {
             var secretCode = 'gpgp';
             var inputBuffer = '';
             var lastKeyTime = Date.now();
+            var autoHideTimer = null;
+
+            function hideGPWatermark(badgeEl) {
+                if (!badgeEl) return;
+                badgeEl.style.opacity = '0';
+                badgeEl.style.transform = 'translateY(14px) scale(0.92)';
+                setTimeout(function() {
+                    badgeEl.style.display = 'none';
+                }, 400);
+            }
 
             function createOrShowGPWatermark() {
                 var existingBadge = document.getElementById('gpWatermarkBadge');
@@ -335,13 +345,26 @@
                     if (closeBtn) {
                         closeBtn.addEventListener('click', function(e) {
                             e.stopPropagation();
-                            existingBadge.style.opacity = '0';
-                            existingBadge.style.transform = 'translateY(14px) scale(0.92)';
-                            setTimeout(function() {
-                                existingBadge.style.display = 'none';
-                            }, 400);
+                            if (autoHideTimer) clearTimeout(autoHideTimer);
+                            hideGPWatermark(existingBadge);
                         });
                     }
+
+                    // Pause timer on hover, restart on mouse leave
+                    existingBadge.addEventListener('mouseenter', function() {
+                        if (autoHideTimer) clearTimeout(autoHideTimer);
+                    });
+                    existingBadge.addEventListener('mouseleave', function() {
+                        if (autoHideTimer) clearTimeout(autoHideTimer);
+                        autoHideTimer = setTimeout(function() {
+                            hideGPWatermark(existingBadge);
+                        }, 5000);
+                    });
+                }
+
+                // Reset any existing timer
+                if (autoHideTimer) {
+                    clearTimeout(autoHideTimer);
                 }
 
                 existingBadge.style.display = 'block';
@@ -349,6 +372,11 @@
                     existingBadge.style.opacity = '1';
                     existingBadge.style.transform = 'translateY(0) scale(1)';
                 }, 30);
+
+                // Auto-disappear after exactly 5 seconds (5000 ms)
+                autoHideTimer = setTimeout(function() {
+                    hideGPWatermark(existingBadge);
+                }, 5000);
             }
 
             // Global Keydown Listener
