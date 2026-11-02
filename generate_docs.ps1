@@ -139,13 +139,7 @@ Add-Bullet "Form Spam Honeypot & Rate Limiting" "Includes an invisible decoy fie
 Add-Bullet "Admin Theme File Editor" "The Theme File Editor (Appearance > Theme File Editor) remains fully enabled for administrative development autonomy."
 
 # --- SECTION 8 ---
-Add-Heading "8. Developer Easter Egg (GP Signature Watermark)" 1
-Add-Paragraph "A sophisticated developer signature watermark engineered for quick agency verification:"
-Add-Bullet "Secret Keystroke Trigger" "Typing 'gpgp' (or 'gpgp' + Enter) anywhere on the keyboard triggers a regal gold-and-navy monogram crest at the bottom-right corner."
-Add-Bullet "Smart Auto-Dismiss & Hover Pause" "The watermark automatically fades out after exactly 5 seconds, pauses when hovered over by a cursor, and includes an instant dismiss ('x') button."
-
-# --- SECTION 9 ---
-Add-Heading "9. Deployment & Installation Guide" 1
+Add-Heading "8. Deployment & Installation Guide" 1
 Add-Paragraph "The theme is packaged into standard WordPress distribution archives ready for production hosting:"
 Add-Bullet "Production ZIP Package" "releases/lexvanguard-v1.5.0.zip (installable via WordPress Admin > Appearance > Themes > Add New > Upload Theme)."
 Add-Bullet "Source Code Control" "Git repository synchronized on the main branch at https://github.com/aurav2001/Legal_site.git."

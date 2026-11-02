@@ -92,15 +92,9 @@ Multi-layered defensive security hardening protects the website from common Word
 
 ---
 
-## 8. Developer Easter Egg (GP Signature Watermark)
-A sophisticated developer signature watermark engineered for quick agency verification:
-* **Secret Keystroke Trigger:** Typing `gpgp` (or `gpgp` + Enter) anywhere on the keyboard triggers a regal gold-and-navy monogram crest at the bottom-right corner.
-* **Smart Auto-Dismiss & Hover Pause:** The watermark automatically fades out after exactly 5 seconds, pauses when hovered over by a cursor, and includes an instant dismiss (`×`) button.
-
----
-
-## 9. Deployment & Installation Guide
+## 8. Deployment & Installation Guide
 The theme is packaged into standard WordPress distribution archives ready for production hosting:
 * **Production ZIP Package:** `releases/lexvanguard-v1.5.0.zip` (installable via WordPress Admin > Appearance > Themes > Add New > Upload Theme).
 * **Source Code Control:** Git repository synchronized on the `main` branch at `https://github.com/aurav2001/Legal_site.git`.
 * **Server Compatibility:** WordPress 6.0+, PHP 7.4 through 8.3+, MySQL 5.7+ / MariaDB 10.3+, Elementor & Elementor Pro.
+
