@@ -53,7 +53,7 @@ add_action('elementor/elements/categories_registered', 'legal_insights_add_eleme
  */
 function legal_insights_elementor_styles() {
     wp_enqueue_style('legal-insights-fonts', 'https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap', array(), null);
-    wp_enqueue_style('legal-insights-style', get_stylesheet_uri(), array(), '1.4.0');
+    wp_enqueue_style('legal-insights-style', get_stylesheet_uri(), array(), '1.5.0');
 }
 add_action('elementor/editor/after_enqueue_styles', 'legal_insights_elementor_styles');
 add_action('elementor/frontend/after_enqueue_styles', 'legal_insights_elementor_styles');
@@ -141,6 +141,22 @@ function legal_insights_register_elementor_widgets($widgets_manager) {
             $img_url  = !empty($settings['image']['url']) ? $settings['image']['url'] : 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80';
             $btn1_url = !empty($settings['btn1_link']['url']) ? $settings['btn1_link']['url'] : '#';
             $btn2_url = !empty($settings['btn2_link']['url']) ? $settings['btn2_link']['url'] : '#';
+
+            $btn1_attrs = '';
+            if (!empty($settings['btn1_link']['is_external'])) {
+                $btn1_attrs .= ' target="_blank" rel="noopener noreferrer"';
+            }
+            if (!empty($settings['btn1_link']['nofollow'])) {
+                $btn1_attrs .= ' rel="nofollow"';
+            }
+
+            $btn2_attrs = '';
+            if (!empty($settings['btn2_link']['is_external'])) {
+                $btn2_attrs .= ' target="_blank" rel="noopener noreferrer"';
+            }
+            if (!empty($settings['btn2_link']['nofollow'])) {
+                $btn2_attrs .= ' rel="nofollow"';
+            }
             ?>
             <section class="hme_bnr__area" style="padding: 70px 0;">
                 <div class="container-custom">
@@ -158,10 +174,10 @@ function legal_insights_register_elementor_widgets($widgets_manager) {
                             <p class="para_bnr"><?php echo esc_html($settings['description']); ?></p>
                             <div class="hero-btns-wrap">
                                 <?php if (!empty($settings['btn1_text'])) : ?>
-                                    <a href="<?php echo esc_url($btn1_url); ?>" class="sub_filter_btn active"><?php echo esc_html($settings['btn1_text']); ?></a>
+                                    <a href="<?php echo esc_url($btn1_url); ?>" class="sub_filter_btn active"<?php echo $btn1_attrs; ?>><?php echo esc_html($settings['btn1_text']); ?></a>
                                 <?php endif; ?>
                                 <?php if (!empty($settings['btn2_text'])) : ?>
-                                    <a href="<?php echo esc_url($btn2_url); ?>" class="sub_filter_btn"><?php echo esc_html($settings['btn2_text']); ?></a>
+                                    <a href="<?php echo esc_url($btn2_url); ?>" class="sub_filter_btn"<?php echo $btn2_attrs; ?>><?php echo esc_html($settings['btn2_text']); ?></a>
                                 <?php endif; ?>
                             </div>
                         </div>
@@ -253,6 +269,14 @@ function legal_insights_register_elementor_widgets($widgets_manager) {
             $settings = $this->get_settings_for_display();
             $url = !empty($settings['link']['url']) ? $settings['link']['url'] : '#';
             $img = !empty($settings['image']['url']) ? $settings['image']['url'] : '';
+
+            $link_attrs = '';
+            if (!empty($settings['link']['is_external'])) {
+                $link_attrs .= ' target="_blank" rel="noopener noreferrer"';
+            }
+            if (!empty($settings['link']['nofollow'])) {
+                $link_attrs .= ' rel="nofollow"';
+            }
             ?>
             <div class="pillar-card" style="margin-bottom: 20px;">
                 <?php if (!empty($img)) : ?>
@@ -265,7 +289,7 @@ function legal_insights_register_elementor_widgets($widgets_manager) {
                         <h3 class="pillar-card-title"><?php echo esc_html($settings['title']); ?></h3>
                         <p class="pillar-card-desc"><?php echo esc_html($settings['desc']); ?></p>
                     </div>
-                    <a href="<?php echo esc_url($url); ?>" class="serv-btn-link">Learn More &rarr;</a>
+                    <a href="<?php echo esc_url($url); ?>" class="serv-btn-link"<?php echo $link_attrs; ?>>Learn More &rarr;</a>
                 </div>
             </div>
             <?php
