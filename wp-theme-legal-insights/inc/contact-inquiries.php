@@ -422,3 +422,100 @@ function legal_insights_render_floating_helpline() {
     <?php
 }
 add_action('wp_footer', 'legal_insights_render_floating_helpline');
+
+/**
+ * 7. One-Click Inquiries CSV Exporter for Chambers Desk
+ */
+function legal_insights_add_inquiries_export_button($which) {
+    global $typenow;
+    if ($typenow === 'client_inquiry' && $which === 'top') {
+        $export_url = wp_nonce_url(admin_url('admin-post.php?action=export_client_inquiries'), 'export_client_inquiries_action');
+        ?>
+        <div class="alignleft actions">
+            <a href="<?php echo esc_url($export_url); ?>" class="button button-primary" style="background: #0b111e; border-color: #c5a059; color: #f5d061; font-weight: 600; display: inline-flex; align-items: center; gap: 6px;">
+                <span class="dashicons dashicons-download" style="font-size: 16px; line-height: 1.8;"></span>
+                <?php esc_html_e('Export Inquiries to CSV', 'legal-insights'); ?>
+            </a>
+        </div>
+        <?php
+    }
+}
+add_action('manage_posts_extra_tablenav', 'legal_insights_add_inquiries_export_button');
+
+/**
+ * Process CSV Export for Client Inquiries
+ */
+function legal_insights_export_inquiries_csv() {
+    if (!current_user_can('manage_options')) {
+        wp_die(esc_html__('Unauthorized access. Only firm administrators may export inquiry records.', 'legal-insights'));
+    }
+
+    check_admin_referer('export_client_inquiries_action');
+
+    $args = array(
+        'post_type'      => 'client_inquiry',
+        'post_status'    => 'any',
+        'posts_per_page' => -1,
+        'orderby'        => 'date',
+        'order'          => 'DESC',
+    );
+    $inquiries = get_posts($args);
+
+    $filename = 'lexvanguard-client-inquiries-' . gmdate('Y-m-d') . '.csv';
+
+    header('Content-Type: text/csv; charset=UTF-8');
+    header('Content-Disposition: attachment; filename="' . $filename . '"');
+    header('Pragma: no-cache');
+    header('Expires: 0');
+
+    $output = fopen('php://output', 'w');
+
+    // Write UTF-8 BOM for Microsoft Excel compatibility
+    fprintf($output, chr(0xEF) . chr(0xBB) . chr(0xBF));
+
+    // CSV Header Row
+    fputcsv($output, array(
+        'Inquiry ID',
+        'Date Received',
+        'Client Full Name',
+        'Official Email',
+        'Telephone Contact',
+        'Practice Jurisdiction',
+        'Target Judicial Forum',
+        'Matter Urgency',
+        'Inquiry Status',
+        'Client IP Address',
+        'Mandate / Case Summary',
+    ));
+
+    foreach ($inquiries as $inquiry) {
+        $post_id = $inquiry->ID;
+        $name    = get_post_meta($post_id, '_inquiry_name', true) ?: $inquiry->post_title;
+        $email   = get_post_meta($post_id, '_inquiry_email', true);
+        $phone   = get_post_meta($post_id, '_inquiry_phone', true);
+        $jur     = get_post_meta($post_id, '_inquiry_jurisdiction', true);
+        $forum   = get_post_meta($post_id, '_inquiry_forum', true) ?: 'Supreme Court / High Courts';
+        $urgency = get_post_meta($post_id, '_inquiry_urgency', true) ?: 'Normal';
+        $status  = get_post_meta($post_id, '_inquiry_status', true) ?: 'New';
+        $ip      = get_post_meta($post_id, '_inquiry_ip', true);
+        $brief   = wp_strip_all_tags($inquiry->post_content);
+
+        fputcsv($output, array(
+            $post_id,
+            get_the_date('Y-m-d H:i:s', $post_id),
+            $name,
+            $email,
+            $phone,
+            $jur,
+            $forum,
+            $urgency,
+            $status,
+            $ip,
+            $brief,
+        ));
+    }
+
+    fclose($output);
+    exit;
+}
+add_action('admin_post_export_client_inquiries', 'legal_insights_export_inquiries_csv');

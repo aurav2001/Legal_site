@@ -70,6 +70,7 @@ Eliminating the need for expensive third-party CRM plugins (e.g. WPForms Pro, Gr
   1. *Counsel Desk Alert:* Instant notification to firm counsel desk with case brief and admin link.
   2. *Client Privilege Acknowledgment:* Statutory privilege acknowledgment email to the prospective client citing Section 126 of the Indian Evidence Act.
 * **Floating Chambers Hotline Desk:** Bottom-right floating WhatsApp / Emergency Helpline pill with pre-filled consultation message, toggleable on/off from Theme Options.
+* **One-Click Inquiries CSV Exporter:** Instant export button on the admin leads table to download client consultation records into a UTF-8 BOM formatted CSV spreadsheet for Microsoft Excel and Google Sheets.
 
 ---
 
@@ -92,9 +93,18 @@ Multi-layered defensive security hardening protects the website from common Word
 
 ---
 
-## 8. Deployment & Installation Guide
+## 8. Native Legal Tech SEO & Schema.org Rich Snippets
+Built-in structured data and social sharing optimization without relying on heavy third-party plugins:
+* **Schema.org/LegalService & Attorney Markup:** Injects comprehensive JSON-LD structured data with firm credentials, practice jurisdictions (Supreme Court, High Courts, NCLAT), address, operating hours, and consultation fee structure for Google Rich Snippets.
+* **ScholarlyArticle & Breadcrumb Schema:** Automatically marks up legal briefings, research insights, and hierarchical breadcrumb trails for Google search indexing.
+* **High-End Social Open Graph & Twitter Cards:** Produces luxury card previews on WhatsApp, LinkedIn, and Twitter with custom title, excerpt, and high-resolution thumbnail.
+* **Instant URL Copy Utility:** Dynamic copy-to-clipboard action with feedback on insight briefings.
+
+---
+
+## 9. Deployment & Installation Guide
 The theme is packaged into standard WordPress distribution archives ready for production hosting:
-* **Production ZIP Package:** `releases/lexvanguard-v1.5.0.zip` (installable via WordPress Admin > Appearance > Themes > Add New > Upload Theme).
+* **Production ZIP Package:** `releases/lexvanguard-v1.6.0.zip` (installable via WordPress Admin > Appearance > Themes > Add New > Upload Theme).
 * **Source Code Control:** Git repository synchronized on the `main` branch at `https://github.com/aurav2001/Legal_site.git`.
 * **Server Compatibility:** WordPress 6.0+, PHP 7.4 through 8.3+, MySQL 5.7+ / MariaDB 10.3+, Elementor & Elementor Pro.
 

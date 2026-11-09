@@ -20,6 +20,7 @@ require_once get_template_directory() . '/inc/page-meta-boxes.php';
 require_once get_template_directory() . '/inc/elementor-support.php';
 require_once get_template_directory() . '/inc/contact-inquiries.php';
 require_once get_template_directory() . '/inc/security-hardening.php';
+require_once get_template_directory() . '/inc/schema-seo.php';
 
 /**
  * Sets up theme defaults and registers support for various WordPress features.

@@ -120,6 +120,7 @@ Add-Bullet "Lead Status Lifecycle Tracker" "A built-in lead meta box enables leg
 Add-Bullet "Zero-Reload AJAX Intake Form" "High-converting intake form on the Contact Us page featuring fields for Name, Email, Phone, Practice Jurisdiction, Target Judicial Forum (Supreme Court, High Court, NCLT, CCI, etc.), Matter Urgency level (Emergency 24-48h, High, Normal), and Mandate Outline."
 Add-Bullet "Dual Automated HTML Email Dispatch" "Automated dispatch via wp_mail(): (1) Instant notification to firm counsel desk with case brief and admin link; (2) Statutory privilege acknowledgment email to the prospective client citing Section 126 of the Indian Evidence Act."
 Add-Bullet "Floating Chambers Hotline Desk" "Bottom-right floating WhatsApp / Emergency Helpline pill with pre-filled consultation message, toggleable on/off from Theme Options."
+Add-Bullet "One-Click Inquiries CSV Exporter" "Instant export button on the admin leads table to download client consultation records into a UTF-8 BOM formatted CSV spreadsheet for Microsoft Excel and Google Sheets."
 
 # --- SECTION 6 ---
 Add-Heading "6. Regulatory Compliance & Bar Council of India (BCI) Shield" 1
@@ -139,9 +140,17 @@ Add-Bullet "Form Spam Honeypot & Rate Limiting" "Includes an invisible decoy fie
 Add-Bullet "Admin Theme File Editor" "The Theme File Editor (Appearance > Theme File Editor) remains fully enabled for administrative development autonomy."
 
 # --- SECTION 8 ---
-Add-Heading "8. Deployment & Installation Guide" 1
+Add-Heading "8. Native Legal Tech SEO & Schema.org Rich Snippets" 1
+Add-Paragraph "Built-in structured data and social sharing optimization without relying on heavy third-party plugins:"
+Add-Bullet "Schema.org/LegalService & Attorney Markup" "Injects comprehensive JSON-LD structured data with firm credentials, practice jurisdictions (Supreme Court, High Courts, NCLAT), address, operating hours, and consultation fee structure for Google Rich Snippets."
+Add-Bullet "ScholarlyArticle & Breadcrumb Schema" "Automatically marks up legal briefings, research insights, and hierarchical breadcrumb trails for Google search indexing."
+Add-Bullet "High-End Social Open Graph & Twitter Cards" "Produces luxury card previews on WhatsApp, LinkedIn, and Twitter with custom title, excerpt, and high-resolution thumbnail."
+Add-Bullet "Instant URL Copy Utility" "Dynamic copy-to-clipboard action with feedback on insight briefings."
+
+# --- SECTION 9 ---
+Add-Heading "9. Deployment & Installation Guide" 1
 Add-Paragraph "The theme is packaged into standard WordPress distribution archives ready for production hosting:"
-Add-Bullet "Production ZIP Package" "releases/lexvanguard-v1.5.0.zip (installable via WordPress Admin > Appearance > Themes > Add New > Upload Theme)."
+Add-Bullet "Production ZIP Package" "releases/lexvanguard-v1.6.0.zip (installable via WordPress Admin > Appearance > Themes > Add New > Upload Theme)."
 Add-Bullet "Source Code Control" "Git repository synchronized on the main branch at https://github.com/aurav2001/Legal_site.git."
 Add-Bullet "Server Compatibility" "WordPress 6.0+, PHP 7.4 through 8.3+, MySQL 5.7+ / MariaDB 10.3+, Elementor & Elementor Pro."
 

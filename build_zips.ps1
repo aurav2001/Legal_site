@@ -32,7 +32,8 @@ if (Test-Path $releasesDir) {
     Copy-Item (Join-Path $cwd "lexvanguard.zip") (Join-Path $releasesDir "lexvanguard.zip") -Force
     Copy-Item (Join-Path $cwd "lexvanguard.zip") (Join-Path $releasesDir "lexvanguard-v1.4.0.zip") -Force
     Copy-Item (Join-Path $cwd "lexvanguard.zip") (Join-Path $releasesDir "lexvanguard-v1.5.0.zip") -Force
-    Write-Host "Updated releases/lexvanguard.zip and releases/lexvanguard-v1.5.0.zip"
+    Copy-Item (Join-Path $cwd "lexvanguard.zip") (Join-Path $releasesDir "lexvanguard-v1.6.0.zip") -Force
+    Write-Host "Updated releases/lexvanguard.zip and releases/lexvanguard-v1.6.0.zip"
 }
 
 
