@@ -14,7 +14,19 @@
             <!-- Column 1: Firm Overview & Social Presence -->
             <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
                 <div class="footer-lft">
-                    <a href="<?php echo esc_url(home_url('/')); ?>" class="logo_mn">
+                    <a href="<?php echo esc_url(home_url('/')); ?>" class="logo_mn" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
+                        <div style="width: 32px; height: 32px; border-radius: 6px; background: rgba(197, 160, 89, 0.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                            <svg width="18" height="23" viewBox="0 0 24 32" fill="#c5a059">
+                                <rect x="2" y="2" width="20" height="2.5" rx="0.5"/>
+                                <rect x="4" y="5.5" width="16" height="1.8" rx="0.5"/>
+                                <rect x="4.5" y="8.5" width="2.2" height="15" rx="0.5"/>
+                                <rect x="8.4" y="8.5" width="2.2" height="15" rx="0.5"/>
+                                <rect x="12.3" y="8.5" width="2.2" height="15" rx="0.5"/>
+                                <rect x="16.2" y="8.5" width="2.2" height="15" rx="0.5"/>
+                                <rect x="4" y="24.5" width="16" height="1.8" rx="0.5"/>
+                                <rect x="2" y="27.3" width="20" height="2.5" rx="0.5"/>
+                            </svg>
+                        </div>
                         <div class="logo-brand" style="font-size: 1.4rem; color: #ffffff;">
                             <?php 
                             if (function_exists('legal_insights_get_firm_name')) {

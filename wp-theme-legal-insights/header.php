@@ -75,14 +75,17 @@ if ($bci_enabled !== 'no') :
                     ?>
                         <img src="<?php echo esc_url($custom_logo_url); ?>" alt="<?php echo esc_attr(get_bloginfo('name')); ?>" style="max-height: 48px; width: auto;">
                     <?php else : ?>
-                        <!-- Luxury SVG Scales Crest & Legal Typography -->
-                        <div class="logo-crest">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c5a059" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/>
-                                <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/>
-                                <path d="M7 21h10"/>
-                                <path d="M12 3v18"/>
-                                <path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/>
+                        <!-- Architectural Column Emblem from Official Visiting Card -->
+                        <div class="logo-crest" style="display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 6px; background: rgba(166, 115, 67, 0.08);">
+                            <svg width="20" height="25" viewBox="0 0 24 32" fill="#a67343">
+                                <rect x="2" y="2" width="20" height="2.5" rx="0.5"/>
+                                <rect x="4" y="5.5" width="16" height="1.8" rx="0.5"/>
+                                <rect x="4.5" y="8.5" width="2.2" height="15" rx="0.5"/>
+                                <rect x="8.4" y="8.5" width="2.2" height="15" rx="0.5"/>
+                                <rect x="12.3" y="8.5" width="2.2" height="15" rx="0.5"/>
+                                <rect x="16.2" y="8.5" width="2.2" height="15" rx="0.5"/>
+                                <rect x="4" y="24.5" width="16" height="1.8" rx="0.5"/>
+                                <rect x="2" y="27.3" width="20" height="2.5" rx="0.5"/>
                             </svg>
                         </div>
                         <div class="logo-text-wrap">
