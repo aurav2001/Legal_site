@@ -1,4 +1,4 @@
-﻿# PowerShell Script to Generate Beautiful Formatted Word Document (.docx)
+# PowerShell Script to Generate Beautiful Formatted Word Document (.docx)
 $docPath = Join-Path (Get-Location).Path "LexVanguard_Project_Full_Documentation.docx"
 if (Test-Path $docPath) { Remove-Item $docPath -Force }
 

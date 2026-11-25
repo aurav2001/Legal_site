@@ -81,22 +81,22 @@ function legal_insights_register_elementor_widgets($widgets_manager) {
             $this->add_control('tagline', array(
                 'label'   => esc_html__('Small Tagline', 'legal-insights'),
                 'type'    => \Elementor\Controls_Manager::TEXT,
-                'default' => 'MALHOTRA & CO. ADVOCATES & PARTNERS',
+                'default' => 'MALHOTRA & CO. • ADVOCATES & SOLICITORS',
             ));
             $this->add_control('title_prefix', array(
                 'label'   => esc_html__('Main Heading (Prefix)', 'legal-insights'),
                 'type'    => \Elementor\Controls_Manager::TEXT,
-                'default' => 'With You In Every',
+                'default' => 'Trusted Counsel Across',
             ));
             $this->add_control('title_highlight', array(
                 'label'   => esc_html__('Gold Highlight Word', 'legal-insights'),
                 'type'    => \Elementor\Controls_Manager::TEXT,
-                'default' => 'Challenge',
+                'default' => 'Three Generations',
             ));
             $this->add_control('description', array(
                 'label'   => esc_html__('Paragraph Description', 'legal-insights'),
                 'type'    => \Elementor\Controls_Manager::TEXTAREA,
-                'default' => 'Dedicated appellate advocacy before the Supreme Court of India, High Courts, and International Arbitral Seats.',
+                'default' => 'Malhotra & Co. is a boutique law firm with more than 50 years of practice and three generations in the profession. We act in litigation and advisory matters where careful strategy and focused, partner-led attention make the difference.',
             ));
             $this->add_control('btn1_text', array(
                 'label'   => esc_html__('Button 1 Text', 'legal-insights'),
@@ -126,7 +126,7 @@ function legal_insights_register_elementor_widgets($widgets_manager) {
             $this->add_control('badge_num', array(
                 'label'   => esc_html__('Badge Number', 'legal-insights'),
                 'type'    => \Elementor\Controls_Manager::TEXT,
-                'default' => '60+',
+                'default' => '50+',
             ));
             $this->add_control('badge_lbl', array(
                 'label'   => esc_html__('Badge Label', 'legal-insights'),
@@ -216,12 +216,12 @@ function legal_insights_register_elementor_widgets($widgets_manager) {
                 'label' => esc_html__('Statistics Numbers', 'legal-insights'),
                 'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
             ));
-            $this->add_control('stat1_num', array('label' => 'Stat 1 Number', 'type' => \Elementor\Controls_Manager::TEXT, 'default' => '1964'));
-            $this->add_control('stat1_lbl', array('label' => 'Stat 1 Label', 'type' => \Elementor\Controls_Manager::TEXT, 'default' => 'Established'));
-            $this->add_control('stat2_num', array('label' => 'Stat 2 Number', 'type' => \Elementor\Controls_Manager::TEXT, 'default' => '11'));
-            $this->add_control('stat2_lbl', array('label' => 'Stat 2 Label', 'type' => \Elementor\Controls_Manager::TEXT, 'default' => 'Practice Areas'));
-            $this->add_control('stat3_num', array('label' => 'Stat 3 Number', 'type' => \Elementor\Controls_Manager::TEXT, 'default' => '500+'));
-            $this->add_control('stat3_lbl', array('label' => 'Stat 3 Label', 'type' => \Elementor\Controls_Manager::TEXT, 'default' => 'Landmark Cases'));
+            $this->add_control('stat1_num', array('label' => 'Stat 1 Number', 'type' => \Elementor\Controls_Manager::TEXT, 'default' => '1967'));
+            $this->add_control('stat1_lbl', array('label' => 'Stat 1 Label', 'type' => \Elementor\Controls_Manager::TEXT, 'default' => 'Serving Since'));
+            $this->add_control('stat2_num', array('label' => 'Stat 2 Number', 'type' => \Elementor\Controls_Manager::TEXT, 'default' => '50+'));
+            $this->add_control('stat2_lbl', array('label' => 'Stat 2 Label', 'type' => \Elementor\Controls_Manager::TEXT, 'default' => 'Years of Heritage'));
+            $this->add_control('stat3_num', array('label' => 'Stat 3 Number', 'type' => \Elementor\Controls_Manager::TEXT, 'default' => '3'));
+            $this->add_control('stat3_lbl', array('label' => 'Stat 3 Label', 'type' => \Elementor\Controls_Manager::TEXT, 'default' => 'Generations'));
             $this->end_controls_section();
         }
 
@@ -308,13 +308,13 @@ function legal_insights_register_elementor_widgets($widgets_manager) {
                 'label' => esc_html__('Lawyer Details', 'legal-insights'),
                 'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
             ));
-            $this->add_control('name', array('label' => 'Name', 'type' => \Elementor\Controls_Manager::TEXT, 'default' => 'Rajeev Singhania'));
-            $this->add_control('title', array('label' => 'Designation', 'type' => \Elementor\Controls_Manager::TEXT, 'default' => 'Managing Partner & Senior Advocate'));
-            $this->add_control('exp', array('label' => 'Experience', 'type' => \Elementor\Controls_Manager::TEXT, 'default' => '32 Years Experience'));
-            $this->add_control('chambers', array('label' => 'Chambers', 'type' => \Elementor\Controls_Manager::TEXT, 'default' => 'Supreme Court of India & Delhi High Court'));
-            $this->add_control('bio', array('label' => 'Bio', 'type' => \Elementor\Controls_Manager::TEXTAREA, 'default' => 'Third-generation advocate on record with extensive appellate appearances across constitutional and commercial benches.'));
+            $this->add_control('name', array('label' => 'Name', 'type' => \Elementor\Controls_Manager::TEXT, 'default' => 'Chaitanya Malhotra'));
+            $this->add_control('title', array('label' => 'Designation', 'type' => \Elementor\Controls_Manager::TEXT, 'default' => 'Managing Partner • Advocate, Supreme Court & Delhi High Court'));
+            $this->add_control('exp', array('label' => 'Experience', 'type' => \Elementor\Controls_Manager::TEXT, 'default' => '3 Generations of Practice'));
+            $this->add_control('chambers', array('label' => 'Chambers', 'type' => \Elementor\Controls_Manager::TEXT, 'default' => 'B-33, Jangpura Extension & Supreme Court Chambers'));
+            $this->add_control('bio', array('label' => 'Bio', 'type' => \Elementor\Controls_Manager::TEXTAREA, 'default' => 'Advocate practicing before the Supreme Court of India, Delhi High Court, NCLAT, and DRAT, leading commercial litigation, arbitration, and startup advisory.'));
             $this->add_control('image', array('label' => 'Photo', 'type' => \Elementor\Controls_Manager::MEDIA));
-            $this->add_control('email', array('label' => 'Email', 'type' => \Elementor\Controls_Manager::TEXT, 'default' => 'lawyer@chambers.law'));
+            $this->add_control('email', array('label' => 'Email', 'type' => \Elementor\Controls_Manager::TEXT, 'default' => 'chaitanyamlegal@gmail.com'));
             $this->add_control('linkedin', array('label' => 'LinkedIn URL', 'type' => \Elementor\Controls_Manager::TEXT, 'default' => 'https://linkedin.com'));
             $this->end_controls_section();
         }
