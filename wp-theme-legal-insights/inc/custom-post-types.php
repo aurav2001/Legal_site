@@ -353,56 +353,30 @@ function legal_insights_seed_cpts() {
     if (empty($existing_team) || $force) {
         $sample_team = array(
             array(
-                'name'        => 'Rajeev Singhania',
-                'title'       => 'Managing Partner & Senior Advocate',
-                'experience'  => '32 Years Experience',
+                'name'        => 'Chaitanya Malhotra',
+                'title'       => 'Managing Partner, Advocate',
+                'experience'  => 'Advocate, Supreme Court of India & Delhi High Court',
                 'chambers'    => 'Supreme Court of India & Delhi High Court',
-                'education'   => 'LL.B. (Campus Law Centre, DU), LL.M. (Harvard Law School)',
-                'expertise'   => 'Supreme Court SLPs, Commercial Disputes, Constitutional Writs, Telecom & Mining',
-                'bio'         => 'Third-generation advocate on record with over three decades of formidable courtroom appearances. Regularly represents sovereign entities, global tech giants, and infrastructure conglomerates in landmark constitution bench and appellate matters.',
+                'education'   => 'B.A. LL.B., Diploma in Intellectual Property Rights (IPR)',
+                'expertise'   => 'Commercial Litigation, Domestic & Institutional Arbitration, Startup Advisory & Policy Compliance',
+                'bio'         => 'Third-generation advocate at Malhotra & Co. Leading appellate representations, commercial dispute resolutions, contractual matters, and startup regulatory advisory before the Supreme Court of India, Delhi High Court, and arbitral tribunals.',
                 'image'       => 'https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=600&q=80',
                 'linkedin'    => 'https://linkedin.com',
-                'email'       => 'singhania@vanguardpartners.law',
+                'email'       => 'chaitanyamlegal@gmail.com',
                 'order'       => 1,
             ),
             array(
-                'name'        => 'Arundhati Sengupta',
-                'title'       => 'Senior Partner - International Arbitration & Disputes',
-                'experience'  => '22 Years Experience',
-                'chambers'    => 'Singapore & New Delhi',
-                'education'   => 'B.A. LL.B. (WBNUJS Kolkata), BCL (University of Oxford)',
-                'expertise'   => 'SIAC / ICC / LCIA Arbitrations, Cross-Border Enforcement, New York Convention',
-                'bio'         => 'Dual-qualified disputes practitioner with extensive counsel experience across Singapore, London, and Indian arbitral seats. Serves on arbitral panels of SIAC and the Mumbai Centre for International Arbitration.',
-                'image'       => 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80',
-                'linkedin'    => 'https://linkedin.com',
-                'email'       => 'arundhati@vanguardpartners.law',
-                'order'       => 2,
-            ),
-            array(
-                'name'        => 'Vikramaditya Shroff',
-                'title'       => 'Partner - Corporate M&A & Private Equity',
-                'experience'  => '20 Years Experience',
-                'chambers'    => 'Mumbai & New Delhi',
-                'education'   => 'B.Com, LL.B. (Government Law College, Mumbai), Solicitor (Bombay Incorporated Law Society)',
-                'expertise'   => 'Cross-Border M&A, Private Equity, Schemes of Arrangement, SEBI Takeovers',
-                'bio'         => 'Advises leading domestic conglomerates, private equity giants, and Fortune 500 multinationals on high-value public takeovers, demergers, and capital reductions under the Companies Act 2013 and NCLT jurisprudence.',
+                'name'        => 'Senior Appellate Counsel',
+                'title'       => 'Senior Counsel - Supreme Court Litigation',
+                'experience'  => 'Three Generations in Courtroom Practice',
+                'chambers'    => 'Supreme Court of India Bar Chambers',
+                'education'   => 'LL.B., Senior Advocate on Record (AOR)',
+                'expertise'   => 'Constitutional Benches, Special Leave Petitions (SLPs), Civil Appeals & Review Mandates',
+                'bio'         => 'Distinguished senior advocate carrying forward over five decades of appellate courtroom heritage, appearing in landmark constitutional, commercial, and property litigation across Indian High Courts and the Supreme Court.',
                 'image'       => 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80',
                 'linkedin'    => 'https://linkedin.com',
-                'email'       => 'shroff@vanguardpartners.law',
-                'order'       => 3,
-            ),
-            array(
-                'name'        => 'Meenakshi Sundaram',
-                'title'       => 'Senior Partner - Insolvency, Banking & Restructuring',
-                'experience'  => '25 Years Experience',
-                'chambers'    => 'Mumbai & Chennai',
-                'education'   => 'M.A., LL.B. (Madras Law College), Insolvency Professional (IBBI)',
-                'expertise'   => 'Insolvency & Bankruptcy Code (IBC), CIRP Strategy, Avoidance Litigation, NCLAT',
-                'bio'         => 'Foremost authority on IBC jurisprudence in India. Represents lead banks, asset reconstruction companies (ARCs), and resolution applicants in multi-thousand crore distressed asset acquisitions and debt restructurings.',
-                'image'       => 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600&q=80',
-                'linkedin'    => 'https://linkedin.com',
-                'email'       => 'sundaram@vanguardpartners.law',
-                'order'       => 4,
+                'email'       => 'chaitanyamlegal@gmail.com',
+                'order'       => 2,
             ),
         );
 
@@ -492,7 +466,82 @@ function legal_insights_seed_cpts() {
         }
     }
 
+    // 3. Seed Practice Areas if 0 exist
+    $existing_practice = get_posts(array('post_type' => 'practice_area', 'posts_per_page' => 1));
+    if (empty($existing_practice) || $force) {
+        $sample_practices = array(
+            array(
+                'title'    => 'Commercial Litigation',
+                'tag'      => 'Contractual & Business Disputes',
+                'desc'     => 'Strategic legal representation in contractual disputes, shareholder conflicts, partnership dissolutions, and high-value commercial claims before trial and appellate benches.',
+                'landmark' => 'Regular representation in high-stakes commercial suits before the High Court of Delhi and commercial appellate divisions under the Commercial Courts Act.',
+                'order'    => 1,
+            ),
+            array(
+                'title'    => 'Domestic & Institutional Arbitration',
+                'tag'      => 'SIAC, ICC & Indian Arbitration Act',
+                'desc'     => 'Comprehensive counsel across domestic and international arbitrations, emergency arbitrator proceedings, Section 9 interim relief, Section 34 challenges, and cross-border enforcement.',
+                'landmark' => 'Acting as lead counsel in institutional and ad-hoc arbitrations involving construction, joint ventures, and international supply mandates.',
+                'order'    => 2,
+            ),
+            array(
+                'title'    => 'Civil Litigation & Property Matters',
+                'tag'      => 'Property, Tenancy & Succession',
+                'desc'     => 'Advocacy in immovable property title disputes, landlord-tenant litigation, testamentary succession, partition mandates, probate, and commercial debt recovery proceedings.',
+                'landmark' => 'Decades of seasoned trial and appellate advocacy across Delhi civil courts, appellate benches, and the High Court.',
+                'order'    => 3,
+            ),
+            array(
+                'title'    => 'Criminal Litigation & White-Collar Matters',
+                'tag'      => 'Economic Offences & Regulatory Defense',
+                'desc'     => 'Defending corporations and high-net-worth individuals in economic offences, regulatory investigations, PMLA compliance, emergency bail hearings, and corporate governance scrutiny.',
+                'landmark' => 'Experienced defense strategy built around rapid emergency relief, quashing petitions, and trial advocacy before designated special courts.',
+                'order'    => 4,
+            ),
+            array(
+                'title'    => 'Startup Advisory & Policy Engagement',
+                'tag'      => 'Emerging Business & Regulatory Support',
+                'desc'     => 'Hands-on counsel for emerging and scaling enterprises, structuring founder agreements, navigating regulatory compliance, policy engagement, intellectual property safeguards, and commercial contracts.',
+                'landmark' => 'Advising high-growth startups on regulatory policy frameworks, commercial contracts, and proactive risk mitigation from day one.',
+                'order'    => 5,
+            ),
+            array(
+                'title'    => 'Appellate & Supreme Court Litigation',
+                'tag'      => 'Constitutional Benches & SLPs',
+                'desc'     => 'Appellate practice handling Special Leave Petitions (SLPs), Transfer Petitions, Review & Curative Petitions, and statutory appeals before the Supreme Court of India.',
+                'landmark' => 'Generational appellate heritage representing institutions and individuals in critical jurisprudence-shaping matters.',
+                'order'    => 6,
+            ),
+            array(
+                'title'    => 'Tribunal Practice (NCLAT & DRAT)',
+                'tag'      => 'Insolvency, IBC & Debt Recovery',
+                'desc'     => 'Dedicated tribunal representations before the National Company Law Appellate Tribunal (NCLAT) for IBC restructuring and the Debts Recovery Appellate Tribunal (DRAT).',
+                'landmark' => 'Appearing in corporate insolvency resolution processes (CIRP), liquidation appeals, and specialized debt recovery proceedings.',
+                'order'    => 7,
+            ),
+        );
+
+        foreach ($sample_practices as $p) {
+            $existing_post = get_page_by_title($p['title'], OBJECT, 'practice_area');
+            if (!$existing_post) {
+                $pid = wp_insert_post(array(
+                    'post_title'   => $p['title'],
+                    'post_content' => $p['desc'],
+                    'post_excerpt' => $p['desc'],
+                    'post_status'  => 'publish',
+                    'post_type'    => 'practice_area',
+                    'menu_order'   => $p['order'],
+                ));
+                if ($pid && !is_wp_error($pid)) {
+                    update_post_meta($pid, '_practice_tag', $p['tag']);
+                    update_post_meta($pid, '_practice_landmark_cases', $p['landmark']);
+                }
+            }
+        }
+    }
+
     update_option('legal_insights_cpts_seeded_v1', 1);
+    update_option('legal_insights_cpts_seeded_v2', 1);
 }
 add_action('admin_init', 'legal_insights_seed_cpts');
 add_action('after_switch_theme', 'legal_insights_seed_cpts');

@@ -1,4 +1,4 @@
-# PowerShell Script to Generate Beautiful Formatted Word Document (.docx)
+﻿# PowerShell Script to Generate Beautiful Formatted Word Document (.docx)
 $docPath = Join-Path (Get-Location).Path "LexVanguard_Project_Full_Documentation.docx"
 if (Test-Path $docPath) { Remove-Item $docPath -Force }
 
@@ -71,38 +71,38 @@ $selection.TypeParagraph()
 $selection.Font.Size = 14
 $selection.Font.Bold = $true
 $selection.Font.Color = 0x4691B8 # Gold in BGR (0xC5A059)
-$selection.TypeText("Comprehensive Technical & Feature Specification Manual (v1.5.0)")
+$selection.TypeText("Comprehensive Technical & Feature Specification Manual (v1.7.0)")
 $selection.TypeParagraph()
 
 $selection.Font.Size = 10
 $selection.Font.Bold = $false
 $selection.Font.Color = 0x666666
-$selection.TypeText("Prepared for Malhotra & Co. Advocates & Partners | Repository: github.com/aurav2001/Legal_site | Date: November 2026")
+$selection.TypeText("Prepared for Malhotra & Co. Advocates & Solicitors | Repository: github.com/aurav2001/Legal_site | Date: November 2026")
 $selection.TypeParagraph()
 $selection.TypeParagraph()
 $selection.ParagraphFormat.Alignment = 0 # Left
 
 # --- SECTION 1 ---
 Add-Heading "1. Executive Project Summary" 1
-Add-Paragraph "The LexVanguard WordPress Platform is an enterprise-grade, luxury content management system and custom theme engineered specifically for Tier-1 law firms, Senior Advocates, and supreme court appellate counsel. It blends high-end courtroom brand positioning with complete administrative autonomy, empowering non-technical staff to manage all editorial, practice, and lead intake data without touching code."
-Add-Bullet "Visual Brand Aesthetic" "Deep Royal Navy (#0b111e), Regal Metallic Gold (#c5a059), Cardo editorial serif headings, and clean Inter UI typography with signature 16px 0 45px 0 architectural curved cards."
+Add-Paragraph "The Malhotra & Co. Platform (LexVanguard v1.7.0) is an enterprise-grade, luxury content management system and custom WordPress theme engineered specifically for Malhotra & Co. Advocates & Solicitors. Carrying forward over 50 years of courtroom practice and three generations in the profession, it blends high-end courtroom brand positioning with complete administrative autonomy, empowering chambers staff to manage all editorial, practice, and privileged client intake data without writing code."
+Add-Bullet "Visual Brand Aesthetic" "Deep Royal Navy (#0b111e), Regal Metallic Gold (#c5a059), Cardo editorial serif headings, and clean Inter UI typography with signature architectural columns and curved cards."
 Add-Bullet "Technical Performance" "Pure Vanilla JavaScript Animate-on-Scroll engine (zero jQuery dependency for animations), strict HTML5 validation, and optimized Core Web Vitals."
 Add-Bullet "Operational Autonomy" "100% editable from WordPress Admin via Theme Options, Custom Post Types, and drag-and-drop Elementor Page Builder."
 
 # --- SECTION 2 ---
 Add-Heading "2. Master Theme Options Panel (Appearance > Theme Options)" 1
 Add-Paragraph "A centralized, tabbed administrative control center synchronized with the native WordPress Customizer (Appearance > Customize), allowing complete site personalization without code modifications:"
-Add-Bullet "General & Branding" "Law firm name, regal gold accent text, firm sub-tagline, custom logo uploader (from media library), and header consultation button text/link."
-Add-Bullet "Homepage Hero Banner" "Hero main heading, gold highlight keyword, sub-tagline, firm descriptive paragraph, CTA buttons text and URLs, and hero visual arch image uploader."
-Add-Bullet "Welcome & Chamber Statistics" "Welcome headline, description, 3 live counter badges ('1964 Established', '11 Practice Areas', '500+ Landmark Cases'), and Strategic Counsel quote card with story link."
-Add-Bullet "Chambers & Offices Directory" "Addresses, telephone numbers, emails, and direct Google Maps links for Corporate HQ (Connaught Place, New Delhi) and Supreme Court Chambers (Tilak Marg Desk)."
+Add-Bullet "General & Branding" "Law firm name (Malhotra & Co.), regal gold accent text, firm sub-tagline (Advocates & Solicitors), custom logo uploader (from media library), and header consultation button text/link."
+Add-Bullet "Homepage Hero Banner" "Hero main heading ('Trusted Counsel Across Three Generations'), gold highlight keyword, sub-tagline, firm descriptive paragraph, CTA buttons text and URLs, and hero visual arch image uploader."
+Add-Bullet "Welcome & Chamber Statistics" "Welcome headline, description, 3 live counter badges ('Serving Since 1967', '50+ Years of Heritage', '3 Generations'), and Strategic Counsel quote card with story link."
+Add-Bullet "Chambers & Offices Directory" "Addresses, telephone numbers, emails, and direct Google Maps links for Principal Chambers (B-33, 1st Floor, Jangpura Extension, New Delhi) and Supreme Court / Delhi High Court Chambers Desk."
 Add-Bullet "Footer & Social Media Links" "Footer institutional bio, social handles (LinkedIn, YouTube, Twitter/X, Instagram), and dynamic copyright notice."
 
 # --- SECTION 3 ---
 Add-Heading "3. Custom Post Types (Dedicated WordPress Admin Modules)" 1
 Add-Paragraph "To structure complex firm data, three dedicated Custom Post Types (CPTs) have been architected with tailored meta boxes and pre-seeded production data:"
-Add-Bullet "Lawyers & Leadership (team_member)" "Dedicated menu to manage Partners, Senior Advocates, and Associates. Fields include Designation, Bar Admission/Chambers, Court Experience, Education, Practice Expertise, Direct Email, LinkedIn URL, and High-Resolution Portrait."
-Add-Bullet "11 Practice Verticals (practice_area)" "Dedicated menu covering Arbitration & ADR, Commercial Litigation, Competition Law, Corporate & Insolvency (IBC), Constitutional Law, Criminal Law (White Collar), Environmental Law (NGT), Regulatory Litigation (APTEL/TDSAT), Mediation, Securities Law (SEBI), and Taxation."
+Add-Bullet "Lawyers & Leadership (team_member)" "Dedicated menu featuring Managing Partner Chaitanya Malhotra (Advocate, Supreme Court of India & Delhi High Court). Custom fields include Designation, Bar Admission/Chambers, Court Experience, Education, Practice Expertise, Direct Email, LinkedIn URL, and High-Resolution Portrait."
+Add-Bullet "Core Practice Disciplines (practice_area)" "Dedicated menu covering Commercial Litigation, Domestic & Institutional Arbitration, Civil Litigation (Property & Tenancy), Criminal Litigation (Economic Offences), Startup Advisory & Policy Engagement, and Appellate & Supreme Court Litigation."
 Add-Bullet "Legal Awards & Accolades (award)" "Dedicated menu managing benchmark honors from Chambers Global, The Legal 500 Asia Pacific, India Business Law Journal (IBLJ), and BW Legal World."
 
 # --- SECTION 4 ---
@@ -150,7 +150,7 @@ Add-Bullet "Instant URL Copy Utility" "Dynamic copy-to-clipboard action with fee
 # --- SECTION 9 ---
 Add-Heading "9. Deployment & Installation Guide" 1
 Add-Paragraph "The theme is packaged into standard WordPress distribution archives ready for production hosting:"
-Add-Bullet "Production ZIP Package" "releases/lexvanguard-v1.6.0.zip (installable via WordPress Admin > Appearance > Themes > Add New > Upload Theme)."
+Add-Bullet "Production ZIP Package" "releases/lexvanguard-v1.7.0.zip (installable via WordPress Admin > Appearance > Themes > Add New > Upload Theme)."
 Add-Bullet "Source Code Control" "Git repository synchronized on the main branch at https://github.com/aurav2001/Legal_site.git."
 Add-Bullet "Server Compatibility" "WordPress 6.0+, PHP 7.4 through 8.3+, MySQL 5.7+ / MariaDB 10.3+, Elementor & Elementor Pro."
 

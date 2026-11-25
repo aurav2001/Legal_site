@@ -38,20 +38,20 @@ if (empty($form_sub)) {
 }
 
 // Office Settings from Theme Options
-$off_title  = function_exists('legal_insights_get_option') ? legal_insights_get_option('office_title', 'Our Office') : 'Our Office';
-$off_badge  = function_exists('legal_insights_get_option') ? legal_insights_get_option('office_badge', 'Corporate Headquarters') : 'Corporate Headquarters';
-$off_addr   = function_exists('legal_insights_get_option') ? legal_insights_get_option('office_address', 'Ground Floor, Mercantile House, 15, Kasturba Gandhi Marg, Connaught Place, New Delhi – 110001') : 'Ground Floor, Mercantile House, 15, Kasturba Gandhi Marg, Connaught Place, New Delhi – 110001';
-$off_phone  = function_exists('legal_insights_get_option') ? legal_insights_get_option('office_phone', '+91 11 4220 0000, +91 11 2335 4330') : '+91 11 4220 0000, +91 11 2335 4330';
-$off_email  = function_exists('legal_insights_get_option') ? legal_insights_get_option('office_email', 'contact@vanguardpartners.law') : 'contact@vanguardpartners.law';
-$off_maps   = function_exists('legal_insights_get_option') ? legal_insights_get_option('office_maps_url', 'https://maps.google.com') : 'https://maps.google.com';
+$off_title  = function_exists('legal_insights_get_option') ? legal_insights_get_option('office_title', 'Principal Chambers') : 'Principal Chambers';
+$off_badge  = function_exists('legal_insights_get_option') ? legal_insights_get_option('office_badge', 'Head Office') : 'Head Office';
+$off_addr   = function_exists('legal_insights_get_option') ? legal_insights_get_option('office_address', 'B-33, 1st Floor, Jangpura Extension, New Delhi – 110014') : 'B-33, 1st Floor, Jangpura Extension, New Delhi – 110014';
+$off_phone  = function_exists('legal_insights_get_option') ? legal_insights_get_option('office_phone', '+91 90135 35766') : '+91 90135 35766';
+$off_email  = function_exists('legal_insights_get_option') ? legal_insights_get_option('office_email', 'chaitanyamlegal@gmail.com') : 'chaitanyamlegal@gmail.com';
+$off_maps   = function_exists('legal_insights_get_option') ? legal_insights_get_option('office_maps_url', 'https://maps.app.goo.gl/pLAPAMtfgz7hAWnT9') : 'https://maps.app.goo.gl/pLAPAMtfgz7hAWnT9';
 
 // Chambers Settings from Theme Options
-$chamb_title = function_exists('legal_insights_get_option') ? legal_insights_get_option('chambers_title', 'Our Court Chambers') : 'Our Court Chambers';
-$chamb_badge = function_exists('legal_insights_get_option') ? legal_insights_get_option('chambers_badge', 'Apex Court Desk') : 'Apex Court Desk';
-$chamb_addr  = function_exists('legal_insights_get_option') ? legal_insights_get_option('chambers_address', "48 & 74, Lawyers' Chambers, Supreme Court of India, Tilak Marg, New Delhi – 110001") : "48 & 74, Lawyers' Chambers, Supreme Court of India, Tilak Marg, New Delhi – 110001";
-$chamb_phone = function_exists('legal_insights_get_option') ? legal_insights_get_option('chambers_phone', '+91 11 2338 2318, +91 11 2338 9629') : '+91 11 2338 2318, +91 11 2338 9629';
-$chamb_email = function_exists('legal_insights_get_option') ? legal_insights_get_option('chambers_email', 'chambers@vanguardpartners.law') : 'chambers@vanguardpartners.law';
-$chamb_maps  = function_exists('legal_insights_get_option') ? legal_insights_get_option('chambers_maps_url', 'https://maps.google.com') : 'https://maps.google.com';
+$chamb_title = function_exists('legal_insights_get_option') ? legal_insights_get_option('chambers_title', 'Court Chambers') : 'Court Chambers';
+$chamb_badge = function_exists('legal_insights_get_option') ? legal_insights_get_option('chambers_badge', 'Appellate Chambers') : 'Appellate Chambers';
+$chamb_addr  = function_exists('legal_insights_get_option') ? legal_insights_get_option('chambers_address', "Supreme Court of India & High Court of Delhi Bar Chambers, New Delhi") : "Supreme Court of India & High Court of Delhi Bar Chambers, New Delhi";
+$chamb_phone = function_exists('legal_insights_get_option') ? legal_insights_get_option('chambers_phone', '+91 90135 35766') : '+91 90135 35766';
+$chamb_email = function_exists('legal_insights_get_option') ? legal_insights_get_option('chambers_email', 'chaitanyamlegal@gmail.com') : 'chaitanyamlegal@gmail.com';
+$chamb_maps  = function_exists('legal_insights_get_option') ? legal_insights_get_option('chambers_maps_url', 'https://maps.app.goo.gl/pLAPAMtfgz7hAWnT9') : 'https://maps.app.goo.gl/pLAPAMtfgz7hAWnT9';
 ?>
 
 <!-- Banner Section -->

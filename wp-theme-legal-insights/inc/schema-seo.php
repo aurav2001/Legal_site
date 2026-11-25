@@ -30,12 +30,12 @@ function legal_insights_has_seo_plugin() {
  */
 function legal_insights_output_schema_jsonld() {
     // Basic firm details from theme options
-    $firm_name  = function_exists('legal_insights_get_option') ? legal_insights_get_option('firm_name', 'LexVanguard Advocates & Legal Consultants') : 'LexVanguard Advocates & Legal Consultants';
-    $tagline    = function_exists('legal_insights_get_firm_tagline') ? legal_insights_get_firm_tagline() : 'Advocates & Supreme Court Counsel';
+    $firm_name  = function_exists('legal_insights_get_option') ? legal_insights_get_option('firm_name', 'Malhotra & Co.') : 'Malhotra & Co.';
+    $tagline    = function_exists('legal_insights_get_firm_tagline') ? legal_insights_get_firm_tagline() : 'Advocates & Solicitors';
     $site_url   = home_url('/');
-    $phone      = function_exists('legal_insights_get_option') ? legal_insights_get_option('office_phone', '+91 11 4220 0000') : '+91 11 4220 0000';
-    $email      = function_exists('legal_insights_get_option') ? legal_insights_get_option('office_email', 'chambers@lexvanguard.legal') : 'chambers@lexvanguard.legal';
-    $address    = function_exists('legal_insights_get_option') ? legal_insights_get_option('office_address', 'Chambers of Law, Bar Council Road, New Delhi, India 110001') : 'Chambers of Law, Bar Council Road, New Delhi, India 110001';
+    $phone      = function_exists('legal_insights_get_option') ? legal_insights_get_option('office_phone', '+91 90135 35766') : '+91 90135 35766';
+    $email      = function_exists('legal_insights_get_option') ? legal_insights_get_option('office_email', 'chaitanyamlegal@gmail.com') : 'chaitanyamlegal@gmail.com';
+    $address    = function_exists('legal_insights_get_option') ? legal_insights_get_option('office_address', 'B-33, 1st Floor, Jangpura Extension, New Delhi 110014') : 'B-33, 1st Floor, Jangpura Extension, New Delhi 110014';
     $logo_url   = function_exists('legal_insights_get_option') ? legal_insights_get_option('firm_logo') : '';
 
     if (empty($logo_url)) {
@@ -56,7 +56,7 @@ function legal_insights_output_schema_jsonld() {
         '@type'              => 'LegalService',
         '@id'                => esc_url($site_url) . '#legalservice',
         'name'               => esc_html($firm_name),
-        'alternateName'      => 'LexVanguard Chambers',
+        'alternateName'      => 'Malhotra & Co. Advocates & Solicitors',
         'description'        => esc_html($tagline),
         'url'                => esc_url($site_url),
         'telephone'          => esc_html($phone),
@@ -64,29 +64,35 @@ function legal_insights_output_schema_jsonld() {
         'priceRange'         => '₹₹₹₹',
         'currenciesAccepted' => 'INR, USD, EUR, GBP',
         'paymentAccepted'    => 'Wire Transfer, Cheque, Retainer Agreement',
-        'openingHours'       => 'Mo-Sa 09:00-19:30',
+        'openingHours'       => 'Mo-Sa 09:30-19:30',
         'address'            => array(
             '@type'           => 'PostalAddress',
             'streetAddress'   => esc_html($address),
-            'addressLocality' => 'New Delhi',
+            'addressLocality' => 'Jangpura Extension, New Delhi',
             'addressRegion'   => 'Delhi',
-            'postalCode'      => '110001',
+            'postalCode'      => '110014',
             'addressCountry'  => 'IN',
+        ),
+        'hasMap'             => 'https://maps.app.goo.gl/pLAPAMtfgz7hAWnT9',
+        'founder'            => array(
+            '@type' => 'Person',
+            'name'  => 'Chaitanya Malhotra',
+            'jobTitle' => 'Managing Partner, Advocate',
         ),
         'areaServed'         => array(
             'Supreme Court of India',
-            'Delhi High Court',
+            'High Court of Delhi',
             'National Company Law Appellate Tribunal (NCLAT)',
-            'Competition Commission of India (CCI)',
-            'International Arbitral Seats (SIAC, ICC, LCIA)',
+            'Debts Recovery Appellate Tribunal (DRAT)',
+            'Commercial Courts of Delhi & NCR',
         ),
         'knowsAbout'         => array(
-            'Appellate Advocacy',
-            'Commercial Litigation',
-            'International Arbitration & ADR',
-            'Corporate Governance & White-Collar Defense',
-            'Mergers & Acquisitions Legal Due Diligence',
-            'Intellectual Property Litigation',
+            'Commercial Litigation (Contractual, Shareholder & Business Disputes)',
+            'Domestic and Institutional Arbitration (SIAC, ICC & Indian Arbitration Act)',
+            'Civil Litigation (Property, Tenancy, Succession & Recovery)',
+            'Criminal Litigation & White-Collar Offences',
+            'Startup Advisory, Corporate Governance & Policy Compliance',
+            'Appellate Advocacy before Supreme Court of India & Delhi High Court',
         ),
     );
 
@@ -231,3 +237,4 @@ function legal_insights_output_social_meta_tags() {
     }
 }
 add_action('wp_head', 'legal_insights_output_social_meta_tags', 3);
+

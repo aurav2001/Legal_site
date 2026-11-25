@@ -406,9 +406,9 @@ function legal_insights_render_floating_helpline() {
         return;
     }
 
-    $phone_num = function_exists('legal_insights_get_option') ? legal_insights_get_option('office_phone', '+911142200000') : '+911142200000';
+    $phone_num = function_exists('legal_insights_get_option') ? legal_insights_get_option('office_phone', '+91 90135 35766') : '+91 90135 35766';
     $clean_phone = preg_replace('/[^0-9]/', '', $phone_num);
-    $wa_url = 'https://wa.me/' . $clean_phone . '?text=' . rawurlencode('Hello Chambers Registry, I need urgent legal guidance regarding a High Court / Supreme Court matter.');
+    $wa_url = 'https://wa.me/' . $clean_phone . '?text=' . rawurlencode('Hello Malhotra & Co. Chambers Registry, I need legal guidance regarding a High Court / Supreme Court matter.');
     ?>
     <!-- Floating Emergency Legal Desk Pill -->
     <aside class="floating-legal-hotline" aria-label="Emergency Legal Hotline" style="position: fixed; bottom: 25px; right: 25px; z-index: 9999; display: flex; align-items: center; gap: 10px;">

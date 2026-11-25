@@ -100,7 +100,7 @@ if ($bci_enabled !== 'no') :
                                 if (function_exists('legal_insights_get_firm_tagline')) {
                                     echo legal_insights_get_firm_tagline();
                                 } else {
-                                    echo 'Advocates &amp; Supreme Court Counsel';
+                                    echo 'Advocates &amp; Solicitors';
                                 }
                                 ?>
                             </div>

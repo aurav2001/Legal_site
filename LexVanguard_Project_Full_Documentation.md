@@ -1,43 +1,50 @@
-# ⚖️ LexVanguard Law Firm Platform — Full Architecture & Feature Manual (v1.5.0)
+# ⚖️ Malhotra & Co. Advocates & Solicitors — Full Platform Architecture & Manual (v1.7.0)
 
-**Document Version:** 1.5.0 Enterprise Production Edition  
+**Document Version:** 1.7.0 Client Integrated Production Edition  
 **Platform:** WordPress 6.0+ / PHP 7.4 - 8.3+ / Elementor & Elementor Pro  
-**Designed for:** Malhotra & Co. Advocates & Supreme Court Counsel  
+**Designed for:** Malhotra & Co. Advocates & Solicitors  
+**Principal Chambers:** B-33, 1st Floor, Jangpura Extension, New Delhi – 110014  
+**Managing Partner:** Chaitanya Malhotra (Advocate, Supreme Court of India & Delhi High Court)  
+**Direct Contact:** +91 90135 35766 | chaitanyamlegal@gmail.com  
 **Repository:** [github.com/aurav2001/Legal_site](https://github.com/aurav2001/Legal_site)  
 **Date:** November 2026  
 
 ---
 
 ## 1. Executive Summary & Brand Positioning
-The **LexVanguard** platform is an enterprise-grade, luxury legal content management system and custom WordPress theme engineered specifically for Tier-1 law firms, Senior Advocates, and appellate counsel. It merges high-end courtroom brand positioning with complete administrative autonomy.
+**Malhotra & Co.** is a boutique law firm with more than 50 years of courtroom practice and three generations in the profession. We act in litigation and advisory matters where careful strategy and focused, partner-led attention make the difference.
 
-* **Visual Brand Aesthetic:** Deep Royal Navy (`#0b111e`), Regal Metallic Gold (`#c5a059`), Cardo editorial serif headings, and clean Inter UI typography with signature `16px 0 45px 0` architectural curved cards.
-* **Technical Performance:** Pure Vanilla JavaScript Animate-on-Scroll engine (zero jQuery dependency for animations), strict HTML5 semantic validation, and optimized Core Web Vitals.
-* **Operational Autonomy:** 100% editable from WordPress Admin via Master Theme Options, Custom Post Types (CPTs), and visual drag-and-drop Elementor Page Builder.
+* **Our Endeavour:** "We take your case off your shoulders. Our aim is to handle your matter with care, keep you informed and stress-free, and bring it to a close on time, so you can return to your business."
+* **Core Values (4 Pillars):** Integrity, Strategy, Timeliness, Confidentiality.
+* **Visual Brand Aesthetic:** Deep Royal Navy (`#0b111e`), Regal Metallic Gold (`#c5a059`), Cardo editorial serif headings, clean Inter UI typography, classical architectural column motif, and signature `16px 0 45px 0` curved cards.
+* **Technical Performance:** Pure Vanilla JavaScript Animate-on-Scroll engine, strict HTML5 validation, and optimized Core Web Vitals.
+* **Operational Autonomy:** 100% editable from WordPress Admin via Theme Options, Custom Post Types, and drag-and-drop Elementor Page Builder.
 
 ---
 
 ## 2. Master Theme Options Panel (`Appearance ➔ Theme Options`)
 A centralized, tabbed administrative control center synchronized with the native WordPress Customizer (`Appearance ➔ Customize`), allowing complete site personalization without code modifications:
-* **🏛️ General & Branding:** Law firm name, regal gold accent text, firm sub-tagline, custom logo uploader (from WordPress media library), and header consultation button text & link.
-* **🚀 Homepage Hero Banner:** Hero main heading, gold highlight keyword, sub-tagline, firm descriptive paragraph, CTA buttons text and URLs, and hero visual arch image uploader.
-* **📊 Welcome & Chamber Statistics:** Welcome headline, description, 3 live counter badges (`1964 Established`, `11 Practice Areas`, `500+ Landmark Cases`), and Strategic Counsel quote card with story link.
-* **📞 Chambers & Offices Directory:** Addresses, telephone numbers, emails, and direct Google Maps links for Corporate HQ (Connaught Place, New Delhi) and Supreme Court Chambers (Tilak Marg Desk).
-* **🌐 Footer & Social Media Links:** Footer institutional bio, social handles (LinkedIn, YouTube, Twitter/X, Instagram), and dynamic copyright notice.
+* **🏛️ General & Branding:** Firm name (`Malhotra & Co.`), gold accent (`& Co.`), firm sub-tagline (`Advocates & Solicitors`), custom logo uploader, and header consultation button text & link.
+* **🚀 Homepage Hero Banner:** Hero main heading (`Trusted Counsel Across Three Generations`), firm descriptive paragraph, CTA buttons text and URLs, and hero visual arch image uploader.
+* **📊 Welcome & Chamber Statistics:** Welcome headline, description, 3 live counter badges (`Serving Since 1967`, `50+ Years of Heritage`, `3 Generations`), and Strategic Counsel quote card with story link.
+* **📞 Chambers & Offices Directory:** Addresses, telephone numbers (`+91 90135 35766`), emails (`chaitanyamlegal@gmail.com`), and direct Google Maps links for Principal Chambers (`B-33, 1st Floor, Jangpura Extension, New Delhi`) and Court Chambers (Supreme Court & Delhi High Court Bar).
+* **🌐 Footer & Social Media Links:** Footer institutional bio, social handles, and dynamic copyright notice.
 
 ---
 
 ## 3. Custom Post Types (Dedicated WordPress Admin Modules)
-To structure complex firm data, three dedicated Custom Post Types (CPTs) have been architected with tailored meta boxes and pre-seeded production data:
-* **👨‍⚖️ Lawyers & Leadership (`team_member`):** Dedicated menu to manage Partners, Senior Advocates, and Associates. Custom fields: Designation, Bar Admission/Chambers, Court Experience, Education, Practice Expertise, Direct Email, LinkedIn URL, and High-Resolution Portrait.
-* **🏛️ 11 Practice Verticals (`practice_area`):** Dedicated menu covering:
-  1. *Arbitration & ADR (SIAC / LCIA / ICC)*
-  2. *Commercial Litigation (High Courts & Commercial Courts)*
-  3. *Competition Law (CCI & NCLAT)*
-  4. *Corporate & Insolvency Laws (IBC / NCLT)*
-  5. *Constitutional Law (Supreme Court Writs & SLPs)*
-  6. *Criminal Law & White-Collar Defense (PMLA / ED / CBI)*
-  7. *Environmental Law (National Green Tribunal - NGT)*
+To structure firm data, three dedicated Custom Post Types (CPTs) have been architected with tailored meta boxes and pre-seeded production data:
+* **👨‍⚖️ Lawyers & Leadership (`team_member`):** Featuring Managing Partner **Chaitanya Malhotra** (Advocate, Supreme Court of India & Delhi High Court | B.A. LL.B., Diploma in IPR). Custom fields: Designation, Bar Admission/Chambers, Court Experience, Education, Practice Expertise, Direct Email, LinkedIn URL, and High-Resolution Portrait.
+* **🏛️ Core Practice Disciplines (`practice_area`):** Dedicated menu covering:
+  1. *Commercial Litigation (Contractual, shareholder, and business disputes)*
+  2. *Domestic & Institutional Arbitration (SIAC, ICC, and Indian Arbitration Act)*
+  3. *Civil Litigation (Property, tenancy, succession, and recovery matters)*
+  4. *Criminal Litigation & White-Collar Matters (Economic offences and regulatory defense)*
+  5. *Startup Advisory & Policy Engagement (Regulatory compliance support for emerging businesses)*
+  6. *Appellate & Supreme Court Litigation (SLPs, Review & Curative Petitions, Constitutional Benches)*
+  7. *Tribunal Practice (NCLAT & DRAT representations)*
+* **Forums Appeared Before:** Supreme Court of India, High Court of Delhi, National Company Law Appellate Tribunal (NCLAT), and Debts Recovery Appellate Tribunal (DRAT).
+* **Legal Awards & Accolades (`award`):** Dedicated menu managing benchmark honors from Chambers Global, The Legal 500 Asia Pacific, India Business Law Journal (IBLJ), and BW Legal World.
   8. *Regulatory Litigation (APTEL / TDSAT / PNGRB)*
   9. *Mediation & Conciliation*
   10. *Securities Law & SEBI (SAT Appeals)*

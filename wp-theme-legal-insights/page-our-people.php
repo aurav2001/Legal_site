@@ -25,52 +25,28 @@ if (function_exists('legal_insights_is_elementor_page') && legal_insights_is_ele
 // Fallback leaders if CPT is not yet seeded
 $fallback_leaders = array(
     array(
-        'name'        => 'Rajeev Singhania',
-        'title'       => 'Managing Partner & Senior Advocate',
-        'experience'  => '32 Years Experience',
+        'name'        => 'Chaitanya Malhotra',
+        'title'       => 'Managing Partner, Advocate',
+        'experience'  => 'Advocate, Supreme Court of India & Delhi High Court',
         'chambers'    => 'Supreme Court of India & Delhi High Court',
-        'education'   => 'LL.B. (Campus Law Centre, DU), LL.M. (Harvard Law School)',
-        'expertise'   => 'Supreme Court SLPs, Commercial Disputes, Constitutional Writs, Telecom & Mining',
-        'bio'         => 'Third-generation advocate on record with over three decades of formidable courtroom appearances. Regularly represents sovereign entities, global tech giants, and infrastructure conglomerates in landmark constitution bench and appellate matters.',
+        'education'   => 'B.A. LL.B., Diploma in Intellectual Property Rights (IPR)',
+        'expertise'   => 'Commercial Litigation, Domestic & Institutional Arbitration, Startup Advisory & Policy Compliance',
+        'bio'         => 'Third-generation advocate at Malhotra & Co. Leading appellate representations, commercial dispute resolutions, contractual matters, and startup regulatory advisory before the Supreme Court of India, Delhi High Court, and arbitral tribunals.',
         'image'       => 'https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=600&q=80',
         'linkedin'    => 'https://linkedin.com',
-        'email'       => 'singhania@vanguardpartners.law'
+        'email'       => 'chaitanyamlegal@gmail.com'
     ),
     array(
-        'name'        => 'Arundhati Sengupta',
-        'title'       => 'Senior Partner - International Arbitration & Disputes',
-        'experience'  => '22 Years Experience',
-        'chambers'    => 'Singapore & New Delhi',
-        'education'   => 'B.A. LL.B. (WBNUJS Kolkata), BCL (University of Oxford)',
-        'expertise'   => 'SIAC / ICC / LCIA Arbitrations, Cross-Border Enforcement, New York Convention',
-        'bio'         => 'Dual-qualified disputes practitioner with extensive counsel experience across Singapore, London, and Indian arbitral seats. Serves on arbitral panels of SIAC and the Mumbai Centre for International Arbitration.',
-        'image'       => 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80',
-        'linkedin'    => 'https://linkedin.com',
-        'email'       => 'arundhati@vanguardpartners.law'
-    ),
-    array(
-        'name'        => 'Vikramaditya Shroff',
-        'title'       => 'Partner - Corporate M&A & Private Equity',
-        'experience'  => '20 Years Experience',
-        'chambers'    => 'Mumbai & New Delhi',
-        'education'   => 'B.Com, LL.B. (Government Law College, Mumbai), Solicitor (Bombay Incorporated Law Society)',
-        'expertise'   => 'Cross-Border M&A, Private Equity, Schemes of Arrangement, SEBI Takeovers',
-        'bio'         => 'Advises leading domestic conglomerates, private equity giants, and Fortune 500 multinationals on high-value public takeovers, demergers, and capital reductions under the Companies Act 2013 and NCLT jurisprudence.',
+        'name'        => 'Senior Appellate Counsel',
+        'title'       => 'Senior Counsel - Supreme Court Litigation',
+        'experience'  => 'Three Generations in Courtroom Practice',
+        'chambers'    => 'Supreme Court of India Bar Chambers',
+        'education'   => 'LL.B., Senior Advocate on Record (AOR)',
+        'expertise'   => 'Constitutional Benches, Special Leave Petitions (SLPs), Civil Appeals & Review Mandates',
+        'bio'         => 'Distinguished senior advocate carrying forward over five decades of appellate courtroom heritage, appearing in landmark constitutional, commercial, and property litigation across Indian High Courts and the Supreme Court.',
         'image'       => 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80',
         'linkedin'    => 'https://linkedin.com',
-        'email'       => 'shroff@vanguardpartners.law'
-    ),
-    array(
-        'name'        => 'Meenakshi Sundaram',
-        'title'       => 'Senior Partner - Insolvency, Banking & Restructuring',
-        'experience'  => '25 Years Experience',
-        'chambers'    => 'Mumbai & Chennai',
-        'education'   => 'M.A., LL.B. (Madras Law College), Insolvency Professional (IBBI)',
-        'expertise'   => 'Insolvency & Bankruptcy Code (IBC), CIRP Strategy, Avoidance Litigation, NCLAT',
-        'bio'         => 'Foremost authority on IBC jurisprudence in India. Represents lead banks, asset reconstruction companies (ARCs), and resolution applicants in multi-thousand crore distressed asset acquisitions and debt restructurings.',
-        'image'       => 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600&q=80',
-        'linkedin'    => 'https://linkedin.com',
-        'email'       => 'sundaram@vanguardpartners.law'
+        'email'       => 'chaitanyamlegal@gmail.com'
     )
 );
 

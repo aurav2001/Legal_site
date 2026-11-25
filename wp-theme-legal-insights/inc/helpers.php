@@ -79,7 +79,7 @@ function legal_insights_get_firm_tagline() {
 
     $site_desc = get_bloginfo('description');
     if (empty($site_desc) || stripos($site_desc, 'just another') !== false || stripos($site_desc, 'tastewp') !== false) {
-        return 'Advocates &amp; Supreme Court Counsel';
+        return 'Advocates &amp; Solicitors';
     }
 
     return esc_html($site_desc);

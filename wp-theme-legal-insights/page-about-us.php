@@ -29,18 +29,18 @@ $heritage_title = get_post_meta($page_id, '_about_heritage_title', true);
 $heritage_text  = get_post_meta($page_id, '_about_heritage_text', true);
 
 if (empty($tagline)) {
-    $tagline = 'Institutional Heritage & Values';
+    $tagline = 'Institutional Heritage Across Three Generations';
 }
 if (empty($heritage_tag)) {
-    $stat1_num = function_exists('legal_insights_get_option') ? legal_insights_get_option('stat1_num', '1964') : '1964';
-    $heritage_tag = 'Established In ' . $stat1_num;
+    $stat1_num = function_exists('legal_insights_get_option') ? legal_insights_get_option('stat1_num', '1967') : '1967';
+    $heritage_tag = 'Serving Since ' . $stat1_num . ' • Three Generations';
 }
 if (empty($heritage_title)) {
-    $heritage_title = 'Pioneering Legal Institutions with Supreme Court Chambers';
+    $heritage_title = 'Trusted Counsel in the Heart of Delhi, Across Three Generations';
 }
 if (empty($heritage_text)) {
     $firm_name = function_exists('legal_insights_get_firm_name') ? legal_insights_get_firm_name(false) : 'Malhotra & Co.';
-    $heritage_text = 'Established with a distinguished heritage, ' . $firm_name . ' has evolved into one of India’s premier full-service law firms, counseling Fortune 500 multinationals, sovereign public sector entities, financial institutions, and high-net-worth individuals on landmark litigation, high-stakes arbitration, and corporate restructurings.';
+    $heritage_text = $firm_name . ' is a boutique law firm with more than 50 years of practice and three generations in the profession. We act in litigation and advisory matters where careful strategy and focused, partner-led attention make the difference. Our endeavour: We take your case off your shoulders. Our aim is to handle your matter with care, keep you informed and stress-free, and bring it to a close on time, so you can return to your business.';
 }
 ?>
 
@@ -52,7 +52,7 @@ if (empty($heritage_text)) {
                 <div class="bnr_tag"><?php echo esc_html($tagline); ?></div>
                 <h1 class="bnr_heading"><?php the_title(); ?></h1>
                 <p class="bnr_subtitle">
-                    Six decades of formidable courtroom presence, client trust, and relentless pursuit of legal excellence across all judicial forums of India.
+                    More than 50 years of legal practice and three generations in the profession. Taking your case off your shoulders with care, strategy, and timeliness.
                 </p>
             </div>
         </div>
@@ -98,50 +98,50 @@ if (function_exists('legal_insights_render_page_content')) {
 
         <div class="values-grid">
             
-            <!-- Value 1 -->
+            <!-- Value 1: Integrity -->
             <div style="background: #ffffff; border: 1px solid var(--border-card); border-radius: var(--card-radius-curve); padding: 34px 28px; box-shadow: 0 4px 18px rgba(51, 39, 32, 0.06); position: relative; overflow: hidden;" data-aos="fade-up" data-aos-delay="100">
                 <div style="width: 52px; height: 52px; background: rgba(197, 160, 89, 0.12); border: 1px solid var(--color-gold); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 22px;">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--color-gold);"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                 </div>
-                <h3 style="font-family: var(--font-serif); font-size: 1.45rem; color: var(--color-dark); margin-bottom: 12px;">Client-Centricity</h3>
+                <h3 style="font-family: var(--font-serif); font-size: 1.45rem; color: var(--color-dark); margin-bottom: 12px;">Integrity</h3>
                 <p style="font-size: 0.95rem; line-height: 1.7; color: #554a43;">
-                    Tailored legal strategies engineered around each client’s unique commercial objectives, risk appetite, and institutional goals.
+                    Upholding the highest standards of professional ethics, transparent counsel, and fiduciary fidelity across three generations.
                 </p>
                 <div class="bggrdnt"></div>
             </div>
 
-            <!-- Value 2 -->
+            <!-- Value 2: Strategy -->
             <div style="background: #ffffff; border: 1px solid var(--border-card); border-radius: var(--card-radius-curve); padding: 34px 28px; box-shadow: 0 4px 18px rgba(51, 39, 32, 0.06); position: relative; overflow: hidden;" data-aos="fade-up" data-aos-delay="200">
                 <div style="width: 52px; height: 52px; background: rgba(197, 160, 89, 0.12); border: 1px solid var(--color-gold); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 22px;">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--color-gold);"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--color-gold);"><circle cx="12" cy="12" r="10"/><polygon points="12 6 12 12 16 14"/></svg>
                 </div>
-                <h3 style="font-family: var(--font-serif); font-size: 1.45rem; color: var(--color-dark); margin-bottom: 12px;">Uncompromising Trust</h3>
+                <h3 style="font-family: var(--font-serif); font-size: 1.45rem; color: var(--color-dark); margin-bottom: 12px;">Strategy</h3>
                 <p style="font-size: 0.95rem; line-height: 1.7; color: #554a43;">
-                    Generations of fiduciary integrity and total confidentiality before all judicial forums and corporate boardrooms.
+                    Meticulous case formulation built around a clear, partner-led litigation and advisory roadmap formulated from the very first day.
                 </p>
                 <div class="bggrdnt"></div>
             </div>
 
-            <!-- Value 3 -->
+            <!-- Value 3: Timeliness -->
             <div style="background: #ffffff; border: 1px solid var(--border-card); border-radius: var(--card-radius-curve); padding: 34px 28px; box-shadow: 0 4px 18px rgba(51, 39, 32, 0.06); position: relative; overflow: hidden;" data-aos="fade-up" data-aos-delay="300">
                 <div style="width: 52px; height: 52px; background: rgba(197, 160, 89, 0.12); border: 1px solid var(--color-gold); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 22px;">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--color-gold);"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--color-gold);"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                 </div>
-                <h3 style="font-family: var(--font-serif); font-size: 1.45rem; color: var(--color-dark); margin-bottom: 12px;">Approachable Counsel</h3>
+                <h3 style="font-family: var(--font-serif); font-size: 1.45rem; color: var(--color-dark); margin-bottom: 12px;">Timeliness</h3>
                 <p style="font-size: 0.95rem; line-height: 1.7; color: #554a43;">
-                    Direct partner engagement, swift turnarounds, and plain-English communication, demystifying procedural complexities.
+                    Disciplined procedural execution ensuring matters are brought to a decisive close on time, keeping clients informed and stress-free.
                 </p>
                 <div class="bggrdnt"></div>
             </div>
 
-            <!-- Value 4 -->
+            <!-- Value 4: Confidentiality -->
             <div style="background: #ffffff; border: 1px solid var(--border-card); border-radius: var(--card-radius-curve); padding: 34px 28px; box-shadow: 0 4px 18px rgba(51, 39, 32, 0.06); position: relative; overflow: hidden;" data-aos="fade-up" data-aos-delay="400">
                 <div style="width: 52px; height: 52px; background: rgba(197, 160, 89, 0.12); border: 1px solid var(--color-gold); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 22px;">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--color-gold);"><path d="M2 12h20"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6"/><path d="m12 2 10 10-10 10L2 12Z"/></svg>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--color-gold);"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
                 </div>
-                <h3 style="font-family: var(--font-serif); font-size: 1.45rem; color: var(--color-dark); margin-bottom: 12px;">Radical Transparency</h3>
+                <h3 style="font-family: var(--font-serif); font-size: 1.45rem; color: var(--color-dark); margin-bottom: 12px;">Confidentiality</h3>
                 <p style="font-size: 0.95rem; line-height: 1.7; color: #554a43;">
-                    Clear litigation risk analysis, statutory timelines, and principled billing structures free from ambiguities.
+                    Absolute statutory advocate-client privilege under Section 126 of the Evidence Act safeguarding all sensitive corporate mandates.
                 </p>
                 <div class="bggrdnt"></div>
             </div>
