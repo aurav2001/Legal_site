@@ -127,6 +127,7 @@ function legal_insights_register_elementor_widgets($widgets_manager) {
                 'label'   => esc_html__('Badge Number', 'legal-insights'),
                 'type'    => \Elementor\Controls_Manager::TEXT,
                 'default' => '50+',
+
             ));
             $this->add_control('badge_lbl', array(
                 'label'   => esc_html__('Badge Label', 'legal-insights'),

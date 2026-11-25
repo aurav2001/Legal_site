@@ -120,7 +120,7 @@ if (function_exists('legal_insights_render_page_content')) {
                                 <div class="leader-title"><?php echo esc_html($t_title); ?></div>
                             <?php endif; ?>
                             <?php if (!empty($t_chambers)) : ?>
-                                <div class="leader-chambers">📍 <?php echo esc_html($t_chambers); ?></div>
+                                <div class="leader-chambers"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:-1px; margin-right:4px;"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><?php echo esc_html($t_chambers); ?></div>
                             <?php endif; ?>
                             <div class="leader-socials">
                                 <?php if (!empty($t_linkedin)) : ?>
@@ -167,7 +167,7 @@ if (function_exists('legal_insights_render_page_content')) {
                             <span class="leader-exp-badge"><?php echo esc_html($leader['experience']); ?></span>
                             <h2 class="leader-name"><?php echo esc_html($leader['name']); ?></h2>
                             <div class="leader-title"><?php echo esc_html($leader['title']); ?></div>
-                            <div class="leader-chambers">📍 <?php echo esc_html($leader['chambers']); ?></div>
+                            <div class="leader-chambers"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:-1px; margin-right:4px;"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><?php echo esc_html($leader['chambers']); ?></div>
                             <div class="leader-socials">
                                 <a href="<?php echo esc_url($leader['linkedin']); ?>" target="_blank" rel="noopener noreferrer" title="LinkedIn">
                                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>

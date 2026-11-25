@@ -99,11 +99,11 @@ function legal_insights_inquiry_column_data($column, $post_id) {
         case 'urgency':
             $urg = get_post_meta($post_id, '_inquiry_urgency', true);
             if ($urg === 'Emergency (24-48 Hours)') {
-                echo '<span style="color:#dc2626; font-weight:700;">🚨 ' . esc_html($urg) . '</span>';
+                echo '<span style="display:inline-flex; align-items:center; gap:6px; color:#dc2626; font-weight:700;"><span style="width:7px; height:7px; border-radius:50%; background:#dc2626; display:inline-block;"></span> Emergency</span>';
             } elseif ($urg === 'High') {
-                echo '<span style="color:#d97706; font-weight:600;">⚡ ' . esc_html($urg) . '</span>';
+                echo '<span style="display:inline-flex; align-items:center; gap:6px; color:#d97706; font-weight:600;"><span style="width:7px; height:7px; border-radius:50%; background:#d97706; display:inline-block;"></span> High Priority</span>';
             } else {
-                echo '<span style="color:#475569;">Normal</span>';
+                echo '<span style="display:inline-flex; align-items:center; gap:6px; color:#475569;"><span style="width:7px; height:7px; border-radius:50%; background:#94a3b8; display:inline-block;"></span> Normal</span>';
             }
             break;
 
@@ -193,21 +193,32 @@ function legal_insights_render_inquiry_meta_box($post) {
                 <th><strong>Urgency Level:</strong></th>
                 <td>
                     <?php if ($urgency === 'Emergency (24-48 Hours)') : ?>
-                        <span style="color: #dc2626; font-weight: 700; font-size: 1rem;">🚨 <?php echo esc_html($urgency); ?></span>
+                        <span style="display:inline-flex; align-items:center; gap:6px; color: #dc2626; font-weight: 700; font-size: 0.95rem; background: #fee2e2; padding: 4px 10px; border-radius: 6px;">
+                            <span style="width:8px; height:8px; border-radius:50%; background:#dc2626; display:inline-block;"></span>
+                            <?php echo esc_html($urgency); ?>
+                        </span>
+                    <?php elseif ($urgency === 'High') : ?>
+                        <span style="display:inline-flex; align-items:center; gap:6px; color: #b45309; font-weight: 600; font-size: 0.95rem; background: #fef3c7; padding: 4px 10px; border-radius: 6px;">
+                            <span style="width:8px; height:8px; border-radius:50%; background:#d97706; display:inline-block;"></span>
+                            High Priority
+                        </span>
                     <?php else : ?>
-                        <span><?php echo esc_html($urgency ?: 'Normal'); ?></span>
+                        <span style="display:inline-flex; align-items:center; gap:6px; color:#475569; font-size: 0.95rem;">
+                            <span style="width:8px; height:8px; border-radius:50%; background:#94a3b8; display:inline-block;"></span>
+                            <?php echo esc_html($urgency ?: 'Normal'); ?>
+                        </span>
                     <?php endif; ?>
                 </td>
             </tr>
             <tr>
                 <th><strong>Inquiry Processing Status:</strong></th>
                 <td>
-                    <select name="_inquiry_status" id="_inquiry_status" style="font-size: 0.95rem; padding: 4px 12px; font-weight: 600;">
-                        <option value="New" <?php selected($status, 'New'); ?>>🔵 New Lead</option>
-                        <option value="In Review" <?php selected($status, 'In Review'); ?>>🟡 In Review by Counsel</option>
-                        <option value="Contacted" <?php selected($status, 'Contacted'); ?>>🟣 Contacted Client</option>
-                        <option value="Retained" <?php selected($status, 'Retained'); ?>>🟢 Retained / Client Engaged</option>
-                        <option value="Closed" <?php selected($status, 'Closed'); ?>>⚪ Closed / Resolved</option>
+                    <select name="_inquiry_status" id="_inquiry_status" style="font-size: 0.95rem; padding: 6px 12px; font-weight: 600; border-radius: 6px; border: 1px solid #cbd5e1;">
+                        <option value="New" <?php selected($status, 'New'); ?>>New Lead</option>
+                        <option value="In Review" <?php selected($status, 'In Review'); ?>>In Review by Counsel</option>
+                        <option value="Contacted" <?php selected($status, 'Contacted'); ?>>Contacted Client</option>
+                        <option value="Retained" <?php selected($status, 'Retained'); ?>>Retained / Client Engaged</option>
+                        <option value="Closed" <?php selected($status, 'Closed'); ?>>Closed / Resolved</option>
                     </select>
                 </td>
             </tr>
