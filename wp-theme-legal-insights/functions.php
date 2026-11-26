@@ -365,6 +365,8 @@ function legal_insights_ensure_all_pages() {
             post_content LIKE '%Consultation Directory and Chambers Contact%' OR
             post_content LIKE '%Supreme Court Digests, Research Briefs, and Commentary%'
         )");
+        // Remove old 2018 demo awards so only modern 2024 distinctions display
+        $wpdb->query("DELETE FROM {$wpdb->posts} WHERE post_type = 'award' AND (post_title LIKE '%2018%' OR post_content LIKE '%2018%')");
     }
 
     // 1. If page 10 exists, restore and publish it with our-people slug

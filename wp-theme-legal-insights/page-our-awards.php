@@ -32,38 +32,28 @@ $awards_query = new WP_Query(array(
 ));
 ?>
 
-<!-- Sub-Page Banner -->
-<section class="about-mn">
+<!-- Sub-Page Banner: Centered, Majestic, and Symmetrical -->
+<section class="about-mn text-center" style="padding: 95px 0 75px; background: linear-gradient(135deg, #090e18 0%, #111a2e 50%, #0d1527 100%); border-bottom: 1px solid rgba(197, 160, 89, 0.25);">
     <div class="container-custom">
-        <div class="about-banner">
-            <div class="about_banner_txt" data-aos="fade-right">
-                <div class="bnr_tag">Benchmarked Honors &amp; Global Accolades</div>
-                <h1 class="bnr_heading"><?php echo !empty(get_the_title()) ? get_the_title() : 'Our Awards &amp; Honors'; ?></h1>
-                <p class="bnr_subtitle">
-                    Celebrating more than 50 years of practice and three generations in the legal profession. Recognized by leading legal publications and peers for dedicated advocacy before the Supreme Court of India and High Courts.
-                </p>
+        <div class="about_banner_txt text-center" style="max-width: 880px; margin: 0 auto; text-align: center;" data-aos="fade-up">
+            <div class="bnr_tag" style="justify-content: center; display: inline-flex; margin-bottom: 16px; color: var(--color-gold); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;">
+                Benchmarked Honors &amp; Accolades
             </div>
+            <h1 class="bnr_heading" style="font-size: clamp(2.3rem, 4.5vw, 3.4rem); font-family: var(--font-serif); margin-bottom: 20px; color: #ffffff; text-align: center; line-height: 1.2;">
+                National &amp; Global Recognitions
+            </h1>
+            <p class="bnr_subtitle" style="font-size: 1.08rem; line-height: 1.85; color: #cbd5e1; max-width: 760px; margin: 0 auto; text-align: center;">
+                Celebrating more than 50 years of practice and three generations in the legal profession. Recognized by leading ranking directories and legal publications for dedicated advocacy before the Hon'ble Supreme Court of India and High Courts.
+            </p>
         </div>
     </div>
 </section>
 
 <!-- Awards Gallery Grid Section -->
-<section class="paddingTop paddingBottom" style="background: var(--bg-light);">
+<section style="background: var(--bg-light); padding: 75px 0 130px;">
     <div class="container-custom">
         
-        <div class="row text-center mb-4" data-aos="fade-up">
-            <div class="col-md-12">
-                <div class="sub-badge" style="display:inline-block; margin-bottom: 12px; background: rgba(197, 160, 89, 0.12); color: var(--color-gold); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 16px; border-radius: 20px;">
-                    Honours &amp; Accolades
-                </div>
-                <h2 class="headingFontBlk" style="margin-bottom: 16px;">National &amp; Global Recognitions</h2>
-                <p class="headingParaBlk" style="max-width: 780px; margin: 0 auto; line-height: 1.75;">
-                    Year after year, leading ranking directories and legal publications acknowledge our relentless commitment to excellence before the Hon'ble Supreme Court and High Courts.
-                </p>
-            </div>
-        </div>
-
-        <!-- Awards Grid -->
+        <!-- Awards Grid: Equal Height 4-Column Luxury Cards -->
         <div class="awards-gallery-grid">
             <?php
             $a_idx = 0;
@@ -115,43 +105,43 @@ $awards_query = new WP_Query(array(
                     </div>
                     <div class="award-year">2024</div>
                     <h3 class="award-title">India Business Law Journal</h3>
-                    <p class="award-desc">Recognized as Top Tier Dispute Resolution Firm and Leading Supreme Court Practitioners.</p>
+                    <p class="award-desc">Ranked as Tier 1 appellate courtroom dispute chamber for landmark Supreme Court representation.</p>
                 </div>
 
                 <div class="award-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="award-badge-img">
-                        <img src="https://aglaw.in/wp-content/uploads/2024/09/AGL-Resize-15.jpg" alt="A-List Indian Lawyers" onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';">
+                        <img src="https://aglaw.in/wp-content/uploads/2024/09/AGL-Resize-12.jpg" alt="Chambers and Partners Global" onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';">
                         <div class="award-vector-icon" style="display: none;">
                             <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#c5a059" stroke-width="1.8"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
                         </div>
                     </div>
                     <div class="award-year">2024</div>
-                    <h3 class="award-title">A-List Indian Lawyers</h3>
-                    <p class="award-desc">Featured among India's Most Recommended Legal Minds.</p>
+                    <h3 class="award-title">Chambers Global</h3>
+                    <p class="award-desc">Acknowledged internationally for excellence in high-stakes commercial dispute resolution and arbitration.</p>
                 </div>
 
                 <div class="award-card" data-aos="fade-up" data-aos-delay="150">
                     <div class="award-badge-img">
-                        <img src="https://aglaw.in/wp-content/uploads/2024/09/AGL-Resize-12.jpg" alt="The Lawyer Network" onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';">
+                        <img src="https://aglaw.in/wp-content/uploads/2024/09/AGL-Resize-13.jpg" alt="The Legal 500 Asia Pacific" onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';">
                         <div class="award-vector-icon" style="display: none;">
                             <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#c5a059" stroke-width="1.8"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
                         </div>
                     </div>
-                    <div class="award-year">2023 - 2024</div>
-                    <h3 class="award-title">The Lawyer Network</h3>
-                    <p class="award-desc">Annual Law Firm Awards winner for Commercial Litigation &amp; High-Stakes Arbitration.</p>
+                    <div class="award-year">2024</div>
+                    <h3 class="award-title">The Legal 500</h3>
+                    <p class="award-desc">Recommended counsel for complex appellate advocacy and regulatory litigation before High Courts.</p>
                 </div>
 
                 <div class="award-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="award-badge-img">
-                        <img src="https://aglaw.in/wp-content/uploads/2024/09/AGL-Resize-16.jpg" alt="Award Winning Law Firm" onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';">
+                        <img src="https://aglaw.in/wp-content/uploads/2024/09/AGL-Resize-14.jpg" alt="BW Legal World" onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';">
                         <div class="award-vector-icon" style="display: none;">
                             <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#c5a059" stroke-width="1.8"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
                         </div>
                     </div>
-                    <div class="award-year">2023</div>
-                    <h3 class="award-title">Award Winning Firm</h3>
-                    <p class="award-desc">Excellence in Appellate Advocacy &amp; Insolvency Litigation across Indian Tribunals.</p>
+                    <div class="award-year">2024</div>
+                    <h3 class="award-title">BW Legal World</h3>
+                    <p class="award-desc">Recognized for trail-blazing corporate restructuring, NCLAT proceedings, and dispute leadership.</p>
                 </div>
             <?php endif; ?>
         </div>

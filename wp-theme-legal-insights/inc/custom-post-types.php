@@ -429,7 +429,7 @@ function legal_insights_seed_cpts() {
             array(
                 'title' => 'The Legal 500',
                 'org'   => 'The Legal 500 Asia Pacific',
-                'year'  => '2023',
+                'year'  => '2024',
                 'cat'   => 'Leading Appellate Chambers',
                 'desc'  => 'Recommended firm for complex regulatory litigation before TDSAT, APTEL, and High Courts.',
                 'image' => 'https://aglaw.in/wp-content/uploads/2024/09/AGL-Resize-13.jpg',
@@ -437,8 +437,8 @@ function legal_insights_seed_cpts() {
             ),
             array(
                 'title' => 'BW Legal World',
-                'org'   => 'BW Legal World 40 Under 40',
-                'year'  => '2023',
+                'org'   => 'BW Legal World Global Leaders',
+                'year'  => '2024',
                 'cat'   => 'Dispute Resolution Firm of the Year',
                 'desc'  => 'Recognized for trail-blazing corporate restructuring and insolvency representations before NCLAT.',
                 'image' => 'https://aglaw.in/wp-content/uploads/2024/09/AGL-Resize-14.jpg',
