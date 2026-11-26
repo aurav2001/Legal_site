@@ -28,18 +28,43 @@ function legal_insights_get_option($key, $default = '') {
     // 1. Check Customizer theme_mod
     $mod = get_theme_mod($key);
     if ($mod !== false && $mod !== null && $mod !== '') {
+        if ($key === 'strategic_link_text' && (strpos($mod, 'http://') === 0 || strpos($mod, '%20') !== false)) {
+            return $default;
+        }
         return $mod;
     }
 
     // 2. Check Theme Options admin page options array
     $options = get_option('legal_insights_theme_options');
     if (is_array($options) && isset($options[$key]) && $options[$key] !== '') {
-        return $options[$key];
+        $val = $options[$key];
+        if ($key === 'strategic_link_text' && (strpos($val, 'http://') === 0 || strpos($val, '%20') !== false)) {
+            return $default;
+        }
+        return $val;
     }
 
     // 3. Fallback default
     return $default;
 }
+
+/**
+ * Auto-heal any corrupted options from previous esc_url_raw
+ */
+function legal_insights_heal_options() {
+    $options = get_option('legal_insights_theme_options');
+    if (is_array($options) && isset($options['strategic_link_text'])) {
+        if (strpos($options['strategic_link_text'], 'http://') === 0 || strpos($options['strategic_link_text'], '%20') !== false) {
+            $options['strategic_link_text'] = 'Read Our Full Story →';
+            update_option('legal_insights_theme_options', $options);
+        }
+    }
+    $mod = get_theme_mod('strategic_link_text');
+    if ($mod && (strpos($mod, 'http://') === 0 || strpos($mod, '%20') !== false)) {
+        set_theme_mod('strategic_link_text', 'Read Our Full Story →');
+    }
+}
+add_action('init', 'legal_insights_heal_options', 1);
 
 /**
  * Get Firm Name with optional HTML formatting for the gold accent

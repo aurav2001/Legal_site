@@ -59,6 +59,9 @@ $stat3_lbl      = function_exists('legal_insights_get_option') ? legal_insights_
 $strategic_title = function_exists('legal_insights_get_option') ? legal_insights_get_option('strategic_title', 'Our Endeavour') : 'Our Endeavour';
 $strategic_quote = function_exists('legal_insights_get_option') ? legal_insights_get_option('strategic_quote', '"We take your case off your shoulders. Our aim is to handle your matter with care, keep you informed and stress-free, and bring it to a close on time, so you can return to your business."') : '"We take your case off your shoulders. Our aim is to handle your matter with care, keep you informed and stress-free, and bring it to a close on time, so you can return to your business."';
 $strategic_txt   = function_exists('legal_insights_get_option') ? legal_insights_get_option('strategic_link_text', 'Read Our Full Story →') : 'Read Our Full Story →';
+if (empty($strategic_txt) || strpos($strategic_txt, 'http://') === 0 || strpos($strategic_txt, '%20') !== false) {
+    $strategic_txt = 'Read Our Full Story →';
+}
 $strategic_url   = function_exists('legal_insights_get_option') ? legal_insights_get_option('strategic_link_url', '/about-us/') : '/about-us/';
 if (!empty($strategic_url) && strpos($strategic_url, 'http') === false && strpos($strategic_url, '/') === 0) {
     $strategic_url = home_url($strategic_url);

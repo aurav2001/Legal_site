@@ -45,7 +45,9 @@ function legal_insights_sanitize_options($input) {
     foreach ($input as $key => $value) {
         if ($key === 'bci_points' || $key === 'footer_desc' || $key === 'hero_description' || $key === 'welcome_description' || $key === 'strategic_quote') {
             $sanitized[$key] = wp_kses_post($value);
-        } elseif (strpos($key, 'url') !== false || strpos($key, 'link') !== false || strpos($key, 'image') !== false || strpos($key, 'logo') !== false) {
+        } elseif (strpos($key, 'text') !== false || strpos($key, 'title') !== false || strpos($key, 'lbl') !== false || strpos($key, 'num') !== false) {
+            $sanitized[$key] = sanitize_text_field($value);
+        } elseif (strpos($key, 'url') !== false || $key === 'header_consultation_link' || $key === 'strategic_link_url' || strpos($key, 'image') !== false || strpos($key, 'logo') !== false || strpos($key, 'social_') !== false) {
             $sanitized[$key] = esc_url_raw($value);
         } elseif (strpos($key, 'email') !== false) {
             $sanitized[$key] = sanitize_email($value);
