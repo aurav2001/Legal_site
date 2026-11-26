@@ -108,6 +108,7 @@
         var headerMain = document.querySelector('.header-main');
         if (menuToggle && headerMain) {
             menuToggle.addEventListener('click', function(e) {
+                e.preventDefault();
                 e.stopPropagation();
                 var isActive = headerMain.classList.toggle('mobile-menu-active');
                 menuToggle.classList.toggle('open', isActive);
