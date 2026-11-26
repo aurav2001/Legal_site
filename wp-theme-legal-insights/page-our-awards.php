@@ -47,13 +47,6 @@ $awards_query = new WP_Query(array(
     </div>
 </section>
 
-<?php
-// Render Content from WordPress Page Editor if present
-if (function_exists('legal_insights_render_page_content')) {
-    legal_insights_render_page_content();
-}
-?>
-
 <!-- Awards Gallery Grid Section -->
 <section class="paddingTop paddingBottom" style="background: var(--bg-light);">
     <div class="container-custom">

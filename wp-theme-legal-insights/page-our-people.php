@@ -74,13 +74,6 @@ $team_query = new WP_Query(array(
     </div>
 </section>
 
-<?php
-// Render Content from WordPress Page Editor if present
-if (function_exists('legal_insights_render_page_content')) {
-    legal_insights_render_page_content();
-}
-?>
-
 <!-- People Directory Section -->
 <section style="padding: 70px 0 100px 0; background: #fbfbfd;">
     <div class="container-custom">

@@ -69,13 +69,6 @@ $chamb_maps  = function_exists('legal_insights_get_option') ? legal_insights_get
     </div>
 </section>
 
-<?php
-// Render Content from WordPress Page Editor if present
-if (function_exists('legal_insights_render_page_content')) {
-    legal_insights_render_page_content();
-}
-?>
-
 <!-- Office & Chambers Cards Section -->
 <section style="padding: 70px 0 90px 0; background: #fbfbfd;">
     <div class="container-custom">

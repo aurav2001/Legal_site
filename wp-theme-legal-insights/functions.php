@@ -354,27 +354,17 @@ function legal_insights_ensure_all_pages() {
         ),
     );
 
-    // Clean up any legacy dummy one-liner placeholder text from database
-    $dummy_cleanup = array(
-        'institutional honors and benchmark distinctions',
-        'practice verticals and courtroom advocacy',
-        'distinguished advocates and senior counsel',
-        'about lexvanguard legal chambers',
-        'consultation directory and chambers contact',
-        'supreme court digests, research briefs, and commentary',
-        'terms of access and legal compliance standards',
-    );
-    foreach ($pages as $title => $pdata) {
-        $existing = get_page_by_path($pdata['slug'], OBJECT, 'page');
-        if ($existing && !empty($existing->post_content)) {
-            $raw = strtolower(rtrim(trim(strip_tags($existing->post_content)), '.'));
-            if (in_array($raw, $dummy_cleanup)) {
-                wp_update_post(array(
-                    'ID'           => $existing->ID,
-                    'post_content' => '',
-                ));
-            }
-        }
+    // Clean up any legacy dummy one-liner placeholder text directly from database
+    global $wpdb;
+    if (isset($wpdb) && $wpdb) {
+        $wpdb->query("UPDATE {$wpdb->posts} SET post_content = '' WHERE post_type = 'page' AND (
+            post_content LIKE '%Institutional Honors and Benchmark Distinctions%' OR
+            post_content LIKE '%Practice Verticals and Courtroom Advocacy%' OR
+            post_content LIKE '%Distinguished Advocates and Senior Counsel%' OR
+            post_content LIKE '%About LexVanguard Legal Chambers%' OR
+            post_content LIKE '%Consultation Directory and Chambers Contact%' OR
+            post_content LIKE '%Supreme Court Digests, Research Briefs, and Commentary%'
+        )");
     }
 
     // 1. If page 10 exists, restore and publish it with our-people slug

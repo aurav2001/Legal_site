@@ -55,13 +55,6 @@ $firm_name = function_exists('legal_insights_get_firm_name') ? legal_insights_ge
     </div>
 </section>
 
-<?php
-// Render Content from WordPress Page Editor if present
-if (function_exists('legal_insights_render_page_content')) {
-    legal_insights_render_page_content();
-}
-?>
-
 <!-- Pillar 1: Commercial & Appellate Litigation -->
 <section class="expertise-pillar-sec" style="padding: 70px 0; background: #fbfbfd; border-bottom: 1px solid #f1f5f9;">
     <div class="container-custom">

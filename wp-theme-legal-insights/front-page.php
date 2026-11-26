@@ -165,13 +165,6 @@ if (!empty($strategic_url) && strpos($strategic_url, 'http') === false && strpos
     </div>
 </section>
 
-<?php
-// Display Page Content if user typed content in WordPress editor for Home page
-if (function_exists('legal_insights_render_page_content')) {
-    legal_insights_render_page_content();
-}
-?>
-
 <!-- SECTION 3: OUR EXPERTISE (The 3 Signature Pillars) -->
 <section class="pillars-section">
     <div class="container-custom">
