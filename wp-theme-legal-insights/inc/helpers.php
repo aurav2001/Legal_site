@@ -87,15 +87,30 @@ function legal_insights_get_firm_tagline() {
 
 /**
  * Render Page Content if non-empty (for pages with Gutenberg / Classic Editor content)
+ * Automatically ignores auto-seeded one-liner placeholder text so empty template pages
+ * maintain clean, tight visual hierarchy without awkward blank gaps.
  *
  * @param string $wrapper_class Optional CSS class
  */
 function legal_insights_render_page_content($wrapper_class = 'page-wp-content-sec') {
     if (have_posts()) {
+        $dummy_phrases = array(
+            'institutional honors and benchmark distinctions',
+            'practice verticals and courtroom advocacy',
+            'distinguished advocates and senior counsel',
+            'about lexvanguard legal chambers',
+            'consultation directory and chambers contact',
+            'supreme court digests, research briefs, and commentary',
+            'terms of access and legal compliance standards',
+        );
+
         while (have_posts()) {
             the_post();
             $content = get_the_content();
-            if (!empty(trim($content))) {
+            $raw_clean = strtolower(rtrim(trim(strip_tags($content)), '.'));
+
+            // Only render if there is actual meaningful custom content
+            if (!empty($raw_clean) && !in_array($raw_clean, $dummy_phrases)) {
                 echo '<section class="' . esc_attr($wrapper_class) . '" style="padding: 50px 0; background: #ffffff; border-bottom: 1px solid #eee8e2;">';
                 echo '<div class="container-custom">';
                 echo '<div class="entry-content" style="max-width: 980px; margin: 0 auto; font-size: 1.05rem; line-height: 1.85; color: #334155;">';

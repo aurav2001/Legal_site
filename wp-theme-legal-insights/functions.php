@@ -194,37 +194,37 @@ function legal_insights_auto_setup_content() {
         'About Us' => array(
             'slug'     => 'about-us',
             'template' => 'page-about-us.php',
-            'content'  => 'About LexVanguard Legal Chambers.',
+            'content'  => '',
         ),
         'Our People' => array(
             'slug'     => 'our-people',
             'template' => 'page-our-people.php',
-            'content'  => 'Distinguished Advocates and Senior Counsel.',
+            'content'  => '',
         ),
         'Our Expertise' => array(
             'slug'     => 'our-expertise',
             'template' => 'page-our-expertise.php',
-            'content'  => 'Practice Verticals and Courtroom Advocacy.',
+            'content'  => '',
         ),
         'Our Awards' => array(
             'slug'     => 'our-awards',
             'template' => 'page-our-awards.php',
-            'content'  => 'Institutional Honors and Benchmark Distinctions.',
+            'content'  => '',
         ),
         'Insights' => array(
             'slug'     => 'insights',
             'template' => 'page-insights.php',
-            'content'  => 'Supreme Court Digests, Research Briefs, and Commentary.',
+            'content'  => '',
         ),
         'Contact Us' => array(
             'slug'     => 'contact-us',
             'template' => 'page-contact-us.php',
-            'content'  => 'Consultation Directory and Chambers Contact.',
+            'content'  => '',
         ),
         'Terms of Access' => array(
             'slug'     => 'terms',
             'template' => 'page.php',
-            'content'  => 'Terms of access and legal compliance standards.',
+            'content'  => '',
         ),
     );
 
@@ -320,39 +320,62 @@ function legal_insights_ensure_all_pages() {
         'About Us' => array(
             'slug'     => 'about-us',
             'template' => 'page-about-us.php',
-            'content'  => 'About LexVanguard Legal Chambers.',
+            'content'  => '',
         ),
         'Our Team' => array(
             'slug'     => 'our-people',
             'template' => 'page-our-people.php',
-            'content'  => 'Distinguished Advocates and Senior Counsel.',
+            'content'  => '',
         ),
         'Practice Areas' => array(
             'slug'     => 'our-expertise',
             'template' => 'page-our-expertise.php',
-            'content'  => 'Practice Verticals and Courtroom Advocacy.',
+            'content'  => '',
         ),
         'Our Awards' => array(
             'slug'     => 'our-awards',
             'template' => 'page-our-awards.php',
-            'content'  => 'Institutional Honors and Benchmark Distinctions.',
+            'content'  => '',
         ),
         'Insights' => array(
             'slug'     => 'insights',
             'template' => 'page-insights.php',
-            'content'  => 'Supreme Court Digests, Research Briefs, and Commentary.',
+            'content'  => '',
         ),
         'Contact Us' => array(
             'slug'     => 'contact-us',
             'template' => 'page-contact-us.php',
-            'content'  => 'Consultation Directory and Chambers Contact.',
+            'content'  => '',
         ),
         'Terms of Access' => array(
             'slug'     => 'terms',
             'template' => 'page.php',
-            'content'  => 'Terms of access and legal compliance standards.',
+            'content'  => '',
         ),
     );
+
+    // Clean up any legacy dummy one-liner placeholder text from database
+    $dummy_cleanup = array(
+        'institutional honors and benchmark distinctions',
+        'practice verticals and courtroom advocacy',
+        'distinguished advocates and senior counsel',
+        'about lexvanguard legal chambers',
+        'consultation directory and chambers contact',
+        'supreme court digests, research briefs, and commentary',
+        'terms of access and legal compliance standards',
+    );
+    foreach ($pages as $title => $pdata) {
+        $existing = get_page_by_path($pdata['slug'], OBJECT, 'page');
+        if ($existing && !empty($existing->post_content)) {
+            $raw = strtolower(rtrim(trim(strip_tags($existing->post_content)), '.'));
+            if (in_array($raw, $dummy_cleanup)) {
+                wp_update_post(array(
+                    'ID'           => $existing->ID,
+                    'post_content' => '',
+                ));
+            }
+        }
+    }
 
     // 1. If page 10 exists, restore and publish it with our-people slug
     $p10 = get_post(10);
