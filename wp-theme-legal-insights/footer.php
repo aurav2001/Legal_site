@@ -109,11 +109,11 @@
                 <div class="footer-mid">
                     <h2>Practice Jurisdictions</h2>
                     <ul>
-                        <li><a href="<?php echo esc_url(home_url('/our-expertise/commercial-litigation/')); ?>">Commercial Litigation &amp; Supreme Court</a></li>
-                        <li><a href="<?php echo esc_url(home_url('/our-expertise/arbitration/')); ?>">International &amp; Domestic Arbitration</a></li>
-                        <li><a href="<?php echo esc_url(home_url('/our-expertise/corporate-insolvency/')); ?>">Corporate Restructuring &amp; IBC</a></li>
-                        <li><a href="<?php echo esc_url(home_url('/our-expertise/competition-law/')); ?>">Competition &amp; Antitrust Law (CCI)</a></li>
-                        <li><a href="<?php echo esc_url(home_url('/our-expertise/criminal-law/')); ?>">White-Collar Defense &amp; PMLA</a></li>
+                        <li><a href="<?php echo esc_url(home_url('/our-expertise/commercial-litigation/')); ?>">Commercial &amp; Appellate Litigation</a></li>
+                        <li><a href="<?php echo esc_url(home_url('/our-expertise/arbitration/')); ?>">Domestic &amp; Institutional Arbitration</a></li>
+                        <li><a href="<?php echo esc_url(home_url('/our-expertise/civil-litigation/')); ?>">Civil Litigation &amp; Succession</a></li>
+                        <li><a href="<?php echo esc_url(home_url('/our-expertise/criminal-litigation/')); ?>">Criminal Litigation &amp; Defense</a></li>
+                        <li><a href="<?php echo esc_url(home_url('/our-expertise/startup-advisory/')); ?>">Startup Advisory &amp; Tribunal Practice</a></li>
                     </ul>
                 </div>
             </div>
@@ -132,7 +132,7 @@
                     $copyright = function_exists('legal_insights_get_option') ? legal_insights_get_option('footer_copyright') : '';
                     if (empty($copyright)) {
                         $firm = function_exists('legal_insights_get_firm_name') ? legal_insights_get_firm_name(false) : 'Malhotra & Co.';
-                        echo esc_html($firm) . ' Advocates &amp; Partners. All Rights Reserved.';
+                        echo esc_html($firm) . ' Advocates &amp; Solicitors. All Rights Reserved.';
                     } else {
                         echo esc_html($copyright);
                     }

@@ -40,146 +40,97 @@ if (empty($slug)) {
     $slug = 'arbitration';
 }
 
-// 11 Core Practice Areas Knowledge Repository
+// 7 Core Practice Areas Knowledge Repository (Malhotra & Co.)
 $practices_catalog = array(
-    'arbitration' => array(
-        'title'    => 'Arbitration & ADR',
-        'badge'    => 'Dispute Resolution & Arbitral Seats',
-        'subtitle' => 'High-stakes domestic and international arbitrations governed by LCIA, SIAC, ICC, and Indian Arbitration & Conciliation Act 1996.',
-        'overview' => array(
-            'From pioneering decisions on the impact of arbitration on non-signatories to influencing the grounds for setting aside arbitral awards, our Firm is at the forefront of navigating complex, multi-jurisdiction disputes across energy, infrastructure, telecom, and corporate sectors.',
-            'We represent sovereign entities, multinational conglomerates, and premier financial institutions in both institutional arbitrations and Section 9, 11, 34, and 37 proceedings before Indian High Courts and the Supreme Court of India.',
-        ),
-        'cases'    => array(
-            array('forum' => 'Supreme Court of India Landmark', 'title' => 'Sukanya Holdings vs Jayesh H Pandya', 'desc' => "Seminal Supreme Court ruling addressing the effect of arbitration on non-signatories and bifurcating causes of action under Section 8 of the Arbitration Act."),
-            array('forum' => 'Apex Court Jurisprudence', 'title' => 'ONGC vs Saw Pipes Ltd', 'desc' => "Landmark judgment defining the ambit of 'public policy' as a vital ground for setting aside arbitral awards under Section 34."),
-            array('forum' => 'Supreme Court Curative Bench', 'title' => 'DMRC Curative Petition (Airport Express Line)', 'desc' => 'Represented concessionaire in high-quantum Section 34, 37, and unprecedented open-court Curative Petition proceedings arising from the Airport Metro Express Line.'),
-            array('forum' => 'SIAC Institutional Arbitration', 'title' => 'MEMG Emergency Arbitration (SIAC)', 'desc' => 'Secured emergency interim relief under SIAC rules, restraining hostile transfer of educational and healthcare corporate equity assets.'),
-        ),
-    ),
     'commercial-litigation' => array(
         'title'    => 'Commercial Litigation',
-        'badge'    => 'Commercial Courts & Appellate Advocacy',
-        'subtitle' => 'Formidable courtroom presence before the Supreme Court of India, Delhi High Court, and commercial divisions nationwide.',
+        'badge'    => 'Commercial Courts & High Court',
+        'subtitle' => 'Representation in high-value contractual disputes, shareholder conflicts, partnership dissolutions, and commercial recovery suits.',
         'overview' => array(
-            'Our Commercial Litigation practice represents Fortune 500 multinationals, domestic corporate houses, and financial institutions in high-stakes commercial disputes, contractual disputes, shareholder conflicts, injunctions, and appellate challenges.',
-            'We combine aggressive forensic factual analysis with deep trial experience to secure immediate interim protections, injunctions, and decisive appellate decrees across statutory and common law jurisdictions.',
+            'At Malhotra & Co., our Commercial Litigation practice represents businesses, enterprises, and individual commercial litigants before the Commercial Divisions of the High Court of Delhi and District Commercial Courts.',
+            'With three generations of courtroom advocacy, we combine rigorous factual preparation with aggressive interim protection strategy to secure urgent injunctions, asset protection orders, and decisive decrees.',
         ),
         'cases'    => array(
-            array('forum' => 'Supreme Court Commercial Division', 'title' => 'Shareholder Oppression & Management Deadlock', 'desc' => 'Defended majority shareholders in multi-thousand crore management oppression disputes before NCLAT and the Supreme Court.'),
-            array('forum' => 'Delhi High Court Appellate Bench', 'title' => 'Cross-Border Injunction & Foreign Asset Restraint', 'desc' => 'Obtained worldwide asset-freezing orders and anti-suit injunctions in contractual enforcement across international maritime and energy sectors.'),
+            array('forum' => 'Delhi High Court Commercial Division', 'title' => 'Contractual Breach & Interim Injunction', 'desc' => 'Secured immediate ad-interim injunction restraining illegal termination of long-term commercial supply and franchise agreements.'),
+            array('forum' => 'District Commercial Court', 'title' => 'Commercial Debt & Injunction Decrees', 'desc' => 'Successfully argued and secured attachment-before-judgment orders securing full financial recovery for client.'),
         ),
     ),
-    'competition-law' => array(
-        'title'    => 'Competition Law',
-        'badge'    => 'Antitrust & Regulatory Defense',
-        'subtitle' => 'Defense and advisory before the Competition Commission of India (CCI) and National Company Law Appellate Tribunal (NCLAT).',
+    'arbitration' => array(
+        'title'    => 'Domestic & Institutional Arbitration',
+        'badge'    => 'Arbitral Seats & Indian Arbitration Act',
+        'subtitle' => 'Commercial arbitration under the Indian Arbitration & Conciliation Act 1996, alongside institutional arbitrations under SIAC and ICC rules.',
         'overview' => array(
-            'We advise and defend market leaders, digital tech platforms, and manufacturers in antitrust investigations, abuse of dominance inquiries, cartel allegations, and merger control clearances before the CCI and appellate courts.',
-            'Our team pairs legal acumen with economic analysis to structure safe commercial arrangements, compliance frameworks, and aggressive defense before regulatory directors general.',
+            'Our arbitration practice acts in domestic and institutional arbitrations across commercial, infrastructure, real estate, and partnership disputes.',
+            'We regularly represent clients in Section 9 applications for interim measures, Section 11 petitions for appointment of independent arbitrators, and Section 34/37 proceedings for challenging or enforcing arbitral awards before the High Court of Delhi and appellate courts.',
         ),
         'cases'    => array(
-            array('forum' => 'Competition Commission of India', 'title' => 'Digital Platform Abuse of Dominance Probe', 'desc' => 'Defended leading e-commerce and algorithmic platform providers against allegations of search bias and predatory deep-discounting.'),
-            array('forum' => 'NCLAT Competition Appellate', 'title' => 'Cartelization Penalty Stay Decree', 'desc' => 'Secured absolute appellate stay against severe penalty orders passed by the CCI on alleged price-fixing accusations.'),
+            array('forum' => 'Delhi High Court (Section 9)', 'title' => 'Protection of Arbitral Subject Matter', 'desc' => 'Obtained urgent pre-arbitral interim injunction under Section 9 preserving disputed commercial funds pending arbitral tribunal constitution.'),
+            array('forum' => 'Arbitral Tribunal Proceedings', 'title' => 'High-Quantum Commercial Arbitration', 'desc' => 'Represented leading commercial enterprise in breach of contract claims under institutional arbitration rules.'),
         ),
     ),
-    'corporate-insolvency' => array(
-        'title'    => 'Corporate & Insolvency Laws (IBC)',
-        'badge'    => 'Distressed Assets & NCLAT Practice',
-        'subtitle' => 'Strategic counsel under the Insolvency & Bankruptcy Code 2016 before NCLT, NCLAT, and Supreme Court of India.',
+    'civil-litigation' => array(
+        'title'    => 'Civil Litigation',
+        'badge'    => 'Property, Tenancy & Succession',
+        'subtitle' => 'Strategic civil trial and appellate representation in property disputes, tenancy conflicts, inheritance partitions, and recovery suits.',
         'overview' => array(
-            'Recognized as a leading practice in corporate turnaround and insolvency jurisprudence. We represent financial creditors, resolution applicants, and corporate debtors in multi-thousand crore CIRP proceedings, resolution plans formulation, Section 7/9 filings, and avoidance transaction litigation.',
-            'Our partners have steered landmark distressed asset acquisitions across steel, infrastructure, hospitality, and real estate sectors.',
+            'Malhotra & Co. holds deep heritage across three generations in civil courtroom practice across Delhi trial courts and the High Court of Delhi.',
+            'We guide families, property owners, landlords, tenants, and business houses through complex title disputes, specific performance suits, partition claims, and possession decrees with meticulous care.',
         ),
         'cases'    => array(
-            array('forum' => 'Supreme Court Constitution Bench', 'title' => 'Section 29A Eligibility Benchmarks', 'desc' => 'Landmark precedent interpreting resolution applicant qualification standards and promoter disqualification norms under IBC.'),
-            array('forum' => 'NCLAT Principal Bench', 'title' => 'Multi-Thousand Crore Resolution Approval', 'desc' => 'Steered committee of creditors (CoC) voting and successful approval of resolution plan for a premier heavy industrial manufacturing unit.'),
+            array('forum' => 'Delhi High Court Appellate Bench', 'title' => 'Ancestral Property Partition & Injunction', 'desc' => 'Secured favorable partition decree and status quo protections over high-value ancestral real estate properties.'),
+            array('forum' => 'Civil District Court', 'title' => 'Landlord-Tenant Possession Decree', 'desc' => 'Successfully obtained eviction and mesne profits decree under the tenancy laws and general civil framework.'),
         ),
     ),
-    'constitutional-law' => array(
-        'title'    => 'Constitutional Law',
-        'badge'    => 'Apex Court Bench Advocacy',
-        'subtitle' => 'Writ petitions, Special Leave Petitions (SLPs), and landmark fundamental rights litigation before Supreme Court Constitution Benches.',
+    'criminal-litigation' => array(
+        'title'    => 'Criminal Litigation & Defense',
+        'badge'    => 'Economic Offences & Trial Defense',
+        'subtitle' => 'White-collar criminal defense, economic offences, corporate investigations, quashing petitions, and regular & anticipatory bail.',
         'overview' => array(
-            'Our senior advocates command historic presence in interpreting constitutional liberties, federal division of legislative powers, statutory validity challenges, and regulatory vires before the Supreme Court of India and State High Courts.',
-            'We regularly represent industry associations and citizen coalitions on crucial matters of executive overreach and fundamental rights enforcement.',
+            'Our criminal litigation practice provides strategic, partner-led defense in economic offences, statutory investigations, corporate compliance probes, and trial proceedings.',
+            'We act before Special Courts, Sessions Courts, Delhi High Court, and the Supreme Court of India in securing regular and anticipatory bail, quashing of FIRs under Section 482 CrPC / BNSS, and appellate stays.',
         ),
         'cases'    => array(
-            array('forum' => 'Supreme Court of India (Constitution Bench)', 'title' => 'Legislative Competence & Federal Vires Challenge', 'desc' => 'Challenged state enactments encroaching on central regulatory authority under the Seventh Schedule of the Constitution.'),
-            array('forum' => 'High Court of Delhi', 'title' => 'Article 226 Landmark Mandamus Writ', 'desc' => 'Secured historic writ of mandamus protecting commercial license entitlements against retrospective administrative cancellation.'),
+            array('forum' => 'High Court of Delhi', 'title' => 'Quashing of Frivolous Commercial FIR', 'desc' => 'Invoked inherent high court jurisdiction under Section 482 CrPC to quash malicious criminal proceedings arising from civil disputes.'),
+            array('forum' => 'Sessions & Appellate Courts', 'title' => 'Anticipatory Bail in Economic Offence', 'desc' => 'Secured pre-arrest bail protections demonstrating full statutory compliance and absence of flight risk or tampering.'),
         ),
     ),
-    'criminal-law' => array(
-        'title'    => 'Criminal Law - White Collar',
-        'badge'    => 'Economic Offenses & Trial Defense',
-        'subtitle' => 'Specialized defense under Prevention of Money Laundering Act (PMLA), CBI investigations, SFIO, and ED prosecutions.',
+    'startup-advisory' => array(
+        'title'    => 'Startup Advisory & Corporate Compliance',
+        'badge'    => 'Emerging Businesses & Regulatory Counsel',
+        'subtitle' => 'Hands-on policy, regulatory compliance, commercial contracts, and venture advisory for emerging businesses, founders, and startups.',
         'overview' => array(
-            'Comprehensive representation in high-stakes white-collar investigations, anticipatory bails, trial defense, and appellate stays before Special CBI Courts, PMLA Appellate Tribunals, High Courts, and the Supreme Court.',
-            'Our defense strategy combines deep statutory insight with aggressive constitutional challenges to coercive search, seizure, and attachment powers.',
+            'We advise high-growth startups, emerging businesses, and founders on navigating India\'s dynamic regulatory landscape with confidence and clarity.',
+            'Our counsel encompasses corporate structuring, founder agreements, terms of service, vendor contracts, data compliance under DPDPA 2023, and pre-litigation dispute avoidance.',
         ),
         'cases'    => array(
-            array('forum' => 'Supreme Court of India', 'title' => 'Section 45 PMLA Bail Standards', 'desc' => 'Successfully secured landmark bail relief establishing statutory safeguards against arbitrary pre-trial incarceration in financial offense investigations.'),
-            array('forum' => 'Special PMLA Court', 'title' => 'Quashing of Provisional Attachment Orders', 'desc' => 'De-freezed high-value commercial operating accounts wrongfully attached under speculative money-laundering allegations.'),
+            array('forum' => 'Corporate & Advisory Practice', 'title' => 'Founders Structuring & Shareholder Agreements', 'desc' => 'Drafted and negotiated comprehensive founder covenants, vesting schedules, and key commercial contracts for emerging businesses.'),
+            array('forum' => 'Regulatory & Policy Advisory', 'title' => 'DPDPA 2023 Compliance Architecture', 'desc' => 'Advised emerging digital platform on data fiduciary compliance, user consent workflows, and grievance redressal policies.'),
         ),
     ),
-    'environmental-law' => array(
-        'title'    => 'Environmental Law',
-        'badge'    => 'Sustainable Industry & NGT Practice',
-        'subtitle' => 'Representation before the National Green Tribunal (NGT), Supreme Court, and Ministry of Environment & Forests.',
+    'appellate-supreme-court' => array(
+        'title'    => 'Appellate & Supreme Court Litigation',
+        'badge'    => 'Apex Court of India',
+        'subtitle' => 'Special Leave Petitions (SLPs), Civil & Criminal Appeals, Review Petitions, and Curative Petitions before the Supreme Court of India.',
         'overview' => array(
-            'Advising industrial infrastructure developers, mining corporations, and renewable energy consortiums on environmental clearances, coastal regulation zone (CRZ) compliances, pollution control mandates, and defense against NGT penalty directives.',
-            'We deliver pragmatic regulatory compliance roadmaps alongside vigorous courtroom defense against frivolous environmental injunctions.',
+            'Our advocates command distinguished appellate credentials before the Hon\'ble Supreme Court of India and appellate benches of the Delhi High Court.',
+            'We handle the drafting and oral advocacy of Special Leave Petitions under Article 136 of the Constitution, statutory appeals, stay applications, and review petitions across civil, commercial, and criminal benches.',
         ),
         'cases'    => array(
-            array('forum' => 'National Green Tribunal (Principal Bench)', 'title' => 'Green Clearance Vires & Project Continuity', 'desc' => 'Defended mega clean-energy solar installation clearances against environmental challenge petitions, securing project commissioning orders.'),
+            array('forum' => 'Supreme Court of India', 'title' => 'Special Leave Petition (Civil) Stay Order', 'desc' => 'Secured immediate stay of adverse High Court order in a complex commercial recovery and arbitration dispute.'),
+            array('forum' => 'Supreme Court of India', 'title' => 'Criminal SLP & Liberty Protections', 'desc' => 'Successfully argued and secured bail relief safeguarding personal liberty against arbitrary arrest procedures.'),
         ),
     ),
-    'regulatory-litigation' => array(
-        'title'    => 'Regulatory Litigation',
-        'badge'    => 'Statutory Tribunals & Regulators',
-        'subtitle' => 'Advocacy across Electricity (APTEL), Telecom (TDSAT), Petroleum & Natural Gas (PNGRB), and Sectoral Regulators.',
+    'tribunal-practice' => array(
+        'title'    => 'Tribunal Practice (NCLAT & DRAT)',
+        'badge'    => 'Company Law & Debt Recovery',
+        'subtitle' => 'Specialized representation before the National Company Law Appellate Tribunal (NCLAT), Debt Recovery Appellate Tribunal (DRAT), and DRT.',
         'overview' => array(
-            'Navigating complex tariffs, concession disputes, license terminations, and policy arbitrations for telecom operators, transmission utilities, and infrastructure concessionaires.',
-            'Our counsel bridge technical domain engineering realities with rigorous administrative law principles.',
+            'Malhotra & Co. provides focused, partner-led representation in specialized tribunal proceedings across company law, insolvency, oppression/mismanagement, and debt recovery.',
+            'We act before NCLT/NCLAT in shareholder and corporate insolvency matters, and before DRT/DRAT in SARFAESI proceedings, debt recovery challenges, and financial restructuring.',
         ),
         'cases'    => array(
-            array('forum' => 'Appellate Tribunal for Electricity (APTEL)', 'title' => 'Renewable Tariff Determination Dispute', 'desc' => 'Successfully argued for tariff revision based on change-in-law clauses and force majeure grid interruptions.'),
-        ),
-    ),
-    'mediation' => array(
-        'title'    => 'Mediation & Conciliation',
-        'badge'    => 'Consensual Dispute Resolution',
-        'subtitle' => 'Structured commercial mediation for family business succession, shareholder splits, and joint venture settlements.',
-        'overview' => array(
-            'Confidential, high-trust mediation protocols designed to resolve intricate inter-generational business governance disputes, joint venture deadlock resolutions, and confidential commercial partitions.',
-            'We preserve commercial relationships and corporate confidentiality while securing ironclad enforceable settlement deeds.',
-        ),
-        'cases'    => array(
-            array('forum' => 'Private Commercial Conciliation', 'title' => 'Cross-Border Joint Venture Partition', 'desc' => 'Successfully steered multi-million dollar asset separation between international joint venture partners without public litigation.'),
-        ),
-    ),
-    'securities-law' => array(
-        'title'    => 'Securities Law & SEBI',
-        'badge'    => 'Capital Markets & Securities Appellate',
-        'subtitle' => 'Defense before SEBI Whole-Time Members, Securities Appellate Tribunal (SAT), and Supreme Court.',
-        'overview' => array(
-            'Defending promoters, listed entities, and merchant bankers in insider trading investigations, takeover code violations, fraud and unfair trade practices (FUTP) allegations, and SAT appeals.',
-            'We advise boards on continuous disclosure norms, market abuse surveillance, and regulatory settlement applications.',
-        ),
-        'cases'    => array(
-            array('forum' => 'Securities Appellate Tribunal (SAT)', 'title' => 'Stay on Promoters Debarment Order', 'desc' => 'Secured stay against SEBI ex-parte interim directions alleging price rigging and insider disclosure non-compliances.'),
-        ),
-    ),
-    'tax' => array(
-        'title'    => 'Tax - Direct & Indirect',
-        'badge'    => 'Fiscal Jurisprudence & GST Litigation',
-        'subtitle' => 'Representation before ITAT, CESTAT, High Courts, and Supreme Court in high-quantum tax assessments.',
-        'overview' => array(
-            'Strategic counsel on corporate taxation, transfer pricing disputes, GST classification challenges, search & seizure assessments, and constitutional validity of fiscal levies.',
-            'Our advocates possess deep forensic understanding of accounting standards, cross-border treaty interpretations, and fiscal statutory schemes.',
-        ),
-        'cases'    => array(
-            array('forum' => 'Delhi High Court Tax Bench', 'title' => 'Quashing of Arbitrary GST Reassessment', 'desc' => 'Secured writ relief quashing reassessment notices issued without statutory jurisdiction, establishing procedure for digital input credits.'),
+            array('forum' => 'NCLAT Principal Bench (New Delhi)', 'title' => 'Shareholder Oppression & Interim Stay', 'desc' => 'Successfully obtained interim appellate stay against coercive board actions in a closely-held corporate entity.'),
+            array('forum' => 'DRAT / DRT (Delhi)', 'title' => 'SARFAESI Action Challenge & Account Restructure', 'desc' => 'Protected commercial assets against premature possession notices, facilitating lawful debt restructuring.'),
         ),
     ),
 );
@@ -291,7 +242,7 @@ $landmark_meta = get_post_meta($page_id, '_practice_landmark_cases', true);
                     
                     <div class="rlt-pst-hdr mb-4">
                         <h3 class="rlt-pst-hdng" style="font-size: 1.35rem; font-family: var(--font-serif); color: #0b111e;">All Practice Areas</h3>
-                        <p style="font-size: 0.85rem; color: #64748b; margin-top: 4px;">Explore our 11 legal practice verticals</p>
+                        <p style="font-size: 0.85rem; color: #64748b; margin-top: 4px;">Explore our 7 core legal practice disciplines</p>
                     </div>
 
                     <ul class="practice-sidebar-list" style="display: flex; flex-direction: column; gap: 8px; list-style: none; padding: 0; margin: 0;">

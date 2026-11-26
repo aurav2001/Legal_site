@@ -40,7 +40,7 @@ $awards_query = new WP_Query(array(
                 <div class="bnr_tag">Benchmarked Honors &amp; Global Accolades</div>
                 <h1 class="bnr_heading"><?php echo !empty(get_the_title()) ? get_the_title() : 'Our Awards &amp; Honors'; ?></h1>
                 <p class="bnr_subtitle">
-                    Celebrating six decades of distinction. Nationally and internationally recognized by Chambers Global, The Legal 500, and India Business Law Journal for top-notch legal representation.
+                    Celebrating more than 50 years of practice and three generations in the legal profession. Recognized by leading legal publications and peers for dedicated advocacy before the Supreme Court of India and High Courts.
                 </p>
             </div>
         </div>
@@ -150,7 +150,7 @@ if (function_exists('legal_insights_render_page_content')) {
             Trusted Representation for Your Crucial Legal Battles
         </h2>
         <p style="color: #94a3b8; max-width: 620px; margin: 0 auto 30px; font-size: 1.05rem;">
-            Discover how six decades of apex court experience can safeguard your commercial interests.
+            Discover how more than 50 years and three generations of dedicated appellate advocacy can safeguard your commercial and legal interests.
         </p>
         <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
             <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="sub_filter_btn active" style="padding: 12px 28px; font-size: 0.95rem; background: linear-gradient(135deg, #c5a059 0%, #dfba73 50%, #b38b42 100%); color: #0b111e !important; font-weight: 700; border-radius: 6px; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 4px 18px rgba(197, 160, 89, 0.35); border: 1px solid #dfba73;">

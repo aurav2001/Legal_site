@@ -282,10 +282,10 @@ function legal_insights_auto_setup_content() {
             'content'  => '<h2>9-Judge Constitution Bench Verdict</h2><p>The Supreme Court of India ruled with an 8:1 majority that royalties paid under the Mines and Minerals (Development and Regulation) Act (MMDR Act), 1957 do not constitute taxes, thereby upholding the legislative competence of States to levy taxes on mineral-bearing lands.</p><blockquote>This historic decision redefines federal fiscal dynamics and significantly impacts mining concessions, royalty structures, and tax liabilities across the nation.</blockquote>',
         ),
         array(
-            'title'    => 'Annual Global Arbitration Symposium: Cross-Border Commercial Enforcement',
+            'title'    => 'Commercial Arbitration & Interim Relief: Emerging Appellate Benchmarks',
             'category' => 'Media & Events',
-            'excerpt'  => 'Partners and Senior Counsel address the 2026 International Arbitration Summit on enforcement of foreign awards under the New York Convention and bilateral treaties.',
-            'content'  => '<h2>Key Takeaways from the Global Arbitration Summit</h2><p>Senior advocates and arbitration specialists discussed recent pro-arbitration trends across Singapore, London, and New Delhi seats, addressing emergency arbitrator relief and interim preservation of assets.</p>',
+            'excerpt'  => 'Senior Counsel address the Annual Dispute Resolution Summit on Commercial Arbitration, Section 9 interim measures, and Section 34 enforcement under the Indian Arbitration Act.',
+            'content'  => '<h2>Key Takeaways from the Dispute Resolution Summit</h2><p>Advocates and arbitration specialists discussed key pro-arbitration trends before the Delhi High Court and Supreme Court of India, focusing on interim asset protection and Section 11 arbitrator appointments.</p>',
         )
     );
 

@@ -143,17 +143,13 @@ if ($bci_enabled !== 'no') :
                         <li style="position: relative;" class="<?php echo (is_page('our-expertise') || is_page_template('page-practice-detail.php')) ? 'active' : ''; ?>">
                             <a href="<?php echo esc_url(home_url('/our-expertise/')); ?>">Practice Areas &#9662;</a>
                             <ul class="sub_menuinr">
-                                <li><a href="<?php echo esc_url(home_url('/our-expertise/arbitration/')); ?>">Arbitration &amp; ADR</a></li>
                                 <li><a href="<?php echo esc_url(home_url('/our-expertise/commercial-litigation/')); ?>">Commercial Litigation</a></li>
-                                <li><a href="<?php echo esc_url(home_url('/our-expertise/competition-law/')); ?>">Competition Law</a></li>
-                                <li><a href="<?php echo esc_url(home_url('/our-expertise/corporate-insolvency/')); ?>">Corporate &amp; Insolvency Laws</a></li>
-                                <li><a href="<?php echo esc_url(home_url('/our-expertise/constitutional-law/')); ?>">Constitutional Law</a></li>
-                                <li><a href="<?php echo esc_url(home_url('/our-expertise/criminal-law/')); ?>">Criminal Law - White Collar</a></li>
-                                <li><a href="<?php echo esc_url(home_url('/our-expertise/environmental-law/')); ?>">Environmental Law</a></li>
-                                <li><a href="<?php echo esc_url(home_url('/our-expertise/regulatory-litigation/')); ?>">Regulatory Litigation</a></li>
-                                <li><a href="<?php echo esc_url(home_url('/our-expertise/mediation/')); ?>">Mediation</a></li>
-                                <li><a href="<?php echo esc_url(home_url('/our-expertise/securities-law/')); ?>">Securities Law</a></li>
-                                <li><a href="<?php echo esc_url(home_url('/our-expertise/tax/')); ?>">Tax - Direct &amp; Indirect</a></li>
+                                <li><a href="<?php echo esc_url(home_url('/our-expertise/arbitration/')); ?>">Domestic &amp; Institutional Arbitration</a></li>
+                                <li><a href="<?php echo esc_url(home_url('/our-expertise/civil-litigation/')); ?>">Civil Litigation</a></li>
+                                <li><a href="<?php echo esc_url(home_url('/our-expertise/criminal-litigation/')); ?>">Criminal Litigation &amp; Defense</a></li>
+                                <li><a href="<?php echo esc_url(home_url('/our-expertise/startup-advisory/')); ?>">Startup Advisory</a></li>
+                                <li><a href="<?php echo esc_url(home_url('/our-expertise/appellate-supreme-court/')); ?>">Appellate &amp; Supreme Court</a></li>
+                                <li><a href="<?php echo esc_url(home_url('/our-expertise/tribunal-practice/')); ?>">Tribunal Practice (NCLAT &amp; DRAT)</a></li>
                             </ul>
                         </li>
                         <li class="<?php echo is_page('our-awards') ? 'active' : ''; ?>"><a href="<?php echo esc_url(home_url('/our-awards/')); ?>">Our Awards</a></li>
