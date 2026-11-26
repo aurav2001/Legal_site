@@ -546,3 +546,54 @@ function legal_insights_seed_cpts() {
 add_action('admin_init', 'legal_insights_seed_cpts');
 add_action('after_switch_theme', 'legal_insights_seed_cpts');
 
+/**
+ * Auto-purge old template dummy team members (Rajeev Singhania, etc.)
+ * and ensure real client Chaitanya Malhotra is the lead partner.
+ */
+function legal_insights_purge_dummy_team() {
+    $purged = get_option('legal_insights_purged_dummy_team_v3');
+    if ($purged) {
+        return;
+    }
+
+    $dummy_titles = array(
+        'Rajeev Singhania',
+        'Arundhati Sengupta',
+        'Vikramaditya Shroff',
+        'Meenakshi Sundaram',
+        'Adv. Rajesh Malhotra'
+    );
+
+    foreach ($dummy_titles as $title) {
+        $p = get_page_by_title($title, OBJECT, 'team_member');
+        if ($p) {
+            wp_delete_post($p->ID, true);
+        }
+    }
+
+    // Ensure Chaitanya Malhotra exists
+    $cm = get_page_by_title('Chaitanya Malhotra', OBJECT, 'team_member');
+    if (!$cm) {
+        $pid = wp_insert_post(array(
+            'post_title'   => 'Chaitanya Malhotra',
+            'post_content' => 'Third-generation advocate at Malhotra & Co. Leading appellate representations, commercial dispute resolutions, contractual matters, and startup regulatory advisory before the Supreme Court of India, Delhi High Court, and arbitral tribunals.',
+            'post_status'  => 'publish',
+            'post_type'    => 'team_member',
+            'menu_order'   => 1,
+        ));
+        if ($pid && !is_wp_error($pid)) {
+            update_post_meta($pid, '_team_designation', 'Managing Partner, Advocate');
+            update_post_meta($pid, '_team_experience', 'Advocate, Supreme Court of India & Delhi High Court');
+            update_post_meta($pid, '_team_chambers', 'Supreme Court of India & Delhi High Court');
+            update_post_meta($pid, '_team_education', 'B.A. LL.B., Diploma in Intellectual Property Rights (IPR)');
+            update_post_meta($pid, '_team_expertise', 'Commercial Litigation, Domestic & Institutional Arbitration, Startup Advisory & Policy Compliance');
+            update_post_meta($pid, '_team_email', 'chaitanyamlegal@gmail.com');
+            update_post_meta($pid, '_team_linkedin', 'https://linkedin.com');
+            update_post_meta($pid, '_team_image_url', 'https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=600&q=80');
+        }
+    }
+
+    update_option('legal_insights_purged_dummy_team_v3', 1);
+}
+add_action('init', 'legal_insights_purge_dummy_team', 5);
+
