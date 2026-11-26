@@ -57,7 +57,7 @@ $awards_query = new WP_Query(array(
                     Honours &amp; Accolades
                 </div>
                 <h2 class="headingFontBlk" style="margin-bottom: 16px;">National &amp; Global Recognitions</h2>
-                <p class="headingParaBlk" style="max-width: 680px; margin: 0 auto;">
+                <p class="headingParaBlk" style="max-width: 780px; margin: 0 auto; line-height: 1.75;">
                     Year after year, leading ranking directories and legal publications acknowledge our relentless commitment to excellence before the Hon'ble Supreme Court and High Courts.
                 </p>
             </div>
@@ -79,9 +79,20 @@ $awards_query = new WP_Query(array(
                 <div class="award-card" data-aos="fade-up" data-aos-delay="<?php echo esc_attr($a_idx * 50); ?>">
                     <div class="award-badge-img">
                         <?php if (!empty($a_img)) : ?>
-                            <img src="<?php echo esc_url($a_img); ?>" alt="<?php the_title_attribute(); ?>" onerror="this.parentElement.innerHTML='<span style=\'font-size:2.5rem;\'>🏆</span>';">
+                            <img src="<?php echo esc_url($a_img); ?>" alt="<?php the_title_attribute(); ?>" onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';">
+                            <div class="award-vector-icon" style="display: none;">
+                                <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#c5a059" stroke-width="1.8">
+                                    <circle cx="12" cy="8" r="6"/>
+                                    <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
+                                </svg>
+                            </div>
                         <?php else : ?>
-                            <span style="font-size: 2.5rem;">🏆</span>
+                            <div class="award-vector-icon">
+                                <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#c5a059" stroke-width="1.8">
+                                    <circle cx="12" cy="8" r="6"/>
+                                    <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
+                                </svg>
+                            </div>
                         <?php endif; ?>
                     </div>
                     <?php if (!empty($a_year)) : ?>
@@ -97,7 +108,10 @@ $awards_query = new WP_Query(array(
             ?>
                 <div class="award-card" data-aos="fade-up" data-aos-delay="50">
                     <div class="award-badge-img">
-                        <img src="https://aglaw.in/wp-content/uploads/2024/09/AGL-Resize-11.jpg" alt="India Business Law Journal" onerror="this.parentElement.innerHTML='<span style=\'font-size:2.5rem;\'>🏆</span>';">
+                        <img src="https://aglaw.in/wp-content/uploads/2024/09/AGL-Resize-11.jpg" alt="India Business Law Journal" onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';">
+                        <div class="award-vector-icon" style="display: none;">
+                            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#c5a059" stroke-width="1.8"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+                        </div>
                     </div>
                     <div class="award-year">2024</div>
                     <h3 class="award-title">India Business Law Journal</h3>
@@ -106,7 +120,10 @@ $awards_query = new WP_Query(array(
 
                 <div class="award-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="award-badge-img">
-                        <img src="https://aglaw.in/wp-content/uploads/2024/09/AGL-Resize-15.jpg" alt="A-List Indian's Most Recommended Lawyers" onerror="this.parentElement.innerHTML='<span style=\'font-size:2.5rem;\'>⭐</span>';">
+                        <img src="https://aglaw.in/wp-content/uploads/2024/09/AGL-Resize-15.jpg" alt="A-List Indian Lawyers" onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';">
+                        <div class="award-vector-icon" style="display: none;">
+                            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#c5a059" stroke-width="1.8"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+                        </div>
                     </div>
                     <div class="award-year">2024</div>
                     <h3 class="award-title">A-List Indian Lawyers</h3>
@@ -115,7 +132,10 @@ $awards_query = new WP_Query(array(
 
                 <div class="award-card" data-aos="fade-up" data-aos-delay="150">
                     <div class="award-badge-img">
-                        <img src="https://aglaw.in/wp-content/uploads/2024/09/AGL-Resize-12.jpg" alt="The Lawyer Network">
+                        <img src="https://aglaw.in/wp-content/uploads/2024/09/AGL-Resize-12.jpg" alt="The Lawyer Network" onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';">
+                        <div class="award-vector-icon" style="display: none;">
+                            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#c5a059" stroke-width="1.8"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+                        </div>
                     </div>
                     <div class="award-year">2023 - 2024</div>
                     <h3 class="award-title">The Lawyer Network</h3>
@@ -124,7 +144,10 @@ $awards_query = new WP_Query(array(
 
                 <div class="award-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="award-badge-img">
-                        <img src="https://aglaw.in/wp-content/uploads/2024/09/AGL-Resize-16.jpg" alt="Award Winning Law Firm">
+                        <img src="https://aglaw.in/wp-content/uploads/2024/09/AGL-Resize-16.jpg" alt="Award Winning Law Firm" onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';">
+                        <div class="award-vector-icon" style="display: none;">
+                            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#c5a059" stroke-width="1.8"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+                        </div>
                     </div>
                     <div class="award-year">2023</div>
                     <h3 class="award-title">Award Winning Firm</h3>
