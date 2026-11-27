@@ -4,7 +4,7 @@ Theme URI: https://malhotraco.com/
 Author: Gulshan Kumar
 Author URI: https://malhotraco.com/
 Description: Luxury Law Firm & Chambers Platform for Malhotra & Co. Advocates & Solicitors. Featuring classical courtroom architectural columns, 50+ years of institutional heritage across three generations, dedicated practice areas (Commercial Litigation, Domestic & Institutional Arbitration, Civil, Criminal & Startup Advisory), and In-House Inquiries CRM.
-Version: 1.8.1
+Version: 1.8.2
 Requires at least: 6.0
 Tested up to: 6.7
 Requires PHP: 7.4
@@ -64,7 +64,7 @@ body {
   width: 100%;
   margin: 0;
   padding: 0;
-  padding-top: 72px;
+  padding-top: 86px;
   font-family: var(--font-sans);
   color: var(--color-dark);
   background-color: var(--bg-light);
@@ -340,14 +340,14 @@ body.admin-bar .header-main {
   top: 32px;
 }
 body.admin-bar {
-  padding-top: calc(72px + 32px);
+  padding-top: calc(86px + 32px);
 }
 @media screen and (max-width: 782px) {
   body.admin-bar .header-main {
     top: 46px;
   }
   body.admin-bar {
-    padding-top: calc(72px + 46px);
+    padding-top: calc(86px + 46px);
   }
 }
 
@@ -672,6 +672,7 @@ body.mobile-nav-lock {
   overflow: hidden;
   border-bottom: 1px solid rgba(197, 160, 89, 0.25);
   color: #e2e8f0;
+  padding-top: 15px;
 }
 
 .about-mn h1,
@@ -701,9 +702,10 @@ body.mobile-nav-lock {
 
 .about-banner {
   position: relative;
-  min-height: 280px;
+  min-height: 260px;
   display: flex;
   align-items: center;
+  padding: 25px 0 35px 0;
 }
 
 .about-banner::before {
@@ -717,7 +719,8 @@ body.mobile-nav-lock {
 .about_banner_txt {
   position: relative;
   z-index: 2;
-  padding: 60px 0;
+  padding: 30px 0 35px 0;
+  width: 100%;
 }
 
 .bnr_tag {
@@ -729,7 +732,8 @@ body.mobile-nav-lock {
   text-transform: uppercase;
   color: var(--color-gold);
   font-weight: 600;
-  margin-bottom: 14px;
+  margin-top: 8px;
+  margin-bottom: 16px;
 }
 
 .bnr_tag::before {
@@ -1527,13 +1531,13 @@ body.mobile-nav-lock {
     display: flex !important;
     flex-direction: column !important;
     position: fixed !important;
-    top: 72px !important;
+    top: 76px !important;
     left: 0 !important;
     right: 0 !important;
     bottom: 0 !important;
     width: 100% !important;
-    height: calc(100vh - 72px) !important;
-    max-height: calc(100vh - 72px) !important;
+    height: calc(100vh - 76px) !important;
+    max-height: calc(100vh - 76px) !important;
     background: rgba(11, 17, 30, 0.98) !important;
     backdrop-filter: blur(20px) !important;
     -webkit-backdrop-filter: blur(20px) !important;
@@ -1549,16 +1553,16 @@ body.mobile-nav-lock {
   }
 
   body.admin-bar .header-main.mobile-menu-active .navinr {
-    top: calc(72px + 32px) !important;
-    height: calc(100vh - 72px - 32px) !important;
-    max-height: calc(100vh - 72px - 32px) !important;
+    top: calc(76px + 32px) !important;
+    height: calc(100vh - 76px - 32px) !important;
+    max-height: calc(100vh - 76px - 32px) !important;
   }
 
   @media screen and (max-width: 782px) {
     body.admin-bar .header-main.mobile-menu-active .navinr {
-      top: calc(72px + 46px) !important;
-      height: calc(100vh - 72px - 46px) !important;
-      max-height: calc(100vh - 72px - 46px) !important;
+      top: calc(76px + 46px) !important;
+      height: calc(100vh - 76px - 46px) !important;
+      max-height: calc(100vh - 76px - 46px) !important;
     }
   }
 
@@ -1749,12 +1753,17 @@ body.mobile-nav-lock {
   }
 
   /* Inner Pages Hero Banner (.about-mn) */
+  .about-mn {
+    padding-top: 10px !important;
+  }
+
   .about-banner {
     min-height: 200px !important;
+    padding: 15px 0 25px 0 !important;
   }
 
   .about_banner_txt {
-    padding: 40px 0 !important;
+    padding: 25px 0 30px 0 !important;
   }
 
   .bnr_heading {
@@ -1991,6 +2000,18 @@ body.mobile-nav-lock {
 
 /* Phones & Compact Mobile Breakpoint (Max Width: 520px) */
 @media (max-width: 520px) {
+  body {
+    padding-top: 64px !important;
+  }
+  body.admin-bar {
+    padding-top: calc(64px + 46px) !important;
+  }
+  .header-main.mobile-menu-active .navinr {
+    top: 60px !important;
+    height: calc(100vh - 60px) !important;
+    max-height: calc(100vh - 60px) !important;
+  }
+
   /* Header Area */
   .top_hdr_area {
     padding: 10px 0 !important;
