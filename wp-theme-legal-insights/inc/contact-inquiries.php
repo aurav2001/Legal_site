@@ -348,7 +348,8 @@ function legal_insights_handle_ajax_inquiry() {
     $firm_html = '
     <div style="font-family: Arial, sans-serif; max-width: 650px; margin: 0 auto; background: #0b111e; color: #ffffff; padding: 30px; border-radius: 8px;">
         <div style="border-bottom: 2px solid #c5a059; padding-bottom: 15px; margin-bottom: 25px;">
-            <h2 style="color: #c5a059; margin: 0 0 5px 0; font-size: 20px;">⚖️ NEW CONFIDENTIAL CLIENT INQUIRY</h2>
+            <div style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #c5a059; margin-bottom: 6px; font-weight: bold;">MALHOTRA &amp; CO. • CHAMBERS INTAKE REGISTRY</div>
+            <h2 style="color: #ffffff; margin: 0 0 5px 0; font-size: 20px; font-weight: 700;">NEW CONFIDENTIAL CLIENT INQUIRY</h2>
             <p style="color: #94a3b8; margin: 0; font-size: 13px;">Subject to Statutory Advocate-Client Privilege</p>
         </div>
         <table style="width: 100%; border-collapse: collapse; margin-bottom: 25px; color: #e2e8f0; font-size: 14px;">
